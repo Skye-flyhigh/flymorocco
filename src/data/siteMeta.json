@@ -1,0 +1,16 @@
+{
+  "aguergour": {
+    "slug": "aguergour",
+    "image": "/images/aguergour-2100x1400.jpg",
+    "lat": 30.567,
+    "lng": -8.433,
+    "launch_altitude": 950
+  },
+  "tizi": {
+    "slug": "tizi",
+    "image": "/images/tizi-1984x1323.jpg",
+    "lat": 30.998,
+    "lng": -8.250,
+    "launch_altitude": 2100
+  }
+}

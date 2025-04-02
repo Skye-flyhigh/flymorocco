@@ -1,0 +1,29 @@
+{
+    "nav": {
+      "home": "Home",
+      "siteGuides": "Site Guides",
+      "tours": "Tours",
+      "about": "About",
+      "adminInfo": "Rules"
+    },
+    "footer": {
+      "copyright": "Brewing mint tea and clipping glider to harness."
+    },
+    "siteGuides": {
+      "title": "Paragliding Sites in Morocco",
+      "aguergour": {
+        "name": "Aguergour",
+        "region": "Marrakech",
+        "description": "Thermic mountain site"
+      },
+      "tizi": {
+        "name": "Tizi-N-Test",
+        "region": "High Atlas",
+        "description": "Difficult High mountain site"
+      }
+    },
+    "HomePage": {
+      "subtitle": "Paragliding in Morocco",
+      "exploreBtn": "Explore more"
+    }
+  }
