@@ -1,5 +1,5 @@
 import SiteCard from "../components/SiteCard"
-import siteMeta from "@/data/siteMeta.json"
+import { siteMeta } from "@/types/siteMeta"
 
 export default function SiteGuidesPage() {
   return (

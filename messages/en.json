@@ -9,6 +9,11 @@
     "footer": {
       "copyright": "Brewing mint tea and clipping glider to harness."
     },
+    "HomePage": {
+      "title": "Paragliding",
+      "subtitle": "Paragliding in Morocco",
+      "exploreBtn": "Explore more"
+    },
     "siteGuides": {
       "title": "Paragliding Sites in Morocco",
       "aguergour": {
@@ -21,9 +26,5 @@
         "region": "High Atlas",
         "description": "Difficult High mountain site"
       }
-    },
-    "HomePage": {
-      "subtitle": "Paragliding in Morocco",
-      "exploreBtn": "Explore more"
     }
   }

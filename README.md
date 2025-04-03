@@ -7,7 +7,7 @@ Built with Next.js, Tailwind CSS, and the occasional chaos-fueled tea session.
 
 ## 🚀 Project Overview
 
-FlyMorocco is a fully static, SEO-friendly, and i18n-ready web app tailored for paragliding pilots looking to fly in Morocco.  
+Flymorocco is a fully static, SEO-friendly, and i18n-ready web app tailored for paragliding pilots looking to fly in Morocco.  
 It serves guide pages for multiple flying sites, dynamically rendered and maintained by a single JSON data source, localized in both **English** and **French**.
 
 ---
@@ -27,32 +27,32 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 
 - [Next.js 15](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [DaisyUI](https://daisyui.com/) or [Shadcn](https://ui.shadcn.com/) (TBD)
+- [DaisyUI](https://daisyui.com/)
 - [Lucide React](https://lucide.dev/) for clean, consistent icons
 
 ---
 
 ## 🧠 Setup
 
-    ```bash
+    bash
     git clone https://github.com/skye-cmd/flymorocco.git
     cd flymorocco
     npm install
-    npm run dev```
+    npm run dev
 
 ---
 
 ## 📂 Folder Structure Highlights
 
-    ```app/
-├── [locale]/
-│   ├── layout.tsx         # Locale-aware layout
-│   ├── page.tsx           # Localized homepage
-│   └── site-guides/       # Dynamic pages (per location)
-├── middleware.ts          # i18n routing redirect
-├── messages/              # en.json, fr.json
-└── components/            # NavBar, Footer, etc.
-```
+    app/
+    ├── [locale]/
+    │   ├── layout.tsx         # Locale-aware layout << Dev Lore story happened here
+    │   ├── page.tsx           # Localized homepage
+    │   ├── components/        # NavBar, Footer, etc.
+    │   └── site-guides/       # Dynamic pages (per location)
+    ├── layout.tsx             # Language overlay
+    ├── i18n/                  # next-intl language package
+    └── middleware.ts          # i18n routing redirect
 
 ---
 
@@ -65,18 +65,20 @@ After hours of meticulous logs, terminal therapy, and a *French-accented scream*
 
 🧪 Resolved by explicitly setting:
 
-    ```
-        const { local: locale } = resolvedParams;
-        // Official docs said it returns { locale }... THEY LIED. IT'S 'local'.
-        // Yes, I logged it. Yes, I screamed.
-    ```
+   
+    const { local: locale } = resolvedParams;
+    // Official docs said it returns { locale }... THEY LIED. IT'S 'local'.
+    // Yes, I logged it. Yes, I screamed.
+   
 
-Also the correct solution is in middleware.ts, to force the correct param key
+Also the correct solution is in `middleware.ts`, to force the correct `param` key
 
-    ```createMiddleware({
+    createMiddleware({
         ...routing,
         localeParam: 'locale' // << WITH a 'e'
-    })```
+    })
+
+This project will proudly wear the battle scars of this journey.
 
 ---
 

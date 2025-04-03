@@ -1,13 +1,27 @@
-"use client"
-import { useParams } from "next/navigation"
 import { useTranslations } from "next-intl"
-import siteMeta from "@/data/siteMeta.json"
 import Image from "next/image"
+import { Metadata } from "next";
+import { getSiteMeta } from "@/lib/site";
 
-export default function SiteGuidePage() {
-  const { slug } = useParams<{ slug: string }>()
-  const meta = siteMeta[slug as keyof typeof siteMeta]
-  const t = useTranslations("siteGuides")
+export async function generateMetadata({ params }: { params: { slug: string; local: string }; }): Promise<Metadata> {
+  const { slug, local } = await params;
+
+  const meta = getSiteMeta(slug);
+  if (!meta) return { title: "Not Found" };
+    
+  const messages = (await import(`@messages/${local}.json`)).default;
+  const t = messages.siteGuides?.[slug];
+
+  return {
+    title: `${t?.name} – FlyMorocco`,
+    description: t?.description,
+  };
+}
+
+export default function SiteGuidePage({ params }: { params: { slug: string; local: string } }) {
+  const { slug } = params;
+  const meta = getSiteMeta(slug);
+  const t = useTranslations("siteGuides");
 
   if (!meta || !slug) return <div>Not found</div>
 

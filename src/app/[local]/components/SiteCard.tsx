@@ -20,7 +20,7 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
           alt={t(`${site.slug}.name`)}
           width={800}
           height={500}
-          className="object-cover w-full h-48"
+          className="card-side"
         />
       </figure>
       <div className="card-body">
