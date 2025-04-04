@@ -25,17 +25,19 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 
 ## 🧠 Dev Stack
 
-- [Next.js 15](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [DaisyUI](https://daisyui.com/)
+- [Next.js 15](https://nextjs.org/) the goat 🐐
+- [Tailwind CSS](https://tailwindcss.com/) the 1000 pieces jigsaw puzzle of styling 🧩
+- [DaisyUI](https://daisyui.com/) the picture of the box of the puzzle 🧩
 - [Lucide React](https://lucide.dev/) for clean, consistent icons
+- [Zod](https://zod.dev/?id=objects) to break my app again
+- [React Leaflet](https://react-leaflet.js.org/), who does like a good map?
 
 ---
 
 ## 🧠 Setup
 
     bash
-    git clone https://github.com/skye-cmd/flymorocco.git
+    git clone https://github.com/skye-flyhigh/flymorocco.git
     cd flymorocco
     npm install
     npm run dev
@@ -51,8 +53,22 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
     │   ├── components/        # NavBar, Footer, etc.
     │   └── site-guides/       # Dynamic pages (per location)
     ├── layout.tsx             # Language overlay
+    ├── lib/
+    │   └── site.ts
+    ├── types/
+    │   └── siteMeta.ts        # Zod's schema validation for site guide meta
     ├── i18n/                  # next-intl language package
     └── middleware.ts          # i18n routing redirect
+
+The messages folder for the translations are living outside of the src/app folder according to next-intl docs.
+
+    📂
+    ├── messages/
+    │   ├── en.json                 
+    │   └── fr.json   
+    ├── public/images/
+    ├── src/app/
+
 
 ---
 
