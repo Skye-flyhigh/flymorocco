@@ -11,10 +11,10 @@ import Image from 'next/image';
             <Image src="/images/FMorocco-logo-single-transparent-color.svg" alt='Flymorocco Logo' width={30} height={30} priority></Image>
           </Link>
         </div>
-        <div className="flex-none">
+        <div className="flex-none navbar-end">
           <ul className="menu menu-horizontal px-1">
             <li><Link className="link link-hover" href="/site-guides">{t('siteGuides')}</Link></li>
-            <li><Link className="link link-hover" href="/admin-info">{t('adminInfo')}</Link></li>
+            <li><Link className="link link-hover" href="/rules">{t('rules')}</Link></li>
             <li><Link className="link link-hover" href="/tours">{t('tours')}</Link></li>
             <li><Link className="link link-hover" href="/about">{t('about')}</Link></li>
           </ul>

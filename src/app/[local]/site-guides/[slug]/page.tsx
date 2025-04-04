@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: { params: { slug: string; loc
   };
 }
 
-export default function SiteGuidePage({ params }: { params: { slug: string; local: string } }) {
-  const { slug } = params;
+export default function SiteGuidePage({ params }: { params: { slug: string, local: string } }) {
+  const { slug } = params // FIXME: the params needs to be in a async function and be awaited for...
   const meta = getSiteMeta(slug);
   const t = useTranslations("siteGuides");
 
   if (!meta || !slug) return <div>Not found</div>
-
+  
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold">{t(`${slug}.name`)}</h1>

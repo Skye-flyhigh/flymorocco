@@ -13,14 +13,14 @@ interface SiteMeta {
 export default function SiteCard({ site }: { site: SiteMeta }) {
   const t = useTranslations("siteGuides")
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
+    <div className="card bg-base-100 shadow-xl w-full min-w-98">
       <figure>
         <Image
           src={site.image}
           alt={t(`${site.slug}.name`)}
           width={800}
           height={500}
-          className="card-side"
+          className="card-side object-cover aspect-auto"
         />
       </figure>
       <div className="card-body">
