@@ -1,0 +1,627 @@
+[
+  {
+    "zoneName": "Aguergour (Z1)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1640.42 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:20:38 N",
+        "lon": "8:03:38 W"
+      },
+      {
+        "lat": "31:17:36 N",
+        "lon": "8:06:58 W"
+      },
+      {
+        "lat": "31:13:33 N",
+        "lon": "8:05:04 W"
+      },
+      {
+        "lat": "31:16:55 N",
+        "lon": "7:57:30 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "A\u00eft Ourir (Z2)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1640.42 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:27:33 N",
+        "lon": "7:40:39 W"
+      },
+      {
+        "lat": "31:29:12 N",
+        "lon": "7:44:14 W"
+      },
+      {
+        "lat": "31:33:06 N",
+        "lon": "7:40:51 W"
+      },
+      {
+        "lat": "31:32:17 N",
+        "lon": "7:39:03 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Touflith/ Ait Barka (Z3)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1640.42 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:26:43 N",
+        "lon": "7:24:36 W"
+      },
+      {
+        "lat": "31:26:50 N",
+        "lon": "7:27:37 W"
+      },
+      {
+        "lat": "31:30:05 N",
+        "lon": "7:29:47 W"
+      },
+      {
+        "lat": "31:31:16 N",
+        "lon": "7:27:23 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tizguine Amizmiz (Z13)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1968.5 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:08:44 N",
+        "lon": "8:11:38 W"
+      },
+      {
+        "lat": "31:08:42 N",
+        "lon": "8:10:55 W"
+      },
+      {
+        "lat": "31:08:06 N",
+        "lon": "8:10:33 W"
+      },
+      {
+        "lat": "31:08:01 N",
+        "lon": "8:11:42 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Ouirgane Amizmiz (Z20)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1968.5 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:11:01 N",
+        "lon": "8:03:11 W"
+      },
+      {
+        "lat": "31:11:05 N",
+        "lon": "8:02:28 W"
+      },
+      {
+        "lat": "31:10:56 N",
+        "lon": "8:01:56 W"
+      },
+      {
+        "lat": "31:10:26 N",
+        "lon": "8:02:35 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "M\u2019Zouda (Z4)",
+    "region": "Marrakech, Al Haouz",
+    "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
+    "ceiling": "1640.42 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:03:19 N",
+        "lon": "8:25:23 W"
+      },
+      {
+        "lat": "31:03:17 N",
+        "lon": "8:40:58 W"
+      },
+      {
+        "lat": "31:19:23 N",
+        "lon": "8:39:40 W"
+      },
+      {
+        "lat": "31:18:02 N",
+        "lon": "8:26:29 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Aglou (Z5)",
+    "region": "Souss-Massa",
+    "info": "",
+    "ceiling": "131 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:52:36 N",
+        "lon": "9:46:00 W"
+      },
+      {
+        "lat": "29:53:06 N",
+        "lon": "9:47:15 W"
+      },
+      {
+        "lat": "29:46:16 N",
+        "lon": "9:52:33 W"
+      },
+      {
+        "lat": "29:45:34 N",
+        "lon": "9:51:24 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Nid d\u2019Aigle (Z6)",
+    "region": "Souss-Massa",
+    "info": "",
+    "ceiling": "1312.34 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:43:22 N",
+        "lon": "9:55:40 W"
+      },
+      {
+        "lat": "29:41:28 N",
+        "lon": "9:57:56 W"
+      },
+      {
+        "lat": "29:40:51 N",
+        "lon": "9:56:55 W"
+      },
+      {
+        "lat": "29:42:40 N",
+        "lon": "9:54:52 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Les Rochers Bleus (Z12)",
+    "region": "Tafraout",
+    "info": "",
+    "ceiling": "1968.5 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:38:46 N",
+        "lon": "8:56:30 W"
+      },
+      {
+        "lat": "29:38:51 N",
+        "lon": "8:58:40 W"
+      },
+      {
+        "lat": "29:40:09 N",
+        "lon": "8:58:29 W"
+      },
+      {
+        "lat": "29:40:17 N",
+        "lon": "8:56:39 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tafraout (Z15)",
+    "region": "Tafraout",
+    "info": "",
+    "ceiling": "1968.5 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:37:08 N",
+        "lon": "8:46:21 W"
+      },
+      {
+        "lat": "29:54:18 N",
+        "lon": "8:45:42 W"
+      },
+      {
+        "lat": "29:51:01 N",
+        "lon": "9:11:04 W"
+      },
+      {
+        "lat": "29:33:41 N",
+        "lon": "9:19:49 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tadirhoust (Z16)",
+    "region": "Undefined",
+    "info": "",
+    "ceiling": "1968.5 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "31:50:02 N",
+        "lon": "4:58:01 W"
+      },
+      {
+        "lat": "31:48:57 N",
+        "lon": "4:57:12 W"
+      },
+      {
+        "lat": "31:53:41 N",
+        "lon": "4:45:48 W"
+      },
+      {
+        "lat": "31:54:51 N",
+        "lon": "4:46:53 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Legzira (Z7)",
+    "region": "Guelmim-Oued Noun",
+    "info": "",
+    "ceiling": "1312.34 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:27:46 N",
+        "lon": "10:06:34 W"
+      },
+      {
+        "lat": "29:25:34 N",
+        "lon": "10:08:32 W"
+      },
+      {
+        "lat": "29:24:32 N",
+        "lon": "10:05:39 W"
+      },
+      {
+        "lat": "29:27:03 N",
+        "lon": "10:04:50 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Sidi Ifni (Z8)",
+    "region": "Guelmim-Oued Noun",
+    "info": "",
+    "ceiling": "984.25 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:23:03 N",
+        "lon": "10:09:46 W"
+      },
+      {
+        "lat": "29:22:47 N",
+        "lon": "10:08:54 W"
+      },
+      {
+        "lat": "29:20:47 N",
+        "lon": "10:07:55 W"
+      },
+      {
+        "lat": "29:20:40 N",
+        "lon": "10:10:50 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Imsouane (Z11)",
+    "region": "Marrakech, Al Haouz",
+    "info": "",
+    "ceiling": "131 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "30:50:49 N",
+        "lon": "9:48:05 W"
+      },
+      {
+        "lat": "30:50:50 N",
+        "lon": "9:49:53 W"
+      },
+      {
+        "lat": "30:48:19 N",
+        "lon": "9:49:19 W"
+      },
+      {
+        "lat": "30:47:51 N",
+        "lon": "9:47:11 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Anounfag (Z22)",
+    "region": "Souss-Massa",
+    "info": "",
+    "ceiling": "656.17 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "30:26:46 N",
+        "lon": "9:34:37 W"
+      },
+      {
+        "lat": "30:27:37 N",
+        "lon": "9:34:29 W"
+      },
+      {
+        "lat": "30:27:48 N",
+        "lon": "9:32:03 W"
+      },
+      {
+        "lat": "30:27:13 N",
+        "lon": "9:31:56 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Alma (Z23)",
+    "region": "Souss-Massa",
+    "info": "",
+    "ceiling": "328 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "30:29:33 N",
+        "lon": "9:33:13 W"
+      },
+      {
+        "lat": "30:30:38 N",
+        "lon": "9:33:04 W"
+      },
+      {
+        "lat": "30:31:13 N",
+        "lon": "9:35:36 W"
+      },
+      {
+        "lat": "30:30:10 N",
+        "lon": "9:35:49 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tizi N'test (Z18)",
+    "region": "Souss-Massa",
+    "info": "",
+    "ceiling": "1640.42 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "30:52:16 N",
+        "lon": "8:20:48 W"
+      },
+      {
+        "lat": "30:53:31 N",
+        "lon": "8:30:49 W"
+      },
+      {
+        "lat": "30:43:30 N",
+        "lon": "8:35:30 W"
+      },
+      {
+        "lat": "30:40:41 N",
+        "lon": "8:22:03 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Plage Blanche 1 (Z10)",
+    "region": "Guelmim-Oued Noun",
+    "info": "Vérifier si les zones NOTAM sont actives. BBA Guelmin: 05 22 87 22 30 et BAA Tantan: 05 28 87 70 43",
+    "ceiling": "131 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "29:08:01 N",
+        "lon": "10:21:59 W"
+      },
+      {
+        "lat": "29:09:44 N",
+        "lon": "10:26:23 W"
+      },
+      {
+        "lat": "28:56:14 N",
+        "lon": "10:46:19 W"
+      },
+      {
+        "lat": "28:53:15 N",
+        "lon": "10:43:05 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Plage Blanche 2 (Z24)",
+    "region": "Guelmim-Oued Noun",
+    "info": "Vérifier si les zones NOTAM sont actives. BBA Guelmin: 05 22 87 22 30 et BAA Tantan: 05 28 87 70 43",
+    "ceiling": "131 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "28:42:57 N",
+        "lon": "11:05:54 W"
+      },
+      {
+        "lat": "28:39:48 N",
+        "lon": "11:02:35 W"
+      },
+      {
+        "lat": "28:31:45 N",
+        "lon": "11:14:08 W"
+      },
+      {
+        "lat": "28:33:42 N",
+        "lon": "11:19:29 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tifnit (Z17)",
+    "region": "Souss-Massa",
+    "info": "Vérifier si les zones NOTAM sont actives. BAA Inezgane : 05 28 28 14 08",
+    "ceiling": "131 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "30:08:08 N",
+        "lon": "9:39:18 W"
+      },
+      {
+        "lat": "30:08:04 N",
+        "lon": "9:39:07 W"
+      },
+      {
+        "lat": "30:10:08 N",
+        "lon": "9:38:26 W"
+      },
+      {
+        "lat": "30:10:16 N",
+        "lon": "9:38:38 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tajda Almis Guigou",
+    "region": "Ifrane, Moyen Atlas",
+    "info": "",
+    "ceiling": "164 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "33:25:13.5 N",
+        "lon": "4:46:34.2 W"
+      },
+      {
+        "lat": "33:16:15.6 N",
+        "lon": "4:49:44.6 W"
+      },
+      {
+        "lat": "33:21:11.3 N",
+        "lon": "4:53:21.9 W"
+      },
+      {
+        "lat": "33:25:25.9 N",
+        "lon": "4:50:43.7 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Almou",
+    "region": "Ifrane, Moyen Atlas",
+    "info": "",
+    "ceiling": "164 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "33:19:12.9 N",
+        "lon": "4:41:48.2 W"
+      },
+      {
+        "lat": "33:18:57.9 N",
+        "lon": "4:42:41 W"
+      },
+      {
+        "lat": "33:19:36.9 N",
+        "lon": "4:42:33.4 W"
+      },
+      {
+        "lat": "33:19:47.3 N",
+        "lon": "4:42:04 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Ait Karmous Enjil",
+    "region": "Ifrane, Moyen Atlas",
+    "info": "",
+    "ceiling": "164 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "33:15:00.9 N",
+        "lon": "4:37:51.7 W"
+      },
+      {
+        "lat": "33:14:34 N",
+        "lon": "4:39:41.5 W"
+      },
+      {
+        "lat": "33:16:11.1 N",
+        "lon": "4:40:42.2 W"
+      },
+      {
+        "lat": "33:16:27.2 N",
+        "lon": "4:37:20.5 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Massif Tichoukt",
+    "region": "Ifrane, Moyen Atlas",
+    "info": "",
+    "ceiling": "164 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "33:22:15.7 N",
+        "lon": "4:42:50.6 W"
+      },
+      {
+        "lat": "33:26:01.6 N",
+        "lon": "4:45:24.8 W"
+      },
+      {
+        "lat": "33:30:48.7 N",
+        "lon": "4:36:16.9 W"
+      },
+      {
+        "lat": "33:29:55.7 N",
+        "lon": "4:29:30.3 W"
+      }
+    ]
+  },
+  {
+    "zoneName": "Tighirdine Boulmane",
+    "region": "Ifrane, Moyen Atlas",
+    "info": "",
+    "ceiling": "164 AGL",
+    "floor": "GND",
+    "coordinates": [
+      {
+        "lat": "33:21:31.8 N",
+        "lon": "4:42:32.9 W"
+      },
+      {
+        "lat": "33:21:28.7 N",
+        "lon": "4:43:03.6 W"
+      },
+      {
+        "lat": "33:21:47.3 N",
+        "lon": "4:43:31 W"
+      },
+      {
+        "lat": "33:21:55.7 N",
+        "lon": "4:43:16.7 W"
+      }
+    ]
+  }
+]

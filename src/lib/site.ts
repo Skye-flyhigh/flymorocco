@@ -1,7 +1,7 @@
-import { SiteMeta, siteMeta } from "../types/siteMeta"
+import { SiteMeta, siteMeta } from "./validation/siteMeta";
 
 export function getSiteMeta(slug: string): SiteMeta {
   const meta = siteMeta[slug as keyof typeof siteMeta];
-  if(!meta) console.warn(`⚠️ No siteMeta found for slug: "${slug}"`);
+  if (!meta) console.warn(`⚠️ No siteMeta found for slug: "${slug}"`);
   return meta || null;
 }

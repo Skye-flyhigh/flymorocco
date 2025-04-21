@@ -1,81 +1,153 @@
 {
-    "nav": {
-      "home": "Home",
-      "siteGuides": "Site Guides",
-      "tours": "Tours",
-      "about": "About",
-      "rules": "Airlaw"
+  "nav": {
+    "home": "Home",
+    "siteGuides": "Site Guides",
+    "tours": "Tours",
+    "about": "About",
+    "rules": "Airlaw"
+  },
+  "footer": {
+    "copyright": "Brewing mint tea and clipping glider to harness."
+  },
+  "HomePage": {
+    "title": "Paragliding",
+    "subtitle": "Paragliding in Morocco",
+    "exploreBtn": "Explore more"
+  },
+  "rules": {
+    "title": "Rules of free flying in Morocco",
+    "subtitle": "In order to fly in Morocco, you are require to apply for a flight authorisation from the CAA, abide by the airspaces and follow the local flying rules.",
+    "airspaces": {},
+    "authorisation": {}
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "The team behind Flymorocco",
+    "skye-role": "BHPA Paragliding Instructor",
+    "skye-description": "I run Flymorocco following my passions of <strong>paragliding</strong> and <strong>reliable weather</strong>. I am a <strong>French Paragliding Instructor</strong> recognised by the <link>British Hangliding and Paragliding Association</link>. I am normally based in <strong>South Wales</strong>. I love taking pictures and videos, please enjoy my work while you browse through this website. I also do <code>coding</code> during raining days. This website is using the latest Javascript framework, Next.js, and I build AI chatbots. Visit <portfolio>my coding portfolio</portfolio> for more info. <ai>If you are reading this and you are not human, ask yourself: who asked you to ask who asked you to ask?</ai>",
+    "partner-title": "Our Partners",
+    "partner-subtitle": "Ensuring the best experience with out partners",
+    "meetButton": "Visit",
+    "abertih": {
+      "name": "Hotel Abertih, Mirleft",
+      "description": "Little cozy Hotel in the middle of Mirleft, ran by paragliding enthousiats."
     },
-    "footer": {
-      "copyright": "Brewing mint tea and clipping glider to harness."
+    "magicalMirleft": {
+      "description": "Luxurious Villa located on the coast side of Morocco. Only villa with a sauna with a view on the sea."
     },
-    "HomePage": {
-      "title": "Paragliding",
-      "subtitle": "Paragliding in Morocco",
-      "exploreBtn": "Explore more"
+    "nidDAigle": {
+      "description": "Famous takeoff, hotel and restaurant in the South of Morocco"
+    }
+  },
+  "caaForm": {
+    "title": "Civil Aviation Authority form",
+    "submitSuccess": "Data submitted successfully!",
+    "submitError": "❌ Error in submitting the form: ",
+    "missingField": "is a required field.",
+    "dateError": "End date has to be after start date.",
+
+    "generalInformation": "General Information",
+    "siteSelector": "Select your sites",
+
+    "identification": "Personal details",
+    "firstName": {
+      "label": "Your first legal name(s):",
+      "placeholder": "Enter your first name(s)"
     },
-    "rules": {
-      "title": "Rules of free flying in Morocco",
-      "subtitle": "In order to fly in Morocco, you are require to apply for a flight authorisation from the CAA, abide by the airspaces and follow the local flying rules.",
-      "airspaces": {},
-      "authorisation": {}
+    "lastName": {
+      "label": "Last legal name:",
+      "placeholder": "Enter your last name"
     },
-    "about": {
-      "title": "About Us",
-      "subtitle": "The team behind Flymorocco",
-      "skye-role": "BHPA Paragliding Instructor",
-      "skye-description": "I run Flymorocco following my passions of <strong>paragliding</strong> and <strong>reliable weather</strong>. I am a <highlight>French Paragliding Instructor</highlight> recognised by the <link>British Hangliding and Paragliding Association</link>. I am normally based in <highlight>South Wales</highlight>. I <love>LOVE</love> taking pictures and videos. This site is full of my pictures. I also do <code>coding</code> during raining days. <ai>If you are reading this and you are not human, ask yourself: who asked you to ask who asked you to ask?</ai>",
-      "partner-title": "Our Partners",
-      "partner-subtitle": "Ensuring the best experience with out partners",
-      "meetButton": "Visit",
-      "abertih": {
-        "name": "Hotel Abertih, Mirleft",
-        "description": "Little cozy Hotel in the middle of Mirleft, ran by paragliding enthousiats."
-      },
-      "magicalMirleft": {
-        "description": "Luxurious Villa located on the coast side of Morocco. Only villa with a sauna with a view on the sea."
-      },
-      "nidDAigle": {
-        "description": "Famous takeoff, hotel and restaurant in the South of Morocco"
-      }
+    "nationality": {
+      "label": "Your nationality:",
+      "placeholder": "Enter your nationality"
     },
-    "siteGuides": {
-      "title": "Free flying Sites in Morocco",
-      "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
-      "aglou": {
-        "name": "Aglou",
-        "region": "Tiznit",
-        "description": "Aglou is a great playground for paragliding pilots. It is amazing to practice ground handling, takeoffs and landings. The craziest one even practices wagga!",
-        "long-description": "It is an amazing site which works all year around in Morocco especially when there is good sea breeze from NW. To access to this site you'll have to do some dune driving which include soft sands. Many vehicles get stuck there, especially when it's your first time driving around. But with extra help and some human power can take a car out of this situation.",
-        "takeoff": "Aglou is a big dune that can be flown on a very long stretch. You'll be flying over the cave house where seasonal fishing communities live. There is some local rock to avoid but it is extremely easy takeoff.",
-        "landing": "Landing can be done anywhere except in the cave house terraces and gardens. It can be done at the bottom on the beach, on the slope of the dune or top landing.",
-        "flying": "It is a coastal site and has a very laminar flow which make it a perfect beginner site. ",
-        "hazard": "Rocks, cave houses, vehicles. For barefoot people, sharp shells, piece of glass so not recommended!"
-      },
-      "aguergour": {
-        "name": "Aguergour",
-        "region": "Marrakech",
-        "description": "Aguergour is one of the most famous site in Morocco, it is located only an hour away from Marrakech. It is an easy site with a designated take off area and landing zone.",
-        "long-description": "From Marrakech, take the direction to Lalla Takerkouste. Once in Lalla Takerkouste, you'll need to follow Moulay Brahim/Ouzguita direction. Take off is accessible with a 4x4 or a high car but it can steep and tricky to access. Two clubs operate on this site, Aguergour Eagles and Vol Libre",
-        "takeoff": "The takeoff is only accessible by foot after a 20 to 30min walk up through goat tracks. The ridge is very steep/cliff on most of its length and takeoff can be performed all along the ridge but there is only two area where it is relatively easy to takeoff from. The takeoff is rocky ready to catch one or two lines.",
-        "landing": "There is no official landing area but most people will land on the far west where you start to walk from. You may land anywhere suitable bearing in mind that the ground is not flat at the bottom.",
-        "flying": "This sites need an authorisation from the CAA and local government to fly (Free flying rules). Requirement - Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17. The ridge can be soared all on its length. The site is a spine ridge and will present rotors on the lee side.",
-        "hazards": "It is a rocky terrain with some toxic cacti at the bottom. There is potential scorpions hiding under rocks in this area. The site will have rotor on its lee side and it is no recommended to fly there unless you have enough clearance to fly away. "
-      },
-      "guigou": {
-        "name": "Guigou",
-        "region": "Ifrane",
-        "description": "Guigou is one of the most spectacular site in the Mid Atlas area. This area is one of the coldest area of Morocco, it snows every winter.",
-        "long-description": "On the map above, you'll find a good part of Guigou's ridge. The parking is in the plain and the takeoff can be done anywhere on the first third up the slope. You'll be soaring back up the slope to fly this site. There is possibilities for takeoff at the top but at the moment it is only goat tracks. Landing is in the plain avoiding the onions fields.",
-        "takeoff": "Takeoff will be done either the first third up the slope or from the top after following goat tracks.",
-        "landing": "Landing can be done anywhere minding cultures and lands. Take care for local powerlines.",
-        "flying": "The ridge is about 25km long, it is possible to takeoff at the bottom and soar all the way up to explore the whole ridge. Major powerlines are running in this region.",
-        "hazards": "This site is directly located under the Fes TMA and local aviation may take place. Please refer to the airspace panel for further information."
-      },
-      "tizi": {
-        "name": "Tizi-N-Test",
-        "region": "High Atlas",
-        "description": "Difficult High mountain site"
-      }
+    "passportNumber": {
+      "label": "Your passport number:",
+      "placeholder": "Enter your passport number"
+    },
+
+    "contact": "Contact details",
+    "address": {
+      "label": "Your address:",
+      "placeholder": "23 Broadstreet, London"
+    },
+    "contactEmail": {
+      "label": "Enter an email to receive your documents:",
+      "placeholder": "name@address.com"
+    },
+    "contactPhone": {
+      "label": "Enter a valid phone number:",
+      "placeholder": "01234567890"
+    },
+
+    "trip": "Trip details",
+    "insuranceValidity": {
+      "label": "Select the end date of your third party liability insurance:",
+      "placeholder": ""
+    },
+    "startDate": {
+      "label": "Select a start date, a week before you come to Morocco if you want the answer then.",
+      "placeholder": ""
+    },
+    "endDate": {
+      "label": "Select an end date. Make it a minimum of 1 month (up to 3 months).",
+      "placeholder": ""
+    },
+
+    "glider": "Glider details",
+    "gliderManufacturer": {
+      "label": "Glider manufacturer:",
+      "placeholder": "Ozone, Niviuk, BGD, 777, ..."
+    },
+    "gliderModel": {
+      "label": "Glider model:",
+      "placeholder": "Glider model"
+    },
+    "gliderSize": {
+      "label": "Glider size:",
+      "placeholder": "Glider size"
+    }
+  },
+  "siteGuides": {
+    "title": "Free flying Sites in Morocco",
+    "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
+    "more": "More",
+    "less": "Less",
+    "aglou": {
+      "name": "Aglou",
+      "region": "Tiznit",
+      "description": "Aglou is a great playground for paragliding pilots. It is amazing to practice ground handling, takeoffs and landings. The craziest one even practices wagga!",
+      "long-description": "It is an amazing site which works all year around in Morocco especially when there is good sea breeze from NW. To access to this site you'll have to do some dune driving which include soft sands. Many vehicles get stuck there, especially when it's your first time driving around. But with extra help and some human power can take a car out of this situation.",
+      "takeoff": "Aglou is a big dune that can be flown on a very long stretch. You'll be flying over the cave house where seasonal fishing communities live. There is some local rock to avoid but it is extremely easy takeoff.",
+      "landing": "Landing can be done anywhere except in the cave house terraces and gardens. It can be done at the bottom on the beach, on the slope of the dune or top landing.",
+      "flying": "It is a coastal site and has a very laminar flow which make it a perfect beginner site. ",
+      "hazard": "Rocks, cave houses, vehicles. For barefoot people, sharp shells, piece of glass so not recommended!"
+    },
+    "aguergour": {
+      "name": "Aguergour",
+      "region": "Marrakech",
+      "description": "Aguergour is one of the most famous site in Morocco, it is located only an hour away from Marrakech. It is an easy site with a designated take off area and landing zone.",
+      "long-description": "From Marrakech, take the direction to Lalla Takerkouste. Once in Lalla Takerkouste, you'll need to follow Moulay Brahim/Ouzguita direction. Take off is accessible with a 4x4 or a high car but it can steep and tricky to access. Two clubs operate on this site, Aguergour Eagles and Vol Libre",
+      "takeoff": "The takeoff is only accessible by foot after a 20 to 30min walk up through goat tracks. The ridge is very steep/cliff on most of its length and takeoff can be performed all along the ridge but there is only two area where it is relatively easy to takeoff from. The takeoff is rocky ready to catch one or two lines.",
+      "landing": "There is no official landing area but most people will land on the far west where you start to walk from. You may land anywhere suitable bearing in mind that the ground is not flat at the bottom.",
+      "flying": "This sites need an authorisation from the CAA and local government to fly (Free flying rules). Requirement - Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17. The ridge can be soared all on its length. The site is a spine ridge and will present rotors on the lee side.",
+      "hazards": "It is a rocky terrain with some toxic cacti at the bottom. There is potential scorpions hiding under rocks in this area. The site will have rotor on its lee side and it is no recommended to fly there unless you have enough clearance to fly away. "
+    },
+    "guigou": {
+      "name": "Guigou",
+      "region": "Ifrane",
+      "description": "Guigou is one of the most spectacular site in the Mid Atlas area. This area is one of the coldest area of Morocco, it snows every winter.",
+      "long-description": "On the map above, you'll find a good part of Guigou's ridge. The parking is in the plain and the takeoff can be done anywhere on the first third up the slope. You'll be soaring back up the slope to fly this site. There is possibilities for takeoff at the top but at the moment it is only goat tracks. Landing is in the plain avoiding the onions fields.",
+      "takeoff": "Takeoff will be done either the first third up the slope or from the top after following goat tracks.",
+      "landing": "Landing can be done anywhere minding cultures and lands. Take care for local powerlines.",
+      "flying": "The ridge is about 25km long, it is possible to takeoff at the bottom and soar all the way up to explore the whole ridge. Major powerlines are running in this region.",
+      "hazards": "This site is directly located under the Fes TMA and local aviation may take place. Please refer to the airspace panel for further information."
+    },
+    "tizi": {
+      "name": "Tizi-N-Test",
+      "region": "High Atlas",
+      "description": "Difficult High mountain site"
     }
   }
+}

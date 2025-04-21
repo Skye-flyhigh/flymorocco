@@ -1,12 +1,12 @@
 {
-    "nav": {
-      "home": "Accueil",
-      "siteGuides": "Sites de Vol",
-      "tours": "Circuits",
-      "about": "À Propos",
-      "adminInfo": "Formulaire CAA"
-    },
-    "siteGuides": {
-      "title": "Sites de Parapente au Maroc"
-    }
+  "nav": {
+    "home": "Accueil",
+    "siteGuides": "Sites de Vol",
+    "tours": "Circuits",
+    "about": "À Propos",
+    "adminInfo": "Formulaire CAA"
+  },
+  "siteGuides": {
+    "title": "Sites de Parapente au Maroc"
   }
+}

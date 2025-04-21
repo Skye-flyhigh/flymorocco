@@ -6,7 +6,7 @@
     "lat": 29.845,
     "lon": -9.804,
     "launch_altitude": 40,
-    "windDirections": [ "NW" ]
+    "windDirections": ["NW"]
   },
   "aguergour": {
     "slug": "aguergour",
@@ -15,15 +15,15 @@
     "lat": 30.567,
     "lon": -8.433,
     "launch_altitude": 950,
-    "windDirections": [ "NW" ]
+    "windDirections": ["NW"]
   },
   "tizi": {
     "slug": "tizi",
     "region": "High Atlas",
     "image": "/images/tizi-1984x1323.jpg",
     "lat": 30.998,
-    "lon": -8.250,
+    "lon": -8.25,
     "launch_altitude": 2100,
-    "windDirections": [ "S", "SE", "SW" ]
+    "windDirections": ["S", "SE", "SW"]
   }
 }

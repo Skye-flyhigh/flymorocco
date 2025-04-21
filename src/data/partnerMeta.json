@@ -1,20 +1,20 @@
 {
-    "abertih": {
-        "slug": "abertih",
-        "name": "Hotel Abertih, Mirleft",
-        "url": "https://www.abertih.com/",
-        "img": "https://www.abertih.com/GB/img/slider/1.jpg"
-    },
-    "magicalMirleft":{
-        "slug": "magicalMirleft",
-        "name": "Magical Mirleft",
-        "url": "https://magicalmirleft.com/",
-        "img": "https://magicalmirleft.com/wp-content/uploads/2024/03/home-magicalmirleft.jpg"
-    },
-    "nidDAigle": {
-        "slug": "nidDAigle",
-        "name": "Nid d'Aigle, Tiznit",
-        "url": "https://www.nidaigle.com/",
-        "img": "https://i0.wp.com/www.nidaigle.com/wp-content/uploads/2020/06/home1.jpg?w=480&ssl=1"
-    }
+  "abertih": {
+    "slug": "abertih",
+    "name": "Hotel Abertih, Mirleft",
+    "url": "https://www.abertih.com/",
+    "img": "https://www.abertih.com/GB/img/slider/1.jpg"
+  },
+  "magicalMirleft": {
+    "slug": "magicalMirleft",
+    "name": "Magical Mirleft",
+    "url": "https://magicalmirleft.com/",
+    "img": "https://magicalmirleft.com/wp-content/uploads/2024/03/home-magicalmirleft.jpg"
+  },
+  "nidDAigle": {
+    "slug": "nidDAigle",
+    "name": "Nid d'Aigle, Tiznit",
+    "url": "https://www.nidaigle.com/",
+    "img": "https://i0.wp.com/www.nidaigle.com/wp-content/uploads/2020/06/home1.jpg?w=480&ssl=1"
+  }
 }

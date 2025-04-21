@@ -19,7 +19,6 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - 🖼️ Visual-first layout to highlight the beauty of flying sites
 - 🔍 SEO-ready with custom meta tags per page
 - ⚙️ No accounts, no CMS — everything is dev-managed
-- 📦 Deployed on [Vercel](https://vercel.com/)
 
 ---
 
@@ -64,11 +63,10 @@ The messages folder for the translations are living outside of the src/app folde
 
     📂
     ├── messages/
-    │   ├── en.json                 
-    │   └── fr.json   
+    │   ├── en.json
+    │   └── fr.json
     ├── public/images/
     ├── src/app/
-
 
 ---
 
@@ -77,15 +75,13 @@ The messages folder for the translations are living outside of the src/app folde
 > **“The Case of the Missing E”**
 
 During the i18n setup, a rogue param named `local` (missing the "e") hijacked the entire layout and crashed the app via a top-level `await`.  
-After hours of meticulous logs, terminal therapy, and a *French-accented scream*, the bug was identified.
+After hours of meticulous logs, terminal therapy, and a _French-accented scream_, the bug was identified.
 
 🧪 Resolved by explicitly setting:
 
-   
     const { local: locale } = resolvedParams;
     // Official docs said it returns { locale }... THEY LIED. IT'S 'local'.
     // Yes, I logged it. Yes, I screamed.
-   
 
 Also the correct solution is in `middleware.ts`, to force the correct `param` key
 
@@ -96,9 +92,24 @@ Also the correct solution is in `middleware.ts`, to force the correct `param` ke
 
 This project will proudly wear the battle scars of this journey.
 
+### 🧾 The CAA Form Saga (April 2025)
+
+The CAA submission form was fully implemented using:
+
+- `useActionState` from React 19 for async validation + response control
+- Schema-driven layout using Zod and dynamic JSX generation
+- Modular error handling with inline accessibility-friendly feedback
+- `SiteSelector` custom component for dynamic zone selection
+- Locale-aware translation of all labels and placeholders (`next-intl`)
+- Future-proofed design for PDF generation and multilingual submission
+
+This form is now the template for any future high-logic form on FlyMorocco or other apps.
+
+💬 “The amount of logic this form contains is unhealthy. But it's clean.” — Skye.cmd
+
 ---
 
-##🪂 Author
+## 🪂 Author
 
 Skye – Paraglider pilot and instructor, Chaos Wielder, Front-End Dev, AI Architect, Mint Tea Enthusiast
 

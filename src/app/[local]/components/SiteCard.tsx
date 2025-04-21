@@ -1,19 +1,28 @@
-import { useTranslations } from "next-intl"
-import Image from "next/image"
-import Link from "next/link"
+"use client";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 interface SiteMeta {
-  slug: string
-  image: string
-  lat: number
-  lng: number
-  launch_altitude: number
+  slug: string;
+  image: string;
+  lat: number;
+  lon: number;
+  launch_altitude: number;
 }
 
 export default function SiteCard({ site }: { site: SiteMeta }) {
-  const t = useTranslations("siteGuides")
+  const t = useTranslations("siteGuides");
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  let siteDescription = t(`${site.slug}.description`);
+  if (!showFullDescription && siteDescription.length > 120) {
+    siteDescription = siteDescription.substring(0, 120) + "...";
+  }
+
   return (
-    <div className="card bg-base-100 shadow-xl w-full min-w-98">
+    <div className="card bg-base-100 shadow-xl w-full min-w-96">
       <figure>
         <Image
           src={site.image}
@@ -26,13 +35,22 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
       <div className="card-body">
         <h2 className="card-title">{t(`${site.slug}.name`)}</h2>
         <p className="text-sm text-gray-500">{t(`${site.slug}.region`)}</p>
-        <p>{t(`${site.slug}.description`)}</p>
+        <p className="prose">{siteDescription}</p>
+        <button
+          className="link"
+          onClick={() => setShowFullDescription((prevState) => !prevState)}
+        >
+          {showFullDescription ? t("less") : t("more")}
+        </button>
         <div className="card-actions justify-end">
-          <Link href={`/site-guides/${site.slug}`} className="btn btn-primary btn-sm">
+          <Link
+            href={`/site-guides/${site.slug}`}
+            className="btn btn-primary btn-sm"
+          >
             View Site
           </Link>
         </div>
       </div>
     </div>
-  )
+  );
 }

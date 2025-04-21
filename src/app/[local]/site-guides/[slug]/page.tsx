@@ -1,14 +1,18 @@
-import { useTranslations } from "next-intl"
-import Image from "next/image"
+import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Metadata } from "next";
 import { getSiteMeta } from "@/lib/site";
 
-export async function generateMetadata({ params }: { params: { slug: string; local: string }; }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string; local: string };
+}): Promise<Metadata> {
   const { slug, local } = await params;
 
   const meta = getSiteMeta(slug);
   if (!meta) return { title: "Not Found" };
-    
+
   const messages = (await import(`@messages/${local}.json`)).default;
   const t = messages.siteGuides?.[slug];
 
@@ -18,13 +22,17 @@ export async function generateMetadata({ params }: { params: { slug: string; loc
   };
 }
 
-export default function SiteGuidePage({ params }: { params: { slug: string, local: string } }) {
-  const { slug } = params // FIXME: the params needs to be in a async function and be awaited for...
+export default function SiteGuidePage({
+  params,
+}: {
+  params: { slug: string; local: string };
+}) {
+  const { slug } = params; // FIXME: the params needs to be in a async function and be awaited for...
   const meta = getSiteMeta(slug);
   const t = useTranslations("siteGuides");
 
-  if (!meta || !slug) return <div>Not found</div>
-  
+  if (!meta || !slug) return <div>Not found</div>;
+
   return (
     <div className="max-w-4xl mx-auto py-8 px-4">
       <h1 className="text-3xl font-bold">{t(`${slug}.name`)}</h1>
@@ -44,5 +52,5 @@ export default function SiteGuidePage({ params }: { params: { slug: string, loca
         Altitude: {meta.launch_altitude}m | Coordinates: {meta.lat}, {meta.lng}
       </div>
     </div>
-  )
+  );
 }
