@@ -7,22 +7,22 @@ export const FormDataSchema = z.object({
     nationality: z.string(),
     passportNumber: z.string(),
   }),
-  contact: z.object( {
+  contact: z.object({
     contactEmail: z.string().email(),
     contactPhone: z.number(),
-    address: z.string()
+    address: z.string(),
   }),
-  trip: z.object( {
+  trip: z.object({
     insuranceValidity: z.date(),
     startDate: z.date(),
-    endDate: z.date()
+    endDate: z.date(),
   }),
-  glider: z.object( {
+  glider: z.object({
     gliderManufacturer: z.string(),
     gliderModel: z.string(),
     gliderSize: z.string(),
   }),
-  siteSelection: z.array(z.string())
+  siteSelection: z.array(z.string()),
 });
 
 export const FormDataMapSchema = z.record(FormDataSchema);

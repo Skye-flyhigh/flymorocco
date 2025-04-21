@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import zones from "@/data/CAA_Paragliding_Zones_SRZ.json"; // Adjust path to your JSON
 
 // Group zones by province (region)
-const groupByRegion = (zones: { region?: string; zoneName: string; }[]) => {
-  return zones.reduce((acc: Record<string, { zoneName: string; }[]>, zone) => {
+const groupByRegion = (zones: { region?: string; zoneName: string }[]) => {
+  return zones.reduce((acc: Record<string, { zoneName: string }[]>, zone) => {
     const region = zone.region || "Unknown";
     if (!acc[region]) acc[region] = [];
     acc[region].push(zone);
@@ -20,7 +20,7 @@ export default function SiteSelector({
   fieldsetStyle,
   fieldsetLabel,
   fieldsetLegend,
-} : {
+}: {
   selectionAction: (payload: { selectedZones: string[] }) => void;
   sectionStyle: string;
   fieldsetStyle: string;
@@ -37,8 +37,12 @@ export default function SiteSelector({
   };
 
   const selectRegion = (region: string) => {
-    const regionZones = groupedZones[region].map((zone: { zoneName: string}) => zone.zoneName);
-    const allSelected = regionZones.every((z: string) => selectedZones.includes(z));
+    const regionZones = groupedZones[region].map(
+      (zone: { zoneName: string }) => zone.zoneName,
+    );
+    const allSelected = regionZones.every((z: string) =>
+      selectedZones.includes(z),
+    );
 
     if (allSelected) {
       setSelectedZones(selectedZones.filter((z) => !regionZones.includes(z)));
@@ -56,7 +60,6 @@ export default function SiteSelector({
 
   return (
     <section id="site-selector" className={sectionStyle}>
-
       {Object.entries(groupedZones).map(([region, regionZones]) => (
         <fieldset key={region} className={fieldsetStyle}>
           <legend className={fieldsetLegend}>

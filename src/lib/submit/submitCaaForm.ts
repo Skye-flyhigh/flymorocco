@@ -1,10 +1,7 @@
 // app/lib/submitCaaForm.ts (or /server/submitCaaForm.ts)
 "use server";
 
-import {
-  FormData,
-  FormDataMapSchema,
-} from "../validation/CaaFormdata";
+import { FormData, FormDataMapSchema } from "../validation/CaaFormdata";
 
 export async function submitCaaForm(prevState: any, formData: FormData) {
   const result = FormDataMapSchema.safeParse(formData);
@@ -15,12 +12,12 @@ export async function submitCaaForm(prevState: any, formData: FormData) {
     const errors: Record<string, string> = {};
 
     requiredFields.forEach((field) => {
-      if(!data[field]) {
-        errors[field] = t("missingField")
+      if (!data[field]) {
+        errors[field] = t("missingField");
       }
-    })
-    return errors
-  }
+    });
+    return errors;
+  };
 
   const data = Object.fromEntries(currState.formData.entries()); //FIXME: needs to add siteSelection in there too
   if (!data) {
@@ -33,17 +30,16 @@ export async function submitCaaForm(prevState: any, formData: FormData) {
   }
   console.log("📑 Form data: ", data);
 
-  const errors = validateRequiredFields(formData, requiredFields)
-  if (Object.keys(errors).length > 0){
+  const errors = validateRequiredFields(formData, requiredFields);
+  if (Object.keys(errors).length > 0) {
     setInputErrors(errors);
     return {
       ...prevState,
       formData: formData,
       error: "Missing fields",
       success: false,
-    }
+    };
   }
-
 
   if (!result.success) {
     return {
@@ -55,11 +51,10 @@ export async function submitCaaForm(prevState: any, formData: FormData) {
   // Logic: Save to DB, send email, generate PDF, etc
   console.log("✅ Valid CAA submission:", result.data);
 
-    return {
-      ...prevState,
-      error: null,
-      success: true,
-      //TODO: add site selections and start and end dates
-    }; //FIXME: setSiteSelector back to ""
-  }
-
+  return {
+    ...prevState,
+    error: null,
+    success: true,
+    //TODO: add site selections and start and end dates
+  }; //FIXME: setSiteSelector back to ""
+}

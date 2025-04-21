@@ -11,7 +11,7 @@ import { BadgeCheck, CircleX } from "lucide-react";
 //Form
 export default function CaaForm() {
   const t = useTranslations("caaForm");
-  
+
   const { pending } = useFormStatus();
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
   const [inputErrors, setInputErrors] = useState<Record<string, string>>({});
@@ -38,29 +38,28 @@ export default function CaaForm() {
       gliderModel: "",
       gliderSize: "",
     },
-    siteSelection
+    siteSelection,
   };
 
-const result = FormDataSchema.safeParse(initialValues);
-if (!result.success) {
-  console.error("🚨 Form initialValues do not match schema:", result.error.format());
-}
+  const result = FormDataSchema.safeParse(initialValues);
+  if (!result.success) {
+    console.error(
+      "🚨 Form initialValues do not match schema:",
+      result.error.format(),
+    );
+  }
 
   const [currState, handleSubmit] = useActionState(submitCaaForm, {
     formData: initialValues,
     error: null,
     success: false,
   });
-  
+
   const { startDate, endDate } = currState.formData?.trip;
 
   //Validate date entry
   useEffect(() => {
-    if (
-      startDate &&
-      endDate &&
-      new Date(endDate) < new Date(startDate)
-    ) {
+    if (startDate && endDate && new Date(endDate) < new Date(startDate)) {
       setInputErrors((prev) => ({
         ...prev,
         endDate: t("dateError"),
@@ -72,7 +71,7 @@ if (!result.success) {
         return newErrors;
       });
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate, endDate]);
 
   //Global form styling for uniformity
@@ -83,13 +82,12 @@ if (!result.success) {
   const fieldsetLegend = "fieldset-legend text-xl";
   const fieldsetLabel = "fieldset-label";
   const inputClassName = "input mb-4";
-  const inputErrorStyling = (field: string) => `${inputClassName} ${inputErrors[field] ? "input-error" : ""}`;
+  const inputErrorStyling = (field: string) =>
+    `${inputClassName} ${inputErrors[field] ? "input-error" : ""}`;
 
   return (
     <section id="CAAform" className="w-screen bg-amber-200 flex">
-      <form
-        className="flex flex-col min-w-11/12 bg-background p-5 m-6 rounded-box text-lg"
-      >
+      <form className="flex flex-col min-w-11/12 bg-background p-5 m-6 rounded-box text-lg">
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("title")}
         </h2>
@@ -109,81 +107,106 @@ if (!result.success) {
             {t("submitSuccess")}
           </div>
         )}
-          <h3 className="text-2xl p-5 m-6 fieldset-legend">{t("generalInformation")}</h3>
+        <h3 className="text-2xl p-5 m-6 fieldset-legend">
+          {t("generalInformation")}
+        </h3>
         <section className={sectionStyle}>
-        {Object.entries(initialValues).map(([fieldsetKey, fields]) => {
-          if (typeof fields !== "object" || Array.isArray(fields) || fieldsetKey === "siteSelection") return null;
+          {Object.entries(initialValues).map(([fieldsetKey, fields]) => {
+            if (
+              typeof fields !== "object" ||
+              Array.isArray(fields) ||
+              fieldsetKey === "siteSelection"
+            )
+              return null;
 
-          return (
-            <fieldset key={fieldsetKey} id={fieldsetKey} className={fieldsetStyle}>
-              <legend className={fieldsetLegend}>{t(`${fieldsetKey}`)}</legend>
+            return (
+              <fieldset
+                key={fieldsetKey}
+                id={fieldsetKey}
+                className={fieldsetStyle}
+              >
+                <legend className={fieldsetLegend}>
+                  {t(`${fieldsetKey}`)}
+                </legend>
 
-              {Object.entries(fields).map(([fieldKey]) => {
-                let type;
-                switch(fieldKey) {
-                  case "contactPhone":
-                    type = "phone";
-                    break;
-                  case "contactEmail":
-                    type = "email";
-                    break;
-                  case "insuranceValidity":
-                  case "startDate":
-                  case "endDate":
-                    type = "date";
-                    break;
-                  default:
-                    type= "text"
-                }
+                {Object.entries(fields).map(([fieldKey]) => {
+                  let type;
+                  switch (fieldKey) {
+                    case "contactPhone":
+                      type = "phone";
+                      break;
+                    case "contactEmail":
+                      type = "email";
+                      break;
+                    case "insuranceValidity":
+                    case "startDate":
+                    case "endDate":
+                      type = "date";
+                      break;
+                    default:
+                      type = "text";
+                  }
 
-                return (
-                  <div key={fieldKey}>
-                    <label htmlFor={fieldKey} className={fieldsetLabel}>
-                      {t(`${fieldKey}.label`)}
-                    </label>
-                    {fieldKey === "address" ? (
-                      <textarea
-                        name={fieldKey}
-                        className={inputErrorStyling(fieldKey)}
-                        placeholder={t(`${fieldKey}.placeholder`)}
-                        defaultValue={currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""}
-                        required
-                      />
-                    ) : (
-                      <input
-                        type={type}
-                        name={fieldKey}
-                        className={inputErrorStyling(fieldKey)}
-                        placeholder={t(`${fieldKey}.placeholder`)}
-                        defaultValue={currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""}
-                        required
-                      />
-                    )}
-                    {inputErrors[fieldKey] && (
-                      <p className="alert alert-error">
-                        <CircleX />
-                        {inputErrors[fieldKey]}
-                      </p>
-                    )}
-                  </div>
-                );
-              })}
-            </fieldset>
-          );
-})}
+                  return (
+                    <div key={fieldKey}>
+                      <label htmlFor={fieldKey} className={fieldsetLabel}>
+                        {t(`${fieldKey}.label`)}
+                      </label>
+                      {fieldKey === "address" ? (
+                        <textarea
+                          name={fieldKey}
+                          className={inputErrorStyling(fieldKey)}
+                          placeholder={t(`${fieldKey}.placeholder`)}
+                          defaultValue={
+                            currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
+                          }
+                          required
+                        />
+                      ) : (
+                        <input
+                          type={type}
+                          name={fieldKey}
+                          className={inputErrorStyling(fieldKey)}
+                          placeholder={t(`${fieldKey}.placeholder`)}
+                          defaultValue={
+                            currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
+                          }
+                          required
+                        />
+                      )}
+                      {inputErrors[fieldKey] && (
+                        <p className="alert alert-error">
+                          <CircleX />
+                          {inputErrors[fieldKey]}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </fieldset>
+            );
+          })}
         </section>
-        <h3 className="text-2xl p-5 m-6 fieldset-legend">{t("siteSelector")}</h3>
+        <h3 className="text-2xl p-5 m-6 fieldset-legend">
+          {t("siteSelector")}
+        </h3>
 
         <SiteSelector
-                selectionAction={(payload: { selectedZones: string[] }) => setSiteSelection(payload.selectedZones)}
-                sectionStyle={sectionStyle}
-                fieldsetStyle={fieldsetStyle}
-                fieldsetLabel={fieldsetLabel}
-                fieldsetLegend={fieldsetLegend}
-              />
+          selectionAction={(payload: { selectedZones: string[] }) =>
+            setSiteSelection(payload.selectedZones)
+          }
+          sectionStyle={sectionStyle}
+          fieldsetStyle={fieldsetStyle}
+          fieldsetLabel={fieldsetLabel}
+          fieldsetLegend={fieldsetLegend}
+        />
 
         {/* Submit Button */}
-        <button formAction={handleSubmit} className="btn btn-soft btn-primary" disabled={pending}>
+        <button
+          formAction={handleSubmit}
+          className="btn btn-soft btn-primary"
+          disabled={pending}
+        >
           {pending ? "Submitting..." : "Generate documents"}
         </button>
       </form>
