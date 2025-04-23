@@ -42,7 +42,10 @@
   "caaForm": {
     "title": "Civil Aviation Authority form",
     "submitSuccess": "Data submitted successfully!",
-    "submitError": "❌ Error in submitting the form: ",
+    "submitError": {
+      "general": "❌ Error in submitting the form",
+      "noData": "❌ No data received"
+    },
     "missingField": "is a required field.",
     "dateError": "End date has to be after start date.",
 
@@ -107,6 +110,10 @@
     "gliderSize": {
       "label": "Glider size:",
       "placeholder": "Glider size"
+    },
+    "gliderColors": {
+      "label": "Glider colours:",
+      "placeholder": "Bleu, blanc, vert, ..."
     }
   },
   "siteGuides": {

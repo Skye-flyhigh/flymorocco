@@ -1,60 +1,51 @@
-// app/lib/submitCaaForm.ts (or /server/submitCaaForm.ts)
-"use server";
+import {
+  CaaFormState,
+  FormData,
+  FormDataMapSchema,
+} from "../validation/CaaFormdata";
 
-import { FormData, FormDataMapSchema } from "../validation/CaaFormdata";
-
-export async function submitCaaForm(prevState: any, formData: FormData) {
-  const result = FormDataMapSchema.safeParse(formData);
-
-  //Data validation
-  const requiredFields = FormDataMapSchema;
-  const validateRequiredFields = (data, requiredFields: string[]) => {
-    const errors: Record<string, string> = {};
-
-    requiredFields.forEach((field) => {
-      if (!data[field]) {
-        errors[field] = t("missingField");
-      }
-    });
-    return errors;
-  };
-
-  const data = Object.fromEntries(currState.formData.entries()); //FIXME: needs to add siteSelection in there too
-  if (!data) {
+export async function submitCaaForm(
+  prevState: CaaFormState,
+  formData: FormData,
+): Promise<CaaFormState> {
+  //Check if the data is sent through
+  if (!formData) {
     return {
       ...prevState,
-      error: t("submitError") + " No data received.",
+      error: "caaForm.submitError.noData",
       success: false,
       formData: {},
     };
   }
-  console.log("📑 Form data: ", data);
 
-  const errors = validateRequiredFields(formData, requiredFields);
-  if (Object.keys(errors).length > 0) {
-    setInputErrors(errors);
+  //Data validation through Zod
+  const result = FormDataMapSchema.safeParse(formData);
+  if (!result.success) {
+    const fieldErrors = result.error.flatten().fieldErrors;
+    const errorMap: Record<string, string> = {};
+
+    for (const [field, messages] of Object.entries(fieldErrors)) {
+      if (messages) {
+        errorMap[field] = messages[0];
+      }
+    }
     return {
       ...prevState,
+      error: "Form validation failed:" + Object.keys(errorMap).join(" "),
       formData: formData,
-      error: "Missing fields",
       success: false,
     };
   }
 
-  if (!result.success) {
-    return {
-      error: "Form validation failed.",
-      issues: result.error.flatten().fieldErrors,
-      success: false,
-    };
-  }
   // Logic: Save to DB, send email, generate PDF, etc
-  console.log("✅ Valid CAA submission:", result.data);
+  console.log("✅ Valid CAA submission:", formData);
+  // await generateCaaPDF(formData);        // PDF generation
+  // await sendSubmissionEmail(formData);   // Email output
+  // await saveSubmissionToDB(formData);    // DB persistence
 
   return {
     ...prevState,
     error: null,
     success: true,
-    //TODO: add site selections and start and end dates
-  }; //FIXME: setSiteSelector back to ""
+  };
 }

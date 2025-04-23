@@ -25,7 +25,7 @@
     ]
   },
   {
-    "zoneName": "A\u00eft Ourir (Z2)",
+    "zoneName": "Aït Ourir (Z2)",
     "region": "Marrakech, Al Haouz",
     "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
     "ceiling": "1640.42 AGL",
@@ -125,7 +125,7 @@
     ]
   },
   {
-    "zoneName": "M\u2019Zouda (Z4)",
+    "zoneName": "M'Zouda (Z4)",
     "region": "Marrakech, Al Haouz",
     "info": "ATC de Marrakech doit être notifié 24h en avance. BAFRA/Marrakech 05 25 43 04 11/05 24 44 79 17.",
     "ceiling": "1640.42 AGL",
@@ -175,7 +175,7 @@
     ]
   },
   {
-    "zoneName": "Nid d\u2019Aigle (Z6)",
+    "zoneName": "Nid d'Aigle (Z6)",
     "region": "Souss-Massa",
     "info": "",
     "ceiling": "1312.34 AGL",

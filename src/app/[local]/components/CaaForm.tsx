@@ -1,12 +1,16 @@
 "use client";
 
-import { FormDataSchema } from "@/lib/validation/CaaFormdata";
+import {
+  FormDataSchema,
+  ParticipantSchema,
+} from "@/lib/validation/CaaFormdata";
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
 import { useActionState, useEffect, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { useTranslations } from "use-intl";
 import SiteSelector from "./SiteSelector";
 import { BadgeCheck, CircleX } from "lucide-react";
+import AddParticipants from "./AddParticipants";
 
 //Form
 export default function CaaForm() {
@@ -14,6 +18,9 @@ export default function CaaForm() {
 
   const { pending } = useFormStatus();
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
+  const [participantData, setParticipantData] = useState<
+    (typeof ParticipantSchema)[]
+  >([]);
   const [inputErrors, setInputErrors] = useState<Record<string, string>>({});
 
   const initialValues = {
@@ -37,8 +44,10 @@ export default function CaaForm() {
       gliderManufacturer: "",
       gliderModel: "",
       gliderSize: "",
+      gliderColors: "",
     },
     siteSelection,
+    participantData,
   };
 
   const result = FormDataSchema.safeParse(initialValues);
@@ -55,7 +64,7 @@ export default function CaaForm() {
     success: false,
   });
 
-  const { startDate, endDate } = currState.formData?.trip;
+  const { startDate, endDate } = currState.formData?.trip; //FIXME: this is not defined, we will have to have onChange
 
   //Validate date entry
   useEffect(() => {
@@ -187,6 +196,17 @@ export default function CaaForm() {
             );
           })}
         </section>
+
+        <AddParticipants
+          participantAction={(payload: {
+            participantData: (typeof ParticipantSchema)[];
+          }) => setParticipantData(payload.participantData)}
+          sectionStyle={sectionStyle}
+          fieldsetStyle={fieldsetStyle}
+          fieldsetLabel={fieldsetLabel}
+          fieldsetLegend={fieldsetLegend}
+        />
+
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("siteSelector")}
         </h3>
