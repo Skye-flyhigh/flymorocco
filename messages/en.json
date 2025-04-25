@@ -12,7 +12,33 @@
   "HomePage": {
     "title": "Paragliding",
     "subtitle": "Paragliding in Morocco",
-    "exploreBtn": "Explore more"
+    "exploreBtn": "Explore more",
+    "explore": {
+      "title": "Paragliding in Morocco",
+      "subtitle": "With the Atlas Mountains spanning much of the country, Morocco offers a diverse and stunning landscape to explore from the sky.",
+      "blurb": "Morocco is an excellent winter destination for pilots seeking thermals, especially when skies are dull and gray back home. Weather reliability makes for a great winter escape. From soaring over high mountains and flatlands to dune flying, every pilot will discover their favorite playground. Morocco is only at couple of hours flight from European countries.",
+      "siteLink": "Paragliding spots",
+      "tourLink": "Explore with us"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Everything you need to fly freely in Morocco",
+    "siteGuides": {
+      "title": "Site Guides",
+      "description": "Get detailed info on all major flying sites in Morocco"
+    },
+    "tours": {
+      "title": "Tours",
+      "description": "Join guided tours with local insights and flying support"
+    },
+    "rules": {
+      "title": "Moroccan rules",
+      "description": "Explore airspaces and request your official flying authorization"
+    }
+  },
+  "testimonials": {
+    "title": "What our customers say about us?"
   },
   "rules": {
     "title": "Rules of free flying in Morocco",
@@ -121,6 +147,7 @@
     "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
     "more": "More",
     "less": "Less",
+    "featuring": "Today's featured site",
     "aglou": {
       "name": "Aglou",
       "region": "Tiznit",

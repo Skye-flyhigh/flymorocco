@@ -1,16 +1,9 @@
 "use client";
+import { SiteMeta } from "@/lib/validation/siteMeta";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
-interface SiteMeta {
-  slug: string;
-  image: string;
-  lat: number;
-  lon: number;
-  launch_altitude: number;
-}
 
 export default function SiteCard({ site }: { site: SiteMeta }) {
   const t = useTranslations("siteGuides");

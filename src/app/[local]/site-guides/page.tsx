@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import Hero from "../components/Hero";
-import SiteCard from "../components/SiteCard";
+import SiteCard from "../components/siteGuides/SiteCard";
 import { SiteMeta, siteMeta } from "@/lib/validation/siteMeta";
+import FeaturedSites from "../components/home/FeaturedSites";
 
 export default function SiteGuidesPage() {
   const t = useTranslations("siteGuides");
@@ -12,6 +13,9 @@ export default function SiteGuidesPage() {
         subtitle={t("subtitle")}
         img="/images/ouizen-2310x1440.jpg"
       />
+      <div className="py-20">
+      <FeaturedSites />
+      </div>
       <section className="max-w-screen bg-accent flex flex-row flex-wrap gap-3">
         {Object.values(siteMeta).map((site: SiteMeta) => (
           <div key={site.slug} className="w-1/6 min-w-96 align-middle">

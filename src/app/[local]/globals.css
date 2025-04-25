@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui" {
   themes:
-    light --default,
+    bumblebee --default,
     dark --prefersdark;
 }
 
@@ -32,4 +32,25 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  line-height: var(--tw-leading, var(--text-4xl--line-heigh));
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 24px;  
+}
+.section-subtitle {
+  margin-bottom:  48px;
+  font-size: var(--text-lg);
+  line-height: var(--tw-leading, var(--tet-lg--line-height))
+}
+
+.mask-diagonal {
+  mask-image: linear-gradient(235deg, black 20%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
 }

@@ -1,0 +1,17 @@
+[
+    {
+      "start": "2025-11-03",
+      "end": "2025-11-10",
+      "location": "Aguergour",
+      "status": "available",
+      "focus": "Thermal flying & ridge soaring",
+      "note": "Best for intermediate pilots"
+    },
+    {
+      "start": "2025-11-10",
+      "end": "2025-11-17",
+      "location": "Plage Blanche",
+      "status": "full",
+      "focus": "Ground handling and long XC"
+    }
+  ]

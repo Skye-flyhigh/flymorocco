@@ -1,3 +1,5 @@
+import generateAnnexe2 from "../pdf/generateAnnexe2";
+import generateAnnexe4 from "../pdf/generateAnnexe4";
 import {
   CaaFormState,
   FormData,
@@ -39,7 +41,8 @@ export async function submitCaaForm(
 
   // Logic: Save to DB, send email, generate PDF, etc
   console.log("✅ Valid CAA submission:", formData);
-  // await generateCaaPDF(formData);        // PDF generation
+  await generateAnnexe2(formData); // PDF generation
+  await generateAnnexe4(formData);
   // await sendSubmissionEmail(formData);   // Email output
   // await saveSubmissionToDB(formData);    // DB persistence
 

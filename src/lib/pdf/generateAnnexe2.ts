@@ -1,4 +1,4 @@
-import fs from "fs";
+import * as fs from "fs";
 import path from "path";
 import { PDFDocument } from "pdf-lib";
 import { FormData } from "../validation/CaaFormdata";
@@ -16,11 +16,6 @@ export default async function generateAnnexe2(formData: FormData) {
 
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const form = pdfDoc.getForm();
-  //   const fields = form.getFields();
-  //   console.log("📋 Available fields in PDF:");
-  //   fields.forEach((field) => {
-  //     console.log(" -", field.getName());
-  //   });
 
   form.getTextField("dhFormfield-5634315313").setText(fullName);
   form.getTextField("dhFormfield-5634315328").setText(todayStr);

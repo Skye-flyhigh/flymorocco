@@ -124,7 +124,8 @@ export default function CaaForm() {
             if (
               typeof fields !== "object" ||
               Array.isArray(fields) ||
-              fieldsetKey === "siteSelection"
+              fieldsetKey === "siteSelection" ||
+              fieldsetKey === "participantData"
             )
               return null;
 

@@ -1,3 +1,6 @@
+"use client";
+import { Parallax } from "react-scroll-parallax";
+
 export default function Hero({
   title,
   subtitle,
@@ -16,12 +19,14 @@ export default function Hero({
         backgroundImage: `url(${img})`,
       }}
     >
-      <div className="hero-content text-neutral-content text-center">
-        <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-          <p className="mb-5">{subtitle}</p>
+      <Parallax speed={-15}>
+        <div className="hero-content text-neutral-content text-center">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+            <p className="mb-5">{subtitle}</p>
+          </div>
         </div>
-      </div>
+      </Parallax>
     </section>
   );
 }

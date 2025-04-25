@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
   const t = useTranslations("nav");
   return (
-    <div className="navbar">
+    <div className="navbar glass fixed z-50">
       <div className="navbar-start">
         <Link
           href="/"
@@ -20,7 +20,7 @@ export default function Navbar() {
           ></Image>
         </Link>
       </div>
-      <div className="flex-none navbar-end">
+      <div className="flex-none sm:navbar-end">
         <ul className="menu menu-horizontal px-1">
           <li>
             <Link className="link link-hover" href="/site-guides">

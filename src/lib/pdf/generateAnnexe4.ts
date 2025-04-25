@@ -173,17 +173,19 @@ export default async function generateAnnexe4(formData: FormData) {
     appareilCellWidth,
     boldFont,
   );
-  cursorY = drawTableRow(
-    [
-      "Parapente",
-      `${formData.glider.gliderManufacturer} ${formData.glider.gliderModel} ${formData.glider.gliderSize}`,
-      `${formatDate(formData.trip.insuranceValidity)}`,
-      `${formData.glider.gliderColors}`,
-    ],
-    cursorY,
-    appareilCellWidth,
-    font,
-  );
+  if (formData.glider) {
+    cursorY = drawTableRow(
+      [
+        "Parapente",
+        `${formData.glider.gliderManufacturer} ${formData.glider.gliderModel} ${formData.glider.gliderSize}`,
+        `${formatDate(formData.trip.insuranceValidity)}`,
+        `${formData.glider.gliderColors}`,
+      ],
+      cursorY,
+      appareilCellWidth,
+      font,
+    );
+  }
 
   const renderAppareilRow = (
     manufacturer: string,

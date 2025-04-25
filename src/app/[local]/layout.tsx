@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
+import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
 
 export const metadata: Metadata = {
   title: "Flymorocco",
@@ -32,11 +33,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col font-sans">
+      <body>
         <NextIntlClientProvider locale={locale}>
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
+          <ParallaxClientWrapper>
+            <Navbar />
+            {children}
+            <Footer />
+          </ParallaxClientWrapper>
         </NextIntlClientProvider>
       </body>
     </html>

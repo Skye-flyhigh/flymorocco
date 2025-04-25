@@ -19,9 +19,12 @@ if (!parsedResult.success) {
     "❌ Validation of site Meta failed:",
     parsedResult.error.format(),
   );
-  // throw new Error("Invalid site meta data: Wrong mountain 🏔️");
 }
 
-export const siteMeta = parsedResult.data;
+export const siteMeta = parsedResult.success
+  ? (parsedResult.data as SiteMetaMap)
+  : (() => {
+      throw new Error("Invalid site meta data: Wrong mountain 🏔️");
+    })();
 export type SiteMeta = z.infer<typeof SiteMetaSchema>;
 export type SiteMetaMap = Record<string, SiteMeta>;
