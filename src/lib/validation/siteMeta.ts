@@ -3,7 +3,6 @@ import rawSiteMeta from "@/data/siteMeta.json";
 
 const SiteMetaSchema = z.object({
   slug: z.string(),
-  region: z.string(),
   image: z.string(),
   lat: z.number(),
   lon: z.number(),

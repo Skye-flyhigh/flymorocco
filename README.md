@@ -30,6 +30,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - [Lucide React](https://lucide.dev/) for clean, consistent icons
 - [Zod](https://zod.dev/?id=objects) to break my app again
 - [React Leaflet](https://react-leaflet.js.org/), who does like a good map?
+- [OpenAir parser](https://www.npmjs.com/package/@openaip/openair-parser?activeTab=readme), need content for map
 
 ---
 
@@ -47,10 +48,10 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 
     app/
     ├── [locale]/
-    │   ├── layout.tsx         # Locale-aware layout << Dev Lore story happened here
+    │   ├── layout.tsx         # Locale-aware layout << Case of the missing E
     │   ├── page.tsx           # Localized homepage
-    │   ├── components/        # NavBar, Footer, etc.
-    │   └── site-guides/       # Dynamic pages (per location)
+    │   ├── components/        # 🪄 Magic 💫
+    │   └── site-guides/       # Dynamic 🏔️ (per location)
     ├── layout.tsx             # Language overlay
     ├── lib/
     │   └── site.ts
@@ -92,6 +93,20 @@ Also the correct solution is in `middleware.ts`, to force the correct `param` ke
 
 This project will proudly wear the battle scars of this journey.
 
+> **"🗺️ The Cartographic Conquest (April 2025)"**
+
+“It started with a file… and ended in 20,000 lines of polygon geometry.”
+
+- Parsed Morocco’s official ENR 5.5 airspaces from OpenAir format using a hacked parser and caffeine-fueled determination
+- Resolved cryptic parser errors like "Unknown altitude definition '3500'" and "Token 'DB' does not allow subsequent token 'AY'" by reverse-engineering format expectations
+- Used fixGeometry: true to handle self-intersecting madness (and hoped nothing got lost in convex purgatory)
+- Successfully converted nested sectors, parachute zones, and TMA fragments into GeoJSON, rendered live with Leaflet
+- Deployed hoverable, paintable polygons with visual filtering (GSEC toggle) and type-based coloring
+
+📌 Status: All airspaces rendered. CTR drama avoided. Moroccan CAA blocked my IP — success confirmed.
+
+    💬 “Turns out drawing maps is harder than flying through them.” — Skye
+
 ### 🧾 The CAA Form Saga (April 2025)
 
 The CAA submission form was fully implemented using:
@@ -105,7 +120,7 @@ The CAA submission form was fully implemented using:
 
 This form is now the template for any future high-logic form on FlyMorocco or other apps.
 
-💬 “The amount of logic this form contains is unhealthy. But it's clean.” — Skye.cmd
+    💬 “The amount of logic this form contains is unhealthy. But it's clean.” — Skye
 
 ---
 

@@ -142,12 +142,54 @@
       "placeholder": "Bleu, blanc, vert, ..."
     }
   },
+
+  "tours": {
+    "title": "Tours with us",
+    "subtitle": "Discover Morocco with our organised tours in Morocco",
+    "calendar": "Tour Calendar",
+    "upcoming": "Upcoming Tours",
+    "book": "Book now",
+    "view": "View more",
+    "by": "by",
+    "available": "Available",
+    "full": "Full",
+    "toursDetails": {
+      "coastal": {
+        "focus": "Coastal flying, beach and sun",
+        "note": "Best for beginner/intermediate pilots and relaxing"
+      },
+      "mountain": {
+        "focus": "Mountain flying",
+        "note": "Best for all type of pilot from mountain taster to XC flying"
+      },
+      "axisAguergour": {
+        "focus": "Club pilot training (from basic flying to pilot novice skills)",
+        "note": "Course provided by Axis, BHPA School"
+      },
+      "axisMirleft": {
+        "focus": "Elementary pilot training (from zero to basic flying)",
+        "note": "Course provided by Axis, BHPA School"
+      },
+      "wellbeing": {
+        "focus": "Special wellbeing and paragliding retreat",
+        "note": "Best for beginner/intermediate pilots and relaxing"
+      },
+      "paradopia": {
+        "focus": "Coastal flying, beach and sun",
+        "note": "Best for beginner/intermediate pilots and relaxing. Provided by Paradopia."
+      }
+    }
+  },
+
   "siteGuides": {
     "title": "Free flying Sites in Morocco",
     "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
     "more": "More",
     "less": "Less",
+    "viewSite": "View Site",
     "featuring": "Today's featured site",
+    "siteMap": "Map of the site (and airspaces)",
+    "siteSelector": "Site presentation",
     "aglou": {
       "name": "Aglou",
       "region": "Tiznit",
@@ -178,10 +220,40 @@
       "flying": "The ridge is about 25km long, it is possible to takeoff at the bottom and soar all the way up to explore the whole ridge. Major powerlines are running in this region.",
       "hazards": "This site is directly located under the Fes TMA and local aviation may take place. Please refer to the airspace panel for further information."
     },
-    "tizi": {
+    "tizi-n-test": {
       "name": "Tizi-N-Test",
       "region": "High Atlas",
       "description": "Difficult High mountain site"
+    },
+    "ait-ourir": {
+      "name": "Ait Ourir",
+      "region": "High Atlas",
+      "description": "Near Marrakech"
+    },
+    "plage-blanche": {
+      "name": "Plage Blanche",
+      "region": "High Atlas",
+      "description": "Cool"
+    },
+    "nid-d-aigle": {
+      "name": "Nid d'Aigle",
+      "region": "High Atlas",
+      "description": "Awesome"
+    },
+    "mzouda": {
+      "name": "M'Zouda",
+      "region": "High Atlas",
+      "description": "Dusty"
+    },
+    "legzira": {
+      "name": "Legzira",
+      "region": "High Atlas",
+      "description": "Dusty"
+    },
+    "imsouane": {
+      "name": "Imsouane",
+      "region": "High Atlas",
+      "description": "Dusty"
     }
   }
 }

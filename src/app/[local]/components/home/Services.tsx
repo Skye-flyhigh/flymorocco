@@ -32,22 +32,23 @@ export default function Services() {
 
         <div className="grid gap-10 sm:grid-cols-3">
           {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <Link
-              key={service.key}
-              href={service.url}
-              className="bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center text-center"
-            >
+            const Icon = service.icon;
+            return (
+              <Link
+                key={service.key}
+                href={service.url}
+                className="bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center text-center"
+              >
                 <Icon className="w-10 h-10 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
-                {t(`${service.key}.title`)}
-              </h3>
-              <p className="text-gray-600 text-sm">
-                {t(`${service.key}.description`)}
-              </p>
-            </Link>
-          )})}
+                <h3 className="text-xl font-semibold mb-2">
+                  {t(`${service.key}.title`)}
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  {t(`${service.key}.description`)}
+                </p>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>

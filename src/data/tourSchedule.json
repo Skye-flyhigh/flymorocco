@@ -1,17 +1,88 @@
 [
-    {
-      "start": "2025-11-03",
-      "end": "2025-11-10",
-      "location": "Aguergour",
-      "status": "available",
-      "focus": "Thermal flying & ridge soaring",
-      "note": "Best for intermediate pilots"
-    },
-    {
-      "start": "2025-11-10",
-      "end": "2025-11-17",
-      "location": "Plage Blanche",
-      "status": "full",
-      "focus": "Ground handling and long XC"
-    }
-  ]
+  {
+    "start": "2025-11-02",
+    "end": "2025-11-08",
+    "slug": "/tours/coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2025-11-09",
+    "end": "2025-11-15",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisMirleft"
+  },
+  {
+    "start": "2025-11-16",
+    "end": "2025-11-22",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2025-11-23",
+    "end": "2025-11-29",
+    "slug": "/tours/mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2025-12-07",
+    "end": "2025-12-16",
+    "slug": "https://www.paradopia.de/",
+    "provider": "Paradopia",
+    "location": "Mirleft",
+    "icon": "tree-palm",
+    "status": "available",
+    "translationKey": "paradopia"
+  },
+  {
+    "start": "2026-02-22",
+    "end": "2026-02-28",
+    "slug": "/tours/mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2026-02-28",
+    "end": "2026-03-07",
+    "slug": "/tours/wellbeing",
+    "location": "Mirleft",
+    "icon": "hand-heart",
+    "status": "available",
+    "translationKey": "wellbeing"
+  },
+  {
+    "start": "2026-03-08",
+    "end": "2026-03-14",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisMirleft"
+  },
+  {
+    "start": "2026-03-15",
+    "end": "2026-03-21",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  }
+]

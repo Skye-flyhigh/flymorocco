@@ -1,3 +1,18 @@
+import { useTranslations } from "next-intl";
+import Hero from "../components/Hero";
+import TourCalendar from "../components/TourCalendar";
+
 export default function Page() {
-  return <div className="p-8">Coming Soon...</div>;
+  const t = useTranslations("tours");
+
+  return (
+    <main>
+      <Hero
+        title={t("title")}
+        subtitle={t("subtitle")}
+        img="/images/camel-1865x1415.jpg"
+      />
+      <TourCalendar nbWeeksDisplay={8} />
+    </main>
+  );
 }

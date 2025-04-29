@@ -1,5 +1,6 @@
 "use client";
 import { SiteMeta } from "@/lib/validation/siteMeta";
+import { extractImageDimensions } from "@/scripts/imageProcessing";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,33 +15,39 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
     siteDescription = siteDescription.substring(0, 120) + "...";
   }
 
+  const imagePath = site.image || `/images/fallback-1944x1944.jpeg`;
+  const { width, height } = extractImageDimensions(imagePath);
+
   return (
-    <div className="card bg-base-100 shadow-xl w-full min-w-96">
-      <figure>
+    <div className="card bg-base-100 shadow-xl h-full w-full min-w-96">
+      <figure className="aspect-video">
         <Image
-          src={site.image}
+          src={imagePath}
           alt={t(`${site.slug}.name`)}
-          width={800}
-          height={500}
-          className="card-side object-cover aspect-auto"
+          width={width}
+          height={height}
+          className="card-side object-cover"
         />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{t(`${site.slug}.name`)}</h2>
-        <p className="text-sm text-gray-500">{t(`${site.slug}.region`)}</p>
-        <p className="prose">{siteDescription}</p>
+        <p className="text-sm text-neutral">{t(`${site.slug}.region`)}</p>
+        <div id="desc-ctn" className="flex">
+          <p className="prose">{siteDescription}</p>
+        </div>
         <button
-          className="link"
+          className="link self-end"
           onClick={() => setShowFullDescription((prevState) => !prevState)}
         >
           {showFullDescription ? t("less") : t("more")}
         </button>
+
         <div className="card-actions justify-end">
           <Link
             href={`/site-guides/${site.slug}`}
             className="btn btn-primary btn-sm"
           >
-            View Site
+            {t("viewSite")}
           </Link>
         </div>
       </div>

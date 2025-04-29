@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Navbar() {
   const t = useTranslations("nav");
   return (
-    <div className="navbar glass fixed z-50">
+    <div className="fixed top-0 left-0 w-full z-[1000] glass shadow-md">
       <div className="navbar-start">
         <Link
           href="/"

@@ -2,11 +2,10 @@
 import { useTranslations } from "next-intl";
 import Carousel from "./components/Carousel";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Parallax } from "react-scroll-parallax";
 import Services from "./components/home/Services";
-import FeaturedSites from "./components/home/FeaturedSites";
-import TourCalendar from "./components/home/TourCalendar";
+import FeaturedSites from "./components/FeaturedSites";
+import TourCalendar from "./components/TourCalendar";
 import Testimonials from "./components/home/Testimonials";
 import Explore from "./components/home/Explore";
 
@@ -87,24 +86,29 @@ export default function HomePage() {
       alt: "Sunset glide over Agafay desert",
     },
   ];
-  const [activeHeroIndex, setActiveHeroIndex] = useState(() =>
-    Math.floor(Math.random() * heroImages.length),
-  );
+  const [activeHeroIndex, setActiveHeroIndex] = useState<number | null>(null);
   const [fadeIn, setFadeIn] = useState(false);
 
   useEffect(() => {
+    const randomIndex = Math.floor(
+      Math.floor(Math.random() * heroImages.length),
+    );
+    setActiveHeroIndex(randomIndex);
     setFadeIn(true);
     const interval = setInterval(() => {
       setFadeIn(false);
       setTimeout(() => {
-        setActiveHeroIndex((prev) => (prev + 1) % heroImages.length);
+        setActiveHeroIndex((prev) =>
+          prev !== null ? (prev + 1) % heroImages.length : 0,
+        );
         setFadeIn(true);
       }, 500); // delay to allow fade-out before switching image
     }, 7500); // every 10 seconds
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  const currentHeroImage = heroImages[activeHeroIndex];
+  const currentHeroImage =
+    activeHeroIndex !== null ? heroImages[activeHeroIndex] : heroImages[0];
 
   return (
     <>
@@ -139,7 +143,7 @@ export default function HomePage() {
       <Explore />
       <Services />
       <FeaturedSites />
-      <TourCalendar />
+      <TourCalendar nbWeeksDisplay={4} />
       <Testimonials />
     </>
   );
