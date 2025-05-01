@@ -16,7 +16,7 @@ export default function Page() {
         id="about"
         className="p-5 max-w-screen bg-base-100 flex justify-center items-center"
       >
-        <div className="card sm:card-side bg-base-100 m-5 max-w-2xl transition-all duration-500 flex-col">
+        <div className="card sm:card-side shadow-lg bg-base-100 m-5 max-w-2xl transition-all duration-500 flex-col">
           <div className="card-body sm:max-w-1/2 justify-between">
             <article className="about prose">
               {t.rich("skye-description", {

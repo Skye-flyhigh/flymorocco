@@ -33,13 +33,14 @@ export default function SiteGuidesPage() {
       />
       <div className="py-20">
         <FeaturedSites />
-        <section id="map" className="w-fit py-10 m-auto">
-          <h2 className="section-title">{t("siteMap")}</h2>
+        <section id="map" className="w-fit pt-10 m-auto">
+          <h2 className="section-title">{t("siteMap.title")}</h2>
+          <p className="section-subtitle">{t("siteMap.subtitle")}</p>
           <div
             id="container"
             className="w-full flex flex-col justify-center items-center py-10 relative"
           >
-            <SiteMapContainer />
+            <SiteMapContainer zoom={6} lat={29.5} lon={-9.5} />
           </div>
         </section>
       </div>

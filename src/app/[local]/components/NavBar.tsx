@@ -5,12 +5,9 @@ import Image from "next/image";
 export default function Navbar() {
   const t = useTranslations("nav");
   return (
-    <div className="fixed top-0 left-0 w-full z-[1000] glass shadow-md">
-      <div className="navbar-start">
-        <Link
-          href="/"
-          className="btn btn-ghost text-xl flex items-center gap-2"
-        >
+    <div className="fixed top-0 left-0 w-full z-[1000] glass shadow-md flex items-center">
+      <div className="navbar-start ml-4">
+        <Link href="/" className="btn btn-ghost text-xl my-auto">
           <Image
             src="/images/FMorocco-logo-single-transparent-color.svg"
             alt="Flymorocco Logo"

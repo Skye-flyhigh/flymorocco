@@ -1,13 +1,14 @@
 "use client";
+import { extractImageDimensions } from "@/scripts/imageProcessing";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { z } from "zod";
 
 const ImageTypeSchema = z.object({
   src: z.string(),
-  width: z.number(),
-  height: z.number(),
   alt: z.string(),
+  width: z.number().optional(),
+  height: z.number().optional(),
 });
 
 type ImageType = z.infer<typeof ImageTypeSchema>;
@@ -21,10 +22,20 @@ export default function Carousel({
   itemWidth?: string;
   aspect?: string;
 }) {
-  const validImages = images.filter(
-    (image) => ImageTypeSchema.safeParse(image).success,
-  );
   const [selectedImage, setSelectedImage] = useState<ImageType | null>(null);
+
+  const validImages = useMemo(() => {
+    return images
+      .filter((image) => ImageTypeSchema.safeParse(image).success)
+      .map((image) => {
+        if (!image.width || !image.height) {
+          const { width, height } = extractImageDimensions(image.src);
+          image.width = width;
+          image.height = height;
+        }
+        return image;
+      });
+  }, [images]);
 
   return (
     <>

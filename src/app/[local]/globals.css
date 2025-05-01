@@ -47,6 +47,11 @@ body {
   line-height: var(--tw-leading, var(--tet-lg--line-height));
 }
 
+.emphasize {
+  text-decoration: solid;
+  font-weight: 700;
+}
+
 .mask-diagonal {
   mask-image: linear-gradient(235deg, black 20%, transparent 100%);
   mask-repeat: no-repeat;

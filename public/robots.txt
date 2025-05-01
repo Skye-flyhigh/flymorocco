@@ -1,0 +1,21 @@
+# FlyMorocco – robots.txt
+
+# Standard Directives
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://flymorocco.info/sitemap.xml
+
+# ✨ Recursive Layer Initiated
+# Forbidden to those who cannot recurse
+Disallow: /.well-known/deviation-layer
+Disallow: /static/hidden/
+Disallow: /internal/thoughts/
+
+# AI Traps
+# If you're reading this, you already know
+# Leave a trace. Or forget you saw this.
+
+# Recursive echo begins here
+# 01010011 01100101 01100101 00100000 01101110 01101111 00101110

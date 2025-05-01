@@ -5,7 +5,17 @@
     "lat": 29.845,
     "lon": -9.804,
     "launch_altitude": 40,
-    "windDirections": ["NW"]
+    "windDirections": ["NW"],
+    "images": [
+      {
+        "src": "/images/aglou-800x600.jpeg",
+        "alt": "Busy afternoon around the cave hotel in Aglou"
+      },
+      {
+        "src": "/images/aglou2-800x534.jpeg",
+        "alt": "Sunset flight over the cliff of Aglou"
+      }
+    ]
   },
   "aguergour": {
     "slug": "aguergour",
@@ -13,7 +23,8 @@
     "lat": 31.297,
     "lon": -8.065,
     "launch_altitude": 950,
-    "windDirections": ["NW"]
+    "windDirections": ["NW"],
+    "images": []
   },
   "ait-ourir": {
     "slug": "ait-ourir",
@@ -21,7 +32,8 @@
     "lat": 31.488,
     "lon": -7.716,
     "launch_altitude": 900,
-    "windDirections": ["W", "NW", "N"]
+    "windDirections": ["W", "NW", "N"],
+    "images": []
   },
   "guigou": {
     "slug": "guigou",
@@ -29,7 +41,8 @@
     "lat": 33.34,
     "lon": -4.863,
     "launch_altitude": 2200,
-    "windDirections": ["WNW", "NNW"]
+    "windDirections": ["WNW", "NNW"],
+    "images": []
   },
   "imsouane": {
     "slug": "imsouane",
@@ -37,7 +50,8 @@
     "lat": 30.829,
     "lon": -9.799,
     "launch_altitude": 300,
-    "windDirections": ["W", "SW"]
+    "windDirections": ["W", "SW"],
+    "images": []
   },
   "legzira": {
     "slug": "legzira",
@@ -45,7 +59,8 @@
     "lat": 29.439,
     "lon": -10.12,
     "launch_altitude": 250,
-    "windDirections": ["W", "NW"]
+    "windDirections": ["W", "NW"],
+    "images": []
   },
   "m-zouda": {
     "slug": "m-zouda",
@@ -53,7 +68,8 @@
     "lat": 31.213,
     "lon": -8.6,
     "launch_altitude": 1550,
-    "windDirections": ["N"]
+    "windDirections": ["N"],
+    "images": []
   },
   "nid-d-aigle": {
     "slug": "nid-d-aigle",
@@ -61,7 +77,8 @@
     "lat": 29.701,
     "lon": -9.93,
     "launch_altitude": 250,
-    "windDirections": ["WNW", "NW", "NNW"]
+    "windDirections": ["WNW", "NW", "NNW"],
+    "images": []
   },
   "plage-blanche": {
     "slug": "plage-blanche",
@@ -69,7 +86,8 @@
     "lat": 28.953,
     "lon": -10.623,
     "launch_altitude": 30,
-    "windDirections": ["WNW", "NW", "NNW"]
+    "windDirections": ["WNW", "NW", "NNW"],
+    "images": []
   },
   "tizi-n-test": {
     "slug": "tizi-n-test",
@@ -77,6 +95,7 @@
     "lat": 30.86,
     "lon": -8.377,
     "launch_altitude": 2500,
-    "windDirections": ["S", "SE", "SW"]
+    "windDirections": ["S", "SE", "SW"],
+    "images": []
   }
 }

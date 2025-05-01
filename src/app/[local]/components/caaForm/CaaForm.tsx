@@ -64,7 +64,7 @@ export default function CaaForm() {
     success: false,
   });
 
-  const { startDate, endDate } = currState.formData?.trip; //FIXME: this is not defined, we will have to have onChange
+  const { startDate, endDate } = currState.formData?.trip;
 
   //Validate date entry
   useEffect(() => {
@@ -85,7 +85,7 @@ export default function CaaForm() {
 
   //Global form styling for uniformity
   const sectionStyle =
-    "flex flex-wrap items-start @md:flex-col bg-base-100 border-base-300 border mb-4";
+    "flex sm:flex-row flex-wrap flex-col bg-base-100 border-base-300 border mb-4";
   const fieldsetStyle =
     "m-auto min-w-96 fieldset mb-8 p-7 w-xs bg-base-200 border border-base-300";
   const fieldsetLegend = "fieldset-legend text-xl";
@@ -95,7 +95,7 @@ export default function CaaForm() {
     `${inputClassName} ${inputErrors[field] ? "input-error" : ""}`;
 
   return (
-    <section id="CAAform" className="w-screen bg-amber-200 flex">
+    <section id="CAAform" className="w-screen bg-base-200 flex">
       <form className="flex flex-col min-w-11/12 bg-background p-5 m-6 rounded-box text-lg">
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("title")}

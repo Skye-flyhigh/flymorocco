@@ -188,13 +188,20 @@
     "less": "Less",
     "viewSite": "View Site",
     "featuring": "Today's featured site",
-    "siteMap": "Map of the site (and airspaces)",
+    "takeoff": "Take-off",
+    "landing": "Landing",
+    "flying": "Flying",
+    "hazard": "Hazard",
+    "siteMap": {
+      "title": "Map of the site (and airspaces)",
+      "subtitle": "Below is presented the map of the airspaces (up to FL190) and the paragliding sites."
+    },
     "siteSelector": "Site presentation",
     "aglou": {
       "name": "Aglou",
       "region": "Tiznit",
       "description": "Aglou is a great playground for paragliding pilots. It is amazing to practice ground handling, takeoffs and landings. The craziest one even practices wagga!",
-      "long-description": "It is an amazing site which works all year around in Morocco especially when there is good sea breeze from NW. To access to this site you'll have to do some dune driving which include soft sands. Many vehicles get stuck there, especially when it's your first time driving around. But with extra help and some human power can take a car out of this situation.",
+      "longDescription": "It is an amazing site which works all year around in Morocco especially when there is good sea breeze from NW. To access to this site you'll have to do some dune driving which include soft sands. Many vehicles get stuck there, especially when it's your first time driving around. But with extra help and some human power can take a car out of this situation.",
       "takeoff": "Aglou is a big dune that can be flown on a very long stretch. You'll be flying over the cave house where seasonal fishing communities live. There is some local rock to avoid but it is extremely easy takeoff.",
       "landing": "Landing can be done anywhere except in the cave house terraces and gardens. It can be done at the bottom on the beach, on the slope of the dune or top landing.",
       "flying": "It is a coastal site and has a very laminar flow which make it a perfect beginner site. ",
@@ -204,7 +211,7 @@
       "name": "Aguergour",
       "region": "Marrakech",
       "description": "Aguergour is one of the most famous site in Morocco, it is located only an hour away from Marrakech. It is an easy site with a designated take off area and landing zone.",
-      "long-description": "From Marrakech, take the direction to Lalla Takerkouste. Once in Lalla Takerkouste, you'll need to follow Moulay Brahim/Ouzguita direction. Take off is accessible with a 4x4 or a high car but it can steep and tricky to access. Two clubs operate on this site, Aguergour Eagles and Vol Libre",
+      "longDescription": "From Marrakech, take the direction to Lalla Takerkouste. Once in Lalla Takerkouste, you'll need to follow Moulay Brahim/Ouzguita direction. Take off is accessible with a 4x4 or a high car but it can steep and tricky to access. Two clubs operate on this site, Aguergour Eagles and Vol Libre",
       "takeoff": "The takeoff is only accessible by foot after a 20 to 30min walk up through goat tracks. The ridge is very steep/cliff on most of its length and takeoff can be performed all along the ridge but there is only two area where it is relatively easy to takeoff from. The takeoff is rocky ready to catch one or two lines.",
       "landing": "There is no official landing area but most people will land on the far west where you start to walk from. You may land anywhere suitable bearing in mind that the ground is not flat at the bottom.",
       "flying": "This sites need an authorisation from the CAA and local government to fly (Free flying rules). Requirement - Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17. The ridge can be soared all on its length. The site is a spine ridge and will present rotors on the lee side.",
@@ -214,7 +221,7 @@
       "name": "Guigou",
       "region": "Ifrane",
       "description": "Guigou is one of the most spectacular site in the Mid Atlas area. This area is one of the coldest area of Morocco, it snows every winter.",
-      "long-description": "On the map above, you'll find a good part of Guigou's ridge. The parking is in the plain and the takeoff can be done anywhere on the first third up the slope. You'll be soaring back up the slope to fly this site. There is possibilities for takeoff at the top but at the moment it is only goat tracks. Landing is in the plain avoiding the onions fields.",
+      "longDescription": "On the map above, you'll find a good part of Guigou's ridge. The parking is in the plain and the takeoff can be done anywhere on the first third up the slope. You'll be soaring back up the slope to fly this site. There is possibilities for takeoff at the top but at the moment it is only goat tracks. Landing is in the plain avoiding the onions fields.",
       "takeoff": "Takeoff will be done either the first third up the slope or from the top after following goat tracks.",
       "landing": "Landing can be done anywhere minding cultures and lands. Take care for local powerlines.",
       "flying": "The ridge is about 25km long, it is possible to takeoff at the bottom and soar all the way up to explore the whole ridge. Major powerlines are running in this region.",
@@ -240,7 +247,7 @@
       "region": "High Atlas",
       "description": "Awesome"
     },
-    "mzouda": {
+    "m-zouda": {
       "name": "M'Zouda",
       "region": "High Atlas",
       "description": "Dusty"

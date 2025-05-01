@@ -9,7 +9,15 @@ import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, GeoJSON } from "react-leaflet";
 import { Feature } from "geojson";
 
-export default function SiteMapContainer() {
+export default function SiteMapContainer({
+  zoom,
+  lat,
+  lon,
+}: {
+  zoom: number;
+  lat: number;
+  lon: number;
+}) {
   const t = useTranslations("siteGuides");
   const [geojsonData, setGeojsonData] = useState<any>(null);
   const [airspaceToggle, setAirspaceToggle] = useState<boolean>(false);
@@ -125,7 +133,7 @@ export default function SiteMapContainer() {
   }
 
   return (
-    <div className="sm:w-[800px] h-[700px] w-[350px] rounded-lg shadow z-0 relative">
+    <div className=" h-[700px] sm:w-[600px] md:w-[800px] w-[350px]rounded-lg shadow z-0 relative">
       <div
         id="legend"
         aria-label="Map Legend"
@@ -190,10 +198,10 @@ export default function SiteMapContainer() {
       </div>
 
       <MapContainer
-        center={[29.5, -9.5]}
-        zoom={6}
+        center={[lat, lon]}
+        zoom={zoom}
         scrollWheelZoom={true}
-        className="sm:w-[800px] h-[700px] w-[350px] rounded-lg"
+        className="h-[700px] md:w-[800px] sm:w-[600px] w-[350px] rounded-lg"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

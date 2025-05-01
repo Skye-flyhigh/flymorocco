@@ -8,6 +8,7 @@ const SiteMetaSchema = z.object({
   lon: z.number(),
   launch_altitude: z.number(),
   windDirections: z.array(z.string()),
+  images: z.array(z.object({ src: z.string(), alt: z.string() })),
 });
 
 const SiteMetaMapSchema = z.record(SiteMetaSchema);
