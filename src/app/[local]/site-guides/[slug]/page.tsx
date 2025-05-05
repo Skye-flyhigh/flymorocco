@@ -6,18 +6,17 @@ import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import { extractImageDimensions } from "@/scripts/imageProcessing";
 import MissingMountain from "../../components/siteGuides/MissingMountain";
+import fs from 'fs';
+import path from 'path';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string; local: string };
-}): Promise<Metadata> {
-  const { slug, local } = await params;
-
+export async function generateMetadata({ params }: { params: { slug: string; local: string } }): Promise<Metadata> {
+  const { slug, local } = params;
   const meta = getSiteMeta(slug);
-  if (!meta) return { title: "Not Found" };
+  if (!meta) return { title: 'Not Found' };
 
-  const messages = (await import(`../../../../../../messages/${local}.json`)).default;
+  const filePath = path.join(process.cwd(), 'messages', `${local}.json`);
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  const messages = JSON.parse(raw);
   const t = messages.siteGuides?.[slug];
 
   return {
