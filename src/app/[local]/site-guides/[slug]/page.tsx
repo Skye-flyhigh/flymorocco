@@ -17,7 +17,7 @@ export async function generateMetadata({
   const meta = getSiteMeta(slug);
   if (!meta) return { title: "Not Found" };
 
-  const messages = (await import(`@messages/${local}.json`)).default;
+  const messages = (await import(`../../../../../../messages/${local}.json`)).default;
   const t = messages.siteGuides?.[slug];
 
   return {
