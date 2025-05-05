@@ -40,12 +40,7 @@
   "testimonials": {
     "title": "What our customers say about us?"
   },
-  "rules": {
-    "title": "Rules of free flying in Morocco",
-    "subtitle": "In order to fly in Morocco, you are require to apply for a flight authorisation from the CAA, abide by the airspaces and follow the local flying rules.",
-    "airspaces": {},
-    "authorisation": {}
-  },
+
   "about": {
     "title": "About Us",
     "subtitle": "The team behind Flymorocco",
@@ -65,6 +60,36 @@
       "description": "Famous takeoff, hotel and restaurant in the South of Morocco"
     }
   },
+
+  "rules": {
+    "title": "Flying Legally in Morocco",
+    "subtitle": "Everything you need to fly safely and legally—airspace downloads, flight declarations, and required forms.",
+    "rulesNav": {
+      "title": "Flying requirements",
+      "requirements": "In order to fly in Morocco, there are few requirements to meet: current third party liability, apply for free flying authorisation, fly in designated areas"
+    },
+    "qna": {
+      "title": "FAQ",
+      "subtitle": "Frequently asked questions."
+    },
+    "q2": {
+      "q": "Do I need permission to fly XC?",
+      "a": "You are allowed to fly XC within the designated areas."
+    },
+    "q1": {"q": "What happens if I fly without authorisation?" , "a": "Flying without permission may result in legal consequences or restrictions from local authorities. It’s not worth the risk—always apply."},
+    "q3": {"q": "How do I submit the authorisation form (Annexe 2/4)?", "a": "Print your completed form and submit it to the CAA office in Rabat. Some local clubs may offer assistance with the process."},
+    "q4": {"q": "Are radios allowed?", "a": "Bringing aviation radios (VHF/2m band) into Morocco is officially restricted."},
+    "q5": {"q": "What do to in case the CAA doesn't respond?", "a": "If you submitted your application at least 30 days before your trip and received no reply, tacit approval applies by law."},
+    "airspaces": {
+      "title": "Airspaces",
+      "description": "Find out about restricted and open flying areas."
+    },
+    "authorisation": {
+      "title": "Authorisation",
+      "description": "Filling up the information that Moroccan authorities need for the authorisation."
+    }
+  },
+
   "caaForm": {
     "title": "Civil Aviation Authority form",
     "submitSuccess": "Data submitted successfully!",
@@ -193,10 +218,16 @@
     "flying": "Flying",
     "hazard": "Hazard",
     "siteMap": {
-      "title": "Map of the site (and airspaces)",
+      "title": "Map of the sites and airspaces",
       "subtitle": "Below is presented the map of the airspaces (up to FL190) and the paragliding sites."
     },
     "siteSelector": "Site presentation",
+    "lostMountain": {
+      "question": "Are you lost?",
+      "wanderer": "It seems like you've wandered off the beaten path.",
+      "disappearance": "The page you're looking for might have moved or no longer exists.",
+      "goBack": "Route to takeoff"
+    },
     "aglou": {
       "name": "Aglou",
       "region": "Tiznit",

@@ -7,7 +7,7 @@ const services = [
   {
     key: "siteGuides",
     url: "/site-guides",
-    icon: MapPinned, // Place SVG or PNG in public/icons/
+    icon: MapPinned,
   },
   {
     key: "tours",
@@ -30,14 +30,14 @@ export default function Services() {
         <h2 className="section-title">{t("title")}</h2>
         <p className="section-subtitle">{t("subtitle")}</p>
 
-        <div className="grid gap-10 sm:grid-cols-3">
+        <div className={`grid gap-10 sm:grid-cols-3 justify-items-center`}>
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <Link
                 key={service.key}
                 href={service.url}
-                className="bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center text-center"
+                className="max-w-96 bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center h-full text-center"
               >
                 <Icon className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-semibold mb-2">

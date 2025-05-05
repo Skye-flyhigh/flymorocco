@@ -5,8 +5,8 @@ import Hero from "../components/Hero";
 import SiteCard from "../components/siteGuides/SiteCard";
 import { SiteMeta, siteMeta } from "@/lib/validation/siteMeta";
 import FeaturedSites from "../components/FeaturedSites";
-import SiteMapContainer from "../components/siteGuides/SiteMapContainer";
 import { useState } from "react";
+import SiteMapSection from "../components/SiteMapSection";
 
 export default function SiteGuidesPage() {
   const t = useTranslations("siteGuides");
@@ -31,19 +31,8 @@ export default function SiteGuidesPage() {
         subtitle={t("subtitle")}
         img="/images/ouizen-2310x1440.jpg"
       />
-      <div className="py-20">
-        <FeaturedSites />
-        <section id="map" className="w-fit pt-10 m-auto">
-          <h2 className="section-title">{t("siteMap.title")}</h2>
-          <p className="section-subtitle">{t("siteMap.subtitle")}</p>
-          <div
-            id="container"
-            className="w-full flex flex-col justify-center items-center py-10 relative"
-          >
-            <SiteMapContainer zoom={6} lat={29.5} lon={-9.5} />
-          </div>
-        </section>
-      </div>
+      <FeaturedSites />
+      <SiteMapSection />
       <section className="w-screen p-10">
         <div
           id="titles"
@@ -77,7 +66,7 @@ export default function SiteGuidesPage() {
         </div>
         <div
           id="container"
-          className="max-w-screen flex flex-row flex-wrap justify-evenly gap-3 transition-all"
+          className="max-w-screen flex flex-row flex-wrap justify-evenly gap-3 transition-all pt-5"
         >
           {Object.values(siteMeta)
             .filter((site) =>

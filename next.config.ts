@@ -1,7 +1,21 @@
 import { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import type { Configuration } from 'webpack';
+import path from "path";
 
 const nextConfig: NextConfig = {
+  webpack(config: Configuration) {
+    // Ensure 'resolve' exists
+    config.resolve ??= {};
+
+    // Ensure 'alias' exists and cast it as a string-keyed object
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "@messages": path.resolve(__dirname, "messages"),
+    } as Record<string, string>;
+
+    return config;
+  },
   images: {
     remotePatterns: [
       {

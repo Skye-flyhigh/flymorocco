@@ -5,6 +5,7 @@ import { getSiteMeta } from "@/lib/site";
 import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import { extractImageDimensions } from "@/scripts/imageProcessing";
+import MissingMountain from "../../components/siteGuides/MissingMountain";
 
 export async function generateMetadata({
   params,
@@ -33,10 +34,9 @@ export default function SiteGuidePage({
   const { slug } = params;
   const meta = getSiteMeta(slug);
   const t = useTranslations("siteGuides");
+  if (!meta || !slug) return <MissingMountain />;
 
   const { width, height } = extractImageDimensions(meta.image);
-
-  if (!meta || !slug) return <div>Not found</div>; //TODO: Make something really cool when it's not found. A little easter egg? :)
 
   return (
     <>

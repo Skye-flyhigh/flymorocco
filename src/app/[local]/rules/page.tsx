@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Hero from "../components/Hero";
-import CaaForm from "../components/caaForm/CaaForm";
+import RulesNav from "../components/rules/RulesNav";
+import RulesQnA from "../components/rules/RulesQnA";
 
 export default function Page() {
   const t = useTranslations("rules");
@@ -11,9 +12,8 @@ export default function Page() {
         subtitle={t("subtitle")}
         img="/images/kik-800x533.jpg"
       />
-      <section>
-        <CaaForm />
-      </section>
+      <RulesNav />
+      <RulesQnA />
     </main>
   );
 }
