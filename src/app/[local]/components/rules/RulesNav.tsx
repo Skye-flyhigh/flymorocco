@@ -1,4 +1,4 @@
-import { Map, NotepadText } from "lucide-react";
+import { Map, MoveRight, NotepadText } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -6,12 +6,12 @@ const rules = [
   {
     key: "airspaces",
     icon: Map,
-    btn: "primary"
+    colour: "primary"
   },
   {
     key: "authorisation",
     icon: NotepadText,
-    btn: "secondary"
+    colour: "secondary"
   },
 ];
 
@@ -34,16 +34,22 @@ export default function RulesNav() {
             <Link
               key={rule.key}
               href={`/rules/${rule.key}`}
-              className="bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center text-center h-full max-w-96"
+              className="group bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all w-full h-full max-w-96 flex flex-col justify-between"
             >
-              <Icon className="w-10 h-10 text-primary mb-4" />
+              <div id="content" className="flex flex-col items-center text-center">
+              <Icon className={`w-10 h-10 text-${rule.colour} mb-4`} />
               <h3 className="text-xl font-semibold mb-2">
                 {t(`${rule.key}.title`)}
               </h3>
               <p className="text-gray-600 text-sm">
                 {t(`${rule.key}.description`)}
               </p>
-              <button className={`btn btn-${rule.btn}`}>{t(`${rule.key}.title`)}</button>
+
+              </div>
+              <div className="flex justify-end items-center mt-6 text-neutral text-xs">
+                <p className="group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 opacity-0 mr-2">{t("rulesNav.view")}</p>
+              <MoveRight size={26} className="group-hover:translate-x-2 transition-transform duration-300"/>
+              </div>
             </Link>
           );
         })}

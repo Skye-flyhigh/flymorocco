@@ -1,7 +1,10 @@
-import { useTranslations } from "next-intl";
+import CaaForm from "../../components/rules/CaaForm";
 
 export default function Page() {
-  const t = useTranslations("rules");
 
-  return <div>Authorisation</div>;
+  return (
+  <main>
+    <CaaForm />
+  </main>
+  );
 }

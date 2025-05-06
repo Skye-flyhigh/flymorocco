@@ -66,7 +66,8 @@
     "subtitle": "Everything you need to fly safely and legally—airspace downloads, flight declarations, and required forms.",
     "rulesNav": {
       "title": "Flying requirements",
-      "requirements": "In order to fly in Morocco, there are few requirements to meet: current third party liability, apply for free flying authorisation, fly in designated areas"
+      "requirements": "In order to fly in Morocco, there are few requirements to meet: current third party liability, apply for free flying authorisation, fly in designated areas",
+      "view": "View more"
     },
     "qna": {
       "title": "FAQ",
@@ -87,6 +88,21 @@
     "authorisation": {
       "title": "Authorisation",
       "description": "Filling up the information that Moroccan authorities need for the authorisation."
+    },
+    "download": {
+      "sia": "Moroccan Civil Aviation Regulation",
+      "vfrMaps": "Official document source. Please refer to this document for legal purposes.",
+      "openair": {
+        "title": "OpenAir format",
+        "subtitle": "OpenAir format to plot airspaces in your flight instruments. Please refer to the official source for updated version of the airspaces.",
+        "name": "Name",
+        "description": "Description",
+        "format": "File format",
+        "size": "Size",
+        "update": "Last update",
+        "link": "Links",
+        "download": "Download"
+      }
     }
   },
 
