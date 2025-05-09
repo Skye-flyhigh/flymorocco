@@ -31,6 +31,9 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - [Zod](https://zod.dev/?id=objects) to break my app again
 - [React Leaflet](https://react-leaflet.js.org/), who does like a good map?
 - [OpenAir parser](https://www.npmjs.com/package/@openaip/openair-parser?activeTab=readme), need content for map
+- [pdf-lib](https://www.npmjs.com/package/pdf-lib), advanced pdf generation 📝
+- [sendGrid](https://www.npmjs.com/package/@sendgrid/mail), to send the advanced pdfs
+- [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax), smooth
 
 ---
 

@@ -1,9 +1,9 @@
 import * as fs from "fs";
 import path from "path";
 import { PDFDocument } from "pdf-lib";
-import { FormData } from "../validation/CaaFormdata";
+import { Annex2Type } from "../validation/CaaFormdata";
 
-export default async function generateAnnexe2(formData: FormData) {
+export default async function generateAnnexe2(formData: Annex2Type) {
   const { firstName, lastName } = formData.identification;
   const fullName = `${firstName} ${lastName}`;
   const todayStr = new Date().toLocaleDateString("fr-FR");
@@ -22,14 +22,16 @@ export default async function generateAnnexe2(formData: FormData) {
 
   form.flatten(); // makes fields non-editable
 
+  const fileName = `annexe2-filled-${Date.now()}.pdf`;
   const pdfBytes = await pdfDoc.save();
-  const outputPath = path.join(
-    process.cwd(),
-    "tmp",
-    `annexe2-filled-${Date.now()}.pdf`,
-  );
+  const outputPath = path.join(process.cwd(), "tmp", fileName);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, pdfBytes);
 
   console.log("✅ Annexe 2 PDF filled:", outputPath);
+
+  return {
+    fileName,
+    outputPath,
+  };
 }

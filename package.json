@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@openaip/openair-parser": "^2.0.3",
+    "@sendgrid/mail": "^8.1.5",
     "date-fns": "^4.1.0",
     "fs": "^0.0.1-security",
     "leaflet": "^1.9.4",
@@ -24,6 +25,7 @@
     "react-dom": "^19.0.0-rc.1",
     "react-leaflet": "^5.0.0-rc.2",
     "react-scroll-parallax": "^3.4.5",
+    "resend": "^4.5.1",
     "zod": "^3.24.2"
   },
   "devDependencies": {

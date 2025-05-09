@@ -1,10 +1,13 @@
 import { PDFDocument, PDFFont, rgb, StandardFonts } from "pdf-lib";
-import { FormData } from "../validation/CaaFormdata";
+import {
+  FullFormSchemaType,
+  GliderSchemaType,
+} from "../validation/CaaFormdata";
 import zones from "@/data/CAA_Paragliding_Zones_SRZ.json";
 import path from "path";
 import fs from "fs";
 
-export default async function generateAnnexe4(formData: FormData) {
+export default async function generateAnnexe4(formData: FullFormSchemaType) {
   const participants = formData.participants;
 
   // Create a new PDF document
@@ -208,15 +211,23 @@ export default async function generateAnnexe4(formData: FormData) {
   };
 
   if (participants) {
-    participants.forEach(({ insuranceValidity, glider }) => {
-      cursorY = renderAppareilRow(
-        glider.gliderManufacturer,
-        glider.gliderModel,
-        glider.gliderSize,
-        glider.gliderColors,
+    participants.forEach(
+      ({
         insuranceValidity,
-      );
-    });
+        glider,
+      }: {
+        insuranceValidity: Date;
+        glider: GliderSchemaType;
+      }) => {
+        cursorY = renderAppareilRow(
+          glider.gliderManufacturer,
+          glider.gliderModel,
+          glider.gliderSize,
+          glider.gliderColors,
+          insuranceValidity,
+        );
+      },
+    );
   }
   cursorY -= 20;
 
@@ -255,7 +266,17 @@ export default async function generateAnnexe4(formData: FormData) {
 
   if (participants) {
     participants.forEach(
-      ({ lastName, firstName, passportNumber, nationality }) => {
+      ({
+        lastName,
+        firstName,
+        passportNumber,
+        nationality,
+      }: {
+        lastName: string;
+        firstName: string;
+        passportNumber: string;
+        nationality: string;
+      }) => {
         const fullName = `${lastName} ${firstName}`;
         cursorY = renderParticipantRow(fullName, passportNumber, nationality);
       },
@@ -386,13 +407,15 @@ export default async function generateAnnexe4(formData: FormData) {
   // **************** PDF Save ******************
   const pdfBytes = await pdfDoc.save();
   // Output to a file in the tmp directory for testing
-  const outputPath = path.join(
-    process.cwd(),
-    "tmp",
-    `annexe4-filled-${Date.now()}.pdf`,
-  );
+  const fileName = `annexe4-filled-${Date.now()}.pdf`;
+  const outputPath = path.join(process.cwd(), "tmp", fileName);
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, pdfBytes);
 
   console.log("✅ Annexe 4 PDF filled:", outputPath);
+
+  return {
+    fileName,
+    outputPath,
+  };
 }

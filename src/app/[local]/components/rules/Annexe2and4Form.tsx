@@ -1,8 +1,10 @@
 "use client";
 
 import {
-  FormDataSchema,
+  FormData,
+  FormDataMapSchema,
   ParticipantSchema,
+  ParticipantType,
 } from "@/lib/validation/CaaFormdata";
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
 import { useActionState, useEffect, useState } from "react";
@@ -13,17 +15,18 @@ import { BadgeCheck, CircleX } from "lucide-react";
 import AddParticipants from "./AddParticipants";
 
 //Form
-export default function CaaForm() {
-  const t = useTranslations("caaForm");
+export default function Annexe2and4Form() {
+  const t = useTranslations("rules");
 
   const { pending } = useFormStatus();
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
-  const [participantData, setParticipantData] = useState<
+  const [participants, setParticipants] = useState<
     (typeof ParticipantSchema)[]
   >([]);
   const [inputErrors, setInputErrors] = useState<Record<string, string>>({});
 
-  const initialValues = {
+  const initialValues: FormData = {
+    formType: "annexe2and4",
     identification: {
       firstName: "",
       lastName: "",
@@ -47,10 +50,10 @@ export default function CaaForm() {
       gliderColors: "",
     },
     siteSelection,
-    participantData,
+    participants,
   };
 
-  const result = FormDataSchema.safeParse(initialValues);
+  const result = FormDataMapSchema.safeParse(initialValues);
   if (!result.success) {
     console.error(
       "🚨 Form initialValues do not match schema:",
@@ -71,7 +74,7 @@ export default function CaaForm() {
     if (startDate && endDate && new Date(endDate) < new Date(startDate)) {
       setInputErrors((prev) => ({
         ...prev,
-        endDate: t("dateError"),
+        endDate: t("form.dateError"),
       }));
     } else {
       setInputErrors((prev) => {
@@ -83,22 +86,15 @@ export default function CaaForm() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startDate, endDate]);
 
-  //Global form styling for uniformity
-  const sectionStyle =
-    "flex sm:flex-row flex-wrap flex-col bg-base-100 border-base-300 border mb-4";
-  const fieldsetStyle =
-    "m-auto min-w-96 fieldset mb-8 p-7 w-xs bg-base-200 border border-base-300";
-  const fieldsetLegend = "fieldset-legend text-xl";
-  const fieldsetLabel = "fieldset-label";
   const inputClassName = "input mb-4";
   const inputErrorStyling = (field: string) =>
     `${inputClassName} ${inputErrors[field] ? "input-error" : ""}`;
 
   return (
-    <section id="CAAform" className="w-screen bg-base-200 flex">
-      <form className="flex flex-col min-w-11/12 bg-background p-5 m-6 rounded-box text-lg">
+    <section id="annexe-2-and-4-form" className="w-screen bg-base-200 flex">
+      <form id="CAA-form">
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
-          {t("title")}
+          {t("annexe2and4.title")}
         </h2>
 
         {/* Display Error Message */}
@@ -113,13 +109,13 @@ export default function CaaForm() {
         {currState.success && (
           <div role="alert" className="alert alert-success">
             <BadgeCheck />
-            {t("submitSuccess")}
+            {t("form.submitSuccess")}
           </div>
         )}
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
-          {t("generalInformation")}
+          {t("form.generalInformation")}
         </h3>
-        <section className={sectionStyle}>
+        <section id="CAA-form-section">
           {Object.entries(initialValues).map(([fieldsetKey, fields]) => {
             if (
               typeof fields !== "object" ||
@@ -133,10 +129,10 @@ export default function CaaForm() {
               <fieldset
                 key={fieldsetKey}
                 id={fieldsetKey}
-                className={fieldsetStyle}
+                className="CAA-form-fieldset"
               >
-                <legend className={fieldsetLegend}>
-                  {t(`${fieldsetKey}`)}
+                <legend className="CAA-form-legemd">
+                  {t(`form.${fieldsetKey}`)}
                 </legend>
 
                 {Object.entries(fields).map(([fieldKey]) => {
@@ -159,14 +155,14 @@ export default function CaaForm() {
 
                   return (
                     <div key={fieldKey}>
-                      <label htmlFor={fieldKey} className={fieldsetLabel}>
-                        {t(`${fieldKey}.label`)}
+                      <label htmlFor={fieldKey} className="CAA-form-label">
+                        {t(`form.${fieldKey}.label`)}
                       </label>
                       {fieldKey === "address" ? (
                         <textarea
                           name={fieldKey}
                           className={inputErrorStyling(fieldKey)}
-                          placeholder={t(`${fieldKey}.placeholder`)}
+                          placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={
                             currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
                           }
@@ -177,7 +173,7 @@ export default function CaaForm() {
                           type={type}
                           name={fieldKey}
                           className={inputErrorStyling(fieldKey)}
-                          placeholder={t(`${fieldKey}.placeholder`)}
+                          placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={
                             currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
                           }
@@ -199,27 +195,19 @@ export default function CaaForm() {
         </section>
 
         <AddParticipants
-          participantAction={(payload: {
-            participantData: (typeof ParticipantSchema)[];
-          }) => setParticipantData(payload.participantData)}
-          sectionStyle={sectionStyle}
-          fieldsetStyle={fieldsetStyle}
-          fieldsetLabel={fieldsetLabel}
-          fieldsetLegend={fieldsetLegend}
+          participantAction={(payload: { participants: ParticipantType[] }) =>
+            setParticipants(payload.participants)
+          }
         />
 
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
-          {t("siteSelector")}
+          {t("form.siteSelector")}
         </h3>
 
         <SiteSelector
           selectionAction={(payload: { selectedZones: string[] }) =>
             setSiteSelection(payload.selectedZones)
           }
-          sectionStyle={sectionStyle}
-          fieldsetStyle={fieldsetStyle}
-          fieldsetLabel={fieldsetLabel}
-          fieldsetLegend={fieldsetLegend}
         />
 
         {/* Submit Button */}

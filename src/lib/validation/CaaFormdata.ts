@@ -16,10 +16,14 @@ export const ParticipantSchema = z.object({
   glider: GliderDataSchema,
 });
 
-export const FormDataSchema = z.object({
-  identification: z.object({
-    firstName: z.string(),
-    lastName: z.string(),
+const BaseIdentification = z.object({
+  firstName: z.string().min(1),
+  lastName: z.string().min(1),
+});
+
+export const FullFormSchema = z.object({
+  formType: z.literal("annexe2and4"),
+  identification: BaseIdentification.extend({
     nationality: z.string(),
     passportNumber: z.string(),
   }),
@@ -38,12 +42,24 @@ export const FormDataSchema = z.object({
   participants: z.array(ParticipantSchema).optional(),
 });
 
-export const FormDataMapSchema = z.record(FormDataSchema);
-export type FormData = z.infer<typeof FormDataSchema>;
-export type FormDataSchema = Record<string, FormData>;
+const Annexe2Schema = z.object({
+  formType: z.literal("annexe2"),
+  identification: BaseIdentification,
+  contact: z.object({
+    contactEmail: z.string().email(),
+  }),
+});
 
-export type CaaFormState = {
-  formData: FormData;
-  error: string | null;
-  success: boolean;
-};
+export const FormDataMapSchema = z.discriminatedUnion("formType", [
+  Annexe2Schema,
+  FullFormSchema,
+]);
+
+export const FormTypeEnum = z.enum(["annexe2", "annexe2and4"]);
+export type FormType = z.infer<typeof FormTypeEnum>;
+
+export type Annex2Type = z.infer<typeof Annexe2Schema>;
+export type GliderSchemaType = z.infer<typeof GliderDataSchema>;
+export type ParticipantType = z.infer<typeof ParticipantSchema>;
+export type FullFormSchemaType = z.infer<typeof FullFormSchema>;
+export type FormData = z.infer<typeof FormDataMapSchema>;

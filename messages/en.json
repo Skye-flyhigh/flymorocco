@@ -77,10 +77,22 @@
       "q": "Do I need permission to fly XC?",
       "a": "You are allowed to fly XC within the designated areas."
     },
-    "q1": {"q": "What happens if I fly without authorisation?" , "a": "Flying without permission may result in legal consequences or restrictions from local authorities. It’s not worth the risk—always apply."},
-    "q3": {"q": "How do I submit the authorisation form (Annexe 2/4)?", "a": "Print your completed form and submit it to the CAA office in Rabat. Some local clubs may offer assistance with the process."},
-    "q4": {"q": "Are radios allowed?", "a": "Bringing aviation radios (VHF/2m band) into Morocco is officially restricted."},
-    "q5": {"q": "What do to in case the CAA doesn't respond?", "a": "If you submitted your application at least 30 days before your trip and received no reply, tacit approval applies by law."},
+    "q1": {
+      "q": "What happens if I fly without authorisation?",
+      "a": "Flying without permission may result in legal consequences or restrictions from local authorities. It’s not worth the risk—always apply."
+    },
+    "q3": {
+      "q": "How do I submit the authorisation form (Annexe 2/4)?",
+      "a": "Print your completed form and submit it to the CAA office in Rabat. Some local clubs may offer assistance with the process."
+    },
+    "q4": {
+      "q": "Are radios allowed?",
+      "a": "Bringing aviation radios (VHF/2m band) into Morocco is officially restricted."
+    },
+    "q5": {
+      "q": "What do to in case the CAA doesn't respond?",
+      "a": "If you submitted your application at least 30 days before your trip and received no reply, tacit approval applies by law."
+    },
     "airspaces": {
       "title": "Airspaces",
       "description": "Find out about restricted and open flying areas."
@@ -103,84 +115,88 @@
         "link": "Links",
         "download": "Download"
       }
-    }
-  },
+    },
+    "annexe2": {
+      "title": "Form to fill the annexe 2 only"
+    },
+    "annexe2and4": {
+      "title": "Form to fill the annexe 2 and 4"
+    },
+    "form": {
+      "submitSuccess": "Data submitted successfully!",
+      "submitError": {
+        "general": "❌ Error in submitting the form",
+        "noData": "❌ No data received"
+      },
+      "missingField": "is a required field.",
+      "dateError": "End date has to be after start date.",
 
-  "caaForm": {
-    "title": "Civil Aviation Authority form",
-    "submitSuccess": "Data submitted successfully!",
-    "submitError": {
-      "general": "❌ Error in submitting the form",
-      "noData": "❌ No data received"
-    },
-    "missingField": "is a required field.",
-    "dateError": "End date has to be after start date.",
+      "generalInformation": "General Information",
+      "siteSelector": "Select your sites",
 
-    "generalInformation": "General Information",
-    "siteSelector": "Select your sites",
+      "identification": "Personal details",
+      "firstName": {
+        "label": "Your first legal name(s):",
+        "placeholder": "Enter your first name(s)"
+      },
+      "lastName": {
+        "label": "Last legal name:",
+        "placeholder": "Enter your last name"
+      },
+      "nationality": {
+        "label": "Your nationality:",
+        "placeholder": "Enter your nationality"
+      },
+      "passportNumber": {
+        "label": "Your passport number:",
+        "placeholder": "Enter your passport number"
+      },
 
-    "identification": "Personal details",
-    "firstName": {
-      "label": "Your first legal name(s):",
-      "placeholder": "Enter your first name(s)"
-    },
-    "lastName": {
-      "label": "Last legal name:",
-      "placeholder": "Enter your last name"
-    },
-    "nationality": {
-      "label": "Your nationality:",
-      "placeholder": "Enter your nationality"
-    },
-    "passportNumber": {
-      "label": "Your passport number:",
-      "placeholder": "Enter your passport number"
-    },
+      "contact": "Contact details",
+      "address": {
+        "label": "Your address:",
+        "placeholder": "23 Broadstreet, London"
+      },
+      "contactEmail": {
+        "label": "Enter an email to receive your documents:",
+        "placeholder": "name@address.com"
+      },
+      "contactPhone": {
+        "label": "Enter a valid phone number:",
+        "placeholder": "01234567890"
+      },
 
-    "contact": "Contact details",
-    "address": {
-      "label": "Your address:",
-      "placeholder": "23 Broadstreet, London"
-    },
-    "contactEmail": {
-      "label": "Enter an email to receive your documents:",
-      "placeholder": "name@address.com"
-    },
-    "contactPhone": {
-      "label": "Enter a valid phone number:",
-      "placeholder": "01234567890"
-    },
+      "trip": "Trip details",
+      "insuranceValidity": {
+        "label": "Select the end date of your third party liability insurance:",
+        "placeholder": ""
+      },
+      "startDate": {
+        "label": "Select a start date, a week before you come to Morocco if you want the answer then.",
+        "placeholder": ""
+      },
+      "endDate": {
+        "label": "Select an end date. Make it a minimum of 1 month (up to 3 months).",
+        "placeholder": ""
+      },
 
-    "trip": "Trip details",
-    "insuranceValidity": {
-      "label": "Select the end date of your third party liability insurance:",
-      "placeholder": ""
-    },
-    "startDate": {
-      "label": "Select a start date, a week before you come to Morocco if you want the answer then.",
-      "placeholder": ""
-    },
-    "endDate": {
-      "label": "Select an end date. Make it a minimum of 1 month (up to 3 months).",
-      "placeholder": ""
-    },
-
-    "glider": "Glider details",
-    "gliderManufacturer": {
-      "label": "Glider manufacturer:",
-      "placeholder": "Ozone, Niviuk, BGD, 777, ..."
-    },
-    "gliderModel": {
-      "label": "Glider model:",
-      "placeholder": "Glider model"
-    },
-    "gliderSize": {
-      "label": "Glider size:",
-      "placeholder": "Glider size"
-    },
-    "gliderColors": {
-      "label": "Glider colours:",
-      "placeholder": "Bleu, blanc, vert, ..."
+      "glider": "Glider details",
+      "gliderManufacturer": {
+        "label": "Glider manufacturer:",
+        "placeholder": "Ozone, Niviuk, BGD, 777, ..."
+      },
+      "gliderModel": {
+        "label": "Glider model:",
+        "placeholder": "Glider model"
+      },
+      "gliderSize": {
+        "label": "Glider size:",
+        "placeholder": "Glider size"
+      },
+      "gliderColors": {
+        "label": "Glider colours:",
+        "placeholder": "Bleu, blanc, vert, ..."
+      }
     }
   },
 

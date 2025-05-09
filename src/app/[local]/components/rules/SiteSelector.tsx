@@ -16,16 +16,8 @@ const groupedZones = groupByRegion(zones);
 
 export default function SiteSelector({
   selectionAction,
-  sectionStyle,
-  fieldsetStyle,
-  fieldsetLabel,
-  fieldsetLegend,
 }: {
   selectionAction: (payload: { selectedZones: string[] }) => void;
-  sectionStyle: string;
-  fieldsetStyle: string;
-  fieldsetLabel: string;
-  fieldsetLegend: string;
 }) {
   const [selectedZones, setSelectedZones] = useState<string[]>([]);
   const toggleZone = (zoneName: string) => {
@@ -59,13 +51,13 @@ export default function SiteSelector({
   }, [selectionAction, selectedZones]);
 
   return (
-    <section id="site-selector" className={sectionStyle}>
+    <section id="CAA-form-section">
       {Object.entries(groupedZones).map(([region, regionZones]) => (
-        <fieldset key={region} className={fieldsetStyle}>
-          <legend className={fieldsetLegend}>
+        <fieldset key={region} className="CAA-form-fieldset">
+          <legend className="CAA-form-legend">
             <input
               type="checkbox"
-              className="checkbox bg-white"
+              className="checkbox bg-base-100"
               onChange={() => selectRegion(region)}
               checked={regionZones.every((z) =>
                 selectedZones.includes(z.zoneName),
@@ -75,7 +67,7 @@ export default function SiteSelector({
           </legend>
 
           {regionZones.map((zone) => (
-            <label key={zone.zoneName} className={fieldsetLabel}>
+            <label key={zone.zoneName} className="CAA-form-label">
               <input
                 type="checkbox"
                 className="checkbox"

@@ -1,10 +1,11 @@
 import { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import type { Configuration } from 'webpack';
+import type { Configuration } from "webpack";
 import path from "path";
 
 const nextConfig: NextConfig = {
-  webpack(config: Configuration) { // Not necessary anymore, created a relative hell in the site-guide/[slug]/page.tsx
+  webpack(config: Configuration) {
+    // Not necessary anymore, created a relative hell in the site-guide/[slug]/page.tsx
     // Ensure 'resolve' exists
     config.resolve ??= {};
 
