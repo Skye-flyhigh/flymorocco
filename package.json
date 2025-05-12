@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@openaip/openair-parser": "^2.0.3",
-    "@sendgrid/mail": "^8.1.5",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.5.0",
     "fs": "^0.0.1-security",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.486.0",

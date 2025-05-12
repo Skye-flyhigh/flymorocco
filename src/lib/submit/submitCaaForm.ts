@@ -1,4 +1,6 @@
-import { sendPdfEmail } from "../email/sendWithAttachments";
+
+import { resendPdfEmail } from "../email/resendPdfEmail";
+import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
 import {
@@ -46,62 +48,44 @@ export async function submitCaaForm(
     };
   }
 
-  let annexe2 = {
-    fileName: "",
-    outputPath: "",
-  };
-
-  let annexe4 = {
-    fileName: "",
-    outputPath: "",
-  };
+  const attachments: emailAttachment = [];
 
   async function sendFormEmail(
     name: string,
-    filePath: string,
-    fileName: string,
     annex: string,
+    attachments: emailAttachment
   ) {
-    await sendPdfEmail({
+    await resendPdfEmail({
       to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
       subject: `Flymorocco - Your ${annex} Form`,
-      html: `<p>Hello ${name},<br>Your form (<strong>${annex}</strong>) is attached.</p>`,
-      filePath,
-      fileName,
+      html: `<p>Hello ${name},<br>Your annexes (<strong>${annex}</strong>) is attached.</p>`,
+      attachments
     });
   }
 
   if (parsed.data.formType === "annexe2") {
-    annexe2 = await generateAnnexe2(parsed.data);
+    const annexe2: pdfFile = await generateAnnexe2(parsed.data);
+    attachments.push(annexe2)
 
     await sendFormEmail(
       parsed.data.identification.firstName,
-      annexe2.outputPath,
-      annexe2.fileName,
       "Annexe 2",
+      attachments
     );
   } else {
-    annexe2 = await generateAnnexe2(parsed.data);
+    const annexe2: pdfFile = await generateAnnexe2(parsed.data);
 
     // Narrow the type manually using type assertion
     const fullData = parsed.data as FullFormSchemaType;
 
-    annexe4 = await generateAnnexe4(fullData);
+    const annexe4: pdfFile = await generateAnnexe4(fullData);
+    attachments.push(annexe2, annexe4)
 
-    await Promise.all([
-      sendFormEmail(
-        fullData.identification.firstName,
-        annexe2.outputPath,
-        annexe2.fileName,
-        "Annexe 2",
-      ),
-      sendFormEmail(
-        fullData.identification.firstName,
-        annexe4.outputPath,
-        annexe4.fileName,
-        "Annexe 4",
-      ),
-    ]);
+    await sendFormEmail(
+      parsed.data.identification.firstName,
+      "Annexe 2 and 4",
+      attachments
+    )
   }
 
   console.log(

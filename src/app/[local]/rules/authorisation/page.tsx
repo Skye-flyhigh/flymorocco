@@ -1,15 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import Annexe2and4Form from "../../components/rules/Annexe2and4Form";
 
 export default function Page() {
-  const [annexe2, setAnnexe2] = useState<boolean>(false);
-  const [annexe4, setAnnexe4] = useState<boolean>(false);
-
-  return (
-    <main>
-      <Annexe2and4Form />
-    </main>
-  );
-}
+  const [agreedPrivacy, setAgreedPrivacy] = useState(false);
+  const [agreedMoroccanLaw, setAgreedMoroccanLaw] = useState(false);
+  
+  if (!agreedPrivacy || !agreedMoroccanLaw) {
+    return (
+      <div className="flex flex-col space-y-4 max-w-xl m-auto p-6">
+        <label className="flex items-start space-x-2">
+          <input type="checkbox" onChange={(e) => setAgreedPrivacy(e.target.checked)} />
+          <span>
+            I have read and understood the <Link href="/privacy" className="link">FlyMorocco Privacy Notice</Link>.
+          </span>
+        </label>
+        <label className="flex items-start space-x-2">
+          <input type="checkbox" onChange={(e) => setAgreedMoroccanLaw(e.target.checked)} />
+          <span>
+            I acknowledge and agree to the <Link href="/rules/authorisation" className="link">Moroccan flying legal requirements</Link>.
+          </span>
+        </label>
+      </div>
+    );
+  }}

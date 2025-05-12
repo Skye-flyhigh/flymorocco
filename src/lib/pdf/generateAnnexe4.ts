@@ -6,8 +6,9 @@ import {
 import zones from "@/data/CAA_Paragliding_Zones_SRZ.json";
 import path from "path";
 import fs from "fs";
+import { pdfFile } from "./annexeTypes";
 
-export default async function generateAnnexe4(formData: FullFormSchemaType) {
+export default async function generateAnnexe4(formData: FullFormSchemaType): Promise<pdfFile> {
   const participants = formData.participants;
 
   // Create a new PDF document
@@ -408,14 +409,14 @@ export default async function generateAnnexe4(formData: FullFormSchemaType) {
   const pdfBytes = await pdfDoc.save();
   // Output to a file in the tmp directory for testing
   const fileName = `annexe4-filled-${Date.now()}.pdf`;
-  const outputPath = path.join(process.cwd(), "tmp", fileName);
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, pdfBytes);
+  const filePath = path.join(process.cwd(), "tmp", fileName);
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, pdfBytes);
 
-  console.log("✅ Annexe 4 PDF filled:", outputPath);
+  console.log("✅ Annexe 4 PDF filled:", filePath);
 
   return {
     fileName,
-    outputPath,
+    filePath,
   };
 }
