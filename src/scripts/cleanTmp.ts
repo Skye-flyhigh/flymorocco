@@ -1,14 +1,22 @@
 import fs from "fs";
 import path from "path";
 
-const tmpPath = path.join(process.cwd(), "tmp");
+const tmpDir = path.join(process.cwd(), "tmp");
 
-fs.readdir(tmpPath, (err, files) => {
-  if (err) throw err;
+fs.readdir(tmpDir, (err, files) => {
+  if (err) {
+    console.error("❌ Error reading tmp directory:", err);
+    process.exit(1);
+  }
 
   for (const file of files) {
-    fs.unlink(path.join(tmpPath, file), err => {
-      if (err) throw err;
+    const filePath = path.join(tmpDir, file);
+    fs.unlink(filePath, (err) => {
+      if (err) {
+        console.error(`Failed to delete ${file}:`, err);
+      } else {
+        console.log(`🧹 Deleted: ${file}`);
+      }
     });
   }
 });

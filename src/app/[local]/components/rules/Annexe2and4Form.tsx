@@ -1,9 +1,8 @@
 "use client";
 
 import {
-  FormData,
-  FormDataMapSchema,
-  ParticipantSchema,
+  FullFormSchema,
+  FullFormSchemaType,
   ParticipantType,
 } from "@/lib/validation/CaaFormdata";
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
@@ -14,18 +13,15 @@ import SiteSelector from "./SiteSelector";
 import { BadgeCheck, CircleX } from "lucide-react";
 import AddParticipants from "./AddParticipants";
 
-//Form
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
 
   const { pending } = useFormStatus();
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
-  const [participants, setParticipants] = useState<
-    (typeof ParticipantSchema)[]
-  >([]);
+  const [participants, setParticipants] = useState<ParticipantType[]>([]);
   const [inputErrors, setInputErrors] = useState<Record<string, string>>({});
 
-  const initialValues: FormData = {
+  const initialValues: FullFormSchemaType = {
     formType: "annexe2and4",
     identification: {
       firstName: "",
@@ -50,16 +46,16 @@ export default function Annexe2and4Form() {
       gliderColors: "",
     },
     siteSelection,
-    participants,
+    participants: participants.length > 0 ? participants : undefined,
   };
 
-  const result = FormDataMapSchema.safeParse(initialValues);
-  if (!result.success) {
-    console.error(
-      "🚨 Form initialValues do not match schema:",
-      result.error.format(),
-    );
-  }
+  // const result = FullFormSchema.safeParse(initialValues);
+  // if (!result.success) {
+  //   console.error(
+  //     "🚨 Form initialValues do not match schema:",
+  //     result.error.format(),
+  //   );
+  // }
 
   const [currState, handleSubmit] = useActionState(submitCaaForm, {
     formData: initialValues,
@@ -194,11 +190,7 @@ export default function Annexe2and4Form() {
           })}
         </section>
 
-        <AddParticipants
-          participantAction={(payload: { participants: ParticipantType[] }) =>
-            setParticipants(payload.participants)
-          }
-        />
+        <AddParticipants participantAction={participants} />
 
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.siteSelector")}

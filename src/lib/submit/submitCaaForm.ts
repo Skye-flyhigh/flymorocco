@@ -1,4 +1,3 @@
-
 import { resendPdfEmail } from "../email/resendPdfEmail";
 import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
@@ -53,24 +52,24 @@ export async function submitCaaForm(
   async function sendFormEmail(
     name: string,
     annex: string,
-    attachments: emailAttachment
+    attachments: emailAttachment,
   ) {
     await resendPdfEmail({
       to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
       subject: `Flymorocco - Your ${annex} Form`,
       html: `<p>Hello ${name},<br>Your annexes (<strong>${annex}</strong>) is attached.</p>`,
-      attachments
+      attachments,
     });
   }
 
   if (parsed.data.formType === "annexe2") {
     const annexe2: pdfFile = await generateAnnexe2(parsed.data);
-    attachments.push(annexe2)
+    attachments.push(annexe2);
 
     await sendFormEmail(
       parsed.data.identification.firstName,
       "Annexe 2",
-      attachments
+      attachments,
     );
   } else {
     const annexe2: pdfFile = await generateAnnexe2(parsed.data);
@@ -79,13 +78,13 @@ export async function submitCaaForm(
     const fullData = parsed.data as FullFormSchemaType;
 
     const annexe4: pdfFile = await generateAnnexe4(fullData);
-    attachments.push(annexe2, annexe4)
+    attachments.push(annexe2, annexe4);
 
     await sendFormEmail(
       parsed.data.identification.firstName,
       "Annexe 2 and 4",
-      attachments
-    )
+      attachments,
+    );
   }
 
   console.log(

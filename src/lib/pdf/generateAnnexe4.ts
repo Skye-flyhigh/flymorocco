@@ -8,7 +8,9 @@ import path from "path";
 import fs from "fs";
 import { pdfFile } from "./annexeTypes";
 
-export default async function generateAnnexe4(formData: FullFormSchemaType): Promise<pdfFile> {
+export default async function generateAnnexe4(
+  formData: FullFormSchemaType,
+): Promise<pdfFile> {
   const participants = formData.participants;
 
   // Create a new PDF document

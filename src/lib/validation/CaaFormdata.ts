@@ -21,19 +21,19 @@ const BaseIdentification = z.object({
   lastName: z.string().min(1),
 });
 const BaseContact = z.object({
-    contactEmail: z.string().email()
-})
+  contactEmail: z.string().email(),
+});
 
 export const Annexe2BaseSchema = z.object({
   identification: BaseIdentification,
   contact: BaseContact,
-})
+});
 
 export const Annexe2Schema = Annexe2BaseSchema.extend({
-  formType: z.literal("annexe2")
-})
+  formType: z.literal("annexe2"),
+});
 
-export const FullFormSchema = Annexe2BaseSchema.extend({
+export const FullFormSchema = z.object({
   formType: z.literal("annexe2and4"),
   identification: BaseIdentification.extend({
     nationality: z.string(),
@@ -52,7 +52,6 @@ export const FullFormSchema = Annexe2BaseSchema.extend({
   siteSelection: z.array(z.string()),
   participants: z.array(ParticipantSchema).optional(),
 });
-
 
 export const FormDataMapSchema = z.discriminatedUnion("formType", [
   Annexe2Schema,

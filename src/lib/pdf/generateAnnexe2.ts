@@ -6,9 +6,11 @@ import { pdfFile } from "./annexeTypes";
 type MinimalAnnexe2 = {
   identification: { firstName: string; lastName: string };
   contact: { contactEmail: string };
-}
+};
 
-export default async function generateAnnexe2(formData: MinimalAnnexe2): Promise<pdfFile> {
+export default async function generateAnnexe2(
+  formData: MinimalAnnexe2,
+): Promise<pdfFile> {
   const { firstName, lastName } = formData.identification;
   const fullName = `${firstName} ${lastName}`;
   const todayStr = new Date().toLocaleDateString("fr-FR");
