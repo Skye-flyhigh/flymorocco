@@ -8,6 +8,7 @@ import {
   FormData,
   FormDataMapSchema,
   FullFormSchemaType,
+  ParticipantType,
 } from "../validation/CaaFormdata";
 
 export type CaaFormState = {
@@ -45,28 +46,45 @@ export async function submitCaaForm(
     },
   };
 
+const checkDateFormatParticipants = (participantArr: ParticipantType[]) => {
+  for (let i = 0; i < participantArr.length; i++) {
+    const date = new Date(participantArr[i].insuranceValidity)
+    participantArr[i].insuranceValidity = date
+  }
+  return participantArr
+}
+let participants: ParticipantType[] = []
+if(entries["participants"]) {
+  participants = checkDateFormatParticipants(JSON.parse(entries["participants"]));
+}
+
   const fullData =
     entries.formType === "annexe2and4"
       ? {
           ...baseData,
           identification: {
-            lastName: entries["lastName"],
-            firstName: entries["firstName"],
-            nationality: entries["nationality"],
-            passportNumber: entries["passportNumber"],
+            ...baseData.identification,
+            nationality: entries["identification.nationality"],
+            passportNumber: entries["identification.passportNumber"],
           },
           contact: {
-            contactEmail: entries["contactEmail"],
-            contactPhone: Number(entries["contactPhone"]),
-            address: entries["address"],
+            ...baseData.contact,
+            contactPhone: Number(entries["contact.contactPhone"]),
+            address: entries["contact.address"],
           },
           trip: {
-            insuranceValidity: new Date(entries["insuranceValidity"]),
-            startDate: new Date(entries["startDate"]),
-            endDate: new Date(entries["endDate"]),
+            startDate: new Date(entries["trip.startDate"]),
+            endDate: new Date(entries["trip.endDate"]),
+            insuranceValidity: new Date(entries["trip.insuranceValidity"]),
+          },
+          glider: {
+            gliderManufacturer: entries["glider.gliderManufacturer"],
+            gliderModel: entries["glider.gliderModel"],
+            gliderSize: entries["glider.gliderSize"],
+            gliderColors: entries["glider.gliderColors"],
           },
           siteSelection: JSON.parse(entries["siteSelection"]),
-          participants: JSON.parse(entries["participants"]),
+          participants,
         }
       : baseData;
 

@@ -52,6 +52,8 @@ export default function AddParticipants({
     participantAction({ validParticipants });
   }, [participants, participantAction]);
 
+  console.log("Participants from addParticipant component:", participants);
+  
   return (
     <section id="CAA-form-section" className="!flex ">
       {participants.map((participant, i) => {
@@ -68,6 +70,34 @@ export default function AddParticipants({
 
               {Object.entries(participant).map(([key, value]) => {
                 if (typeof value === "object" || key === "glider") return null;
+                if (key === "insuranceValidity") {
+                  return (
+                    <div key={key}>
+                    <label htmlFor={key} className="CAA-form-label">
+                      {t(`${key}.label`)}
+                    </label>
+
+                                        <input
+                      type="date"
+                      name="insuranceValidity"
+                      className="input"
+                      placeholder={t(`insuranceValidity.placeholder`)}
+                      value={
+                        new Date(value).toISOString().split('T', 1)[0]
+                      }
+                      onChange={(e) => {
+                        const updated = [...participants];
+                        updated[i] = {
+                          ...updated[i],
+                          insuranceValidity: new Date(e.target.value)
+                        }
+                        setParticipants(updated)
+                      }}
+                      required
+                    />
+  </div>
+                  )
+                }
                 return (
                   <div key={key}>
                     <label htmlFor={key} className="CAA-form-label">
@@ -75,19 +105,20 @@ export default function AddParticipants({
                     </label>
 
                     <input
-                      type={key === "insuranceValidity" ? "date" : "text"}
+                      type="text"
                       name={key}
                       className="input"
                       placeholder={t(`${key}.placeholder`)}
-                      defaultValue={
-                        key === "insuranceValidity"
-                          ? new Date(participant[key as keyof ParticipantType])
-                              .toISOString()
-                              .split("T")[0]
-                          : (participant[
-                              key as keyof ParticipantType
-                            ]?.toString() ?? "")
+                      value={value
                       }
+                      onChange={(e) => {
+                        const updated = [...participants];
+                        updated[i] = {
+                          ...updated[i],
+                          [key]: e.target.value
+                        }
+                        setParticipants(updated)
+                      }}
                       required
                     />
                   </div>
@@ -107,9 +138,15 @@ export default function AddParticipants({
                       name={key}
                       className="input"
                       placeholder={t(`${key}.placeholder`)}
-                      defaultValue={participant[
-                        key as keyof ParticipantType
-                      ]?.toString()}
+                      value={value}
+                      onChange={(e) => {
+                        const updated = [...participants]
+                        updated[i].glider = {
+                          ...updated[i].glider,
+                         [key]: e.target.value
+                        }
+                        setParticipants(updated)
+                      }}
                       required
                     />
                   </div>

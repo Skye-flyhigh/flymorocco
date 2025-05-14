@@ -44,7 +44,7 @@ export default function Annexe2and4Form() {
       gliderColors: "",
     },
     siteSelection,
-    participants: participants.length > 0 ? participants : undefined,
+    participants,
   };
 
   const result = FullFormSchema.safeParse(initialValues);
@@ -67,13 +67,15 @@ export default function Annexe2and4Form() {
     },
     [], //FIXME: Participants steal the show
   );
+  console.log("Participants", participants);
+  
 
   const handleSiteSelectionUpdate = useCallback(
     (payload: { selectedZones: string[] }) => {
     setSiteSelection(payload.selectedZones);
     }, [])
 
-  //Date validation FIXME: it breaks the app!
+  //Date validation FIXME: it doesn't check anything!
   const startDate = currState.formData["startDate"];
   const endDate = currState.formData["endDate"];
   const insuranceValidity = currState.formData["insuranceValidity"];
@@ -173,32 +175,29 @@ export default function Annexe2and4Form() {
                       </label>
                       {fieldKey === "address" ? (
                         <textarea
-                          name={fieldKey}
+                          name={`${fieldsetKey}.${fieldKey}`}
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={currState.formData[fieldKey]}
                           required
                         />
-                      ) : (
+                      ) : 
                         <input
                           type={type}
-                          name={fieldKey}
+                          name={`${fieldsetKey}.${fieldKey}`}
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={
                             fieldKey === "insuranceValidity" ||
                             fieldKey === "startDate" ||
                             fieldKey === "endDate"
-                              ? new Date(
+                              ? 
                                   currState.formData[fieldKey]
-                                )
-                                  .toISOString()
-                                  .split("T")[0]
                               : currState.formData[fieldKey]
                           }
                           required
                         />
-                      )}
+                      }
                       {inputErrors[fieldKey] && (
                         <p className="alert alert-error">
                           <CircleX />
@@ -212,14 +211,14 @@ export default function Annexe2and4Form() {
             );
           })}
         </section>
-        <input type="hidden" name="participants" value={JSON.stringify(participants)} />
+        <input type="hidden" name="participants" defaultValue={JSON.stringify(participants)} />
         <AddParticipants participantAction={handleParticipantsUpdate} />
 
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.siteSelector")}
         </h3>
 
-        <input type="hidden" name="siteSelection" value={JSON.stringify(siteSelection)} />
+        <input type="hidden" name="siteSelection" defaultValue={JSON.stringify(siteSelection)} />
         <SiteSelector
           selectionAction={handleSiteSelectionUpdate}
         />

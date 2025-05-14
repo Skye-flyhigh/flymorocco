@@ -1,8 +1,10 @@
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
 import { Annex2Type } from "@/lib/validation/CaaFormdata";
-import { BadgeCheck, CircleX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useActionState } from "react";
+import FormButton from "./FormButton";
+import FormSuccess from "./FormSuccess";
+import FormError from "./FormError";
 
 export default function Annexe2Form() {
   const t = useTranslations("rules");
@@ -29,21 +31,9 @@ export default function Annexe2Form() {
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("annexe2.title")}
         </h2>
-        {currState.success && (
-          <div
-            role="alert"
-            className="alert alert-success  self-center m-5 w-fit"
-          >
-            <BadgeCheck />
-            {t("form.submitSuccess")}
-          </div>
-        )}
-        {currState.error && (
-          <div role="alert" className="alert alert-error">
-            <CircleX />
-            {currState.error}
-          </div>
-        )}
+        <FormSuccess formStatus={currState.success} message={t("form.submitSuccess")}/>
+        <FormError formError={currState.error} />
+
         <section id="CAA-form-section">
           <input type="hidden" name="formType" value="annexe2" />
           <fieldset id="identification" className="CAA-form-fieldset">
@@ -86,13 +76,7 @@ export default function Annexe2Form() {
             />
           </fieldset>
         </section>
-        <button
-          type="submit"
-          className="btn btn-primary w-fit self-center"
-          disabled={isPending}
-        >
-          {isPending ? "Submitting..." : "Generate documents"}
-        </button>
+        <FormButton status={isPending} />
       </form>
     </section>
   );

@@ -102,7 +102,7 @@
       "description": "Filling up the information that Moroccan authorities need for the authorisation."
     },
     "selector": {
-      "title": "Please select documents you need to generate via the dropdown menu:",
+      "title": "Please select documents you need to generate via the dropdown menu. Results will be automatically emailed back to you.",
       "dropdown": "Select Annex"
     },
     "agreements": {
@@ -194,15 +194,15 @@
 
       "trip": "Trip details",
       "insuranceValidity": {
-        "label": "Select the end date of your third party liability insurance:",
+        "label": "Third party liability end date:",
         "placeholder": ""
       },
       "startDate": {
-        "label": "Select a start date, a week before you come to Morocco if you want the answer then.",
+        "label": "Trip start date, a week before you come to Morocco if you want the answer then.",
         "placeholder": ""
       },
       "endDate": {
-        "label": "Select an end date. Make it a minimum of 1 month (up to 3 months).",
+        "label": "Trip end date. Make it a minimum of 1 month (up to 3 months).",
         "placeholder": ""
       },
 
