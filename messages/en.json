@@ -101,6 +101,16 @@
       "title": "Authorisation",
       "description": "Filling up the information that Moroccan authorities need for the authorisation."
     },
+    "selector": {
+      "title": "Please select documents you need to generate via the dropdown menu:",
+      "dropdown": "Select Annex"
+    },
+    "agreements": {
+      "read": "I have read and understood the",
+      "privacy": "Flymorocco Privacy Notice",
+      "acknowledged": "I acknowledge and agree to the",
+      "legal": "Moroccan flying legal requirements"
+    },
     "download": {
       "sia": "Moroccan Civil Aviation Regulation",
       "vfrMaps": "Official document source. Please refer to this document for legal purposes.",
@@ -117,10 +127,26 @@
       }
     },
     "annexe2": {
-      "title": "Form to fill the annexe 2 only"
+      "title": "Form - Annex 2 ONLY"
+    },
+    "annexe2Disclaimer": {
+      "intro": "By signing the Annex 2, you are agreeing to the following Moroccan legal requirements:",
+      "items": {
+        "0": "Send to the Moroccan <abbrCAA>CAA</abbrCAA> the documents regarding the aircraft",
+        "1": "Remain in the geographical coordinates as described in the Moroccan <airspaceLink>airspaces page</airspaceLink>",
+        "2": "Comply to <abbrVFR>VRF</abbrVFR> as described in Moroccan regulations",
+        "3": "Comply to the limitations regarding flight and landing areas as defined by the authorities",
+        "4": "Obtain prior approval from the relevant local authorities (civil and military) for ground coordination and conducting flights outside of aerodromes",
+        "5": "Coordinate flight execution with the commanders of the concerned airports",
+        "6": "Coordinate the start and end of the activity with the aerodrome’s air navigation services or, where applicable, with the relevant local authorities",
+        "7": "Ensure that all participants are informed of aeronautical information (NOTAMs)",
+        "8": "Ensure that an emergency beacon (406 MHz) is carried on board the aircraft",
+        "9": "Ensure that briefings and debriefings are conducted for each flight",
+        "10": "Ensure that communication devices are present on board the aircraft"
+      }
     },
     "annexe2and4": {
-      "title": "Form to fill the annexe 2 and 4"
+      "title": "Form - Annex 2 and 4"
     },
     "form": {
       "submitSuccess": "Data submitted successfully!",

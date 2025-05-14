@@ -1,6 +1,6 @@
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
 import { Annex2Type } from "@/lib/validation/CaaFormdata";
-import { BadgeCheck } from "lucide-react";
+import { BadgeCheck, CircleX } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useActionState } from "react";
 
@@ -20,23 +20,32 @@ export default function Annexe2Form() {
 
   const [currState, handleSubmit, isPending] = useActionState(submitCaaForm, {
     formData: initialValues,
-    error: null,
     success: false,
   });
 
   return (
     <section id="annexe-2-form" className="w-screen bg-base-200 flex">
-      <form id="CAA-form">
+      <form id="CAA-form" action={handleSubmit}>
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("annexe2.title")}
         </h2>
         {currState.success && (
-          <div role="alert" className="alert alert-success">
+          <div
+            role="alert"
+            className="alert alert-success  self-center m-5 w-fit"
+          >
             <BadgeCheck />
             {t("form.submitSuccess")}
           </div>
         )}
+        {currState.error && (
+          <div role="alert" className="alert alert-error">
+            <CircleX />
+            {currState.error}
+          </div>
+        )}
         <section id="CAA-form-section">
+          <input type="hidden" name="formType" value="annexe2" />
           <fieldset id="identification" className="CAA-form-fieldset">
             <legend className="CAA-form-legend">
               {t("form.identification")}
@@ -52,10 +61,10 @@ export default function Annexe2Form() {
                 </label>
                 <input
                   type="text"
-                  name={field}
+                  name={`identification.${field}`}
                   className="input"
                   placeholder={t(`form.${field}.placeholder`)}
-                  defaultValue={currState.formData.identification[field] ?? ""}
+                  defaultValue={currState.formData[field] ?? ""}
                   required
                 />
               </div>
@@ -69,17 +78,17 @@ export default function Annexe2Form() {
             </label>
             <input
               type="text"
-              name="contactEmail"
+              name="contact.contactEmail"
               className="input"
               placeholder={t(`form.contactEmail.placeholder`)}
-              defaultValue={currState.formData.contact.contactEmail ?? ""}
+              defaultValue={currState.formData.contactEmail ?? ""}
               required
             />
           </fieldset>
         </section>
         <button
-          formAction={handleSubmit}
-          className="btn btn-soft btn-primary"
+          type="submit"
+          className="btn btn-primary w-fit self-center"
           disabled={isPending}
         >
           {isPending ? "Submitting..." : "Generate documents"}

@@ -6,8 +6,7 @@ import {
   ParticipantType,
 } from "@/lib/validation/CaaFormdata";
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
-import { useActionState, useEffect, useState } from "react";
-import { useFormStatus } from "react-dom";
+import { useActionState, useCallback, useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
 import SiteSelector from "./SiteSelector";
 import { BadgeCheck, CircleX } from "lucide-react";
@@ -16,7 +15,6 @@ import AddParticipants from "./AddParticipants";
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
 
-  const { pending } = useFormStatus();
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
   const [participants, setParticipants] = useState<ParticipantType[]>([]);
   const [inputErrors, setInputErrors] = useState<Record<string, string>>({});
@@ -49,25 +47,44 @@ export default function Annexe2and4Form() {
     participants: participants.length > 0 ? participants : undefined,
   };
 
-  // const result = FullFormSchema.safeParse(initialValues);
-  // if (!result.success) {
-  //   console.error(
-  //     "🚨 Form initialValues do not match schema:",
-  //     result.error.format(),
-  //   );
-  // }
+  const result = FullFormSchema.safeParse(initialValues);
+  if (!result.success) {
+    console.error(
+      "🚨 Form initialValues do not match schema:",
+      result.error.format(),
+    );
+  }
 
-  const [currState, handleSubmit] = useActionState(submitCaaForm, {
+  const [currState, handleSubmit, isPending] = useActionState(submitCaaForm, {
     formData: initialValues,
     error: null,
     success: false,
   });
 
-  const { startDate, endDate } = currState.formData?.trip;
+  const handleParticipantsUpdate = useCallback(
+    (payload: { validParticipants: ParticipantType[] }) => {
+      setParticipants(payload.validParticipants);
+    },
+    [], //FIXME: Participants steal the show
+  );
 
-  //Validate date entry
+  const handleSiteSelectionUpdate = useCallback(
+    (payload: { selectedZones: string[] }) => {
+    setSiteSelection(payload.selectedZones);
+    }, [])
+
+  //Date validation FIXME: it breaks the app!
+  const startDate = currState.formData["startDate"];
+  const endDate = currState.formData["endDate"];
+  const insuranceValidity = currState.formData["insuranceValidity"];
   useEffect(() => {
-    if (startDate && endDate && new Date(endDate) < new Date(startDate)) {
+    if (
+      startDate &&
+      endDate &&
+      insuranceValidity &&
+      (new Date(insuranceValidity) < new Date(endDate) ||
+        new Date(endDate) < new Date(startDate))
+    ) {
       setInputErrors((prev) => ({
         ...prev,
         endDate: t("form.dateError"),
@@ -79,8 +96,7 @@ export default function Annexe2and4Form() {
         return newErrors;
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startDate, endDate]);
+  }, [t, startDate, endDate, insuranceValidity]);
 
   const inputClassName = "input mb-4";
   const inputErrorStyling = (field: string) =>
@@ -88,10 +104,11 @@ export default function Annexe2and4Form() {
 
   return (
     <section id="annexe-2-and-4-form" className="w-screen bg-base-200 flex">
-      <form id="CAA-form">
+      <form id="CAA-form" action={handleSubmit}>
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("annexe2and4.title")}
         </h2>
+        <input type="hidden" name="formType" value="annexe2and4" />
 
         {/* Display Error Message */}
         {currState.error && (
@@ -127,7 +144,7 @@ export default function Annexe2and4Form() {
                 id={fieldsetKey}
                 className="CAA-form-fieldset"
               >
-                <legend className="CAA-form-legemd">
+                <legend className="CAA-form-legend">
                   {t(`form.${fieldsetKey}`)}
                 </legend>
 
@@ -159,9 +176,7 @@ export default function Annexe2and4Form() {
                           name={fieldKey}
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
-                          defaultValue={
-                            currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
-                          }
+                          defaultValue={currState.formData[fieldKey]}
                           required
                         />
                       ) : (
@@ -171,7 +186,15 @@ export default function Annexe2and4Form() {
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={
-                            currState.formData?.[fieldsetKey]?.[fieldKey] ?? ""
+                            fieldKey === "insuranceValidity" ||
+                            fieldKey === "startDate" ||
+                            fieldKey === "endDate"
+                              ? new Date(
+                                  currState.formData[fieldKey]
+                                )
+                                  .toISOString()
+                                  .split("T")[0]
+                              : currState.formData[fieldKey]
                           }
                           required
                         />
@@ -189,26 +212,25 @@ export default function Annexe2and4Form() {
             );
           })}
         </section>
-
-        <AddParticipants participantAction={participants} />
+        <input type="hidden" name="participants" value={JSON.stringify(participants)} />
+        <AddParticipants participantAction={handleParticipantsUpdate} />
 
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.siteSelector")}
         </h3>
 
+        <input type="hidden" name="siteSelection" value={JSON.stringify(siteSelection)} />
         <SiteSelector
-          selectionAction={(payload: { selectedZones: string[] }) =>
-            setSiteSelection(payload.selectedZones)
-          }
+          selectionAction={handleSiteSelectionUpdate}
         />
 
         {/* Submit Button */}
         <button
-          formAction={handleSubmit}
+          type="submit"
           className="btn btn-soft btn-primary"
-          disabled={pending}
+          disabled={isPending}
         >
-          {pending ? "Submitting..." : "Generate documents"}
+          {isPending ? "Submitting..." : "Generate documents"}
         </button>
       </form>
     </section>

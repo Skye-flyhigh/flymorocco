@@ -17,8 +17,8 @@ export const ParticipantSchema = z.object({
 });
 
 const BaseIdentification = z.object({
-  firstName: z.string().min(1),
-  lastName: z.string().min(1),
+  firstName: z.string(),
+  lastName: z.string(),
 });
 const BaseContact = z.object({
   contactEmail: z.string().email(),

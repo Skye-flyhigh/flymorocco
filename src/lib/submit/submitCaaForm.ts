@@ -1,25 +1,29 @@
+"use server";
 import { resendPdfEmail } from "../email/resendPdfEmail";
 import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
 import {
+  Annex2Type,
   FormData,
   FormDataMapSchema,
   FullFormSchemaType,
 } from "../validation/CaaFormdata";
 
 export type CaaFormState = {
-  formData: FormData;
+  formData: { [key: string]: string };
   error: string | null;
   success: boolean;
 };
 
 export async function submitCaaForm(
   prevState: CaaFormState,
-  formData: FormData,
+  formData: { [key: string]: string },
 ): Promise<CaaFormState> {
   //Check if the data is sent through
   if (!formData) {
+    console.error("❌ Form data missing");
+
     return {
       ...prevState,
       error: "form.submitError.noData",
@@ -27,10 +31,52 @@ export async function submitCaaForm(
       formData,
     };
   }
+  const entries = Object.fromEntries(formData.entries());
+  console.log("📦 Raw formData entries:", entries);
+
+  const baseData = {
+    formType: entries.formType as "annexe2" | "annexe2and4",
+    identification: {
+      lastName: entries["identification.lastName"],
+      firstName: entries["identification.firstName"],
+    },
+    contact: {
+      contactEmail: entries["contact.contactEmail"],
+    },
+  };
+
+  const fullData =
+    entries.formType === "annexe2and4"
+      ? {
+          ...baseData,
+          identification: {
+            lastName: entries["lastName"],
+            firstName: entries["firstName"],
+            nationality: entries["nationality"],
+            passportNumber: entries["passportNumber"],
+          },
+          contact: {
+            contactEmail: entries["contactEmail"],
+            contactPhone: Number(entries["contactPhone"]),
+            address: entries["address"],
+          },
+          trip: {
+            insuranceValidity: new Date(entries["insuranceValidity"]),
+            startDate: new Date(entries["startDate"]),
+            endDate: new Date(entries["endDate"]),
+          },
+          siteSelection: JSON.parse(entries["siteSelection"]),
+          participants: JSON.parse(entries["participants"]),
+        }
+      : baseData;
+
+  console.log("Formatted Data before Zod parsing:", fullData);
 
   //Data validation through Zod
-  const parsed = FormDataMapSchema.safeParse(formData);
+  const parsed = FormDataMapSchema.safeParse(fullData);
   if (!parsed.success) {
+    console.error("❌ FormData: Zod parsing error: ", parsed.error.flatten());
+
     const fieldErrors = parsed.error.flatten().fieldErrors;
     const errorMap: Record<string, string> = {};
 
@@ -46,6 +92,8 @@ export async function submitCaaForm(
       success: false,
     };
   }
+
+  console.log("📑 Preparing the attachmennts for the emails...");
 
   const attachments: emailAttachment = [];
 
