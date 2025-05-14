@@ -4,8 +4,6 @@ import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
 import {
-  Annex2Type,
-  FormData,
   FormDataMapSchema,
   FullFormSchemaType,
   ParticipantType,
