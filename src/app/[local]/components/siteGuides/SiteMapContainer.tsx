@@ -1,13 +1,13 @@
 "use client";
 
 import { SiteMeta, siteMeta } from "@/lib/validation/siteMeta";
-import { LeafletMouseEvent, Path } from "leaflet";
+import { LeafletMouseEvent, Path, StyleFunction } from "leaflet";
 import { Link2, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, GeoJSON } from "react-leaflet";
-import { Feature } from "geojson";
+import type { FeatureCollection, Feature, GeoJsonProperties, Geometry } from "geojson";
 
 export default function SiteMapContainer({
   zoom,
@@ -19,7 +19,7 @@ export default function SiteMapContainer({
   lon: number;
 }) {
   const t = useTranslations("siteGuides");
-  const [geojsonData, setGeojsonData] = useState<any>(null);
+  const [geojsonData, setGeojsonData] = useState<FeatureCollection<Geometry, GeoJsonProperties> | null>(null);  
   const [airspaceToggle, setAirspaceToggle] = useState<boolean>(false);
 
   useEffect(() => {
@@ -74,16 +74,24 @@ export default function SiteMapContainer({
     UNCLASSIFIED: "#bdbdbd",
   };
 
+  type AirspaceFeature = Feature<Geometry, {
+    name: string;
+    class?: AirspaceClass;
+    type?: AirspaceType;
+    upperCeiling?: { value: number; unit: string };
+    lowerCeiling?: { value: number; unit: string };
+  }>;
+
   const filteredData = airspaceToggle
     ? {
         ...geojsonData,
-        features: geojsonData.features.filter(
-          (f: typeof geojsonData) => f?.properties?.type === "GSEC",
+        features: geojsonData?.features.filter(
+          (f) => f?.properties?.type === "GSEC",
         ),
       }
     : geojsonData;
 
-  function defaultStyle(feature: typeof geojsonData) {
+  function defaultStyle(feature: AirspaceFeature) {
     const airspaceClass =
       feature?.properties?.class || ("UNCLASSIFIED" as AirspaceClass);
     const airspaceType =
@@ -102,13 +110,21 @@ export default function SiteMapContainer({
     };
   }
 
-  function onEachFeature(feature: Feature, layer: Path) {
+  interface StyledLayer extends Path {
+    initialStyle?: {
+      color?: string;
+      fillColor?: string;
+      fillOpacity?: number;
+    };
+  }
+  
+  function onEachFeature(feature: AirspaceFeature, layer: Path) {
     const initialStyle = {
       color: layer.options.color,
       fillColor: layer.options.fillColor,
       fillOpacity: layer.options.fillOpacity,
     };
-    (layer as any).initialStyle = initialStyle;
+    (layer as StyledLayer).initialStyle = initialStyle;
 
     layer.bindPopup(`
             <strong>${feature.properties?.name}</strong></br>
@@ -126,7 +142,8 @@ export default function SiteMapContainer({
       },
       mouseout: (e: LeafletMouseEvent) => {
         const targetLayer = e.target as Path;
-        const original = (targetLayer as any).initialStyle;
+        const original = (targetLayer as StyledLayer).initialStyle;
+        if(!original) return;
         targetLayer.setStyle(original);
       },
     });
@@ -223,8 +240,8 @@ export default function SiteMapContainer({
         {geojsonData && (
           <GeoJSON
             key={airspaceToggle ? "gsec-only" : "all-airspaces"} // ← Force refresh
-            data={filteredData}
-            style={defaultStyle}
+            data={filteredData as FeatureCollection}
+            style={defaultStyle as StyleFunction}
             onEachFeature={onEachFeature}
           />
         )}

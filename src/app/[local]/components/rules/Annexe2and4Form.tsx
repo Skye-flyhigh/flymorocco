@@ -9,8 +9,11 @@ import { submitCaaForm } from "@/lib/submit/submitCaaForm";
 import { useActionState, useCallback, useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
 import SiteSelector from "./SiteSelector";
-import { BadgeCheck, CircleX } from "lucide-react";
+import { CircleX } from "lucide-react";
 import AddParticipants from "./AddParticipants";
+import FormError from "./FormError";
+import FormSuccess from "./FormSuccess";
+import FormButton from "./FormButton";
 
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
@@ -112,21 +115,9 @@ export default function Annexe2and4Form() {
         </h2>
         <input type="hidden" name="formType" value="annexe2and4" />
 
-        {/* Display Error Message */}
-        {currState.error && (
-          <div role="alert" className="alert alert-error">
-            <CircleX />
-            {currState.error}
-          </div>
-        )}
-
-        {/* Display Success Message */}
-        {currState.success && (
-          <div role="alert" className="alert alert-success">
-            <BadgeCheck />
-            {t("form.submitSuccess")}
-          </div>
-        )}
+        <FormSuccess formStatus={currState.success} message={t("form.submitSuccess")}/>
+        <FormError formError={currState.error} />
+        
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.generalInformation")}
         </h3>
@@ -224,13 +215,7 @@ export default function Annexe2and4Form() {
         />
 
         {/* Submit Button */}
-        <button
-          type="submit"
-          className="btn btn-soft btn-primary"
-          disabled={isPending}
-        >
-          {isPending ? "Submitting..." : "Generate documents"}
-        </button>
+        <FormButton status={isPending}/>
       </form>
     </section>
   );
