@@ -1,6 +1,6 @@
 "use client"
 import getTourMeta from "@/lib/data-retrievers/getTourMeta";
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import MissingTour from "../../components/tours/MissingTour";
 import Hero from "../../components/Hero";
@@ -11,7 +11,7 @@ export default function Page() {
   console.log("Tours meta info:", {slug, meta});
   
   if (!meta || !slug) return <MissingTour />
-  const t = useTranslations(`tours.toursDetails.${meta.translationKey}`);
+//   const t = useTranslations(`tours.toursDetails.${meta.translationKey}`);
 
 
   let path = ''
