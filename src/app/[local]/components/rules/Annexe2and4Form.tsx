@@ -68,17 +68,14 @@ export default function Annexe2and4Form() {
     (payload: { validParticipants: ParticipantType[] }) => {
       setParticipants(payload.validParticipants);
     },
-    [], //FIXME: Participants steal the show
-  );
-  console.log("Participants", participants);
-  
+    [], 
+  );  
 
   const handleSiteSelectionUpdate = useCallback(
     (payload: { selectedZones: string[] }) => {
     setSiteSelection(payload.selectedZones);
     }, [])
 
-  //Date validation FIXME: it doesn't check anything!
   const startDate = currState.formData["startDate"];
   const endDate = currState.formData["endDate"];
   const insuranceValidity = currState.formData["insuranceValidity"];

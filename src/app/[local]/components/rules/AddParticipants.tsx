@@ -4,6 +4,7 @@ import { Minus, Plus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ParticipantType } from "@/lib/validation/CaaFormdata";
 import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
 
 type AddParticipantsProps = {
   participantAction: (payload: {
@@ -55,11 +56,22 @@ export default function AddParticipants({
   console.log("Participants from addParticipant component:", participants);
   
   return (
-    <section id="CAA-form-section" className="!flex ">
+      <AnimatePresence>
+    <motion.section id="CAA-form-section" className="!flex"
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
+    layout 
+    >
       {participants.map((participant, i) => {
         return (
-          <div
+          <motion.div
             key={i}
+            initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="flex flex-wrap gap-4 mx-auto border-base-300 rounded-xl"
           >
             <h2 className="CAA-form-legend absolute ml-7">
@@ -153,13 +165,17 @@ export default function AddParticipants({
                 );
               })}
             </fieldset>
-          </div>
+          </motion.div>
         );
       })}
 
-      <div
+      <motion.div
         id="container"
-        className="w-full flex flex-wrap justify-evenly my-4 md:mx-10 mx-5 p-5 border-base-300 rounded-xl bg-base-200"
+        initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.3 }}
+        className="w-full flex flex-wrap justify-evenly mb-4 mt-10 md:mx-10 mx-5 p-5 border-base-300 rounded-xl bg-base-200"
       >
         <h3
           id="CAA-form-legend"
@@ -201,7 +217,8 @@ export default function AddParticipants({
             </button>
           )}
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
+      </AnimatePresence>
   );
 }

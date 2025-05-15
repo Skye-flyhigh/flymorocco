@@ -30,17 +30,16 @@ export async function submitCaaForm(
       formData,
     };
   }
-  const entries = Object.fromEntries(formData.entries());
-  console.log("📦 Raw formData entries:", entries);
+  console.log("📦 Raw entries formData:", formData);
 
   const baseData = {
-    formType: entries.formType as "annexe2" | "annexe2and4",
+    formType: formData.formType as "annexe2" | "annexe2and4",
     identification: {
-      lastName: entries["identification.lastName"],
-      firstName: entries["identification.firstName"],
+      lastName: formData["identification.lastName"],
+      firstName: formData["identification.firstName"],
     },
     contact: {
-      contactEmail: entries["contact.contactEmail"],
+      contactEmail: formData["contact.contactEmail"],
     },
   };
 
@@ -52,36 +51,36 @@ const checkDateFormatParticipants = (participantArr: ParticipantType[]) => {
   return participantArr
 }
 let participants: ParticipantType[] = []
-if(entries["participants"]) {
-  participants = checkDateFormatParticipants(JSON.parse(entries["participants"]));
+if(formData["participants"]) {
+  participants = checkDateFormatParticipants(JSON.parse(formData["participants"]));
 }
 
   const fullData =
-    entries.formType === "annexe2and4"
+    formData.formType === "annexe2and4"
       ? {
           ...baseData,
           identification: {
             ...baseData.identification,
-            nationality: entries["identification.nationality"],
-            passportNumber: entries["identification.passportNumber"],
+            nationality: formData["identification.nationality"],
+            passportNumber: formData["identification.passportNumber"],
           },
           contact: {
             ...baseData.contact,
-            contactPhone: Number(entries["contact.contactPhone"]),
-            address: entries["contact.address"],
+            contactPhone: Number(formData["contact.contactPhone"]),
+            address: formData["contact.address"],
           },
           trip: {
-            startDate: new Date(entries["trip.startDate"]),
-            endDate: new Date(entries["trip.endDate"]),
-            insuranceValidity: new Date(entries["trip.insuranceValidity"]),
+            startDate: new Date(formData["trip.startDate"]),
+            endDate: new Date(formData["trip.endDate"]),
+            insuranceValidity: new Date(formData["trip.insuranceValidity"]),
           },
           glider: {
-            gliderManufacturer: entries["glider.gliderManufacturer"],
-            gliderModel: entries["glider.gliderModel"],
-            gliderSize: entries["glider.gliderSize"],
-            gliderColors: entries["glider.gliderColors"],
+            gliderManufacturer: formData["glider.gliderManufacturer"],
+            gliderModel: formData["glider.gliderModel"],
+            gliderSize: formData["glider.gliderSize"],
+            gliderColors: formData["glider.gliderColors"],
           },
-          siteSelection: JSON.parse(entries["siteSelection"]),
+          siteSelection: JSON.parse(formData["siteSelection"]),
           participants,
         }
       : baseData;

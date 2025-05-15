@@ -6,12 +6,10 @@ const rules = [
   {
     key: "airspaces",
     icon: Map,
-    colour: "primary",
   },
   {
     key: "authorisation",
     icon: NotepadText,
-    colour: "secondary",
   },
 ];
 
@@ -40,7 +38,7 @@ export default function RulesNav() {
                 id="content"
                 className="flex flex-col items-center text-center"
               >
-                <Icon className={`w-10 h-10 text-${rule.colour} mb-4`} />
+                <Icon className={`w-10 h-10 text-secondary mb-4`} />
                 <h3 className="text-xl font-semibold mb-2">
                   {t(`${rule.key}.title`)}
                 </h3>
