@@ -1,6 +1,7 @@
-import { Map, MoveRight, NotepadText } from "lucide-react";
+import { Map, NotepadText } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import ViewMoreArrow from "../viewMoreArrow";
 
 const rules = [
   {
@@ -32,7 +33,7 @@ export default function RulesNav() {
             <Link
               key={rule.key}
               href={`/rules/${rule.key}`}
-              className="group bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all w-full h-full max-w-96 flex flex-col justify-between"
+              className="group bg-radial from-base-100 to-base-200 hover:from-base-200 hover:to-base-300 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all w-full h-full max-w-96 flex flex-col justify-between"
             >
               <div
                 id="content"
@@ -47,13 +48,7 @@ export default function RulesNav() {
                 </p>
               </div>
               <div className="flex justify-end items-center mt-6 text-neutral text-xs">
-                <p className="group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 opacity-0 mr-2">
-                  {t("rulesNav.view")}
-                </p>
-                <MoveRight
-                  size={26}
-                  className="group-hover:translate-x-2 transition-transform duration-300"
-                />
+                <ViewMoreArrow />
               </div>
             </Link>
           );

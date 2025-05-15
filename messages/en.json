@@ -233,9 +233,15 @@
     "upcoming": "Upcoming Tours",
     "book": "Book now",
     "view": "View more",
-    "by": "by",
+    "viewLess": "View less",
     "available": "Available",
     "full": "Full",
+    "lostTraveler": {
+      "question": "Are you lost?",
+      "wanderer": "Even the best adventurers stray from the path.",
+      "disappearance": "The page you're looking for might have moved or no longer exists.",
+      "goBack":"Find your way back"
+    },
     "toursDetails": {
       "coastal": {
         "focus": "Coastal flying, beach and sun",
@@ -351,5 +357,12 @@
       "region": "High Atlas",
       "description": "Dusty"
     }
+  },
+
+  "notFound": {
+    "question": "Are you lost?",
+    "wanderer": "The wind whispers of a page that once was...",
+    "disappearance": "But alas, it may have vanished beyond the dunes.",
+    "goBack": "Go back before the sun sets"
   }
 }

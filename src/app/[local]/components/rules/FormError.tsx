@@ -27,7 +27,7 @@ export default function FormError({ formError }: { formError: string | null}) {
             type="button"  
             aria-label="Close success message" 
             onClick={() => setModal(false)} 
-            className="rounded-full p-1 hover:bg-base-300/85 cursor-pointer transition-colors"
+            className="rounded-full p-1 btn btn-ghost"
             ><X size={20} /></button> 
 
           </motion.div>

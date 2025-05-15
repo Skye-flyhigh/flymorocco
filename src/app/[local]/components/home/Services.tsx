@@ -37,7 +37,7 @@ export default function Services() {
               <Link
                 key={service.key}
                 href={service.url}
-                className="max-w-96 bg-radial from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center h-full text-center"
+                className="max-w-96 bg-radial from-base-100 to-base-200 hover:from-base-200 hover:to-base-300 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center h-full text-center"
               >
                 <Icon className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-xl font-semibold mb-2">

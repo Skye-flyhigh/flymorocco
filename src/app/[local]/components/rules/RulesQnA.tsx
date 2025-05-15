@@ -16,7 +16,7 @@ export default function RulesQnA() {
         <h3 className="sections-subtitle">{t("qna.subtitle")}</h3>
         <div className="mt-10 flex flex-col gap-4">
           {questionKeys.map((key) => (
-            <div key={key} tabIndex={0} className="collapse bg-base-200">
+            <div key={key} tabIndex={0} className="collapse bg-base-200 hover:bg-base-300 transition-colors">
               <div className="collapse-title font-semibold">
                 {t(`${key}.q`)}
               </div>

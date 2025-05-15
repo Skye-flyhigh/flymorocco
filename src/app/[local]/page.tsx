@@ -143,7 +143,7 @@ export default function HomePage() {
       <Explore />
       <Services />
       <FeaturedSites />
-      <TourCalendar nbWeeksDisplay={4} />
+      <TourCalendar />
       <Testimonials />
     </>
   );

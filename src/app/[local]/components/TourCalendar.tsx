@@ -13,6 +13,8 @@ import {
   Sun,
   TreePalm,
 } from "lucide-react";
+import ViewMoreArrow from "./viewMoreArrow";
+import { useEffect, useState } from "react";
 
 export function formatRange(startISO: string, endISO: string) {
   const start = parseISO(startISO);
@@ -34,18 +36,29 @@ export function formatRange(startISO: string, endISO: string) {
   return `${format(start, "d MMM", { locale: enGB })} – ${format(end, "d MMM yyyy", { locale: enGB })}`;
 }
 
-export default function TourCalendar({
-  nbWeeksDisplay,
-}: {
-  nbWeeksDisplay: number;
-}) {
-  //TODO: Properly connect the buttons to something when that something exist!
-
+export default function TourCalendar() {
   const t = useTranslations("tours");
   const today = format(new Date(), "yyyy-MM-dd");
+  
   const filteredWeeks = Object.values(tourSchedule).filter(
-    (trip) => parseISO(trip.start) > parseISO(today),
+    (trip) => parseISO(trip.start) > parseISO(today)
   );
+  const [cards, setCards] = useState<number>(4) //TODO: Properly connect the buttons to something when that something exist!
+  const [disable, setDisable] = useState(false)
+  const increment = () => {
+    if(cards < filteredWeeks.length) 
+      return setCards(cards + 2)
+    else setDisable(true)
+    }
+  const decrement = () => {
+    return setCards(cards - 2)
+  }
+
+  useEffect(() => {
+    if(cards < filteredWeeks.length)
+      setDisable(false)
+  }, [cards, filteredWeeks])
+  
 
   type IconName =
     | "sun"
@@ -70,7 +83,7 @@ export default function TourCalendar({
       <h2 className="section-title text-shadow">{t("calendar")}</h2>
       <p className="text-2xl font-bold mb-5">{t("upcoming")}</p>
       <div className="grid gap-8 sm:grid-cols-2">
-        {filteredWeeks.slice(0, nbWeeksDisplay).map((week) => {
+        {filteredWeeks.slice(0, cards).map((week) => {
           const Icon = iconMap[week.icon as keyof typeof iconMap] || Plane;
 
           return (
@@ -79,30 +92,32 @@ export default function TourCalendar({
               key={week.start}
               target="_blank"
               rel="noopener"
-              className="h-full"
+              className="h-full group"
             >
-              <div className="bg-radial h-full from-base-100 to-base-200 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all flex flex-col items-center text-center">
-                <Icon className="w-10 h-10 text-primary mb-4" />
-                <h3 className="text-xl font-semibold mb-2">
-                  {formatRange(week.start, week.end)}{" "}
+              <div className="bg-radial h-full min-h-52 from-base-100 to-base-200 hover:from-base-200 hover:to-base-300 shadow-lg rounded-2xl p-4 hover:shadow-xl transition-all relative">
+                <p
+                  className={`badge badge-outline text-xs ${week.status === "full" ? "badge-error" : "badge-success"}`}
+                >
+                  {t(`${week.status}`).toUpperCase()}
+                </p>
+                <br />
+                <Icon className="w-10 h-10 text-primary mt-4 mr-4 absolute right-0 top-0" />
+                <h3 className="badge badge-secondary text-xl font-semibold mt-2 p-3 w-fit">
+                  {week.type}{" "}
                   {week.provider && (
-                    <span className="text-primary-content">
-                      {t("by")} {week.provider}
+                    <span className="w-fit">
+                      {" - "} {week.provider}
                     </span>
                   )}
                 </h3>
-                <p>
-                  {week.location} —{" "}
-                  {t(`toursDetails.${week.translationKey}.focus`)}
+                <p>{t(`toursDetails.${week.translationKey}.focus`)}</p>
+                <p className="block mb-5 font-semibold absolute bottom-3">
+                  {formatRange(week.start, week.end)}
                 </p>
-                <p className="pb-2 text-base-content">
-                  {t(`toursDetails.${week.translationKey}.note`)}
+                <p className="text-xs text-accent absolute bottom-3">
+                  {week.location}
                 </p>
-                <span
-                  className={`badge m-2 ${week.status === "full" ? "badge-error" : "badge-success"}`}
-                >
-                  {t(`${week.status}`).toUpperCase()}
-                </span>
+                <div className="absolute bottom-2 right-4"><ViewMoreArrow /></div>
               </div>
             </Link>
           );
@@ -112,9 +127,15 @@ export default function TourCalendar({
         <Link href="/tours" className="btn btn-primary m-5">
           {t("book")}
         </Link>
-        <Link href="/tours" className="btn btn-secondary m-5">
+        <button type="button" className="btn btn-secondary m-5" onClick={increment} disabled={disable}>
           {t("view")}
-        </Link>
+        </button>
+        {
+          cards > 5 &&
+          <button type="button" className="btn btn-soft m-5" onClick={decrement}>
+          {t("viewLess")}
+        </button>
+        }
       </div>
     </section>
   );

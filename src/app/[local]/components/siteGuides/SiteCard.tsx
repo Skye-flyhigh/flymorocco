@@ -19,7 +19,7 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
   const { width, height } = extractImageDimensions(imagePath);
 
   return (
-    <div className="card bg-base-100 shadow-xl h-full w-full min-w-96">
+    <div className="card bg-base-100 hover:bg-base-200 shadow-xl hover:shadow-2xl transition-all h-full w-full min-w-96">
       <figure className="aspect-video">
         <Image
           src={imagePath}

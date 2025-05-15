@@ -1,4 +1,4 @@
-import { SiteMeta, siteMeta } from "./validation/siteMeta";
+import { SiteMeta, siteMeta } from "../validation/siteMeta";
 
 export function getSiteMeta(slug: string): SiteMeta {
   const meta = siteMeta[slug as keyof typeof siteMeta];

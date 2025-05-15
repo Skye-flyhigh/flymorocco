@@ -1,18 +1,17 @@
+"use client"
 import { useTranslations } from "next-intl";
-import { getSiteMeta } from "@/lib/site";
+import { getSiteMeta } from "@/lib/data-retrievers/getSiteMeta";
 import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import MissingMountain from "../../components/siteGuides/MissingMountain";
 import Hero from "../../components/Hero"; 
+import { usePathname } from "next/navigation";
 
-export default function SiteGuidePage({
-  params,
-}: {
-  params: { slug: string; local: string };
-}) {
-  const { slug } = params;
+export default function SiteGuidePage() { //TODO: add the legal info
+  const slug = usePathname().split("/").slice(3).toString();
   const meta = getSiteMeta(slug);
   const t = useTranslations("siteGuides");
+  
   if (!meta || !slug) return <MissingMountain />;
 
   return (
@@ -31,7 +30,7 @@ export default function SiteGuidePage({
         <div id="site-map" className="py-5 flex justify-center items-center">
           <SiteMapContainer zoom={13} lat={meta.lat} lon={meta.lon} />
         </div>
-        <div id="description" className="max-w-3/4 min-w-11/12 mx-auto p-5">
+        <section id="description" className="max-w-3/4 min-w-11/12 mx-auto p-5">
           <p className="prose mb-6">{t(`${slug}.longDescription`)}</p>
           <div
             tabIndex={0}
@@ -69,7 +68,9 @@ export default function SiteGuidePage({
               {t(`${slug}.hazard`)}
             </div>
           </div>
-        </div>
+        </section>
+        <section id="legal-info"> 
+        </section>
       </main>
       <div
         id="carousel-container"

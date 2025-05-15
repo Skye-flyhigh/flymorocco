@@ -10,6 +10,7 @@ export const tourScheduleData = z.object({
       message: "Slug must start with '/' (internal) or 'http' (external URL)",
     }),
   provider: z.string().optional(),
+  type: z.string(),
   location: z.string(),
   icon: z.string(),
   status: z.string(),

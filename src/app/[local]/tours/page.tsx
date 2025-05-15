@@ -12,7 +12,7 @@ export default function Page() {
         subtitle={t("subtitle")}
         img="/images/camel-1865x1415.jpg"
       />
-      <TourCalendar nbWeeksDisplay={8} />
+      <TourCalendar />
     </main>
   );
 }

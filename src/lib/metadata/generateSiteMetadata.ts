@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getSiteMeta } from "../site";
+import { getSiteMeta } from "../data-retrievers/getSiteMeta";
 import fs from "fs";
 import path from "path";
 
