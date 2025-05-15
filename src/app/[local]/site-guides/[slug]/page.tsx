@@ -1,32 +1,9 @@
 import { useTranslations } from "next-intl";
-import { Metadata } from "next";
 import { getSiteMeta } from "@/lib/site";
 import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import MissingMountain from "../../components/siteGuides/MissingMountain";
-import fs from "fs";
-import path from "path";
-import Hero from "../../components/Hero";
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string; local: string };
-}): Promise<Metadata> {
-  const { slug, local } = params;
-  const meta = getSiteMeta(slug);
-  if (!meta) return { title: "Not Found" };
-
-  const filePath = path.join(process.cwd(), "messages", `${local}.json`);
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const messages = JSON.parse(raw);
-  const t = messages.siteGuides?.[slug];
-
-  return {
-    title: `${t?.name} – FlyMorocco`,
-    description: t?.description,
-  };
-}
+import Hero from "../../components/Hero"; 
 
 export default function SiteGuidePage({
   params,
