@@ -1,23 +1,24 @@
+// src/app/[locale]/book/[slug]/page.tsx
+import { notFound } from "next/navigation";
 import { tourSchedule } from "@/lib/validation/tourScheduleData";
 import { format } from "date-fns";
-import MissingTour from "../../components/tours/MissingTour";
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function BookingPage({ params }: Props) {
+export default function Page({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const slug = "/tours/" + params.slug;
-  const matchingTours = tourSchedule.filter((tour) => tour.slug === slug);
+  const matchingTours = tourSchedule.filter(
+    (tour) => tour.slug === slug
+  );
 
-  if (matchingTours.length === 0) return MissingTour();
+  if (matchingTours.length === 0) return notFound();
 
   return (
     <main className="max-w-3xl mx-auto py-16 px-6">
       <h1 className="text-3xl font-bold mb-4">
-        Book: {params.slug.replace("/", "")}
+        Book: {params.slug}
       </h1>
 
       {matchingTours.map((tour, index) => (
@@ -29,11 +30,8 @@ export default function BookingPage({ params }: Props) {
             {format(new Date(tour.start), "MMMM d")} →{" "}
             {format(new Date(tour.end), "MMMM d, yyyy")}
           </p>
-          <p>
-            Status: <span className="font-medium">{tour.status}</span>
-          </p>
+          <p>Status: <span className="font-medium">{tour.status}</span></p>
 
-          {/* Placeholder for booking form */}
           <div className="mt-4">
             <button className="btn btn-primary" disabled>
               Booking Form Coming Soon
