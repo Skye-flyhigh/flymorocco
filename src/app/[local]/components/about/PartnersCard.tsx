@@ -12,7 +12,7 @@ export default function PartnersCard() {
     >
       {Object.values(partnerMeta).map((partner: PartnerMeta) => (
         <div
-          className="card bg-base-100 w-96 sm:w-[28rem] shadow-sm transition-all duration-300 ease-in-out"
+          className="card bg-base-100 w-96 sm:w-[28rem] shadow-md hover:bg-base-200 hover:shadow-xl transition-all duration-300 ease-in-out"
           key={partner.slug}
           role="group"
           aria-labelledby={`${partner.slug}-title`}

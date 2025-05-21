@@ -58,8 +58,28 @@ export default function Annexe2and4Form() {
     );
   }
 
+  const initFormData = {
+    formType: "annexe2and4",
+    "identification.firstName": "",
+    "identification.lastName": "",
+    "identification.nationality": "",
+    "identification.passportNumber": "",
+    "contact.contactEmail": "example@provider.com",
+    "contact.contactPhone": "1234567890",
+    "contact.address": "",
+    "trip.insuranceValidity": new Date().toDateString(),
+    "trip.startDate": new Date().toDateString(),
+    "trip.endDate": new Date().toDateString(),
+    "glider.gliderManufacturer": "",
+    "glider.gliderModel": "",
+    "glider.gliderSize": "",
+    "glider.gliderColors": "",
+    participants: "",
+    siteSelection: "",
+  };
+
   const [currState, handleSubmit, isPending] = useActionState(submitCaaForm, {
-    formData: initialValues,
+    formData: initFormData,
     error: null,
     success: false,
   });
@@ -68,13 +88,15 @@ export default function Annexe2and4Form() {
     (payload: { validParticipants: ParticipantType[] }) => {
       setParticipants(payload.validParticipants);
     },
-    [], 
-  );  
+    [],
+  );
 
   const handleSiteSelectionUpdate = useCallback(
     (payload: { selectedZones: string[] }) => {
-    setSiteSelection(payload.selectedZones);
-    }, [])
+      setSiteSelection(payload.selectedZones);
+    },
+    [],
+  );
 
   const startDate = currState.formData["startDate"];
   const endDate = currState.formData["endDate"];
@@ -106,15 +128,29 @@ export default function Annexe2and4Form() {
 
   return (
     <section id="annexe-2-and-4-form" className="w-screen bg-base-200 flex">
-      <form id="CAA-form" action={handleSubmit}>
+      <form
+        id="CAA-form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+          const data: { [key: string]: string } = {};
+          formData.forEach((value, key) => {
+            data[key] = value.toString();
+          });
+          handleSubmit(data);
+        }}
+      >
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("annexe2and4.title")}
         </h2>
         <input type="hidden" name="formType" value="annexe2and4" />
 
-        <FormSuccess formStatus={currState.success} message={t("form.submitSuccess")}/>
+        <FormSuccess
+          formStatus={currState.success}
+          message={t("form.submitSuccess")}
+        />
         <FormError formError={currState.error} />
-        
+
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.generalInformation")}
         </h3>
@@ -169,7 +205,7 @@ export default function Annexe2and4Form() {
                           defaultValue={currState.formData[fieldKey]}
                           required
                         />
-                      ) : 
+                      ) : (
                         <input
                           type={type}
                           name={`${fieldsetKey}.${fieldKey}`}
@@ -179,13 +215,12 @@ export default function Annexe2and4Form() {
                             fieldKey === "insuranceValidity" ||
                             fieldKey === "startDate" ||
                             fieldKey === "endDate"
-                              ? 
-                                  currState.formData[fieldKey]
+                              ? currState.formData[fieldKey]
                               : currState.formData[fieldKey]
                           }
                           required
                         />
-                      }
+                      )}
                       {inputErrors[fieldKey] && (
                         <p className="alert alert-error">
                           <CircleX />
@@ -199,20 +234,26 @@ export default function Annexe2and4Form() {
             );
           })}
         </section>
-        <input type="hidden" name="participants" defaultValue={JSON.stringify(participants)} />
+        <input
+          type="hidden"
+          name="participants"
+          defaultValue={JSON.stringify(participants)}
+        />
         <AddParticipants participantAction={handleParticipantsUpdate} />
 
         <h3 className="text-2xl p-5 m-6 fieldset-legend">
           {t("form.siteSelector")}
         </h3>
 
-        <input type="hidden" name="siteSelection" defaultValue={JSON.stringify(siteSelection)} />
-        <SiteSelector
-          selectionAction={handleSiteSelectionUpdate}
+        <input
+          type="hidden"
+          name="siteSelection"
+          defaultValue={JSON.stringify(siteSelection)}
         />
+        <SiteSelector selectionAction={handleSiteSelectionUpdate} />
 
         {/* Submit Button */}
-        <FormButton status={isPending}/>
+        <FormButton status={isPending} />
       </form>
     </section>
   );

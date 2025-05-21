@@ -59,6 +59,7 @@ export default function Carousel({
                 width={image.width}
                 height={image.height}
                 className={`object-cover ${aspect}`}
+                loading="lazy"
               />
             </div>
           </div>

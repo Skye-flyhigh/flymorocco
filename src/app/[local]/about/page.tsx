@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Hero from "../components/Hero";
-import PartnersCard from "../components/PartnersCard";
+import PartnersCard from "../components/about/PartnersCard";
 
 export default function Page() {
   const t = useTranslations("about");

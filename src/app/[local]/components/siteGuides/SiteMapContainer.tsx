@@ -7,7 +7,12 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, GeoJSON } from "react-leaflet";
-import type { FeatureCollection, Feature, GeoJsonProperties, Geometry } from "geojson";
+import type {
+  FeatureCollection,
+  Feature,
+  GeoJsonProperties,
+  Geometry,
+} from "geojson";
 
 export default function SiteMapContainer({
   zoom,
@@ -19,7 +24,10 @@ export default function SiteMapContainer({
   lon: number;
 }) {
   const t = useTranslations("siteGuides");
-  const [geojsonData, setGeojsonData] = useState<FeatureCollection<Geometry, GeoJsonProperties> | null>(null);  
+  const [geojsonData, setGeojsonData] = useState<FeatureCollection<
+    Geometry,
+    GeoJsonProperties
+  > | null>(null);
   const [airspaceToggle, setAirspaceToggle] = useState<boolean>(false);
 
   useEffect(() => {
@@ -74,13 +82,16 @@ export default function SiteMapContainer({
     UNCLASSIFIED: "#bdbdbd",
   };
 
-  type AirspaceFeature = Feature<Geometry, {
-    name: string;
-    class?: AirspaceClass;
-    type?: AirspaceType;
-    upperCeiling?: { value: number; unit: string };
-    lowerCeiling?: { value: number; unit: string };
-  }>;
+  type AirspaceFeature = Feature<
+    Geometry,
+    {
+      name: string;
+      class?: AirspaceClass;
+      type?: AirspaceType;
+      upperCeiling?: { value: number; unit: string };
+      lowerCeiling?: { value: number; unit: string };
+    }
+  >;
 
   const filteredData = airspaceToggle
     ? {
@@ -117,7 +128,7 @@ export default function SiteMapContainer({
       fillOpacity?: number;
     };
   }
-  
+
   function onEachFeature(feature: AirspaceFeature, layer: Path) {
     const initialStyle = {
       color: layer.options.color,
@@ -143,7 +154,7 @@ export default function SiteMapContainer({
       mouseout: (e: LeafletMouseEvent) => {
         const targetLayer = e.target as Path;
         const original = (targetLayer as StyledLayer).initialStyle;
-        if(!original) return;
+        if (!original) return;
         targetLayer.setStyle(original);
       },
     });

@@ -43,17 +43,19 @@ export async function submitCaaForm(
     },
   };
 
-const checkDateFormatParticipants = (participantArr: ParticipantType[]) => {
-  for (let i = 0; i < participantArr.length; i++) {
-    const date = new Date(participantArr[i].insuranceValidity)
-    participantArr[i].insuranceValidity = date
+  const checkDateFormatParticipants = (participantArr: ParticipantType[]) => {
+    for (let i = 0; i < participantArr.length; i++) {
+      const date = new Date(participantArr[i].insuranceValidity);
+      participantArr[i].insuranceValidity = date;
+    }
+    return participantArr;
+  };
+  let participants: ParticipantType[] = [];
+  if (formData["participants"]) {
+    participants = checkDateFormatParticipants(
+      JSON.parse(formData["participants"]),
+    );
   }
-  return participantArr
-}
-let participants: ParticipantType[] = []
-if(formData["participants"]) {
-  participants = checkDateFormatParticipants(JSON.parse(formData["participants"]));
-}
 
   const fullData =
     formData.formType === "annexe2and4"

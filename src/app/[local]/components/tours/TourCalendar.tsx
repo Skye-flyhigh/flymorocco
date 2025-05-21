@@ -2,8 +2,7 @@
 
 import { tourSchedule } from "@/lib/validation/tourScheduleData";
 import Link from "next/link";
-import { format, isSameMonth, isSameYear, isValid, parseISO } from "date-fns";
-import { enGB } from "date-fns/locale"; // Or localize based on user
+import { format, parseISO } from "date-fns";
 import { useTranslations } from "next-intl";
 import {
   HandHeart,
@@ -13,52 +12,31 @@ import {
   Sun,
   TreePalm,
 } from "lucide-react";
-import ViewMoreArrow from "./viewMoreArrow";
+import ViewMoreArrow from "../viewMoreArrow";
 import { useEffect, useState } from "react";
-
-export function formatRange(startISO: string, endISO: string) {
-  const start = parseISO(startISO);
-  const end = parseISO(endISO);
-
-  if (!isValid(start) || !isValid(end)) {
-    console.warn("Invalid date in tour data:", startISO, endISO);
-    return "Invalid dates";
-  }
-
-  if (isSameMonth(start, end) && isSameYear(start, end)) {
-    return `${format(start, "d", { locale: enGB })}–${format(end, "d MMMM yyyy", { locale: enGB })}`;
-  }
-
-  if (!isSameYear(start, end)) {
-    return `${format(start, "d MMM yyyy", { locale: enGB })} – ${format(end, "d MMM yyyy", { locale: enGB })}`;
-  }
-
-  return `${format(start, "d MMM", { locale: enGB })} – ${format(end, "d MMM yyyy", { locale: enGB })}`;
-}
+import { formatRange } from "@/scripts/dateFormat";
 
 export default function TourCalendar() {
   const t = useTranslations("tours");
   const today = format(new Date(), "yyyy-MM-dd");
-  
+
   const filteredWeeks = Object.values(tourSchedule).filter(
-    (trip) => parseISO(trip.start) > parseISO(today)
+    (trip) => parseISO(trip.start) > parseISO(today),
   );
-  const [cards, setCards] = useState<number>(4) //TODO: Properly connect the buttons to something when that something exist!
-  const [disable, setDisable] = useState(false)
+  const [cards, setCards] = useState<number>(4); //TODO: Properly connect the buttons to something when that something exist!
+  const [disable, setDisable] = useState(false);
+
   const increment = () => {
-    if(cards < filteredWeeks.length) 
-      return setCards(cards + 2)
-    else setDisable(true)
-    }
+    if (cards < filteredWeeks.length) return setCards(cards + 2);
+    else setDisable(true);
+  };
   const decrement = () => {
-    return setCards(cards - 2)
-  }
+    return setCards(cards - 2);
+  };
 
   useEffect(() => {
-    if(cards < filteredWeeks.length)
-      setDisable(false)
-  }, [cards, filteredWeeks])
-  
+    if (cards < filteredWeeks.length) setDisable(false);
+  }, [cards, filteredWeeks]);
 
   type IconName =
     | "sun"
@@ -117,7 +95,9 @@ export default function TourCalendar() {
                 <p className="text-xs text-accent absolute bottom-3">
                   {week.location}
                 </p>
-                <div className="absolute bottom-2 right-4"><ViewMoreArrow /></div>
+                <div className="absolute bottom-2 right-4">
+                  <ViewMoreArrow />
+                </div>
               </div>
             </Link>
           );
@@ -127,15 +107,23 @@ export default function TourCalendar() {
         <Link href="/tours" className="btn btn-primary m-5">
           {t("book")}
         </Link>
-        <button type="button" className="btn btn-secondary m-5" onClick={increment} disabled={disable}>
+        <button
+          type="button"
+          className="btn btn-secondary m-5"
+          onClick={increment}
+          disabled={disable}
+        >
           {t("view")}
         </button>
-        {
-          cards > 5 &&
-          <button type="button" className="btn btn-soft m-5" onClick={decrement}>
-          {t("viewLess")}
-        </button>
-        }
+        {cards > 5 && (
+          <button
+            type="button"
+            className="btn btn-soft m-5"
+            onClick={decrement}
+          >
+            {t("viewLess")}
+          </button>
+        )}
       </div>
     </section>
   );

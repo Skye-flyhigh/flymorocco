@@ -1,18 +1,24 @@
-"use client"
+"use client";
 import { useTranslations } from "next-intl";
 import { getSiteMeta } from "@/lib/data-retrievers/getSiteMeta";
 import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import MissingMountain from "../../components/siteGuides/MissingMountain";
-import Hero from "../../components/Hero"; 
+import Hero from "../../components/Hero";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-export default function SiteGuidePage() { //TODO: add the legal info
+export default function SiteGuidePage() {
+  //TODO: add the legal info
   const slug = usePathname().split("/").slice(3).toString();
   const meta = getSiteMeta(slug);
   const t = useTranslations("siteGuides");
-  
+
   if (!meta || !slug) return <MissingMountain />;
+
+  const legislation = t(`${slug}.legislation`);
+  const legislationExists =
+    legislation !== `siteGuides.${slug}.legislation` && legislation !== "";
 
   return (
     <>
@@ -69,8 +75,19 @@ export default function SiteGuidePage() { //TODO: add the legal info
             </div>
           </div>
         </section>
-        <section id="legal-info"> 
-        </section>
+
+        {legislationExists && (
+          <section
+            id="legal-info"
+            className="max-w-3/4 min-w-11/12 mx-auto p-5 bg-primary text-primary-content rounded-2xl"
+          >
+            <p>{t(`${slug}.legislation`)}</p>
+          </section>
+        )}
+
+        <Link href="/site-guides" className="btn btn-secondary m-10">
+          {t("return")}
+        </Link>
       </main>
       <div
         id="carousel-container"

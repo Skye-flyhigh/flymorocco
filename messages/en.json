@@ -240,7 +240,7 @@
       "question": "Are you lost?",
       "wanderer": "Even the best adventurers stray from the path.",
       "disappearance": "The page you're looking for might have moved or no longer exists.",
-      "goBack":"Find your way back"
+      "goBack": "Find your way back"
     },
     "toursDetails": {
       "coastal": {
@@ -267,6 +267,51 @@
         "focus": "Coastal flying, beach and sun",
         "note": "Best for beginner/intermediate pilots and relaxing. Provided by Paradopia."
       }
+    },
+    "tourService": {
+      "title": "Tour services",
+      "subtitle": "We provide all the services you need to fly in Morocco",
+      "participants": "We welcome all qualified pilots from all levels.",
+      "price": "For only £799/€950 per week, you will get all the services below.",
+      "viewSchedule": "View Schedule",
+      "accommodation": {
+        "title": "Accommodation and Food",
+        "description": "We provide accommodation in local hotels and guesthouses which includes breakfast and dinner."
+      },
+      "transportation": {
+        "title": "Transportation",
+        "description": "We provide transportation to and from the flying sites and other activities."
+      },
+      "guides": {
+        "title": "Guides and Flying experience",
+        "description": "We handle the administrative steps for you to fly in Morocco. We provide experienced guides to help you navigate the sites."
+      },
+      "airport": {
+        "title": "Airport transfers",
+        "description": "We provide airport transfers to and from the flying sites only at the start and end dates of our tours."
+      },
+      "tourExclusions": {
+        "title": "What's not included?",
+        "item1": "International and domestic flights to/from Morocco",
+        "item2": "Travel, medical or personal liability insurance",
+        "item3": "Tandem flights or instruction (Flymorocco is not a paragliding school)",
+        "item4": "Alcoholic drinks and personal expenses",
+        "item5": "Personal equipment (paragliding gear, helmet, etc.)",
+        "terms": "For a full list of exclusions and participant responsibilities, please read our ",
+        "termsLink": "Terms and Conditions"
+      }
+    },
+    "coastal": {
+      "title": "Coastal Tours",
+      "subtitle": "Soothing beaches and sea breeze"
+    },
+    "mountain": {
+      "title": "Mountain Tour",
+      "subtitle": "High Atlas heights and fresh air"
+    },
+    "wellbeing": {
+      "title": "Wellbeing Retreat",
+      "subtitle": "Slow mornings, soft landing, and peace"
     }
   },
 
@@ -275,6 +320,7 @@
     "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
     "more": "More",
     "less": "Less",
+    "return": "Return to Site Guides",
     "viewSite": "View Site",
     "featuring": "Today's featured site",
     "takeoff": "Take-off",
@@ -310,7 +356,8 @@
       "takeoff": "The takeoff is only accessible by foot after a 20 to 30min walk up through goat tracks. The ridge is very steep/cliff on most of its length and takeoff can be performed all along the ridge but there is only two area where it is relatively easy to takeoff from. The takeoff is rocky ready to catch one or two lines.",
       "landing": "There is no official landing area but most people will land on the far west where you start to walk from. You may land anywhere suitable bearing in mind that the ground is not flat at the bottom.",
       "flying": "This sites need an authorisation from the CAA and local government to fly (Free flying rules). Requirement - Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17. The ridge can be soared all on its length. The site is a spine ridge and will present rotors on the lee side.",
-      "hazards": "It is a rocky terrain with some toxic cacti at the bottom. There is potential scorpions hiding under rocks in this area. The site will have rotor on its lee side and it is no recommended to fly there unless you have enough clearance to fly away. "
+      "hazard": "It is a rocky terrain with some toxic cacti at the bottom. There is potential scorpions hiding under rocks in this area. The site will have rotor on its lee side and it is no recommended to fly there unless you have enough clearance to fly away. ",
+      "legislation": "Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17."
     },
     "guigou": {
       "name": "Guigou",
@@ -320,42 +367,80 @@
       "takeoff": "Takeoff will be done either the first third up the slope or from the top after following goat tracks.",
       "landing": "Landing can be done anywhere minding cultures and lands. Take care for local powerlines.",
       "flying": "The ridge is about 25km long, it is possible to takeoff at the bottom and soar all the way up to explore the whole ridge. Major powerlines are running in this region.",
-      "hazards": "This site is directly located under the Fes TMA and local aviation may take place. Please refer to the airspace panel for further information."
+      "hazard": "This site is directly located under the Fes TMA and local aviation may take place. Please refer to the airspace panel for further information."
     },
     "tizi-n-test": {
       "name": "Tizi-N-Test",
       "region": "High Atlas",
-      "description": "Difficult High mountain site"
+      "description": "Tizi-N-Test is a site in the high Atlas and it works like an Alpine site on the dryer side of the Atlas, facing Taroudant.",
+      "longDescription": "This site works with valley breeze and thermals. It can be turbulent and difficult to fly but the landing is the most technical aspect for this site.",
+      "takeoff": "The takeoff is directly below the road and the restaurant, the restaurant owner will help you to locate it if you need help. It is steep and covered of gravel which makes is slippery. There are cacti around the takeoff that will catch you if you slip.",
+      "landing": "The landing is NOT at the bottom of the valley but further away by the road. It is a slightly, and the only flat lands around this area. It is extremely difficult to land anywhere else in this area. The Gendarmes will wait for you at the landing to check on your authorisation.",
+      "flying": " This site is in the high atlas and it has an alpine regime with valley breeze, lee side thermals, etc. It is a very technical site and it is not recommended to fly there unless you are an experienced pilot. The site is not recommended for beginners.",
+      "hazard": "The takeoff and the landing are the most technical aspect of this site.",
+      "legislation": ""
     },
     "ait-ourir": {
       "name": "Ait Ourir",
-      "region": "High Atlas",
-      "description": "Near Marrakech"
+      "region": "Marrakech",
+      "description": "Ait Ourir is an amazing site to fly. It works like Aguergour meaning that it takes the same wind orientation and mainly work with anabatic flow from Marrakech to the High Atlas behind.",
+      "longDescription": "Unlike Aguergour, you'll have to walk to the top to be able to take off but fortunately, it is still accessible through goat tracks as long as you're aiming to the top.",
+      "takeoff": "The takeoff is only accessible by foot after a 20 to 30min walk up through goat tracks. The ridge is very steep/cliff on most of its length and takeoff can be performed all along the ridge but there is only two area where it is relatively easy to takeoff from. The takeoff is rocky ready to catch one or two lines.",
+      "landing": "There is no official landing area but most people will land on the far west where you start to walk from. You may land anywhere suitable bearing in mind that the ground is not flat at the bottom.",
+      "flying": "This sites need an authorisation from the CAA and local government to fly (Free flying rules).",
+      "hazard": "It is a rocky terrain with some toxic cacti at the bottom. There is potential scorpions hiding under rocks in this area. The site will have rotor on its lee side and it is no recommended to fly there unless you have enough clearance to fly away. The ridge can be soared all on its length. The site is a spine ridge and will present rotors on the lee side.",
+      "legislation": "Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17."
     },
     "plage-blanche": {
       "name": "Plage Blanche",
-      "region": "High Atlas",
-      "description": "Cool"
+      "region": "Guelmin",
+      "description": "Beach, fly and fun! This is Plage Blanche, another surf and paragliding paradise.",
+      "longDescription": "To access the spot, you need to go as far away from the military outpost at the beginning of the road. They are not happy to see us flying in this area, but Plage Blanche is a massive area. The road may be tricky as it involves dune driving and passing the riverbed is the most difficult point of the journey.",
+      "takeoff": "Takeoff can be done the otherside of the river, well away from the military outpost.",
+      "landing": "Landing can be performed anywhere.",
+      "flying": "It is a coastal site with a laminar flow. It works best with NW winds.",
+      "hazard": "Some rocks need to be avoided."
     },
     "nid-d-aigle": {
       "name": "Nid d'Aigle",
-      "region": "High Atlas",
-      "description": "Awesome"
+      "region": "Tiznit",
+      "description": "One of the major paragliding site in Southern Morocco. This site works with sea breeze and thermals from the kilometre of land in front enabling cloudbase flying and cross country to Aglou (and sometimes back).",
+      "longDescription": "The takeoffs are by the restaurants are the top. They are private land and there is a takeoff fees for the day of 30 Dhs per person per day. There are options for restauration and accommodation. The takeoffs have parkings and easily accessible by cars or campers!",
+      "takeoff": "Both takeoffs are private and there is a small daily fee of 30Dhs. Nigel's takeoff is more forgiving than the other Nid d'Aigle for beginner with a rounder and smoother longer runway end.",
+      "landing": "Top land is done on the land by the Nid d'Aigle bearing in mind little turbulence by the cliff edge or on Nigel's takeoff without flying over the buildings. Bottom landing can be done by the road but this area is small and sloping away, it is not the easiest for beginners. The other option is to land by the small concrete cubic hut which is a beginner area and easier to approach.",
+      "flying": "This site works with thermals and gust can be observed. The site is so popular that it can be crowded by other pilots.",
+      "hazard": "Directly down of the takeoff there are cacti that won't forgive any landing there. The site have some rough cliff edge and a good clearance should be taken while soaring close to the terrain. Small buildings of the restaurant and hotel create rotors while on a top landing approach and it is best to keep away from them. There is a small power line running by the road to be avoided."
     },
     "m-zouda": {
       "name": "M'Zouda",
-      "region": "High Atlas",
-      "description": "Dusty"
+      "region": "Marrakech",
+      "description": "This site is a thermic site, there is not a lot of space for soaring.",
+      "longDescription": "Parking is done just above the takeoff. The landing is done in the riverbed. In order to fly this site, you need to go and meet the authorities, at least the Gendarmes, before you attempt any aerial activities.",
+      "takeoff": "The takeoff is done just below the road where you park on the top.",
+      "landing": "The landing can be done in the riverbed or the field designated on the picture above. The landing area is very thermic and can be turbulent when you approach it.",
+      "flying": "Before flying, you'll need to visit the Gendarmes before flying or you'll have a (nasty) surprise when you land. This site works really well with thermals. ",
+      "hazard": "This site is extremely thermic and dust devils may occur. Powerlines are extremely present in this area.",
+      "legislation": "Marrakech ATC must be informed the day before of the start and the end of arial activities. Contact: BAFRA/ Marrakech 05 24 43 04 11 / 05 24 44 79 17."
     },
     "legzira": {
       "name": "Legzira",
-      "region": "High Atlas",
-      "description": "Dusty"
+      "region": "Sidi Ifni",
+      "description": "Legzira is one of the most scenic site in Morocco. Takeoff at nearly or above cloud base, facing the sea, flying over the famous arches on the beach and land on the beach by the cafés.",
+      "longDescription": "Takeoff can be done either on the higher area on the mountain or lower area next to the arch depending on the day conditions. The mountain takeoff is accessible with any type of car.",
+      "takeoff": "There are two takeoffs depending on the day's conditions and your ability to go up the piste. Both takeoff are rocky but have been cleaned by previous pilots to minimise the damage on the wings.",
+      "landing": "Top landing and landing on the beach are your options. Legzira is a very touristic area and the beach can be easily crowded especially by the cafes. More over the high tide reaches up to the foot of the cliff and cafe really limiting the landing on the beach. In this scenario, it is better to land on the top of the cliff by the arch.",
+      "flying": "The top takeoff is subject to sea mist greatly reducing the visibility and disabling takeoff.",
+      "hazard": "Mist is to be considered when flying in this area. The crowd on the beach must be avoided as they have no awareness about paragliding. Scorpions live under rocks in this area and it is advised to not turn rocks."
     },
     "imsouane": {
       "name": "Imsouane",
       "region": "High Atlas",
-      "description": "Dusty"
+      "description": "Imsouane is a very famous surf spot with it's continuous and easy wave regime. It is less know for paragliding but there is an amazing ridge to soar.",
+      "longDescription": "The takeoff is easily accessible by car and the landing can be done at the top avoiding the trees, coffee truck and tourists or at the beach minding the tourists down there. The dominant wind direction in this area is from the N or NW which makes this site NOT FLYABLE. The terrain generate rotor in the flying area.",
+      "takeoff": "The top of the hill is cliff like except for the small area indicated in this page. It is recommended to takeoff were the land is smoother and rounded. ",
+      "landing": "Top landing is easily down when the conditions are right. The bottom landing is down on the beach as long as you avoid people as it is an extremely touristic area. The tide may completely cover the beach.",
+      "flying": "The site is not often flown as the ridge direction is not ideal for the dominant winds in this area (from the North or North West).",
+      "hazard": "The cliff like top may create turbulences for takeoff and top landing, special caution need to be adopted. DO NOT FLY THIS SITE WHEN THE WIND IS NW OR N. Rotors are generated from the terrain lower down which makes the landing on the beach vary dangerous. TIDE: high tide goes right at the bottom of the cliff removing all the landing options on the beach. The only option left to land is a flat land on the ridge by the village."
     }
   },
 

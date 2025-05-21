@@ -18,6 +18,8 @@ if (!parsedResult.success) {
   );
 }
 
-export const partnerMeta = parsedResult.data;
+export const partnerMeta: PartnerMetaMap = parsedResult.success
+  ? parsedResult.data
+  : {};
 export type PartnerMeta = z.infer<typeof PartnerMetaSchema>;
 export type PartnerMetaMap = Record<string, PartnerMeta>;

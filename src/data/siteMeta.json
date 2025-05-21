@@ -42,7 +42,16 @@
     "lon": -4.863,
     "launch_altitude": 2200,
     "windDirections": ["WNW", "NNW"],
-    "images": []
+    "images": [
+      {
+        "src": "/images/guigou-800x533.jpg",
+        "alt": "Zouhair flying over Guigou"
+      },
+      {
+        "src": "/images/guigou3-522x348.jpg",
+        "alt": "Looking down the ridge of Guigou"
+      }
+    ]
   },
   "imsouane": {
     "slug": "imsouane",
@@ -60,7 +69,20 @@
     "lon": -10.12,
     "launch_altitude": 250,
     "windDirections": ["W", "NW"],
-    "images": []
+    "images": [
+      {
+        "src": "/images/legzira-800x600.jpeg",
+        "alt": "Flying over the arch of Legzira"
+      },
+      {
+        "src": "/images/legzira2-800x600.jpg",
+        "alt": "View from Legzira mountain launch"
+      },
+      {
+        "src": "/images/legzira3-1085x1447.jpeg",
+        "alt": "Looking down over the arch of Legzira"
+      }
+    ]
   },
   "m-zouda": {
     "slug": "m-zouda",
@@ -69,7 +91,20 @@
     "lon": -8.6,
     "launch_altitude": 1550,
     "windDirections": ["N"],
-    "images": []
+    "images": [
+      {
+        "src": "/images/mzouda-1280x1024.jpg",
+        "alt": "Illustration of M'Zouda launch"
+      },
+      {
+        "src": "/images/mzouda2-522x418.jpg",
+        "alt": "Toby Colombé flying over M'Zouda"
+      },
+      {
+        "src": "/images/mzouda3-901x721.jpg",
+        "alt": "Looking down on M'Zouda"
+      }
+    ]
   },
   "nid-d-aigle": {
     "slug": "nid-d-aigle",
@@ -87,7 +122,20 @@
     "lon": -10.623,
     "launch_altitude": 30,
     "windDirections": ["WNW", "NW", "NNW"],
-    "images": []
+    "images": [
+      {
+        "src": "/images/plage-626x835.jpeg",
+        "alt": "Ground Handling at Plage Blanche"
+      },
+      {
+        "src": "/images/plage-1817x1362.jpg",
+        "alt": "Flying over the dunes of Plage Blanche"
+      },
+      {
+        "src": "/images/plage3-800x533.jpeg",
+        "alt": "Flying over the dunes of Plage Blanche"
+      }
+    ]
   },
   "tizi-n-test": {
     "slug": "tizi-n-test",
@@ -96,6 +144,15 @@
     "lon": -8.377,
     "launch_altitude": 2500,
     "windDirections": ["S", "SE", "SW"],
-    "images": []
+    "images": [
+      {
+        "src": "/images/tizi-1984x1323.jpg",
+        "alt": "Looking at the takeoff of Tizi n'Test"
+      },
+      {
+        "src": "/images/tizi2-901x601.jpg",
+        "alt": "Looking left from the takeoff of Tizi N Test"
+      }
+    ]
   }
 }

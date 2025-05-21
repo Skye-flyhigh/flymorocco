@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 import Services from "./components/home/Services";
 import FeaturedSites from "./components/FeaturedSites";
-import TourCalendar from "./components/TourCalendar";
+import TourCalendar from "./components/tours/TourCalendar";
 import Testimonials from "./components/home/Testimonials";
 import Explore from "./components/home/Explore";
 

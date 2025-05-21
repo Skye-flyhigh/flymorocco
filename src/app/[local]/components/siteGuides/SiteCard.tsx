@@ -39,7 +39,8 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
           className="link self-end"
           onClick={() => setShowFullDescription((prevState) => !prevState)}
         >
-          {showFullDescription ? t("less") : t("more")}
+          {siteDescription.length > 120 &&
+            (showFullDescription ? t("less") : t("more"))}
         </button>
 
         <div className="card-actions justify-end">
