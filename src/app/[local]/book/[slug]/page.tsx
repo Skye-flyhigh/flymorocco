@@ -3,14 +3,15 @@ import { notFound } from "next/navigation";
 import { tourSchedule } from "@/lib/validation/tourScheduleData";
 import { format } from "date-fns";
 
-export default function Page({
+export default async function Page({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = "/tours/" + params.slug;
+  const { slug } = await params
+  const path = "/tours/" + slug;
   const matchingTours = tourSchedule.filter(
-    (tour) => tour.slug === slug
+    (tour) => tour.slug === path
   );
 
   if (matchingTours.length === 0) return notFound();
@@ -18,7 +19,7 @@ export default function Page({
   return (
     <main className="max-w-3xl mx-auto py-16 px-6">
       <h1 className="text-3xl font-bold mb-4">
-        Book: {params.slug}
+        Book: {slug}
       </h1>
 
       {matchingTours.map((tour, index) => (
