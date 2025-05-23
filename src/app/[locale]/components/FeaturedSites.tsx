@@ -43,7 +43,7 @@ export default function FeaturedSites() {
           {t(`${featuredSite.slug}.name`)}
         </a>
       </div>
-      <ParallaxBanner className="h-full" style={{ aspectRatio: "2 / 1" }}>
+      <ParallaxBanner className="h-full" style={{ aspectRatio: "1 / 1" }}>
         <ParallaxBannerLayer image={featuredSite.image} speed={-10} />
       </ParallaxBanner>
     </section>

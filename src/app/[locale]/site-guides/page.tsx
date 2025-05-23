@@ -73,7 +73,7 @@ export default function SiteGuidesPage() {
               normalise(site.slug).includes(normalise(searchInput)),
             )
             .map((site: SiteMeta) => (
-              <div key={site.slug} className="w-1/6 min-w-96 align-middle">
+              <div key={site.slug} className="w-1/6 min-w-80 align-middle">
                 <SiteCard key={site.slug} site={site} />
               </div>
             ))}

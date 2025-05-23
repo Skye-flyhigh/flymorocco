@@ -48,14 +48,20 @@ export default function DownloadAirspaces() {
           <p>{t("openair.subtitle")}</p>
         </div>
       </div>
-      <table className="min-w-full divide-y divide-base-300 mt-6 text-sm">
+      <table className="divide-y divide-base-300 mt-6 text-sm">
         <thead className="bg-base-200 text-left font-semibold">
-          <th className="px-4 py-3">{t("openair.name")}</th>
-          <th className="px-4 py-3">{t("openair.description")}</th>
-          <th className="px-4 py-3">{t("openair.format")}</th>
-          <th className="px-4 py-3">{t("openair.size")}</th>
-          <th className="px-4 py-3">{t("openair.update")}</th>
-          <th className="px-4 py-3">{t("openair.link")}</th>
+          <tr>
+            <th className="px-4 py-3">{t("openair.name")}</th>
+            <th className="px-4 py-3">{t("openair.description")}</th>
+            <th className="px-4 py-3 sm:visible hidden">
+              {t("openair.format")}
+            </th>
+            <th className="px-4 py-3 sm:visible hidden">{t("openair.size")}</th>
+            <th className="px-4 py-3 sm:visible hidden">
+              {t("openair.update")}
+            </th>
+            <th className="px-4 py-3">{t("openair.link")}</th>
+          </tr>
         </thead>
         <tbody className="divide-y divide-gray-200">
           {openairFiles.map((file, i) => (
@@ -64,13 +70,16 @@ export default function DownloadAirspaces() {
                 {file.title}
               </td>
               <td className="px-4 py-2">{file.description}</td>
-              <td className="px-4 py-2 uppercase">{file.format}</td>
-              <td className="px-4 py-2">{file.size} KB</td>
-              <td className="px-4 py-2">{file.lastUpdate}</td>
+              <td className="px-4 py-2 sm:visible hidden uppercase">
+                {file.format}
+              </td>
+              <td className="px-4 py-2 sm:visible hidden">{file.size} KB</td>
+              <td className="px-4 py-2 sm:visible hidden">{file.lastUpdate}</td>
               <td className="px-4 py-2">
                 <a
-                  href={`/downloads/${file.title} + . + ${file.format || "txt"}`}
-                  className="text-accent hover:underline"
+                  href={`/downloads/${file.title}.${file.format || "txt"}`}
+                  className="text-accent link link-secondary hover:underline"
+                  download
                 >
                   {t("openair.download")}
                 </a>

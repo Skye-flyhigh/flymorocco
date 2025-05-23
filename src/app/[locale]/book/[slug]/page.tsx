@@ -10,17 +10,13 @@ export default async function Page({
 }) {
   const { slug } = await params;
   const path = "/tours/" + slug;
-  const matchingTours = tourSchedule.filter(
-    (tour) => tour.slug === path
-  );
+  const matchingTours = tourSchedule.filter((tour) => tour.slug === path);
 
   if (matchingTours.length === 0) return notFound();
 
   return (
     <main className="max-w-3xl mx-auto py-16 px-6">
-      <h1 className="text-3xl font-bold mb-4">
-        Book: {slug}
-      </h1>
+      <h1 className="text-3xl font-bold mb-4">Book: {slug}</h1>
 
       {matchingTours.map((tour, index) => (
         <section key={index} className="mb-8 border p-4 rounded-xl shadow-sm">
@@ -31,7 +27,9 @@ export default async function Page({
             {format(new Date(tour.start), "MMMM d")} →{" "}
             {format(new Date(tour.end), "MMMM d, yyyy")}
           </p>
-          <p>Status: <span className="font-medium">{tour.status}</span></p>
+          <p>
+            Status: <span className="font-medium">{tour.status}</span>
+          </p>
 
           <div className="mt-4">
             <button className="btn btn-primary" disabled>

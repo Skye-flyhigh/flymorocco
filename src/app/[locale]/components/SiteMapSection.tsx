@@ -6,7 +6,7 @@ export default function SiteMapSection() {
   const t = useTranslations("siteGuides");
 
   return (
-    <section id="map" className="w-fit m-auto py-15 px-5">
+    <section id="map" className="w-screen m-auto md:py-15 px-5">
       <h2 className="section-title">{t("siteMap.title")}</h2>
       <p className="section-subtitle">{t("siteMap.subtitle")}</p>
       <div

@@ -14,7 +14,7 @@ export default function Page() {
 
   if (!agreedPrivacy || !agreedMoroccanLaw) {
     return (
-      <main className="mt-10">
+      <main className="md:mt-10">
         <section className="flex flex-col space-y-4 md:max-w-3/4 m-auto p-6">
           <article>
             {t("annexe2Disclaimer.intro")}
@@ -70,10 +70,10 @@ export default function Page() {
     );
   } else {
     return (
-      <main className="mt-15">
+      <main className="md:mt-15">
         <section
           id="form-selector"
-          className="flex items-center md:max-w-3/4 m-auto p-6"
+          className="flex flex-wrap items-center md:max-w-3/4 m-auto p-4"
         >
           <h3 className="m-5">{t("selector.title")}</h3>
           <div className="dropdown dropdown-bottom dropdown-center min-w-fit">

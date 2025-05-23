@@ -103,8 +103,9 @@ export default function TourCalendar() {
           );
         })}
       </div>
-      <div className="btn-container w-full mt-4 flex justify-evenly">
+      <div className="btn-container w-full mt-4 flex flex-wrap justify-evenly">
         <Link href="/tours" className="btn btn-primary m-5">
+          {/* //TODO: refer to the right link for the book now button in tours */}
           {t("book")}
         </Link>
         <button

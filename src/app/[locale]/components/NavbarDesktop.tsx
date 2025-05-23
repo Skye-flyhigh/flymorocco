@@ -1,14 +1,14 @@
-'use client'
+"use client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function NavbarDesktop() {
-    const t = useTranslations("nav");
+  const t = useTranslations("nav");
 
-    return (
-            <nav className="fixed top-0 left-0 md:top-0 md:bottom-auto w-full z-[1000] glass shadow-md flex items-center">
+  return (
+    <nav className="fixed top-0 left-0 md:top-0 md:bottom-auto w-full z-[1000] glass shadow-md flex items-center">
       <div className="navbar-start ml-4">
         <Link href="/" className="btn btn-ghost text-xl my-auto">
           <Image
@@ -48,6 +48,5 @@ export default function NavbarDesktop() {
         </ul>
       </div>
     </nav>
-
-    )
+  );
 }
