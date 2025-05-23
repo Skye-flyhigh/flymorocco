@@ -6,12 +6,7 @@ import { TourSchedule } from "@/lib/validation/tourScheduleData";
 import Link from "next/link";
 import { formatRange } from "@/scripts/dateFormat";
 import { getTranslations } from "next-intl/server";
-
-export enum TourSlug {
-  Mountain = 'mountain',
-  Coastal = 'coastal',
-  Wellbeing = 'wellbeing',
-}
+import { TourSlug } from "@/lib/types/tour";
 
 export default async function Page({
   params,
@@ -20,24 +15,17 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  const validSlugs: TourSlug[] = [
-    TourSlug.Mountain, 
-    TourSlug.Coastal, 
-    TourSlug.Wellbeing
-  ]
+  const validSlugs: TourSlug[] = ["mountain", "coastal", "wellbeing"];
 
-   if (!validSlugs.includes(slug as TourSlug)) {
-    return (
-      <MissingTour />
-    );
+  if (!validSlugs.includes(slug as TourSlug)) {
+    return <MissingTour />;
   }
 
-  const path = '/tours/' + slug;
+  const path = "/tours/" + slug;
   const meta: TourSchedule = getTourMeta(path);
-  
+
   if (!meta || !slug) return <MissingTour />;
   const t = await getTranslations(slug);
-
 
   let img = "";
   switch (slug) {
