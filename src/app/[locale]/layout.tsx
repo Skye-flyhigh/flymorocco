@@ -25,7 +25,7 @@ export default async function LocaleLayout({
 }) {
   // Ensure that the incoming `locale` is valid
   const resolvedParams = await params;
-  const { local: locale } = resolvedParams; //Official next-intl docs said it return { locale } they said, they were wrong all along!! DUH
+  const locale = resolvedParams.locale; 
 
   if (!hasLocale(routing.locales, locale)) {
     notFound();
