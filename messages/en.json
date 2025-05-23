@@ -324,7 +324,35 @@
     "wellbeing": {
       "title": "Wellbeing Retreat",
       "subtitle": "Slow mornings, soft landing, and peace"
+    },
+    "activities": {
+    "title": "What else is around?",
+    "subtitle": "You’re here to fly, but Morocco has more to offer.",
+    "disclaimer": "These activities are not included in the tour package, but are available locally if you're grounded, extending your stay, or just feeling adventurous.",
+    "items": {
+      "camel": "Camel Ride",
+      "horse": "Horseback Riding",
+      "quads": "Quad Tour",
+      "spa": "Spa & Hammam",
+      "beach": "Beach Day",
+      "tiznit": "Visit Tiznit",
+      "jemaaElFna": "Jemaa el-Fna Square",
+      "asni": "Souk in Asni",
+      "ourika": "Ourika Valley",
+      "surf": "Surfing"
     }
+  },
+  "mustHave": {
+ "title": "What you need to bring",
+    "subtitle": "We provide the experience. You bring the essentials.",
+    "items": {
+      "downJacket": "Warm clothing, such as a down jacket, gloves, wooly hat... It can get cold at night in the mountains.",
+      "sunscreen": "Sun-screen.",
+      "alcohol": "Alcohol needs to be purchased before arriving on site.",
+      "sunnies": "Sun glasses and hats",
+      "smile": "And finally, your smile."
+    }
+  } 
   },
 
   "siteGuides": {

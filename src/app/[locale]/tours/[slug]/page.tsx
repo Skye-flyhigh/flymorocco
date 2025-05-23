@@ -1,49 +1,66 @@
-"use client";
 import getTourMeta from "@/lib/data-retrievers/getTourMeta";
 // import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 import MissingTour from "../../components/tours/MissingTour";
 import Hero from "../../components/Hero";
 import { TourSchedule } from "@/lib/validation/tourScheduleData";
-import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { formatRange } from "@/scripts/dateFormat";
+import { getTranslations } from "next-intl/server";
 
-export default function Page() {
-  const t = useTranslations("tours");
-  const slug = "/" + usePathname().split("/").slice(2).join("/").toString();
-  const meta: TourSchedule = getTourMeta(slug);
-  console.log("Tours meta info:", { slug, meta });
+export enum TourSlug {
+  Mountain = 'mountain',
+  Coastal = 'coastal',
+  Wellbeing = 'wellbeing',
+}
 
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}) {
+  const { slug } = await params;
+
+  const validSlugs: TourSlug[] = [
+    TourSlug.Mountain, 
+    TourSlug.Coastal, 
+    TourSlug.Wellbeing
+  ]
+
+   if (!validSlugs.includes(slug as TourSlug)) {
+    return (
+      <MissingTour />
+    );
+  }
+
+  const path = '/tours/' + slug;
+  const meta: TourSchedule = getTourMeta(path);
+  
   if (!meta || !slug) return <MissingTour />;
+  const t = await getTranslations(slug);
 
-  let path = "";
-  let translationKey = "";
+
+  let img = "";
   switch (slug) {
-    case "/tours/mountain":
-      path = "/images/guigou-2000x1333.jpg";
-      translationKey = "mountain";
+    case "mountain":
+      img = "/images/guigou-2000x1333.jpg";
       break;
-    case "/tours/coastal":
-      path = "/images/plage-626x835.jpeg";
-      translationKey = "coastal";
+    case "coastal":
+      img = "/images/plage-626x835.jpeg";
       break;
-    case "/tours/wellbeing":
-      path = "/images/camel-1865x1415.jpg";
-      translationKey = "wellbeing";
+    case "wellbeing":
+      img = "/images/camel-1865x1415.jpg";
       break;
     default:
-      path = "/images/camel-1865x1415.jpg";
-      translationKey = "default";
+      img = "/images/camel-1865x1415.jpg";
       break;
   }
 
   return (
     <main className="m-auto pt-10">
       <Hero
-        title={t(`${translationKey}.title`)}
-        subtitle={t(`${translationKey}.subtitle`)}
-        img={path}
+        title={t(`${slug}.title`)}
+        subtitle={t(`${slug}.subtitle`)}
+        img={img}
       />
 
       <Link href="#upcoming-tours" className="btn btn-primary m-5">

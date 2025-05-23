@@ -45,7 +45,7 @@ export default function Page() {
       />
       <section
         id="explore"
-        className="grid grid-rows-[150px_1fr_150px] h-screen bg-primary/50"
+        className="grid grid-rows-[150px_1fr_150px] max-h-fit bg-primary/50"
       >
         <article className="row-start-2 row-end-3 backdrop-blur-xl bg-base-100/80 flex items-center justify-center py-5">
           <div id="article-container" className="max-w-2xl w-11/12 px-4">

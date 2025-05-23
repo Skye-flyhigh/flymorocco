@@ -28,7 +28,7 @@ export default function FeaturedSites() {
   return (
     <section
       id="featured-site"
-      className="sm:grid grid-cols-2 bg-base-200 shadow-md hover:shadow-xl transition-shadow"
+      className="sm:grid grid-cols-2 bg-base-200 shadow-md hover:shadow-xl transition-shadow my-10"
     >
       <div id="cell" className="flex flex-col justify-evenly p-10 my-10">
         <h2 className="section-title">{t("featuring")}</h2>

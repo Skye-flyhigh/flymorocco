@@ -66,14 +66,14 @@ export default function SiteGuidesPage() {
         </div>
         <div
           id="container"
-          className="max-w-screen flex flex-row flex-wrap justify-evenly gap-3 transition-all pt-5"
+          className="w-full flex flex-wrap justify-evenly gap-3 transition-all pt-5"
         >
           {Object.values(siteMeta)
             .filter((site) =>
               normalise(site.slug).includes(normalise(searchInput)),
             )
             .map((site: SiteMeta) => (
-              <div key={site.slug} className="w-1/6 min-w-80 align-middle">
+              <div key={site.slug} className="w-1/6 min-w-72">
                 <SiteCard key={site.slug} site={site} />
               </div>
             ))}
