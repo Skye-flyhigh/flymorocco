@@ -6,9 +6,9 @@ import { format } from "date-fns";
 export default async function Page({
   params,
 }: {
-  params: { slug: string; locale: string };
+  params: Promise<{ slug: string; locale: string }>;
 }) {
-  const { slug } = params
+  const { slug } = await params;
   const path = "/tours/" + slug;
   const matchingTours = tourSchedule.filter(
     (tour) => tour.slug === path
