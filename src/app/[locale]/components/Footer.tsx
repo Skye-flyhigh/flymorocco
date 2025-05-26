@@ -50,7 +50,7 @@ export default function Footer() {
         <Link href="/privacy" className="link link-hover">
           Privacy policy
         </Link>
-        <Link href="/cookie" className="link link-hover">
+        <Link href="/cookies" className="link link-hover">
           Cookie policy
         </Link>
       </nav>

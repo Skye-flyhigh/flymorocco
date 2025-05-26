@@ -110,7 +110,7 @@ export async function submitCaaForm(
     };
   }
 
-  console.log("📑 Preparing the attachmennts for the emails...");
+  console.log("📑 Preparing the attachments for the emails...");
 
   const attachments: emailAttachment = [];
 
