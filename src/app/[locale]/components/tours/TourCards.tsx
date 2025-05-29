@@ -26,8 +26,8 @@ export default function TourCards() {
     },
     {
       type: "wellbeing",
-      img: "/images/plage-626x835.jpeg",
-      alt: "Ground handling at the Plage Blanche",
+      img: "/images/yoga-1536x1024.png",
+      alt: "Relaxing by the beach",
     },
   ];
 

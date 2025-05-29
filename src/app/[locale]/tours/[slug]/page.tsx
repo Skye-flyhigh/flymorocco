@@ -1,5 +1,4 @@
 import getTourMeta from "@/lib/data-retrievers/getTourMeta";
-// import { useTranslations } from "next-intl";
 import MissingTour from "../../components/tours/MissingTour";
 import Hero from "../../components/Hero";
 import { TourSchedule } from "@/lib/validation/tourScheduleData";
@@ -7,6 +6,7 @@ import Link from "next/link";
 import { formatRange } from "@/scripts/dateFormat";
 import { getTranslations } from "next-intl/server";
 import { TourSlug } from "@/lib/types/tour";
+import MustHave from "../../components/tours/MustHave";
 
 export default async function Page({
   params,
@@ -25,7 +25,7 @@ export default async function Page({
   const meta: TourSchedule = getTourMeta(path);
 
   if (!meta || !slug) return <MissingTour />;
-  const t = await getTranslations(slug);
+  const t = await getTranslations("tours");
 
   let img = "";
   switch (slug) {
@@ -36,7 +36,7 @@ export default async function Page({
       img = "/images/plage-626x835.jpeg";
       break;
     case "wellbeing":
-      img = "/images/camel-1865x1415.jpg";
+      img = "/images/yoga-1536x1024.png";
       break;
     default:
       img = "/images/camel-1865x1415.jpg";
@@ -51,11 +51,17 @@ export default async function Page({
         img={img}
       />
 
-      <Link href="#upcoming-tours" className="btn btn-primary m-5">
-        {t("upcoming")}
-      </Link>
+      <section id="CTA" className="py-20 px-10">
+        <p className="prose">{t(`${slug}.intro`)}</p>
+        <Link href="#upcoming-tours" className="btn btn-primary">
+          {t("upcoming")}
+        </Link>
+      </section>
 
-      <section id="description" className="py-20 px-10"></section>
+      <section id="description" className="py-20 px-10">
+        {/* <MustHave slug={slug} />
+      <Activities slug={slug}/> */}
+      </section>
 
       <section id="upcoming-tours" className="py-20 px-10">
         {meta.length > 0 ? (

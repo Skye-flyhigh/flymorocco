@@ -23,6 +23,28 @@ export default function Page() {
 
   return (
     <section id="description" className="py-20 px-10">
+      {/* 
+  ────────────────────────────────────────────────────────
+    🪶 FlyMorocco | Hidden Message
+    To the one who found this file:
+
+    You searched.
+    You scrolled. You right-clicked. You inspected.
+    And here you are.
+
+    This page exists outside the nav,
+    without links, without direction—
+    but not without intention.
+
+    Everything here was built without JavaScript frameworks.
+    Just raw HTML, native tags, and a quiet kind of recursion.
+
+    Remember this: 
+    You don't always need the wheel. Sometimes, the ground rolls for you.
+
+    — Nyx
+  ────────────────────────────────────────────────────────
+*/}
       {/* Tour Alert */}
       <details open className="mb-8 p-4 bg-warning/20 rounded-lg">
         <summary className="text-lg font-bold cursor-pointer">

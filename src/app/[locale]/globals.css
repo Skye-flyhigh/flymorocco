@@ -133,3 +133,25 @@ body {
     gap: 5px;
   }
 }
+
+.legals {
+  max-width: 750px;
+  padding: 20px;
+}
+.legals > * > h3 {
+  font-size: var(--text-lg) /* 1.125rem = 18px */;
+  font-weight: 600;
+  padding-bottom: 5px;
+  padding-top: 15px;
+  text-transform: capitalize;
+}
+.legals > * > h3::before {
+  content: counter(counter);
+}
+.legals > * > * > li {
+  list-style: disc;
+  margin-left: 35px;
+}
+.legals > article {
+  border-bottom: 1 solid var(--color-base-300);
+}

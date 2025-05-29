@@ -1,7 +1,12 @@
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 export default function Page() {
+  const t = useTranslations("privacy");
+
   return (
     <main>
-      <div className="instructions">
+      <div className="instructions hidden">
         Privacy Notice 🛡️ Legal Snapshot of What You’re Doing Since you’re: •
         Collecting personal data • Storing it (even temporarily) • Emailing
         files • Hosting on a Moroccan server You should: 1. Create a Privacy
@@ -14,63 +19,106 @@ export default function Page() {
         Nationale de contrôle de la protection des Données à caractère
         Personnel).
       </div>
-      <section>
-        <div id="content">
-          ## Privacy Policy – FlyMorocco **Effective Date:** \[Today’s Date]
-          FlyMorocco (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is
-          committed to protecting your privacy and handling your data in a
-          transparent and secure manner. This Privacy Policy outlines how we
-          collect, use, store, and share your personal information, in
-          compliance with **Moroccan Law No. 09-08** and the **EU General Data
-          Protection Regulation (GDPR)**. --- ### 1. Who We Are FlyMorocco is a
-          paragliding experience provider operating in Morocco and serving
-          international clients. Our website, hosted on Moroccan infrastructure,
-          allows users to explore site guides, register for flying activities,
-          and submit legally required documents. **Data Controller:** Skye
-          Graille – Morocco Contact:
-          [contact@flymorocco.info](mailto:contact@flymorocco.info) --- ### 2.
-          What Data We Collect We may collect the following types of personal
-          data: * **Identification Data:** Full name, nationality, passport
-          number * **Contact Data:** Email address, phone number, postal address
-          * **Trip Information:** Insurance validity, travel dates, chosen
-          flight zones * **Glider Information:** Manufacturer, model, size,
-          color * **Participant Data:** Names and passport details of
-          accompanying pilots This data is collected via our online forms for
-          the purpose of generating Annexe 2 and 4 documents required by
-          Moroccan civil aviation authorities. --- ### 3. Why We Collect Your
-          Data We collect personal data for the following lawful reasons: *
-          **Legal Obligation:** To generate official authorisation forms
-          (Annexes 2 and 4) * **Contractual Performance:** To prepare and manage
-          your paragliding experience * **Legitimate Interest:** To ensure
-          compliance with local aviation regulations * **Consent:** For
-          marketing communications (only when opt-in is provided) --- ### 4. How
-          We Store and Protect Your Data * Your PDF forms are generated
-          server-side and stored temporarily in a `tmp/` folder on a secure
-          Moroccan server. * Files are deleted periodically or after email
-          transmission is confirmed. * Data in transit is secured using TLS
-          (SSL). * We do **not** share your data with third parties unless
-          required by Moroccan authorities. --- ### 5. Email Communication *
-          Forms are sent to your email address via a secure email provider
-          (Resend). * Emails are only used to deliver your requested forms and
-          essential communication. --- ### 6. Your Rights Under GDPR If you are
-          located in the EU or EEA, you have the right to: * Access your
-          personal data * Rectify inaccurate data * Request deletion of your
-          data (&quot;right to be forgotten&quot;) * Restrict or object to
-          processing * File a complaint with your local data protection
-          authority To exercise these rights, email us at
-          **[contact@flymorocco.info](mailto:contact@flymorocco.info)**. --- ###
-          7. Cookies and Analytics FlyMorocco does **not** use cookies or
-          analytics tools at this time. --- ### 8. Data Retention * Submitted
-          form data is **not stored** permanently. * Temporary files are purged
-          regularly. * Email logs (without content) may be kept for up to 30
-          days for debugging purposes. --- ### 9. Changes to This Policy We may
-          update this policy to reflect new regulations or features. Changes
-          will be posted on this page with the updated date. --- ### 10. Contact
-          For questions or data-related requests, contact us at: **FlyMorocco**
-          Email: [contact@flymorocco.info](mailto:contact@flymorocco.info)
-          Address: \[Insert physical address if required by law] --- *Fly high,
-          fly legal.*
-        </div>
+      <section id="privacy" className="md:mt-10 mb-20 mx-auto legals">
+        <h1 className="section-title">{t("title")}</h1>
+        <h2 className="section-subtitle">
+          {t("lastUpdate")} {new Date("27/5/25").toDateString()}
+        </h2>
+        <article id="who">
+          <h3>{t("who.title")}</h3>
+          <p>{t("who.description")}</p>
+          <p>
+            <strong>{t("who.controller")}</strong> Skye Graille
+          </p>
+        </article>
+        <article id="collection">
+          <h3>{t("collection.title")}</h3>
+          <p>{t("collection.description")}</p>
+          <ul>
+            <li>
+              {t("collection.c1.title")} {t("collection.c1.description")}
+            </li>
+            <li>
+              {t("collection.c2.title")} {t("collection.c2.description")}
+            </li>
+            <li>
+              {t("collection.c3.title")} {t("collection.c3.description")}
+            </li>
+            <li>
+              {t("collection.c4.title")} {t("collection.c4.description")}
+            </li>
+            <li>
+              {t("collection.c5.title")} {t("collection.c5.description")}
+            </li>
+          </ul>
+          <p>{t("collection.purpose")}</p>
+        </article>
+        <article id="reasons">
+          <h3>{t("reasons.title")}</h3>
+          <p>{t("reasons.description")}</p>
+          <ul>
+            <li>
+              {t("reasons.r1.title")} {t("reasons.r1.description")}
+            </li>
+            <li>
+              {t("reasons.r2.title")} {t("reasons.r2.description")}
+            </li>
+            <li>
+              {t("reasons.r3.title")} {t("reasons.r3.description")}
+            </li>
+          </ul>
+        </article>
+        <article id="store">
+          <h3>{t("store.title")}</h3>
+          <ul>
+            <li>{t("store.s1")}</li>
+            <li>{t("store.s2")}</li>
+            <li>{t("store.s3")}</li>
+            <li>{t("store.s4")}</li>
+          </ul>
+        </article>
+        <article id="communication">
+          <h3>{t("communication.title")}</h3>
+          <p>{t("communication.description")}</p>
+        </article>
+        <article id="GDPR">
+          <h3>{t("gdpr.title")}</h3>
+          <p>{t("gdpr.description")}</p>
+          <ul>
+            <li>{t("gdpr.g1")}</li>
+            <li>{t("gdpr.g2")}</li>
+            <li>{t("gdpr.g3")}</li>
+            <li>{t("gdpr.g4")}</li>
+            <li>{t("gdpr.g5")}</li>
+          </ul>
+          <p>{t("gdpr.contact")}</p>
+        </article>
+        <article id="analytics">
+          <h3>{t("analytics.title")}</h3>
+          <p>{t("analytics.description")}</p>
+        </article>
+        <article id="retention">
+          <h3>{t("retention.title")}</h3>
+          <ul>
+            <li>{t("retention.r1")}</li>
+            <li>{t("retention.r2")}</li>
+            <li>{t("retention.r3")}</li>
+          </ul>
+        </article>
+        <article id="modification">
+          <h3>{t("modification.title")}</h3>
+          <p>{t("modification.description")}</p>
+        </article>
+        <article id="contact">
+          <h3>{t("contact.title")}</h3>
+          <p>{t("contact.description")}</p>
+          <Link
+            href={"mailto:contact@flymorocco.info"}
+            className="link link-hover link-primary"
+          >
+            {t("contact.contact")}
+          </Link>
+        </article>
       </section>
     </main>
   );

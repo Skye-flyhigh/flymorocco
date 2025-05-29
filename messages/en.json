@@ -61,6 +61,24 @@
     }
   },
 
+  "contact": {
+    "title": "Contact us",
+    "subtitle": "Only a click away from you",
+    "form": "Contact form",
+    "name": {
+      "label": "Your name:",
+      "placeholder": "John Doe..."
+    },
+    "email": {
+      "label": "Your email:",
+      "placeholder": "address@provider.com"
+    },
+    "message": {
+      "label": "Your message:",
+      "placeholder": "Hey Skye, I would like to try that Moroccan mint tea on the takeoff with you. Without sugar please."
+    }
+  },
+
   "rules": {
     "title": "Flying Legally in Morocco",
     "subtitle": "Everything you need to fly safely and legally—airspace downloads, flight declarations, and required forms.",
@@ -315,15 +333,18 @@
     },
     "coastal": {
       "title": "Coastal Tours",
-      "subtitle": "Soothing beaches and sea breeze"
+      "subtitle": "Soothing beaches and sea breeze",
+      "intro": "Located in the South of Morocco, you will enjoy the coastal life that Mirleft offers. From nice long walks on the beach, to lovely sea side food fresh from the market. Flying is surprisingly varied and would cater all pilot profile, from pure coastal flying over sea cliffs to thermic hill flying."
     },
     "mountain": {
       "title": "Mountain Tour",
-      "subtitle": "High Atlas heights and fresh air"
+      "subtitle": "High Atlas heights and fresh air",
+      "intro": "Based at the foot of the High Atlas, come discover Berber countryside specific to this mountain range. Fly over a fertile and open lands of Morocco, looking over dry Marrakech plains. Flying is thermic but would cater all profile of pilots."
     },
     "wellbeing": {
       "title": "Wellbeing Retreat",
-      "subtitle": "Slow mornings, soft landing, and peace"
+      "subtitle": "Slow mornings, soft landing, and peace",
+      "intro": "This is our little treat for you. Come and relax with us through our wellbeing and paragliding retreat in the South of Morocco, where mornings are soft and centered and afternoons are flown until sunsets over the sea."
     },
     "activities": {
       "title": "What else is around?",
@@ -489,5 +510,146 @@
     "wanderer": "The wind whispers of a page that once was...",
     "disappearance": "But alas, it may have vanished beyond the dunes.",
     "goBack": "Go back before the sun sets"
+  },
+
+  "terms": {
+    "title": "Flymorocco Terms & Conditions",
+    "lastUpdate": "Last updated: ",
+    "legalInfo": {
+      "title": "Legal Entity Information",
+      "description": "<ol><li><strong>Site Owner:</strong> Flymorocco (business registration pending)</li><li><strong>Email:</strong><email> Please click here to email us</email></li><li><strong>Postal Address:</strong> pending</li><li><strong>Hosting Provider:</strong> <host>Nindohost, Morocco</host></li></ol>"
+    },
+    "acceptance": {
+      "title": "Acceptance of Terms by accessing or using this website",
+      "description": "You agree to be bound by theses Terms and Conditions and our Privacy Notice. If you do not agree, please do not use this site."
+    },
+    "services": {
+      "title": "Services Provided",
+      "description": "Flymorocco provides:",
+      "list": "<li>Information about paragliding sites in Morocco</li><li>Digital tools to assist with the required administrative documentation (Annex 2 and 4)</li><li>General guidance about legal and procedural flying requirements in Morocco</li><li>Guided tours in Morocco</li>",
+      "exclusion": "Flymorocco <strong>does not</strong> provide licensed flight instruction, flight equipment rental, nor guarantee the acquirement of flight authorisation from the <abbr>CAA</abbr>."
+    },
+    "liability": {
+      "title": "Liability Disclaimer",
+      "l1": "Paragliding is a high-risk activity. Users of this website accept full responsibility for their actions and decisions before, during, and after flight.",
+      "l2": "Flymorocco is not liable for accidents, incidents, delays, cancellations, or failure to comply with Moroccan aviation regulations.",
+      "l3": "You are responsible for obtaining valid insurance, checking weather and NOTAMs, and following legal airspace limitations."
+    },
+    "data": {
+      "title": "Data Collection and Privacy",
+      "description": "By submitting forms (e.g., Annexe 2 or 4), you consent to the temporary storage of you information for the purpose of document generation and email delivery. See our full <a>Privacy Notice</a> for more."
+    },
+    "cookie": {
+      "title": "Cookie policy",
+      "description": "We have a cookie policy"
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property",
+      "description": "All site content (text, illustrations, graphics, code snippets) is the property of Flymorocco unless otherwise stated. You may not reuse of redistribute without explicit permission."
+    },
+    "externalProviders": {
+      "title": "External Links & Services",
+      "description": "This website may contain links to third-party tools (e.g., Google, OpenMaps, Resend, Airtable). We are not responsible for the content or privacy practices of those services."
+    },
+    "termsModification": {
+      "title": "Modification of Terms",
+      "description": "Flymorocco reserves the right to modify these Terms at any time. Changes will be published on this page and become effective immediately."
+    },
+    "jurisdiction": {
+      "title": "Governing Law",
+      "description": "These Terms are governed by Moroccan law. Any disputes arising from the use of this website shall be settled in the competent courts of Marrakech, Morocco."
+    }
+  },
+
+  "privacy": {
+    "title": "Privacy Notice",
+    "lastUpdate": "Effective Date: ",
+    "context": "Flymorocco ('we', 'our', or 'us') is committed to protecting your privacy and handling your data in a transparent and secure manner. This Privacy Policy outlines how we collect, use, store, and share your personal information, in compliance with Moroccan Low No. 09-08 and the EU General Data Protection Regulation (GDPR).",
+    "who": {
+      "title": "Who We Are",
+      "description": "Flymorocco is a paragliding experience provider operating in Morocco and serving international clients. Our website, hosted on Moroccan infrastructure, allows users to explore site guides, and generate required legal documents.",
+      "controller": "Data Controller:"
+    },
+    "collection": {
+      "title": "What Data we collect",
+      "description": "We may collect the following types of personal data:",
+      "c1": {
+        "title": "Identification Data:",
+        "description": "Full name, nationality, passport number"
+      },
+      "c2": {
+        "title": "Contact Data",
+        "description": "Email address, phone number, postal address"
+      },
+      "c3": {
+        "title": "Trip information",
+        "description": "Insurance validity, travel dates, chosen flight zones"
+      },
+      "c4": {
+        "title": "Glider information",
+        "description": "Manufacturer, model, size, colours"
+      },
+      "c5": {
+        "title": "Participant data",
+        "description": "Names and passport details of accompanying pilots."
+      },
+      "purpose": "This data is collected via our online forms for the purpose of generating Annex 2 and 4 documents required by Moroccan civil action authorities."
+    },
+    "reasons": {
+      "title": "Why we collect your data",
+      "description": "We collect personal data for the following lawful reasons",
+      "r1": {
+        "title": "Contractual Performance:",
+        "description": "To prepare and manage your paragliding experience"
+      },
+      "r2": {
+        "title": "Legitimate Interest",
+        "description": "To Ensure compliance with local aviation regulations"
+      },
+      "r3": {
+        "title": "Consent",
+        "description": "For marketing communications (only when opt-in is provided)"
+      }
+    },
+    "store": {
+      "title": "How we store and protect your data",
+      "s1": "You PDF forms are generated server-side and store temporarily in a `tmp/` folder on a secure Moroccan server.",
+      "s2": "Files are deleted periodically or after email transmission is confirmed.",
+      "s3": "Data in transit is secured using TLS (SSL).",
+      "s4": "We do not share your data with third parties unless required by Moroccan authorities."
+    },
+    "communication": {
+      "title": "Email communication",
+      "description": "Forms are sent to your email address via a secure email provider (Resend). Emails are only used to deliver your requested forms and essential communication."
+    },
+    "gdpr": {
+      "title": "Your Rights Under GDPR",
+      "description": "If you are located in the EU or EEA, you are the right to:",
+      "g1": "Access your personal data",
+      "g2": "Rectify inaccurate data",
+      "g3": "Request deletion of your data 'right to be forgotten'",
+      "g4": "Restrict or object to processing",
+      "g5": "File a complaint with your local data protection authority",
+      "contact": "To exercise these rights, email us through the contact page"
+    },
+    "analytics": {
+      "title": "Cookies and Analytics",
+      "description": "Flymorocco use analytics tools to better tailor the experience to users. These information are collected through external platform (Google) and are completely anonymous."
+    },
+    "retention": {
+      "title": "Data Retention",
+      "r1": "Submitted form data is not stored permanently.",
+      "r2": "Temporary files are purged regularly.",
+      "r3": "Email logs (without content) may be kept for up to 30 days for debugging purposes."
+    },
+    "modification": {
+      "title": "Changes to This Policy",
+      "description": "We may update this policy to reflect new regulations or features. Changes will be posted on this page with the update date."
+    },
+    "contact": {
+      "title": "Contact for questions or data-related requests",
+      "description": "Contact us through our contact page.",
+      "contact": "Click here to email us"
+    }
   }
 }

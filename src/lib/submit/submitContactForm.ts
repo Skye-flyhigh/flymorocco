@@ -55,7 +55,11 @@ export default async function submitMessage(
   });
 
   return {
-    data,
+    data: {
+      name: "",
+      email: "",
+      message: "",
+    },
     errors: null,
     success: true,
   };

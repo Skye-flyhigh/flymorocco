@@ -14,7 +14,7 @@ export default function Hero({
     // FIXME: That parallax effect can look weird on safari for iPhone users. To be tested
     <section
       id="hero"
-      className="relative h-[70vh] bg-fixed bg-center bg-cover hero min-h-80"
+      className="relative h-[80vh] bg-fixed bg-center bg-cover hero min-h-80"
       style={{
         backgroundImage: `url(${img})`,
       }}

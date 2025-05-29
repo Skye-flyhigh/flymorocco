@@ -1,48 +1,103 @@
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+
 export default function Page() {
+  const t = useTranslations("terms");
   return (
     <main>
-      **FlyMorocco Terms & Conditions** *Last updated: \[Insert Date]* --- ###
-      1. Legal Entity Information * **Site Owner:** FlyMorocco (business
-      registration pending) * **Email:**
-      [contact@flymorocco.info](mailto:contact@flymorocco.info) * **Postal
-      Address:** \[Insert physical address in Morocco if available] * **Hosting
-      Provider:** \[Insert Hosting Provider Name, e.g., Contabo GmbH, Germany]
-      --- ### 2. Acceptance of Terms By accessing or using this website, you
-      agree to be bound by these Terms and Conditions and our Privacy Notice. If
-      you do not agree, please do not use this site. --- ### 3. Services
-      Provided FlyMorocco provides: * Information about paragliding sites in
-      Morocco * Digital tools to assist with the required administrative
-      documentation (Annexe 2 & 4) * General guidance about legal and procedural
-      flying requirements in Morocco FlyMorocco **does not** provide licensed
-      flight instruction, certified guiding services, or flight equipment rental
-      at this time. --- ### 4. Liability Disclaimer * Paragliding is a high-risk
-      activity. Users of this website accept full responsibility for their
-      actions and decisions while flying. * FlyMorocco is **not liable** for
-      accidents, incidents, delays, cancellations, or failure to comply with
-      Moroccan aviation regulations. * You are responsible for obtaining valid
-      insurance, checking weather and NOTAMs, and following legal airspace
-      limitations. --- ### 5. Data Collection and Privacy By submitting forms
-      (e.g., Annexe 2 or 4), you consent to the temporary storage of your
-      information for the purpose of document generation and email delivery. See
-      our full [Privacy Notice](/[locale]/privacy) for more. --- ### 6.
-      Intellectual Property All site content (text, illustrations, graphics,
-      code snippets) is the property of FlyMorocco unless otherwise stated. You
-      may not reuse or redistribute without explicit permission. --- ### 7.
-      External Links & Services This website may contain links to third-party
-      tools (e.g., Google Maps, SendGrid, Resend). We are not responsible for
-      the content or privacy practices of those services. --- ### 8.
-      Modification of Terms FlyMorocco reserves the right to modify these Terms
-      at any time. Changes will be published on this page and become effective
-      immediately. --- ### 9. Governing Law These Terms are governed by Moroccan
-      law. Any disputes arising from the use of this website shall be settled in
-      the competent courts of Marrakech, Morocco. --- ### 10. To Be Confirmed /
-      Pending Entries * [ ] Registration number of FlyMorocco (if company status
-      is established) * [ ] Physical address for legal notice * [ ] Hosting
-      provider legal ID / jurisdiction * [ ] Cookie policy (pending confirmation
-      of whether cookies or analytics are used) * [ ] Data retention timeline
-      and deletion policy for generated forms * [ ] Terms regarding booking or
-      payment if such features are added --- Questions? Email us at:
-      [contact@flymorocco.info](mailto:contact@flymorocco.info)
+      <section id="terms" className="md:mt-10 mb-20 mx-auto legals">
+        <h1 className="section-title">{t("title")}</h1>
+        <h2 className="section-subtitle">
+          {t("lastUpdate")} {new Date("24/5/2025").toDateString()}
+        </h2>
+        <address id="legal-info">
+          <h3>{t("legalInfo.title")}</h3>
+          {t.rich("legalInfo.description", {
+            strong: (chunks) => <strong>{chunks}</strong>,
+            ol: (chunks) => <ol>{chunks}</ol>,
+            li: (chunks) => <li>{chunks}</li>,
+            email: (chunks) => (
+              <Link
+                href={"mailto:contact@flymorocco.info"}
+                className="link link-hover link-primary"
+              >
+                {chunks}
+              </Link>
+            ),
+            host: (chunks) => <Link href="https://nindohost.ma">{chunks}</Link>,
+          })}
+        </address>
+        <article id="acceptance">
+          <h3>{t("acceptance.title")}</h3>
+          <p>{t("acceptance.description")}</p>
+        </article>
+        <article id="services">
+          <h3>{t("services.title")}</h3>
+          <p>{t("services.description")}</p>
+          <ol>
+            {t.rich("services.list", {
+              li: (chunks) => <li>{chunks}</li>,
+            })}
+          </ol>
+          <p>
+            {t.rich("services.exclusion", {
+              strong: (chunks) => <strong>{chunks}</strong>,
+              abbr: (chunks) => (
+                <abbr title="Civil Aviation Authority">{chunks}</abbr>
+              ), //FIXME: this is hard coded abbr
+            })}
+          </p>
+        </article>
+        <article id="liability">
+          <h3>{t("liability.title")}</h3>
+          <ul>
+            <li>{t("liability.l1")}</li>
+            <li>{t("liability.l2")}</li>
+            <li>{t("liability.l3")}</li>
+          </ul>
+        </article>
+        <article id="data-collection">
+          <h3>{t("data.title")}</h3>
+          <p>
+            {t.rich("data.description", {
+              a: (chunks) => (
+                <Link href="/privacy" className="link link-hover link-primary">
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </p>
+        </article>
+        <article id="cookie">
+          <h3>{t("cookie.title")}</h3>
+          <p>{t("cookie.description")}</p>
+        </article>
+        <article id="intellectual-property">
+          <h3>{t("intellectualProperty.title")}</h3>
+          <p>{t("intellectualProperty.description")}</p>
+        </article>
+        <article id="external-providers">
+          <h3>{t("externalProviders.title")}</h3>
+          <p>{t("externalProviders.description")}</p>
+        </article>
+        <article id="terms-modification">
+          <h3>{t("termsModification.title")}</h3>
+          <p>{t("termsModification.description")}</p>
+        </article>
+        <article id="jurisdiction">
+          <h3>{t("jurisdiction.title")}</h3>
+          <p>{t("jurisdiction.description")}</p>
+        </article>
+      </section>
+      <div className="hidden">
+        ### 10. To Be Confirmed / Pending Entries * [ ] Registration number of
+        FlyMorocco (if company status is established) * [ ] Physical address for
+        legal notice * [ ] Hosting provider legal ID / jurisdiction * [ ] Cookie
+        policy (pending confirmation of whether cookies or analytics are used) *
+        [ ] Data retention timeline and deletion policy for generated forms * [
+        ] Terms regarding booking or payment if such features are added ---
+        Questions? Email us at:
+      </div>
     </main>
   );
 }

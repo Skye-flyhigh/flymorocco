@@ -41,6 +41,10 @@ export default function Footer() {
         <Link href="/contact" className="link link-hover">
           Contact
         </Link>
+        <div className="social-container">
+          {/* TODO: add social links */}
+          <Link href="#"></Link>
+        </div>
       </nav>
       <nav>
         <h6 className="footer-title">Legal</h6>
