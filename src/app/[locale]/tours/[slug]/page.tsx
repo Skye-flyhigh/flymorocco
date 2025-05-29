@@ -6,7 +6,6 @@ import Link from "next/link";
 import { formatRange } from "@/scripts/dateFormat";
 import { getTranslations } from "next-intl/server";
 import { TourSlug } from "@/lib/types/tour";
-import MustHave from "../../components/tours/MustHave";
 
 export default async function Page({
   params,
