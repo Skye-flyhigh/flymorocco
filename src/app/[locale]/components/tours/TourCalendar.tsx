@@ -81,7 +81,7 @@ export default function TourCalendar() {
                 <br />
                 <Icon className="w-10 h-10 text-primary mt-4 mr-4 absolute right-0 top-0" />
                 <h3 className="badge badge-secondary text-xl font-semibold mt-2 p-3 w-fit">
-                  {week.type}{" "}
+                  <span className="first-letter:capitalize">{week.type}</span>{" "}
                   {week.provider && (
                     <span className="w-fit">
                       {" - "} {week.provider}

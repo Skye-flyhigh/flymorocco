@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 
 export default function BookingForm(tour: TourSchedule) {
-  const t = useTranslations("booking");
+  const t = useTranslations("contact");
   const [displayForm, setDisplayForm] = useState<boolean>(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
@@ -56,7 +56,7 @@ export default function BookingForm(tour: TourSchedule) {
         target="_blank"
         className="btn btn-primary"
       >
-        Visit website
+        {t('website')}
       </Link>
     );
   } else {
@@ -67,7 +67,7 @@ export default function BookingForm(tour: TourSchedule) {
           onClick={() => setDisplayForm(!displayForm)}
           disabled={isAvailable}
         >
-          {displayForm ? "Close form" : "Book now"}
+          {displayForm ? t('close') : t('book')}
         </button>
         <dialog ref={dialogRef} className="modal" onClose={onClose}>
           <form
@@ -77,18 +77,20 @@ export default function BookingForm(tour: TourSchedule) {
           >
             <div className="container w-3/4 mx-auto">
               <h3 className="text-xl font-bold">
-                Booking form for {tour.type} tour
+                {t('bookingForm.title')} <span className="first-letter:capitalize">{tour.type}</span>
               </h3>
-              <p>Tour dates: {formatDate(tour.start, tour.end)}</p>
+              <p>{t('dates')} {formatDate(tour.start, tour.end)}</p>
+              <p className="font-extralight">{t('bookingForm.subtitle')}</p>
               <fieldset className="fieldset">
-                <legend className="fieldset-legend">Contact details</legend>
+                <legend className="fieldset-legend">{t('contact')}</legend>
                 <label htmlFor="name" className="fieldset-label">
-                  Name
+                  {t('name.label')}
                 </label>
                 <input
                   type="text"
                   name="name"
                   id="booking-name"
+                  placeholder={t('name.placeholder')}
                   className={`input ${state?.errors?.name ? "input-error" : ""}`}
                   defaultValue={state?.data?.name ?? ""}
                   aria-invalid={!!state?.errors?.name}
@@ -102,11 +104,13 @@ export default function BookingForm(tour: TourSchedule) {
                   </p>
                 )}
                 <label htmlFor="email" className="fieldset-label">
-                  Email address
+                  {t('email.label')}
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="booking-email"
+                  name="email"
+                  placeholder={t('email.placeholder')}
                   className={`input ${state?.errors?.email ? "input-error" : ""}`}
                   defaultValue={state?.data?.email ?? ""}
                   aria-invalid={!!state?.errors?.email}
@@ -119,6 +123,8 @@ export default function BookingForm(tour: TourSchedule) {
                     {state.errors.name}
                   </p>
                 )}
+                        <input type="hidden" name="start" value={tour.start} />
+
               </fieldset>
               {state?.success && (
                 <FormSuccess
@@ -129,7 +135,7 @@ export default function BookingForm(tour: TourSchedule) {
             </div>
             <div className="btn-container w-full flex justify-center">
               <button type="submit" className="btn btn-primary m-2">
-                {isPending ? "Processing..." : "Submit"}
+                {isPending ? t('process') : t('submit')}
               </button>
             </div>
             <div

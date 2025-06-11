@@ -65,6 +65,7 @@
     "title": "Contact us",
     "subtitle": "Only a click away from you",
     "form": "Contact form",
+    "success": "Form submitted successfully.",
     "name": {
       "label": "Your name:",
       "placeholder": "John Doe..."
@@ -76,7 +77,18 @@
     "message": {
       "label": "Your message:",
       "placeholder": "Hey Skye, I would like to try that Moroccan mint tea on the takeoff with you. Without sugar please."
-    }
+    },
+    "bookingForm": {
+      "title": "Booking form:",
+      "subtitle": "A few information from you and we will be in touch regarding your query."
+    },
+    "close": "Close form",
+    "book": "Book now",
+    "website": "Visit website",
+    "dates": "Tour Dates: ",
+    "contact": "Contact details",
+    "process": "Processing...",
+    "submit": "Submit"
   },
 
   "rules": {
@@ -653,8 +665,6 @@
     "contact": {
       "title": "Contact for questions or data-related requests",
       "description": "Contact us through our contact page.",
-      "contact": "Click here to email us",
-      "success": "Form successfully submitted"
-    }
+      "contact": "Click here to email us"    }
   }
 }

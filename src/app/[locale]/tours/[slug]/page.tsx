@@ -138,7 +138,7 @@ export default async function Page({
         />
       </section>
 
-      <SelectedCalendar slug={slug} />
+      <SelectedCalendar slug={validatedSlug as TourSlug} />
     </main>
   );
 }

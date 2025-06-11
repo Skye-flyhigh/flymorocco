@@ -62,8 +62,7 @@
   {
     "start": "2026-02-28",
     "end": "2026-03-07",
-    "slug": "/tours/wellbeing",
-    "type": "Wellbeing",
+    "type": "wellbeing",
     "location": "Mirleft",
     "icon": "hand-heart",
     "status": "available",

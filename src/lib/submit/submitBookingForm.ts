@@ -22,11 +22,12 @@ export async function submitBooking(
   formData: FormData,
 ): Promise<BookingFormState> {
   const formValues = {
-    name: escapeHTML(formData.get("name") as string),
-    email: escapeHTML(formData.get("email") as string),
-    start: escapeHTML(formData.get("start") as string),
+    name: formData.get("name") as string,
+    email: formData.get("email") as string,
+    start: formData.get("start") as string,
   };
-
+  console.log("Booking form values:", formValues);
+  
   const { success, error, data } = BookingFormSchema.safeParse(formValues);
   if (!success) {
     return {
@@ -43,8 +44,8 @@ export async function submitBooking(
     to: ["contact@flymorocco.info"],
     subject: "New Booking request",
     replyTo: data.email,
-    html: `<p>${escapeHTML(formValues.name)} (${escapeHTML(formValues.email)}) wants to book the following week starting the:</p>
-         <p>${escapeHTML(formValues.start)}</p>`,
+    html: `<p>${escapeHTML(data.name)} (${escapeHTML(data.email)}) wants to book the following week starting the:</p>
+         <p>${escapeHTML(data.start)}</p>`,
   });
 
   return {

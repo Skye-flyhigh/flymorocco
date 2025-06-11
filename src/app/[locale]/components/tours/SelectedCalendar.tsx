@@ -10,8 +10,6 @@ export default function SelectedCalendar({ slug }: { slug: string }) {
   const meta: TourSchedule[] = getTourMeta(slug);
   //TODO: reference the tours of my partners
 
-  console.log("Tour schedule meta", meta);
-
   if (!meta) {
     return (
       <section>
