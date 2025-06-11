@@ -65,7 +65,9 @@ export async function submitCaaForm(
           identification: {
             ...baseData.identification,
             nationality: escapeHTML(formData["identification.nationality"]),
-            passportNumber: escapeHTML(formData["identification.passportNumber"]),
+            passportNumber: escapeHTML(
+              formData["identification.passportNumber"],
+            ),
           },
           contact: {
             ...baseData.contact,
@@ -78,7 +80,9 @@ export async function submitCaaForm(
             insuranceValidity: new Date(formData["trip.insuranceValidity"]),
           },
           glider: {
-            gliderManufacturer: escapeHTML(formData["glider.gliderManufacturer"]),
+            gliderManufacturer: escapeHTML(
+              formData["glider.gliderManufacturer"],
+            ),
             gliderModel: escapeHTML(formData["glider.gliderModel"]),
             gliderSize: escapeHTML(formData["glider.gliderSize"]),
             gliderColors: escapeHTML(formData["glider.gliderColors"]),

@@ -655,6 +655,6 @@
       "description": "Contact us through our contact page.",
       "contact": "Click here to email us",
       "success": "Form successfully submitted"
-        }
+    }
   }
 }
