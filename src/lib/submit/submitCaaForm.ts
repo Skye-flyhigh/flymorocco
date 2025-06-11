@@ -3,6 +3,7 @@ import { resendPdfEmail } from "../email/resendPdfEmail";
 import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
+import { escapeHTML } from "../security/escapeHTML";
 import {
   FormDataMapSchema,
   FullFormSchemaType,
@@ -35,11 +36,11 @@ export async function submitCaaForm(
   const baseData = {
     formType: formData.formType as "annexe2" | "annexe2and4",
     identification: {
-      lastName: formData["identification.lastName"],
-      firstName: formData["identification.firstName"],
+      lastName: escapeHTML(formData["identification.lastName"]),
+      firstName: escapeHTML(formData["identification.firstName"]),
     },
     contact: {
-      contactEmail: formData["contact.contactEmail"],
+      contactEmail: escapeHTML(formData["contact.contactEmail"]),
     },
   };
 
@@ -63,13 +64,13 @@ export async function submitCaaForm(
           ...baseData,
           identification: {
             ...baseData.identification,
-            nationality: formData["identification.nationality"],
-            passportNumber: formData["identification.passportNumber"],
+            nationality: escapeHTML(formData["identification.nationality"]),
+            passportNumber: escapeHTML(formData["identification.passportNumber"]),
           },
           contact: {
             ...baseData.contact,
             contactPhone: Number(formData["contact.contactPhone"]),
-            address: formData["contact.address"],
+            address: escapeHTML(formData["contact.address"]),
           },
           trip: {
             startDate: new Date(formData["trip.startDate"]),
@@ -77,10 +78,10 @@ export async function submitCaaForm(
             insuranceValidity: new Date(formData["trip.insuranceValidity"]),
           },
           glider: {
-            gliderManufacturer: formData["glider.gliderManufacturer"],
-            gliderModel: formData["glider.gliderModel"],
-            gliderSize: formData["glider.gliderSize"],
-            gliderColors: formData["glider.gliderColors"],
+            gliderManufacturer: escapeHTML(formData["glider.gliderManufacturer"]),
+            gliderModel: escapeHTML(formData["glider.gliderModel"]),
+            gliderSize: escapeHTML(formData["glider.gliderSize"]),
+            gliderColors: escapeHTML(formData["glider.gliderColors"]),
           },
           siteSelection: JSON.parse(formData["siteSelection"]),
           participants,
@@ -121,8 +122,8 @@ export async function submitCaaForm(
   ) {
     await resendPdfEmail({
       to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
-      subject: `Flymorocco - Your ${annex} Form`,
-      html: `<p>Hello ${name},<br>Your annexes (<strong>${annex}</strong>) is attached.</p>`,
+      subject: `Flymorocco - Your ${escapeHTML(annex)} Form`,
+      html: `<p>Hello ${escapeHTML(name)},<br>Your annexes (<strong>${escapeHTML(annex)}</strong>) is attached.</p>`,
       attachments,
     });
   }

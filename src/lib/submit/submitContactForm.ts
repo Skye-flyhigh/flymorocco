@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { ContactDataSchema } from "../validation/ContactFormData";
+import { escapeHTML } from "../security/escapeHTML";
 
 type ContactFormState = {
   data: {
@@ -36,22 +37,15 @@ export default async function submitMessage(
     };
   }
 
-  //TODO: Insert Contact form logic to send emails here
-  console.log(
-    "✅ Message successfully sent.",
-    `${formValues.name} (${formValues.email}) wants to say: ${formValues.message}`,
-  );
-
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   await resend.emails.send({
-    from: "FlyMorocco <contact@flymorocco.info>",
+    from: "Flymorocco <contact@flymorocco.info>",
     to: ["contact@flymorocco.info"],
     subject: "New Contact Form Submission",
     replyTo: data.email,
-    html: `<p><strong>Name:</strong> ${data.name}</p>
-         <p><strong>Email:</strong> ${data.email}</p>
-         <p><strong>Message:</strong><br>${data.message}</p>`,
+    html: `<p>${escapeHTML(data.name)} (${escapeHTML(data.email)}) contacted you:</p>
+         <p>${escapeHTML(data.message)}</p>`,
   });
 
   return {

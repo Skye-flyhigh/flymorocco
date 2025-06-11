@@ -146,7 +146,8 @@ body {
   text-transform: capitalize;
 }
 .legals > * > h3::before {
-  content: counter(counter);
+  content: counters(h3-counter, "some text");
+  counter-increment: h3-counter;
 }
 .legals > * > * > li {
   list-style: disc;
@@ -154,4 +155,36 @@ body {
 }
 .legals > article {
   border-bottom: 1 solid var(--color-base-300);
+}
+
+details#adjacent {
+  margin-bottom: 0;
+  border-bottom: 0;
+  max-height: 4rem;
+}
+
+details#adjacent summary {
+  cursor: pointer;
+  padding: 1rem;
+}
+
+details#adjacent[open] {
+  padding-bottom: 25px;
+  max-height: 500px;
+  transition: max-height 1s ease-in-out;
+}
+
+details#adjacent > .content {
+  height: 0;
+  opacity: 0;
+  padding-inline: 50px;
+  border-top: 0;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  transition: opacity 1s ease-in-out;
+}
+
+details#adjacent[open] > .content {
+  height: var(--content-height, auto);
+  opacity: 1;
 }

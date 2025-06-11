@@ -23,7 +23,7 @@ export default function TourCalendar() {
   const filteredWeeks = Object.values(tourSchedule).filter(
     (trip) => parseISO(trip.start) > parseISO(today),
   );
-  const [cards, setCards] = useState<number>(4); //TODO: Properly connect the buttons to something when that something exist!
+  const [cards, setCards] = useState<number>(4);
   const [disable, setDisable] = useState(false);
 
   const increment = () => {
@@ -66,7 +66,7 @@ export default function TourCalendar() {
 
           return (
             <Link
-              href={week.slug}
+              href={week.slug ? week.slug : `/tours/${week.type}`}
               key={week.start}
               target="_blank"
               rel="noopener"
@@ -108,14 +108,6 @@ export default function TourCalendar() {
           {/* //TODO: refer to the right link for the book now button in tours */}
           {t("book")}
         </Link>
-        <button
-          type="button"
-          className="btn btn-secondary m-5"
-          onClick={increment}
-          disabled={disable}
-        >
-          {t("view")}
-        </button>
         {cards > 5 && (
           <button
             type="button"
@@ -125,6 +117,14 @@ export default function TourCalendar() {
             {t("viewLess")}
           </button>
         )}
+        <button
+          type="button"
+          className="btn btn-secondary m-5"
+          onClick={increment}
+          disabled={disable}
+        >
+          {t("view")}
+        </button>
       </div>
     </section>
   );

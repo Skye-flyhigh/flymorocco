@@ -3,13 +3,13 @@ import { useTranslations } from "next-intl";
 
 type MustHaveType = Record<TourSlug, string[]>;
 
-export default function MustHave(slug: TourSlug) {
+export default function MustHave({ slug }: { slug: TourSlug }) {
   const t = useTranslations("tours");
 
   const mustHaveItems: MustHaveType = {
     mountain: ["downJacket", "sunscreen", "alcohol", "sunnies", "smile"],
-    coastal: ["sunnies", "smile"],
-    wellbeing: ["sunnies", "smile"],
+    coastal: ["sunnies", "sunscreen", "smile"],
+    wellbeing: ["sunnies", "sunscreen", "smile"],
   };
 
   return (
@@ -17,7 +17,7 @@ export default function MustHave(slug: TourSlug) {
       <h2 className="section-title">{t("mustHave.title")}</h2>
       <h3 className="section-subtitle">{t("mustHave.subtitle")}</h3>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      <div className="">
         <ul className="list-disc list-inside space-y-2">
           {mustHaveItems[slug].map((key) => (
             <li key={key}>{t(`mustHave.items.${key}`)}</li>

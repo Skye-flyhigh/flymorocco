@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 type ActivityType = Record<TourSlug, string[]>;
 
-export default function Activities(slug: TourSlug) {
+export default function Activities({ slug }: { slug: TourSlug }) {
   const t = useTranslations("tours");
 
   const activities: ActivityType = {
@@ -33,7 +33,7 @@ export default function Activities(slug: TourSlug) {
         {activities[slug as TourSlug]?.map((key: string) => (
           <ul
             key={key}
-            className="flex items-center gap-3 bg-base-200 rounded-lg p-3"
+            className="flex items-center gap-3 bg-base-200 rounded-lg p-3 hover:bg-base-300 transition-all"
           >
             <li>{t(`activities.items.${key}`)}</li>
           </ul>

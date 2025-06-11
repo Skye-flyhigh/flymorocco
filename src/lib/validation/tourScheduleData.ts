@@ -4,11 +4,7 @@ import rawTourSchedule from "@/data/tourSchedule.json";
 export const tourScheduleData = z.object({
   start: z.string(),
   end: z.string(),
-  slug: z
-    .string()
-    .refine((val) => val.startsWith("/") || val.startsWith("http"), {
-      message: "Slug must start with '/' (internal) or 'http' (external URL)",
-    }),
+  slug: z.string().optional(),
   provider: z.string().optional(),
   type: z.string(),
   location: z.string(),
@@ -27,11 +23,10 @@ if (!parsedResult.success) {
   );
 }
 
-export type TourSchedule = z.infer<typeof TourScheduleDataSchema>;
-export type TourScheduleMap = Record<string, TourSchedule>;
+export type TourSchedule = z.infer<typeof tourScheduleData>;
 
 export const tourSchedule = parsedResult.success
-  ? (parsedResult.data as TourSchedule)
+  ? (parsedResult.data as TourSchedule[])
   : (() => {
       throw new Error("Invalid tour schedule data: Wrong calendar 📅");
     })();

@@ -3,10 +3,10 @@ import { TourSchedule, tourSchedule } from "../validation/tourScheduleData";
 export default function getTourMeta(slug: string) {
   const today = new Date();
 
-  const meta: TourSchedule = [];
+  const meta: TourSchedule[] = [];
   tourSchedule.forEach((tour) => {
     const isFuture = new Date(tour.start) > today;
-    const matchesSlug = tour.slug === slug;
+    const matchesSlug = tour.type === slug;
     if (isFuture && matchesSlug) {
       meta.push(tour);
     }

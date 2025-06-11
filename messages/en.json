@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "Home",
-    "siteGuides": "Site Guides",
+    "siteGuides": "Sites",
     "tours": "Tours",
     "about": "About",
     "rules": "Airlaw"
@@ -254,6 +254,7 @@
     "viewLess": "View less",
     "available": "Available",
     "full": "Full",
+    "notAvailable": "No tours available, please check again another date.",
     "lostTraveler": {
       "question": "Are you lost?",
       "wanderer": "Even the best adventurers stray from the path.",
@@ -270,12 +271,12 @@
     },
     "tourCards": {
       "title": "Flymorocco's tour",
-      "description": "Find below our different tours we offer."
+      "description": "Find below our different tours we offer, their details and prices. Starting from £799 or €950 per person for a week."
     },
     "toursDetails": {
       "coastal": {
         "focus": "Coastal flying, beach and sun",
-        "note": "Best for beginner/intermediate pilots and relaxing"
+        "note": "Great for all level of pilot to enjoy sea-side living and hill/coastal flying"
       },
       "mountain": {
         "focus": "Mountain flying",
@@ -291,7 +292,7 @@
       },
       "wellbeing": {
         "focus": "Special wellbeing and paragliding retreat",
-        "note": "Best for beginner/intermediate pilots and relaxing"
+        "note": "Our special treat, yoga, meditation and breath work combined to paragliding"
       },
       "paradopia": {
         "focus": "Coastal flying, beach and sun",
@@ -302,7 +303,9 @@
       "title": "Tour services",
       "subtitle": "We provide all the services you need to fly in Morocco",
       "participants": "We welcome all qualified pilots from all levels.",
-      "price": "For only £799/€950 per week, you will get all the services below.",
+      "price": "The following services are provided for the price below for a week per person.",
+      "special": "Wellbeing week also includes wellness morning (yoga, meditation and breathing works) with a yoga instructor.",
+      "notAvailable": "There is no available tours for the selected theme.",
       "viewSchedule": "View Schedule",
       "accommodation": {
         "title": "Accommodation and Food",
@@ -360,7 +363,8 @@
         "jemaaElFna": "Jemaa el-Fna Square",
         "asni": "Souk in Asni",
         "ourika": "Ourika Valley",
-        "surf": "Surfing"
+        "surf": "Surfing",
+        "hammam": "Hammam"
       }
     },
     "mustHave": {
@@ -649,7 +653,8 @@
     "contact": {
       "title": "Contact for questions or data-related requests",
       "description": "Contact us through our contact page.",
-      "contact": "Click here to email us"
-    }
+      "contact": "Click here to email us",
+      "success": "Form successfully submitted"
+        }
   }
 }

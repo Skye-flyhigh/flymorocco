@@ -1,18 +1,20 @@
-"use client";
-import { useTranslations } from "next-intl";
 import { getSiteMeta } from "@/lib/data-retrievers/getSiteMeta";
 import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 import Carousel from "../../components/Carousel";
 import MissingMountain from "../../components/siteGuides/MissingMountain";
 import Hero from "../../components/Hero";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export default function SiteGuidePage() {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}) {
   //TODO: add the legal info
-  const slug = usePathname().split("/").slice(3).toString();
+  const { slug } = await params;
   const meta = getSiteMeta(slug);
-  const t = useTranslations("siteGuides");
+  const t = await getTranslations("siteGuides");
 
   if (!meta || !slug) return <MissingMountain />;
 
@@ -20,9 +22,11 @@ export default function SiteGuidePage() {
   const legislationExists =
     legislation !== `siteGuides.${slug}.legislation` && legislation !== "";
 
+  console.log("Legislation blurb check:", legislationExists);
+
   return (
     <>
-      <main className="m-auto pt-10">
+      <main className="m-auto pt-10 flex flex-col">
         <Hero
           title={t(`${slug}.name`)}
           subtitle={t(`${slug}.description`)}
@@ -85,7 +89,10 @@ export default function SiteGuidePage() {
           </section>
         )}
 
-        <Link href="/site-guides" className="btn btn-secondary m-10">
+        <Link
+          href="/site-guides"
+          className="btn btn-secondary my-10 self-center"
+        >
           {t("return")}
         </Link>
       </main>

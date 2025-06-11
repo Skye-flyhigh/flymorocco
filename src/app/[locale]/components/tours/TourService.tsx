@@ -15,7 +15,6 @@ export default function TourService() {
       >
         <h1 className="section-title">{t("title")}</h1>
         <p>{t("participants")}</p>
-        <p className="mb-5">{t("price")}</p>
         <div className="join join-vertical bg-base-100">
           <div className="collapse collapse-arrow join-item border-base-300 border">
             <input type="radio" name="my-accordion-4" />
