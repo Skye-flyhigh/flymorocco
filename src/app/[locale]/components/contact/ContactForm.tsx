@@ -37,6 +37,7 @@ export default function ContactForm() {
             </label>
             <input
               type="text"
+              id="name"
               name="name"
               placeholder={t("name.placeholder")}
               className={`input ${state?.errors?.name ? "input-error" : ""}`}
@@ -47,7 +48,7 @@ export default function ContactForm() {
               required
             />
             {state?.errors?.name && (
-              <p aria-live="polite" className="text-error">
+              <p id="name-error" aria-live="polite" className="text-error">
                 {state.errors.name}
               </p>
             )}
@@ -61,6 +62,7 @@ export default function ContactForm() {
             <input
               type="email"
               name="email"
+              id="email"
               placeholder={t("email.placeholder")}
               className={`input ${state?.errors?.email ? "input-error" : ""}`}
               defaultValue={state?.data?.email ?? ""}
@@ -70,7 +72,7 @@ export default function ContactForm() {
               required
             />
             {state?.errors?.email && (
-              <p aria-live="polite" className="text-error">
+              <p id="email-error" aria-live="polite" className="text-error">
                 {state.errors.email}
               </p>
             )}
@@ -84,6 +86,7 @@ export default function ContactForm() {
             </label>
             <textarea
               name="message"
+              id="message"
               placeholder={t("message.placeholder")}
               className={`textarea !w-full ${state?.errors?.message ? "textarea-error" : ""}`}
               defaultValue={state?.data?.message ?? ""}
@@ -93,7 +96,7 @@ export default function ContactForm() {
               required
             />
             {state?.errors?.message && (
-              <p aria-live="polite" className="text-error">
+              <p id="message-error" aria-live="polite" className="text-error">
                 {state.errors.message}
               </p>
             )}
@@ -107,7 +110,7 @@ export default function ContactForm() {
           disabled={isPending}
           className="btn btn-primary w-fit self-center m-6"
         >
-          {isPending ? "Sending..." : "Submit"}
+          {isPending ? t("process") : t("submit")}
         </button>
       </form>
     </section>

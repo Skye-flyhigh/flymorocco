@@ -3,7 +3,7 @@ import DownloadAirspaces from "../../components/rules/DowloadAirspaces";
 
 export default function Page() {
   return (
-    <main>
+    <main id="main">
       <SiteMapSection />
       <DownloadAirspaces />
     </main>

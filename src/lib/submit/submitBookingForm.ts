@@ -27,7 +27,7 @@ export async function submitBooking(
     start: formData.get("start") as string,
   };
   console.log("Booking form values:", formValues);
-  
+
   const { success, error, data } = BookingFormSchema.safeParse(formValues);
   if (!success) {
     return {

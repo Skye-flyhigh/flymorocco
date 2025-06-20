@@ -25,6 +25,7 @@ export default function RulesNav() {
       </div>
       <div
         id="links"
+        aria-label="regulation links"
         className={`my-5 grid gap-10 sm:grid-cols-2 justify-items-center`}
       >
         {rules.map((rule) => {
@@ -32,10 +33,11 @@ export default function RulesNav() {
           return (
             <Link
               key={rule.key}
+              aria-label={`${rule.key} link`}
               href={`/rules/${rule.key}`}
               className="group bg-radial from-base-100 to-base-200 hover:from-base-200 hover:to-base-300 shadow-lg rounded-2xl p-6 hover:shadow-xl transition-all w-full h-full max-w-96 flex flex-col justify-between"
             >
-              <div
+              <article
                 id="content"
                 className="flex flex-col items-center text-center"
               >
@@ -46,7 +48,7 @@ export default function RulesNav() {
                 <p className="text-gray-600 text-sm">
                   {t(`${rule.key}.description`)}
                 </p>
-              </div>
+              </article>
               <div className="flex justify-end items-center mt-6 text-neutral text-xs">
                 <ViewMoreArrow />
               </div>

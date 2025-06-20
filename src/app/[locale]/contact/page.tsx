@@ -6,7 +6,7 @@ import ContactForm from "../components/contact/ContactForm";
 export default function Page() {
   const t = useTranslations("contact");
   return (
-    <main>
+    <main id="main">
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}

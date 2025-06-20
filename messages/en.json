@@ -4,19 +4,25 @@
     "siteGuides": "Sites",
     "tours": "Tours",
     "about": "About",
-    "rules": "Airlaw"
-  },
-  "footer": {
+    "rules": "Regulation",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "legal": "Legal",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy",
+    "cookie": "Cookie policy",
     "copyright": "Brewing mint tea and clipping glider to harness."
   },
   "HomePage": {
     "title": "Paragliding",
     "subtitle": "Paragliding in Morocco",
     "exploreBtn": "Explore more",
+    "main": "Skip to main page",
     "explore": {
       "title": "Paragliding in Morocco",
       "subtitle": "With the Atlas Mountains spanning much of the country, Morocco offers a diverse and stunning landscape to explore from the sky.",
-      "blurb": "Morocco is an excellent winter destination for pilots seeking thermals, especially when skies are dull and gray back home. Weather reliability makes for a great winter escape. From soaring over high mountains and flatlands to dune flying, every pilot will discover their favorite playground. Morocco is only at couple of hours flight from European countries.",
+      "blurb": "Morocco is an excellent winter destination for pilots seeking thermals, especially when skies are dull and gray back home. Weather reliability makes for a great winter escape. From soaring over high mountains and flatlands to dune flying, every pilot will discover their favorite playground. Morocco is only a couple of hours’ flight from most European countries.",
       "siteLink": "Paragliding spots",
       "tourLink": "Explore with us"
     }
@@ -40,7 +46,6 @@
   "testimonials": {
     "title": "What our customers say about us?"
   },
-
   "about": {
     "title": "About Us",
     "subtitle": "The team behind Flymorocco",
@@ -60,7 +65,6 @@
       "description": "Famous takeoff, hotel and restaurant in the South of Morocco"
     }
   },
-
   "contact": {
     "title": "Contact us",
     "subtitle": "Only a click away from you",
@@ -90,7 +94,6 @@
     "process": "Processing...",
     "submit": "Submit"
   },
-
   "rules": {
     "title": "Flying Legally in Morocco",
     "subtitle": "Everything you need to fly safely and legally—airspace downloads, flight declarations, and required forms.",
@@ -186,10 +189,8 @@
       },
       "missingField": "is a required field.",
       "dateError": "End date has to be after start date.",
-
       "generalInformation": "General Information",
       "siteSelector": "Select your sites",
-
       "identification": "Personal details",
       "firstName": {
         "label": "Your first legal name(s):",
@@ -207,7 +208,6 @@
         "label": "Your passport number:",
         "placeholder": "Enter your passport number"
       },
-
       "contact": "Contact details",
       "address": {
         "label": "Your address:",
@@ -221,7 +221,6 @@
         "label": "Enter a valid phone number:",
         "placeholder": "01234567890"
       },
-
       "trip": "Trip details",
       "insuranceValidity": {
         "label": "Third party liability end date:",
@@ -235,7 +234,6 @@
         "label": "Trip end date. Make it a minimum of 1 month (up to 3 months).",
         "placeholder": ""
       },
-
       "glider": "Glider details",
       "gliderManufacturer": {
         "label": "Glider manufacturer:",
@@ -255,10 +253,10 @@
       }
     }
   },
-
   "tours": {
     "title": "Tours with us",
     "subtitle": "Discover Morocco with our organised tours in Morocco",
+    "unit": "per week per person",
     "calendar": "Tour Calendar",
     "upcoming": "Upcoming Tours",
     "book": "Book now",
@@ -391,7 +389,6 @@
       }
     }
   },
-
   "siteGuides": {
     "title": "Free flying Sites in Morocco",
     "subtitle": "Description of different flying sites in Morocco. Location, access, information, etc.",
@@ -520,17 +517,16 @@
       "hazard": "The cliff like top may create turbulences for takeoff and top landing, special caution need to be adopted. DO NOT FLY THIS SITE WHEN THE WIND IS NW OR N. Rotors are generated from the terrain lower down which makes the landing on the beach vary dangerous. TIDE: high tide goes right at the bottom of the cliff removing all the landing options on the beach. The only option left to land is a flat land on the ridge by the village."
     }
   },
-
   "notFound": {
     "question": "Are you lost?",
     "wanderer": "The wind whispers of a page that once was...",
     "disappearance": "But alas, it may have vanished beyond the dunes.",
     "goBack": "Go back before the sun sets"
   },
-
   "terms": {
     "title": "Flymorocco Terms & Conditions",
     "lastUpdate": "Last updated: ",
+    "CAA": "Civil Aviation Authority",
     "legalInfo": {
       "title": "Legal Entity Information",
       "description": "<ol><li><strong>Site Owner:</strong> Flymorocco (business registration pending)</li><li><strong>Email:</strong><email> Please click here to email us</email></li><li><strong>Postal Address:</strong> pending</li><li><strong>Hosting Provider:</strong> <host>Nindohost, Morocco</host></li></ol>"
@@ -576,7 +572,6 @@
       "description": "These Terms are governed by Moroccan law. Any disputes arising from the use of this website shall be settled in the competent courts of Marrakech, Morocco."
     }
   },
-
   "privacy": {
     "title": "Privacy Notice",
     "lastUpdate": "Effective Date: ",
@@ -665,6 +660,8 @@
     "contact": {
       "title": "Contact for questions or data-related requests",
       "description": "Contact us through our contact page.",
-      "contact": "Click here to email us"    }
+      "contact": "Click here to email us",
+      "close": "Close booking form"
+    }
   }
 }

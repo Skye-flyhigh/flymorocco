@@ -2,12 +2,11 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Hero from "../components/Hero";
 import PartnersCard from "../components/about/PartnersCard";
-import Link from "next/link";
 
 export default function Page() {
   const t = useTranslations("about");
   return (
-    <>
+    <main id="main">
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
@@ -26,14 +25,14 @@ export default function Page() {
                   <code className="bg-base-200 px-1 rounded">{chunks}</code>
                 ),
                 link: (chunks) => (
-                  <Link
+                  <a
                     href="https://bhpa.co.uk"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="link text-primary"
                   >
                     {chunks}
-                  </Link>
+                  </a>
                 ),
                 portfolio: (chunks) => (
                   <a
@@ -83,6 +82,6 @@ export default function Page() {
         </div>
         <PartnersCard />
       </section>
-    </>
+    </main>
   );
 }

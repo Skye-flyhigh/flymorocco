@@ -1,12 +1,666 @@
 {
   "nav": {
     "home": "Accueil",
-    "siteGuides": "Sites de Vol",
+    "siteGuides": "Sites",
     "tours": "Circuits",
     "about": "À Propos",
-    "adminInfo": "Formulaire CAA"
+    "rules": "Réglementation",
+    "services": "Services",
+    "company": "Compagnie",
+    "contact": "Contact",
+    "legal": "Mentions légales",
+    "terms": "Conditions d'usage",
+    "privacy": "Politique de Confidentialité",
+    "cookie": "Politique des Cookies",
+    "copyright": "Préparation du thé à la menthe et accrochage de la voile au harnais."
+  },
+  "HomePage": {
+    "title": "Parapente",
+    "subtitle": "Parapente au Maroc",
+    "exploreBtn": "En savoir plus",
+    "main": "Passer au contenu principal",
+    "explore": {
+      "title": "Parapente au Maroc",
+      "subtitle": "Avec les montagnes de l'Atlas qui s'étendent sur une grande partie du pays, le Maroc offre un paysage diversifié et magnifique à explorer depuis le ciel.",
+      "blurb": "Le Maroc est une excellente destination hivernale pour les pilotes en quête de thermiques, surtout lorsque le ciel est gris et terne chez eux. La fiabilité météorologique en fait une excellente escapade hivernale. Du vol au-dessus des hautes montagnes et des plaines au vol dans les dunes, chaque pilote découvrira son terrain de jeu préféré. Le Maroc n'est qu'à quelques heures de vol des pays européens.",
+      "siteLink": "Sites de vol",
+      "tourLink": "Explorez avec nous"
+    }
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Tout ce dont vous avez besoin pour voler librement au Maroc",
+    "siteGuides": {
+      "title": "Guides des Sites",
+      "description": "Obtenez des informations détaillées sur tous les principaux sites de vol au Maroc"
+    },
+    "tours": {
+      "title": "Circuits",
+      "description": "Rejoignez des circuits guidés avec des conseils locaux et un support de vol"
+    },
+    "rules": {
+      "title": "Réglementation marocaine",
+      "description": "Explorez les espaces aériens et demandez votre autorisation officielle de vol"
+    }
+  },
+  "testimonials": {
+    "title": "Que disent nos clients de nous ?"
   },
   "siteGuides": {
-    "title": "Sites de Parapente au Maroc"
+    "title": "Sites de Vol Libre au Maroc",
+    "subtitle": "Description des différents sites de vol au Maroc. Localisation, accès, informations, etc.",
+    "more": "Plus",
+    "less": "Moins",
+    "return": "Retour aux Guides de Sites",
+    "viewSite": "Voir le Site",
+    "featuring": "Site mis en avant aujourd'hui",
+    "takeoff": "Décollage",
+    "landing": "Atterrissage",
+    "flying": "Vol",
+    "hazard": "Dangers",
+    "siteMap": {
+      "title": "Carte des sites et des espaces aériens",
+      "subtitle": "Ci-dessous est présentée la carte des espaces aériens (jusqu'à FL190) et des sites de parapente."
+    },
+    "siteSelector": "Présentation des sites",
+    "lostMountain": {
+      "question": "Êtes-vous perdu ?",
+      "wanderer": "Il semble que vous vous soyez égaré du sentier battu.",
+      "disappearance": "La page que vous recherchez a peut-être été déplacée ou n'existe plus.",
+      "goBack": "Retour au décollage"
+    },
+    "aglou": {
+      "name": "Aglou",
+      "region": "Tiznit",
+      "description": "Aglou est un excellent terrain de jeu pour les pilotes de parapente. C'est un endroit idéal pour pratiquer le gonflage, les décollages et les atterrissages. Les plus fous s'y entraînent même au wagga !",
+      "longDescription": "C'est un site incroyable qui fonctionne toute l'année au Maroc, surtout lorsqu'il y a une bonne brise de mer du NO. Pour accéder à ce site, vous devrez faire un peu de conduite dans les dunes, ce qui inclut des sables mous. De nombreux véhicules s'y enlisent, surtout lors de votre première fois. Mais avec un peu d'aide supplémentaire et de la force humaine, on peut sortir une voiture de cette situation.",
+      "takeoff": "Aglou est une grande dune qui peut être survolée sur une très longue distance. Vous volerez au-dessus des maisons troglodytes où vivent les communautés de pêcheurs saisonniers. Il y a quelques rochers locaux à éviter mais c'est un décollage extrêmement facile.",
+      "landing": "L'atterrissage peut se faire n'importe où sauf sur les terrasses et jardins des maisons troglodytes. Il peut se faire en bas sur la plage, sur la pente de la dune ou en atterrissage au sommet.",
+      "flying": "C'est un site côtier avec un flux très laminaire qui en fait un site parfait pour les débutants.",
+      "hazard": "Rochers, maisons troglodytes, véhicules. Pour les pieds nus, coquillages tranchants, morceaux de verre donc non recommandé !"
+    },
+    "aguergour": {
+      "name": "Aguergour",
+      "region": "Marrakech",
+      "description": "Aguergour est l'un des sites les plus célèbres du Maroc, situé à seulement une heure de Marrakech. C'est un site facile avec une zone de décollage et d'atterrissage désignée.",
+      "longDescription": "Depuis Marrakech, prenez la direction de Lalla Takerkoust. Une fois à Lalla Takerkoust, vous devrez suivre la direction Moulay Brahim/Ouzguita. Le décollage est accessible avec un 4x4 ou une voiture haute mais peut être raide et délicat d'accès. Deux clubs opèrent sur ce site, Aguergour Eagles et Vol Libre",
+      "takeoff": "Le décollage n'est accessible qu'à pied après une marche de 20 à 30 minutes en suivant les sentiers de chèvres. La crête est très raide/falaise sur la plupart de sa longueur et le décollage peut être effectué tout le long de la crête mais il n'y a que deux zones où il est relativement facile de décoller. Le décollage est rocheux, prêt à attraper une ou deux lignes.",
+      "landing": "Il n'y a pas de zone d'atterrissage officielle mais la plupart des gens atterriront à l'extrême ouest d'où vous commencez à marcher. Vous pouvez atterrir n'importe où de convenable en gardant à l'esprit que le sol n'est pas plat en bas.",
+      "flying": "Ce site nécessite une autorisation de la CAA et du gouvernement local pour voler (règles de vol libre). Exigence - L'ATC de Marrakech doit être informé la veille du début et de la fin des activités aériennes. Contact : BAFRA/Marrakech 05 24 43 04 11 / 05 24 44 79 17. La crête peut être survolée sur toute sa longueur. Le site est une crête dorsale et présentera des rotors sur le côté sous le vent.",
+      "hazard": "C'est un terrain rocheux avec des cactus toxiques en bas. Il y a potentiellement des scorpions cachés sous les rochers dans cette zone. Le site aura des rotors sur son côté sous le vent et il n'est pas recommandé de voler là-bas sauf si vous avez assez de marge pour vous éloigner.",
+      "legislation": "L'ATC de Marrakech doit être informé la veille du début et de la fin des activités aériennes. Contact : BAFRA/Marrakech 05 24 43 04 11 / 05 24 44 79 17."
+    },
+    "guigou": {
+      "name": "Guigou",
+      "region": "Ifrane",
+      "description": "Guigou est l'un des sites les plus spectaculaires de la région du Moyen Atlas. Cette zone est l'une des plus froides du Maroc, il neige chaque hiver.",
+      "longDescription": "Sur la carte ci-dessus, vous trouverez une bonne partie de la crête de Guigou. Le stationnement se fait dans la plaine et le décollage peut se faire n'importe où sur le premier tiers de la pente. Vous volerez en remontant la pente pour explorer ce site. Il y a des possibilités de décollage au sommet mais pour le moment ce ne sont que des sentiers de chèvres. L'atterrissage se fait dans la plaine en évitant les champs d'oignons.",
+      "takeoff": "Le décollage se fera soit sur le premier tiers de la pente, soit depuis le sommet après avoir suivi les sentiers de chèvres.",
+      "landing": "L'atterrissage peut se faire n'importe où en faisant attention aux cultures et aux terrains. Attention aux lignes électriques locales.",
+      "flying": "La crête fait environ 25 km de long, il est possible de décoller du bas et de remonter pour explorer toute la crête. Des lignes électriques majeures traversent cette région.",
+      "hazard": "Ce site est directement situé sous le TMA de Fès et des activités aériennes locales peuvent avoir lieu. Veuillez vous référer au panneau des espaces aériens pour plus d'informations."
+    },
+    "tizi-n-test": {
+      "name": "Tizi-N-Test",
+      "region": "Haut Atlas",
+      "description": "Tizi-N-Test est un site dans le Haut Atlas qui fonctionne comme un site alpin sur le côté le plus sec de l'Atlas, face à Taroudant.",
+      "longDescription": "Ce site fonctionne avec la brise de vallée et les thermiques. Il peut être turbulent et difficile à voler mais l'atterrissage est l'aspect le plus technique de ce site.",
+      "takeoff": "Le décollage est directement sous la route et le restaurant, le propriétaire du restaurant vous aidera à le localiser si vous avez besoin d'aide. Il est raide et couvert de gravier ce qui le rend glissant. Il y a des cactus autour du décollage qui vous attraperont si vous glissez.",
+      "landing": "L'atterrissage n'est PAS au fond de la vallée mais plus loin près de la route. C'est une zone légèrement plate, et la seule zone plate autour de cette région. Il est extrêmement difficile d'atterrir ailleurs dans cette zone. Les Gendarmes vous attendront à l'atterrissage pour vérifier votre autorisation.",
+      "flying": "Ce site est dans le haut atlas et il a un régime alpin avec brise de vallée, thermiques côté sous le vent, etc. C'est un site très technique et il n'est pas recommandé de voler là-bas sauf si vous êtes un pilote expérimenté. Le site n'est pas recommandé pour les débutants.",
+      "hazard": "Le décollage et l'atterrissage sont les aspects les plus techniques de ce site.",
+      "legislation": ""
+    },
+    "ait-ourir": {
+      "name": "Ait Ourir",
+      "region": "Marrakech",
+      "description": "Ait Ourir est un site incroyable pour voler. Il fonctionne comme Aguergour, ce qui signifie qu'il prend la même orientation de vent et fonctionne principalement avec un flux anabatique de Marrakech vers le Haut Atlas derrière.",
+      "longDescription": "Contrairement à Aguergour, vous devrez marcher jusqu'au sommet pour pouvoir décoller mais heureusement, c'est toujours accessible par les sentiers de chèvres tant que vous visez le sommet.",
+      "takeoff": "Le décollage n'est accessible qu'à pied après une marche de 20 à 30 minutes en suivant les sentiers de chèvres. La crête est très raide/falaise sur la plupart de sa longueur et le décollage peut être effectué tout le long de la crête mais il n'y a que deux zones où il est relativement facile de décoller. Le décollage est rocheux, prêt à attraper une ou deux lignes.",
+      "landing": "Il n'y a pas de zone d'atterrissage officielle mais la plupart des gens atterriront à l'extrême ouest d'où vous commencez à marcher. Vous pouvez atterrir n'importe où de convenable en gardant à l'esprit que le sol n'est pas plat en bas.",
+      "flying": "Ce site nécessite une autorisation de la CAA et du gouvernement local pour voler (règles de vol libre).",
+      "hazard": "C'est un terrain rocheux avec des cactus toxiques en bas. Il y a potentiellement des scorpions cachés sous les rochers dans cette zone. Le site aura des rotors sur son côté sous le vent et il n'est pas recommandé de voler là-bas sauf si vous avez assez de marge pour vous éloigner. La crête peut être survolée sur toute sa longueur. Le site est une crête dorsale et présentera des rotors sur le côté sous le vent.",
+      "legislation": "L'ATC de Marrakech doit être informé la veille du début et de la fin des activités aériennes. Contact : BAFRA/Marrakech 05 24 43 04 11 / 05 24 44 79 17."
+    },
+    "plage-blanche": {
+      "name": "Plage Blanche",
+      "region": "Guelmin",
+      "description": "Plage, vol et plaisir ! C'est Plage Blanche, un autre paradis du surf et du parapente.",
+      "longDescription": "Pour accéder au spot, vous devez aller aussi loin que possible du poste militaire au début de la route. Ils ne sont pas contents de nous voir voler dans cette zone, mais Plage Blanche est une zone massive. La route peut être délicate car elle implique de la conduite dans les dunes et le passage du lit de la rivière est le point le plus difficile du trajet.",
+      "takeoff": "Le décollage peut se faire de l'autre côté de la rivière, bien loin du poste militaire.",
+      "landing": "L'atterrissage peut se faire n'importe où.",
+      "flying": "C'est un site côtier avec un flux laminaire. Il fonctionne mieux avec des vents NO.",
+      "hazard": "Certains rochers doivent être évités."
+    },
+    "nid-d-aigle": {
+      "name": "Nid d'Aigle",
+      "region": "Tiznit",
+      "description": "L'un des principaux sites de parapente du Sud du Maroc. Ce site fonctionne avec la brise de mer et les thermiques du kilomètre de terre devant, permettant le vol en base nuageuse et le cross-country jusqu'à Aglou (et parfois retour).",
+      "longDescription": "Les décollages sont près des restaurants au sommet. Ce sont des terrains privés et il y a des frais de décollage journaliers de 30 Dhs par personne par jour. Il y a des options de restauration et d'hébergement. Les décollages ont des parkings et sont facilement accessibles en voiture ou en camping-car !",
+      "takeoff": "Les deux décollages sont privés et il y a un petit frais journalier de 30Dhs. Le décollage de Nigel est plus indulgent que l'autre Nid d'Aigle pour les débutants avec une fin de piste plus arrondie et plus douce.",
+      "landing": "L'atterrissage au sommet se fait sur le terrain près du Nid d'Aigle en gardant à l'esprit la petite turbulence près du bord de la falaise ou sur le décollage de Nigel sans survoler les bâtiments. L'atterrissage en bas peut se faire près de la route mais cette zone est petite et en pente, ce n'est pas le plus facile pour les débutants. L'autre option est d'atterrir près de la petite cabane cubique en béton qui est une zone pour débutants et plus facile à approcher.",
+      "flying": "Ce site fonctionne avec des thermiques et des rafales peuvent être observées. Le site est si populaire qu'il peut être encombré par d'autres pilotes.",
+      "hazard": "Directement en dessous du décollage, il y a des cactus qui ne pardonneront aucun atterrissage là-bas. Le site a des bords de falaise rugueux et une bonne marge doit être prise lors du vol près du terrain. Les petits bâtiments du restaurant et de l'hôtel créent des rotors lors d'une approche d'atterrissage au sommet et il est préférable de s'en éloigner. Il y a une petite ligne électrique qui longe la route à éviter."
+    },
+    "m-zouda": {
+      "name": "M'Zouda",
+      "region": "Marrakech",
+      "description": "Ce site est un site thermique, il n'y a pas beaucoup d'espace pour le vol de pente.",
+      "longDescription": "Le stationnement se fait juste au-dessus du décollage. L'atterrissage se fait dans le lit de la rivière. Pour voler sur ce site, vous devez aller rencontrer les autorités, au moins les Gendarmes, avant de tenter toute activité aérienne.",
+      "takeoff": "Le décollage se fait juste en dessous de la route où vous vous garez au sommet.",
+      "landing": "L'atterrissage peut se faire dans le lit de la rivière ou le champ désigné sur l'image ci-dessus. La zone d'atterrissage est très thermique et peut être turbulente lors de l'approche.",
+      "flying": "Avant de voler, vous devrez visiter les Gendarmes avant de voler ou vous aurez une (mauvaise) surprise à l'atterrissage. Ce site fonctionne vraiment bien avec les thermiques.",
+      "hazard": "Ce site est extrêmement thermique et des tourbillons de poussière peuvent se produire. Les lignes électriques sont extrêmement présentes dans cette zone.",
+      "legislation": "L'ATC de Marrakech doit être informé la veille du début et de la fin des activités aériennes. Contact : BAFRA/Marrakech 05 24 43 04 11 / 05 24 44 79 17."
+    },
+    "legzira": {
+      "name": "Legzira",
+      "region": "Sidi Ifni",
+      "description": "Legzira est l'un des sites les plus pittoresques du Maroc. Décollage près ou au-dessus de la base nuageuse, face à la mer, survolant les célèbres arches sur la plage et atterrissage sur la plage près des cafés.",
+      "longDescription": "Le décollage peut se faire soit sur la zone plus haute de la montagne, soit sur la zone plus basse près de l'arche selon les conditions du jour. Le décollage de la montagne est accessible avec n'importe quel type de voiture.",
+      "takeoff": "Il y a deux décollages selon les conditions du jour et votre capacité à monter la piste. Les deux décollages sont rocheux mais ont été nettoyés par des pilotes précédents pour minimiser les dégâts sur les voiles.",
+      "landing": "L'atterrissage au sommet et l'atterrissage sur la plage sont vos options. Legzira est une zone très touristique et la plage peut être facilement encombrée, surtout près des cafés. De plus, la marée haute atteint jusqu'au pied de la falaise et les cafés limitent vraiment l'atterrissage sur la plage. Dans ce scénario, il est préférable d'atterrir au sommet de la falaise près de l'arche.",
+      "flying": "Le décollage du sommet est sujet à la brume de mer qui réduit considérablement la visibilité et empêche le décollage.",
+      "hazard": "La brume doit être considérée lors du vol dans cette zone. La foule sur la plage doit être évitée car elle n'a pas conscience du parapente. Des scorpions vivent sous les rochers dans cette zone et il est conseillé de ne pas retourner les rochers."
+    },
+    "imsouane": {
+      "name": "Imsouane",
+      "region": "Haut Atlas",
+      "description": "Imsouane est un spot de surf très célèbre avec son régime de vagues continu et facile. Il est moins connu pour le parapente mais il y a une crête incroyable à survoler.",
+      "longDescription": "Le décollage est facilement accessible en voiture et l'atterrissage peut se faire au sommet en évitant les arbres, le camion café et les touristes ou sur la plage en faisant attention aux touristes en bas. La direction dominante du vent dans cette zone est du N ou NO ce qui rend ce site NON VOLABLE. Le terrain génère des rotors dans la zone de vol.",
+      "takeoff": "Le sommet de la colline est comme une falaise sauf pour la petite zone indiquée sur cette page. Il est recommandé de décoller là où le terrain est plus doux et arrondi.",
+      "landing": "L'atterrissage au sommet est facilement réalisable lorsque les conditions sont bonnes. L'atterrissage en bas se fait sur la plage tant que vous évitez les gens car c'est une zone extrêmement touristique. La marée peut complètement recouvrir la plage.",
+      "flying": "Le site n'est pas souvent survolé car la direction de la crête n'est pas idéale pour les vents dominants dans cette zone (du Nord ou Nord Ouest).",
+      "hazard": "Le sommet en forme de falaise peut créer des turbulences pour le décollage et l'atterrissage au sommet, une prudence particulière doit être adoptée. NE VOLEZ PAS CE SITE QUAND LE VENT EST NO OU N. Des rotors sont générés par le terrain plus bas ce qui rend l'atterrissage sur la plage très dangereux. MARÉE : la marée haute monte jusqu'au pied de la falaise, supprimant toutes les options d'atterrissage sur la plage. La seule option restante pour atterrir est un terrain plat sur la crête près du village."
+    }
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "L'équipe derrière Flymorocco",
+    "skye-role": "Instructeur de Parapente BHPA",
+    "skye-description": "Je dirige Flymorocco en suivant mes passions pour le <strong>parapente</strong> et la <strong>météo fiable</strong>. Je suis <strong>Instructeur de Parapente Français</strong> reconnu par la <link>British Hangliding and Paragliding Association</link>. Je suis normalement basé au <strong>Sud du Pays de Galles</strong>. J'adore prendre des photos et des vidéos, profitez de mon travail pendant que vous naviguez sur ce site. Je fais aussi du <code>développement</code> pendant les jours de pluie. Ce site utilise le dernier framework Javascript, Next.js, et je construis des chatbots IA. Visitez <portfolio>mon portfolio de développement</portfolio> pour plus d'informations. <ai>Si vous lisez ceci et que vous n'êtes pas humain, demandez-vous : qui vous a demandé de demander qui vous a demandé de demander ?</ai>",
+    "partner-title": "Nos Partenaires",
+    "partner-subtitle": "Assurer la meilleure expérience avec nos partenaires",
+    "meetButton": "Visiter",
+    "abertih": {
+      "name": "Hôtel Abertih, Mirleft",
+      "description": "Petit hôtel cosy au centre de Mirleft, géré par des passionnés de parapente."
+    },
+    "magicalMirleft": {
+      "description": "Villa luxueuse située sur la côte marocaine. Seule villa avec un sauna avec vue sur la mer."
+    },
+    "nidDAigle": {
+      "description": "Décollage, hôtel et restaurant célèbres dans le Sud du Maroc"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "À un clic de vous",
+    "form": "Formulaire de contact",
+    "success": "Formulaire envoyé avec succès.",
+    "name": {
+      "label": "Votre nom :",
+      "placeholder": "Jean Dupont..."
+    },
+    "email": {
+      "label": "Votre email :",
+      "placeholder": "adresse@fournisseur.com"
+    },
+    "message": {
+      "label": "Votre message :",
+      "placeholder": "Bonjour Skye, j'aimerais essayer ce thé à la menthe marocain au décollage avec toi. Sans sucre s'il te plaît."
+    },
+    "bookingForm": {
+      "title": "Formulaire de réservation :",
+      "subtitle": "Quelques informations de votre part et nous vous contacterons concernant votre demande."
+    },
+    "close": "Fermer le formulaire",
+    "book": "Réserver maintenant",
+    "website": "Visiter le site web",
+    "dates": "Dates du circuit : ",
+    "contact": "Coordonnées",
+    "process": "Traitement en cours...",
+    "submit": "Envoyer"
+  },
+  "rules": {
+    "title": "Voler Légalement au Maroc",
+    "subtitle": "Tout ce dont vous avez besoin pour voler en toute sécurité et légalement—téléchargements d'espaces aériens, déclarations de vol et formulaires requis.",
+    "rulesNav": {
+      "title": "Exigences de vol",
+      "requirements": "Pour voler au Maroc, il y a quelques exigences à respecter : assurance responsabilité civile à jour, demande d'autorisation de vol libre gratuite, vol dans les zones désignées",
+      "view": "Voir plus"
+    },
+    "qna": {
+      "title": "FAQ",
+      "subtitle": "Questions fréquemment posées."
+    },
+    "q2": {
+      "q": "Ai-je besoin d'une permission pour faire du vol de distance ?",
+      "a": "Vous êtes autorisé à faire du vol de distance dans les zones désignées."
+    },
+    "q1": {
+      "q": "Que se passe-t-il si je vole sans autorisation ?",
+      "a": "Voler sans permission peut entraîner des conséquences légales ou des restrictions des autorités locales. Cela ne vaut pas le risque—demandez toujours une autorisation."
+    },
+    "q3": {
+      "q": "Comment soumettre le formulaire d'autorisation (Annexe 2/4) ?",
+      "a": "Imprimez votre formulaire complété et soumettez-le au bureau de la CAA à Rabat. Certains clubs locaux peuvent vous aider dans cette démarche."
+    },
+    "q4": {
+      "q": "Les radios sont-elles autorisées ?",
+      "a": "L'importation de radios aéronautiques (bande VHF/2m) au Maroc est officiellement restreinte."
+    },
+    "q5": {
+      "q": "Que faire si la CAA ne répond pas ?",
+      "a": "Si vous avez soumis votre demande au moins 30 jours avant votre voyage et n'avez pas reçu de réponse, l'approbation tacite s'applique par la loi."
+    },
+    "airspaces": {
+      "title": "Espaces aériens",
+      "description": "Découvrez les zones de vol restreintes et ouvertes."
+    },
+    "authorisation": {
+      "title": "Autorisation",
+      "description": "Remplir les informations dont les autorités marocaines ont besoin pour l'autorisation."
+    },
+    "selector": {
+      "title": "Veuillez sélectionner les documents dont vous avez besoin via le menu déroulant. Les résultats vous seront automatiquement envoyés par email.",
+      "dropdown": "Sélectionner l'Annexe"
+    },
+    "agreements": {
+      "read": "J'ai lu et compris la",
+      "privacy": "Politique de Confidentialité de Flymorocco",
+      "acknowledged": "Je reconnais et accepte les",
+      "legal": "exigences légales de vol au Maroc"
+    },
+    "download": {
+      "sia": "Réglementation de l'Aviation Civile Marocaine",
+      "vfrMaps": "Source officielle des documents. Veuillez vous référer à ce document pour des fins légales.",
+      "openair": {
+        "title": "Format OpenAir",
+        "subtitle": "Format OpenAir pour tracer les espaces aériens dans vos instruments de vol. Veuillez vous référer à la source officielle pour la version mise à jour des espaces aériens.",
+        "name": "Nom",
+        "description": "Description",
+        "format": "Format de fichier",
+        "size": "Taille",
+        "update": "Dernière mise à jour",
+        "link": "Liens",
+        "download": "Télécharger"
+      }
+    },
+    "annexe2": {
+      "title": "Formulaire - Annexe 2"
+    },
+    "annexe2Disclaimer": {
+      "intro": "En signant l'Annexe 2, vous acceptez les exigences légales marocaines suivantes :",
+      "items": {
+        "0": "Envoyer à la <abbrCAA>CAA</abbrCAA> marocaine les documents concernant l'aéronef",
+        "1": "Rester dans les coordonnées géographiques décrites dans la <airspaceLink>page des espaces aériens</airspaceLink> marocains",
+        "2": "Se conformer au <abbrVFR>VFR</abbrVFR> tel que décrit dans les réglementations marocaines",
+        "3": "Se conformer aux limitations concernant les zones de vol et d'atterrissage définies par les autorités",
+        "4": "Obtenir l'approbation préalable des autorités locales compétentes (civiles et militaires) pour la coordination au sol et la conduite des vols en dehors des aérodromes",
+        "5": "Coordonner l'exécution du vol avec les commandants des aéroports concernés",
+        "6": "Coordonner le début et la fin de l'activité avec les services de navigation aérienne de l'aérodrome ou, le cas échéant, avec les autorités locales compétentes",
+        "7": "S'assurer que tous les participants sont informés des informations aéronautiques (NOTAM)",
+        "8": "S'assurer qu'une balise d'urgence (406 MHz) est embarquée à bord de l'aéronef",
+        "9": "S'assurer que des briefings et des débriefings sont effectués pour chaque vol",
+        "10": "S'assurer que des dispositifs de communication sont présents à bord de l'aéronef"
+      }
+    },
+    "annexe2and4": {
+      "title": "Formulaire - Annexe 2 et 4"
+    },
+    "form": {
+      "submitSuccess": "Données soumises avec succès !",
+      "submitError": {
+        "general": "❌ Erreur lors de la soumission du formulaire",
+        "noData": "❌ Aucune donnée reçue"
+      },
+      "missingField": "est un champ obligatoire.",
+      "dateError": "La date de fin doit être postérieure à la date de début.",
+      "generalInformation": "Informations Générales",
+      "siteSelector": "Sélectionnez vos sites",
+      "identification": "Détails personnels",
+      "firstName": {
+        "label": "Votre(s) prénom(s) légal(aux) :",
+        "placeholder": "Entrez votre(s) prénom(s)"
+      },
+      "lastName": {
+        "label": "Nom légal :",
+        "placeholder": "Entrez votre nom"
+      },
+      "nationality": {
+        "label": "Votre nationalité :",
+        "placeholder": "Entrez votre nationalité"
+      },
+      "passportNumber": {
+        "label": "Votre numéro de passeport :",
+        "placeholder": "Entrez votre numéro de passeport"
+      },
+      "contact": "Coordonnées",
+      "address": {
+        "label": "Votre adresse :",
+        "placeholder": "23 Rue Principale, Paris"
+      },
+      "contactEmail": {
+        "label": "Entrez un email pour recevoir vos documents :",
+        "placeholder": "nom@adresse.com"
+      },
+      "contactPhone": {
+        "label": "Entrez un numéro de téléphone valide :",
+        "placeholder": "0123456789"
+      },
+      "trip": "Détails du voyage",
+      "insuranceValidity": {
+        "label": "Date de fin de validité de l'assurance responsabilité civile :",
+        "placeholder": ""
+      },
+      "startDate": {
+        "label": "Date de début du voyage, une semaine avant votre arrivée au Maroc si vous voulez la réponse à ce moment-là.",
+        "placeholder": ""
+      },
+      "endDate": {
+        "label": "Date de fin du voyage. Faites-le d'une durée minimale d'un mois (jusqu'à 3 mois).",
+        "placeholder": ""
+      },
+      "glider": "Détails de la voile",
+      "gliderManufacturer": {
+        "label": "Fabricant de la voile :",
+        "placeholder": "Ozone, Niviuk, BGD, 777, ..."
+      },
+      "gliderModel": {
+        "label": "Modèle de la voile :",
+        "placeholder": "Modèle de la voile"
+      },
+      "gliderSize": {
+        "label": "Taille de la voile :",
+        "placeholder": "Taille de la voile"
+      },
+      "gliderColors": {
+        "label": "Couleurs de la voile :",
+        "placeholder": "Bleu, blanc, vert, ..."
+      }
+    }
+  },
+  "tours": {
+    "title": "Circuits avec nous",
+    "subtitle": "Découvrez le Maroc avec nos circuits organisés",
+    "unit": "par semaine et par personne",
+    "calendar": "Calendrier des Circuits",
+    "upcoming": "Circuits à venir",
+    "book": "Réserver maintenant",
+    "view": "Voir plus",
+    "viewLess": "Voir moins",
+    "available": "Disponible",
+    "full": "Complet",
+    "notAvailable": "Aucun circuit disponible, veuillez vérifier une autre date.",
+    "lostTraveler": {
+      "question": "Êtes-vous perdu ?",
+      "wanderer": "Même les meilleurs aventuriers s'égarent parfois.",
+      "disappearance": "La page que vous recherchez a peut-être été déplacée ou n'existe plus.",
+      "goBack": "Retrouvez votre chemin"
+    },
+    "explore": {
+      "title": "Vacances au Maroc avec nous",
+      "subtitle": "Vous voulez échapper à la météo grise et humide de votre pays. Vous voulez voler quand les opportunités de vol sont rares chez vous.",
+      "blurb": "Depuis 2021, nous aidons les pilotes à échanger les ciels gris contre des thermiques dorés. Flymorocco n'est pas seulement des vacances—c'est la liberté quand la météo chez vous dit non. Nous accueillons tous les pilotes qualifiés, de ceux qui font leurs premiers pas en vol à ceux qui recherchent de nouvelles lignes. Venez trouver votre thermique poussiéreux.",
+      "scheduleLink": "Découvrez notre Programme",
+      "tourLink": "Explorez nos circuits",
+      "serviceLink": "Voir nos Services"
+    },
+    "tourCards": {
+      "title": "Les circuits Flymorocco",
+      "description": "Trouvez ci-dessous nos différents circuits, leurs détails et prix. À partir de 950€ par personne pour une semaine."
+    },
+    "toursDetails": {
+      "coastal": {
+        "focus": "Vol côtier, plage et soleil",
+        "note": "Idéal pour tous les niveaux de pilotes pour profiter de la vie au bord de mer et du vol côtier"
+      },
+      "mountain": {
+        "focus": "Vol en montagne",
+        "note": "Meilleur pour tous les types de pilotes, de la découverte en montagne au vol de distance"
+      },
+      "axisAguergour": {
+        "focus": "Formation pilote club (du vol de base aux compétences de pilote novice)",
+        "note": "Formation fournie par Axis, École BHPA"
+      },
+      "axisMirleft": {
+        "focus": "Formation pilote élémentaire (de zéro au vol de base)",
+        "note": "Formation fournie par Axis, École BHPA"
+      },
+      "wellbeing": {
+        "focus": "Retraite spéciale bien-être et parapente",
+        "note": "Notre spécialité, yoga, méditation et travail respiratoire combinés au parapente"
+      },
+      "paradopia": {
+        "focus": "Vol côtier, plage et soleil",
+        "note": "Idéal pour les pilotes débutants/intermédiaires et la détente. Fourni par Paradopia."
+      }
+    },
+    "tourService": {
+      "title": "Services des circuits",
+      "subtitle": "Nous fournissons tous les services dont vous avez besoin pour voler au Maroc",
+      "participants": "Nous accueillons tous les pilotes qualifiés de tous niveaux.",
+      "price": "Les services suivants sont fournis au prix ci-dessous pour une semaine par personne.",
+      "special": "La semaine bien-être comprend également des matinées bien-être (yoga, méditation et exercices respiratoires) avec un instructeur de yoga.",
+      "notAvailable": "Il n'y a pas de circuits disponibles pour le thème sélectionné.",
+      "viewSchedule": "Voir le Programme",
+      "accommodation": {
+        "title": "Hébergement et Nourriture",
+        "description": "Nous fournissons l'hébergement dans des hôtels et maisons d'hôtes locaux, incluant le petit-déjeuner et le dîner."
+      },
+      "transportation": {
+        "title": "Transport",
+        "description": "Nous fournissons le transport vers et depuis les sites de vol et autres activités."
+      },
+      "guides": {
+        "title": "Guides et Expérience de vol",
+        "description": "Nous gérons les démarches administratives pour vous permettre de voler au Maroc. Nous fournissons des guides expérimentés pour vous aider à naviguer sur les sites."
+      },
+      "airport": {
+        "title": "Transferts aéroport",
+        "description": "Nous fournissons les transferts aéroport vers et depuis les sites de vol uniquement aux dates de début et de fin de nos circuits."
+      },
+      "tourExclusions": {
+        "title": "Ce qui n'est pas inclus ?",
+        "item1": "Vols internationaux et nationaux vers/depuis le Maroc",
+        "item2": "Assurance voyage, médicale ou responsabilité civile personnelle",
+        "item3": "Vols en tandem ou instruction (Flymorocco n'est pas une école de parapente)",
+        "item4": "Boissons alcoolisées et dépenses personnelles",
+        "item5": "Équipement personnel (matériel de parapente, casque, etc.)",
+        "terms": "Pour une liste complète des exclusions et des responsabilités des participants, veuillez lire nos ",
+        "termsLink": "Conditions Générales"
+      }
+    },
+    "coastal": {
+      "title": "Circuits Côtiers",
+      "subtitle": "Plages apaisantes et brise marine",
+      "intro": "Situé dans le Sud du Maroc, vous profiterez de la vie côtière que Mirleft offre. Des belles promenades sur la plage à la délicieuse cuisine au bord de mer fraîche du marché. Le vol est étonnamment varié et conviendrait à tous les profils de pilotes, du pur vol côtier au-dessus des falaises maritimes au vol thermique sur les collines."
+    },
+    "mountain": {
+      "title": "Circuit Montagne",
+      "subtitle": "Hauteurs du Haut Atlas et air frais",
+      "intro": "Basé au pied du Haut Atlas, venez découvrir la campagne berbère spécifique à cette chaîne de montagnes. Survolez les terres fertiles et ouvertes du Maroc, en regardant les plaines arides de Marrakech. Le vol est thermique mais conviendrait à tous les profils de pilotes."
+    },
+    "wellbeing": {
+      "title": "Retraite Bien-être",
+      "subtitle": "Matinées douces, atterrissages en douceur et paix",
+      "intro": "C'est notre petit plaisir pour vous. Venez vous détendre avec nous lors de notre retraite bien-être et parapente dans le Sud du Maroc, où les matinées sont douces et centrées et les après-midis sont volés jusqu'au coucher du soleil sur la mer."
+    },
+    "activities": {
+      "title": "Que faire d'autre aux alentours ?",
+      "subtitle": "Vous êtes là pour voler, mais le Maroc a plus à offrir.",
+      "disclaimer": "Ces activités ne sont pas incluses dans le forfait du circuit, mais sont disponibles localement si vous êtes cloué au sol, prolongez votre séjour, ou vous sentez simplement aventureux.",
+      "items": {
+        "camel": "Balade à dos de chameau",
+        "horse": "Équitation",
+        "quads": "Circuit en quad",
+        "spa": "Spa & Hammam",
+        "beach": "Journée plage",
+        "tiznit": "Visite de Tiznit",
+        "jemaaElFna": "Place Jemaa el-Fna",
+        "asni": "Souk d'Asni",
+        "ourika": "Vallée de l'Ourika",
+        "surf": "Surf",
+        "hammam": "Hammam"
+      }
+    },
+    "mustHave": {
+      "title": "Ce dont vous avez besoin",
+      "subtitle": "Nous fournissons l'expérience. Vous apportez l'essentiel.",
+      "items": {
+        "downJacket": "Vêtements chauds, comme une doudoune, des gants, un bonnet en laine... Il peut faire froid la nuit dans les montagnes.",
+        "sunscreen": "Crème solaire.",
+        "alcohol": "L'alcool doit être acheté avant d'arriver sur place.",
+        "sunnies": "Lunettes de soleil et chapeaux",
+        "smile": "Et enfin, votre sourire."
+      }
+    }
+  },
+  "notFound": {
+    "question": "Êtes-vous perdu ?",
+    "wanderer": "Le vent murmure une page qui fut autrefois...",
+    "disappearance": "Mais hélas, elle a peut-être disparu au-delà des dunes.",
+    "goBack": "Revenez avant que le soleil ne se couche"
+  },
+  "terms": {
+    "title": "Conditions Générales Flymorocco",
+    "lastUpdate": "Dernière mise à jour : ",
+    "legalInfo": {
+      "title": "Informations légales sur l'entité",
+      "description": "<ol><li><strong>Propriétaire du site :</strong> Flymorocco (immatriculation en cours)</li><li><strong>Email :</strong><email> Cliquez ici pour nous écrire</email></li><li><strong>Adresse postale :</strong> en attente</li><li><strong>Hébergeur :</strong> <host>Nindohost, Maroc</host></li></ol>"
+    },
+    "acceptance": {
+      "title": "Acceptation des Conditions en accédant ou utilisant ce site web",
+      "description": "Vous acceptez d'être lié par ces Conditions Générales et notre Politique de Confidentialité. Si vous n'êtes pas d'accord, veuillez ne pas utiliser ce site."
+    },
+    "services": {
+      "title": "Services fournis",
+      "description": "Flymorocco fournit :",
+      "list": "<li>Informations sur les sites de parapente au Maroc</li><li>Outils numériques pour aider à la génération des documents administratifs requis (Annexes 2 et 4)</li><li>Conseils généraux sur les exigences légales et procédurales pour voler au Maroc</li><li>Circuits guidés au Maroc</li>",
+      "exclusion": "Flymorocco <strong>ne fournit pas</strong> d'instruction de vol agréée, de location de matériel de vol, ni ne garantit l'obtention de l'autorisation de vol auprès de la <abbr>CAA</abbr>."
+    },
+    "liability": {
+      "title": "Clause de non-responsabilité",
+      "l1": "Le parapente est une activité à haut risque. Les utilisateurs de ce site acceptent l'entière responsabilité de leurs actions et décisions avant, pendant et après le vol.",
+      "l2": "Flymorocco n'est pas responsable des accidents, incidents, retards, annulations ou du non-respect de la réglementation aérienne marocaine.",
+      "l3": "Vous êtes responsable d'obtenir une assurance valide, de vérifier la météo et les NOTAM, et de respecter les limitations légales d'espace aérien."
+    },
+    "data": {
+      "title": "Collecte de données et confidentialité",
+      "description": "En soumettant des formulaires (ex : Annexe 2 ou 4), vous consentez au stockage temporaire de vos informations dans le but de générer les documents et de les envoyer par email. Voir notre <a>Politique de Confidentialité</a> complète."
+    },
+    "cookie": {
+      "title": "Politique de cookies",
+      "description": "Nous avons une politique de cookies"
+    },
+    "intellectualProperty": {
+      "title": "Propriété intellectuelle",
+      "description": "Tout le contenu du site (textes, illustrations, graphiques, extraits de code) est la propriété de Flymorocco sauf mention contraire. Vous ne pouvez pas réutiliser ou redistribuer sans autorisation explicite."
+    },
+    "externalProviders": {
+      "title": "Liens et services externes",
+      "description": "Ce site peut contenir des liens vers des outils tiers (ex : Google, OpenMaps, Resend, Airtable). Nous ne sommes pas responsables du contenu ou des pratiques de confidentialité de ces services."
+    },
+    "termsModification": {
+      "title": "Modification des Conditions",
+      "description": "Flymorocco se réserve le droit de modifier ces Conditions à tout moment. Les changements seront publiés sur cette page et prendront effet immédiatement."
+    },
+    "jurisdiction": {
+      "title": "Droit applicable",
+      "description": "Ces Conditions sont régies par le droit marocain. Tout litige découlant de l'utilisation de ce site sera réglé par les tribunaux compétents de Marrakech, Maroc."
+    }
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdate": "Date d'effet : ",
+    "context": "Flymorocco ('nous', 'notre', ou 'nos') s'engage à protéger votre vie privée et à traiter vos données de manière transparente et sécurisée. Cette politique de confidentialité décrit comment nous collectons, utilisons, stockons et partageons vos informations personnelles, conformément à la loi marocaine n° 09-08 et au RGPD européen.",
+    "who": {
+      "title": "Qui sommes-nous",
+      "description": "Flymorocco est un prestataire d'expériences de parapente opérant au Maroc et servant une clientèle internationale. Notre site, hébergé sur une infrastructure marocaine, permet aux utilisateurs d'explorer les guides de sites et de générer les documents légaux requis.",
+      "controller": "Responsable du traitement :"
+    },
+    "collection": {
+      "title": "Quelles données nous collectons",
+      "description": "Nous pouvons collecter les types de données personnelles suivants :",
+      "c1": {
+        "title": "Données d'identification :",
+        "description": "Nom complet, nationalité, numéro de passeport"
+      },
+      "c2": {
+        "title": "Données de contact",
+        "description": "Adresse email, numéro de téléphone, adresse postale"
+      },
+      "c3": {
+        "title": "Informations sur le voyage",
+        "description": "Validité de l'assurance, dates de voyage, zones de vol choisies"
+      },
+      "c4": {
+        "title": "Informations sur la voile",
+        "description": "Fabricant, modèle, taille, couleurs"
+      },
+      "c5": {
+        "title": "Données des participants",
+        "description": "Noms et détails des passeports des pilotes accompagnants."
+      },
+      "purpose": "Ces données sont collectées via nos formulaires en ligne dans le but de générer les documents Annexes 2 et 4 requis par les autorités marocaines de l'aviation civile."
+    },
+    "reasons": {
+      "title": "Pourquoi nous collectons vos données",
+      "description": "Nous collectons des données personnelles pour les raisons légales suivantes",
+      "r1": {
+        "title": "Exécution contractuelle :",
+        "description": "Pour préparer et gérer votre expérience de parapente"
+      },
+      "r2": {
+        "title": "Intérêt légitime",
+        "description": "Pour assurer la conformité avec la réglementation aérienne locale"
+      },
+      "r3": {
+        "title": "Consentement",
+        "description": "Pour les communications marketing (uniquement si vous y consentez)"
+      }
+    },
+    "store": {
+      "title": "Comment nous stockons et protégeons vos données",
+      "s1": "Vos formulaires PDF sont générés côté serveur et stockés temporairement dans un dossier `tmp/` sur un serveur sécurisé au Maroc.",
+      "s2": "Les fichiers sont supprimés périodiquement ou après confirmation de l'envoi par email.",
+      "s3": "Les données en transit sont sécurisées via TLS (SSL).",
+      "s4": "Nous ne partageons pas vos données avec des tiers sauf si requis par les autorités marocaines."
+    },
+    "communication": {
+      "title": "Communication par email",
+      "description": "Les formulaires sont envoyés à votre adresse email via un fournisseur sécurisé (Resend). Les emails sont uniquement utilisés pour vous transmettre les formulaires demandés et les communications essentielles."
+    },
+    "gdpr": {
+      "title": "Vos droits selon le RGPD",
+      "description": "Si vous êtes situé dans l'UE ou l'EEE, vous avez le droit de :",
+      "g1": "Accéder à vos données personnelles",
+      "g2": "Rectifier des données inexactes",
+      "g3": "Demander la suppression de vos données 'droit à l'oubli'",
+      "g4": "Limiter ou vous opposer au traitement",
+      "g5": "Déposer une plainte auprès de votre autorité locale de protection des données",
+      "contact": "Pour exercer ces droits, contactez-nous via la page de contact"
+    },
+    "analytics": {
+      "title": "Cookies et Analyses",
+      "description": "Flymorocco utilise des outils d'analyse pour mieux adapter l'expérience aux utilisateurs. Ces informations sont collectées via des plateformes externes (Google) et sont totalement anonymes."
+    },
+    "retention": {
+      "title": "Durée de conservation des données",
+      "r1": "Les données des formulaires soumis ne sont pas stockées de façon permanente.",
+      "r2": "Les fichiers temporaires sont régulièrement supprimés.",
+      "r3": "Les journaux d'emails (sans contenu) peuvent être conservés jusqu'à 30 jours à des fins de débogage."
+    },
+    "modification": {
+      "title": "Modifications de cette politique",
+      "description": "Nous pouvons mettre à jour cette politique pour refléter de nouvelles réglementations ou fonctionnalités. Les changements seront publiés sur cette page avec la date de mise à jour."
+    },
+    "contact": {
+      "title": "Contact pour questions ou demandes liées aux données",
+      "description": "Contactez-nous via notre page de contact.",
+      "contact": "Cliquez ici pour nous écrire",
+      "close": "Fermer le formulaire de reservation"
+    }
   }
 }

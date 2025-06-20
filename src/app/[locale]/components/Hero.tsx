@@ -1,5 +1,9 @@
 "use client";
-import { Parallax } from "react-scroll-parallax";
+import {
+  Parallax,
+  ParallaxBanner,
+  ParallaxBannerLayer,
+} from "react-scroll-parallax";
 
 export default function Hero({
   title,
@@ -11,22 +15,18 @@ export default function Hero({
   img: string;
 }) {
   return (
-    // FIXME: That parallax effect can look weird on safari for iPhone users. To be tested
-    <section
-      id="hero"
-      className="relative h-[80vh] bg-fixed bg-center bg-cover hero min-h-80"
-      style={{
-        backgroundImage: `url(${img})`,
-      }}
-    >
-      <Parallax speed={-15}>
-        <div className="hero-content text-neutral-content text-center">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-            <p className="mb-5">{subtitle}</p>
+    <header id="hero" className="h-[80vh] w-screen hero min-h-80">
+      <ParallaxBanner className="h-full w-full">
+        <ParallaxBannerLayer image={img} speed={-10} />
+        <Parallax speed={-15}>
+          <div className="hero-content text-neutral-content text-center">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold">{title}</h1>
+              <p className="mb-5">{subtitle}</p>
+            </div>
           </div>
-        </div>
-      </Parallax>
-    </section>
+        </Parallax>
+      </ParallaxBanner>
+    </header>
   );
 }

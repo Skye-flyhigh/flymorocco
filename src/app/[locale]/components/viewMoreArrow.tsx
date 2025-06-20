@@ -6,7 +6,10 @@ export default function ViewMoreArrow() {
   const t = useTranslations("rules");
 
   return (
-    <div className="flex justify-end items-center mt-6 text-secondary text-xs">
+    <div
+      aria-label="View More"
+      className="flex justify-end items-center mt-6 text-secondary text-xs"
+    >
       <p className="group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300 opacity-0 mr-2">
         {t("rulesNav.view")}
       </p>

@@ -5,20 +5,7 @@ export default function Page() {
   const t = useTranslations("privacy");
 
   return (
-    <main>
-      <div className="instructions hidden">
-        Privacy Notice 🛡️ Legal Snapshot of What You’re Doing Since you’re: •
-        Collecting personal data • Storing it (even temporarily) • Emailing
-        files • Hosting on a Moroccan server You should: 1. Create a Privacy
-        Policy 2. Obtain Consent (checkbox) 3. Encrypt personal data during
-        transit and optionally at rest 4. Offer data deletion rights 5. Log
-        access or processing events if operating under GDPR standards 6. Avoid
-        unnecessary long-term storage Even though Morocco isn’t in the EU, if
-        any EU citizens use your service, GDPR applies. Morocco also has Law No.
-        09-08, its own data protection law, enforced by the CNDP (Commission
-        Nationale de contrôle de la protection des Données à caractère
-        Personnel).
-      </div>
+    <main id="main">
       <section id="privacy" className="md:mt-10 mb-20 mx-auto legals">
         <h1 className="section-title">{t("title")}</h1>
         <h2 className="section-subtitle">
@@ -115,6 +102,7 @@ export default function Page() {
           <Link
             href={"mailto:contact@flymorocco.info"}
             className="link link-hover link-primary"
+            aria-label="Send an email"
           >
             {t("contact.contact")}
           </Link>

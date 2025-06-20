@@ -25,7 +25,7 @@ export default function SiteGuidesPage() {
       .toLocaleLowerCase();
 
   return (
-    <main>
+    <main id="main">
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}

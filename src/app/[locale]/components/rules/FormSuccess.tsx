@@ -1,5 +1,5 @@
 import { BadgeCheck, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function FormSuccess({
@@ -10,9 +10,27 @@ export default function FormSuccess({
   message: string;
 }) {
   const [modal, setModal] = useState<boolean>(formStatus);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setModal(formStatus);
+
+    if (formStatus) {
+      setTimeout(() => {
+        dialogRef.current?.focus();
+      }, 0);
+    }
   }, [formStatus]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setModal(false);
+      }
+    };
+    if (modal) window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [modal]);
 
   return (
     <AnimatePresence>
@@ -27,6 +45,7 @@ export default function FormSuccess({
           <motion.div
             role="alert"
             aria-live="assertive"
+            ref={dialogRef}
             className="alert alert-success m-5 w-fit"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

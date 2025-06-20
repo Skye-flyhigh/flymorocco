@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 
 export default function DownloadAirspaces() {
   const t = useTranslations("rules.download");
@@ -34,14 +33,14 @@ export default function DownloadAirspaces() {
         <div id="original-content" className="m-5 ">
           <h4 className="text-2xl bold">{t("sia")}</h4>
           <p>{t("vfrMaps")}</p>
-          <Link
+          <a
             href="http://siamaroc.onda.ma/cartes_vfr.htm"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-primary m-5 mx-auto"
           >
             SIA Maroc
-          </Link>
+          </a>
         </div>
         <div id="openair" className="m-5 w-fit">
           <h4 className="text-2xl bold">{t("openair.title")}</h4>

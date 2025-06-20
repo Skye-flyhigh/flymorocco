@@ -48,3 +48,7 @@ pnpm-debug.log*
 # ─── VSCode Settings (optional) ─────────────────────────────────────
 .vscode/*
 !.vscode/settings.json    # optionally share formatting rules
+
+# ─── Lighthouse reports ────────────────────────────────────
+reports/
+reports/*

@@ -6,7 +6,6 @@ import {
 } from "@/lib/submit/submitBookingForm";
 import { TourSchedule } from "@/lib/validation/tourScheduleData";
 import { formatDate } from "date-fns";
-import Link from "next/link";
 import { useActionState, useEffect, useRef, useState } from "react";
 import FormSuccess from "../rules/FormSuccess";
 import { useTranslations } from "next-intl";
@@ -28,6 +27,7 @@ export default function BookingForm(tour: TourSchedule) {
   useEffect(() => {
     if (displayForm) {
       dialogRef.current?.showModal();
+      dialogRef.current?.focus();
     }
   }, [displayForm]);
 
@@ -50,14 +50,14 @@ export default function BookingForm(tour: TourSchedule) {
 
   if (tour.slug) {
     return (
-      <Link
+      <a
         href={tour.slug}
         rel="no-opener"
         target="_blank"
         className="btn btn-primary"
       >
-        {t('website')}
-      </Link>
+        {t("website")}
+      </a>
     );
   } else {
     return (
@@ -67,30 +67,40 @@ export default function BookingForm(tour: TourSchedule) {
           onClick={() => setDisplayForm(!displayForm)}
           disabled={isAvailable}
         >
-          {displayForm ? t('close') : t('book')}
+          {displayForm ? t("close") : t("book")}
         </button>
-        <dialog ref={dialogRef} className="modal" onClose={onClose}>
+        <dialog
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="dialog-title"
+          ref={dialogRef}
+          className="modal"
+          onClose={onClose}
+        >
           <form
             action={formAction}
             key={state.success ? "success" : "form"}
             className="modal-box "
           >
             <div className="container w-3/4 mx-auto">
-              <h3 className="text-xl font-bold">
-                {t('bookingForm.title')} <span className="first-letter:capitalize">{tour.type}</span>
+              <h3 id="dialog-title" className="text-xl font-bold">
+                {t("bookingForm.title")}{" "}
+                <span className="first-letter:capitalize">{tour.type}</span>
               </h3>
-              <p>{t('dates')} {formatDate(tour.start, tour.end)}</p>
-              <p className="font-extralight">{t('bookingForm.subtitle')}</p>
+              <p>
+                {t("dates")} {formatDate(tour.start, tour.end)}
+              </p>
+              <p className="font-extralight">{t("bookingForm.subtitle")}</p>
               <fieldset className="fieldset">
-                <legend className="fieldset-legend">{t('contact')}</legend>
-                <label htmlFor="name" className="fieldset-label">
-                  {t('name.label')}
+                <legend className="fieldset-legend">{t("contact")}</legend>
+                <label htmlFor="booking-name" className="fieldset-label">
+                  {t("name.label")}
                 </label>
                 <input
                   type="text"
                   name="name"
                   id="booking-name"
-                  placeholder={t('name.placeholder')}
+                  placeholder={t("name.placeholder")}
                   className={`input ${state?.errors?.name ? "input-error" : ""}`}
                   defaultValue={state?.data?.name ?? ""}
                   aria-invalid={!!state?.errors?.name}
@@ -99,18 +109,18 @@ export default function BookingForm(tour: TourSchedule) {
                   required
                 />
                 {state?.errors?.name && (
-                  <p aria-live="polite" className="text-error">
+                  <p id="name-error" aria-live="polite" className="text-error">
                     {state.errors.name}
                   </p>
                 )}
-                <label htmlFor="email" className="fieldset-label">
-                  {t('email.label')}
+                <label htmlFor="booking-email" className="fieldset-label">
+                  {t("email.label")}
                 </label>
                 <input
                   type="email"
                   id="booking-email"
                   name="email"
-                  placeholder={t('email.placeholder')}
+                  placeholder={t("email.placeholder")}
                   className={`input ${state?.errors?.email ? "input-error" : ""}`}
                   defaultValue={state?.data?.email ?? ""}
                   aria-invalid={!!state?.errors?.email}
@@ -118,13 +128,12 @@ export default function BookingForm(tour: TourSchedule) {
                   disabled={isPending}
                   required
                 />
-                {state?.errors?.name && (
-                  <p aria-live="polite" className="text-error">
-                    {state.errors.name}
+                {state?.errors?.email && (
+                  <p id="email-error" aria-live="polite" className="text-error">
+                    {state.errors.email}
                   </p>
                 )}
-                        <input type="hidden" name="start" value={tour.start} />
-
+                <input type="hidden" name="start" value={tour.start} />
               </fieldset>
               {state?.success && (
                 <FormSuccess
@@ -135,15 +144,17 @@ export default function BookingForm(tour: TourSchedule) {
             </div>
             <div className="btn-container w-full flex justify-center">
               <button type="submit" className="btn btn-primary m-2">
-                {isPending ? t('process') : t('submit')}
+                {isPending ? t("process") : t("submit")}
               </button>
             </div>
-            <div
+            <button
+              type="button"
               className="exit-container absolute top-1 right-1 rounded-full btn btn-ghost"
               onClick={() => dialogRef.current?.close()}
+              aria-label={t("close")}
             >
               <X />
-            </div>
+            </button>
           </form>
         </dialog>
       </>

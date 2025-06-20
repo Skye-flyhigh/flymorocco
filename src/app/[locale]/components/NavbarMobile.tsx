@@ -23,10 +23,14 @@ export default function NavbarMobile() {
 
   return (
     <nav
+      role="navigation"
+      aria-label="Mobile navigation"
       className={`fixed bottom-2 w-5/6 z-[1000] inset-x-0 mx-auto rounded-full glass shadow-md flex justify-around items-center p-2 md:hidden transition-transform duration-300 ${hidden && "translate-y-full !bottom-0"}`}
     >
+      <h2 className="sr-only">Main navigation</h2>
       <Link
         href="/"
+        aria-current={false /* TODO: set to true if current route */}
         className="flex flex-col items-center text-sm transition-colors hover:text-primary"
       >
         <House />
@@ -34,6 +38,7 @@ export default function NavbarMobile() {
       </Link>
       <Link
         href="/site-guides"
+        aria-current={false /* TODO: set to true if current route */}
         className="flex flex-col items-center text-sm transition-colors hover:text-primary"
       >
         <MapPinned />
@@ -41,6 +46,7 @@ export default function NavbarMobile() {
       </Link>
       <Link
         href="/rules"
+        aria-current={false /* TODO: set to true if current route */}
         className="flex flex-col items-center text-sm transition-colors hover:text-primary"
       >
         <Scale />
@@ -48,6 +54,7 @@ export default function NavbarMobile() {
       </Link>
       <Link
         href="/tours"
+        aria-current={false /* TODO: set to true if current route */}
         className="flex flex-col items-center text-sm transition-colors hover:text-primary"
       >
         <TreePalm />
@@ -55,6 +62,7 @@ export default function NavbarMobile() {
       </Link>
       <Link
         href="/about"
+        aria-current={false /* TODO: set to true if current route */}
         className="flex flex-col items-center text-sm transition-colors hover:text-primary"
       >
         <Contact />

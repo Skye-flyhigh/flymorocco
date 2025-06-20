@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Page() {
   const t = useTranslations("terms");
   return (
-    <main>
+    <main id="main">
       <section id="terms" className="md:mt-10 mb-20 mx-auto legals">
         <h1 className="section-title">{t("title")}</h1>
         <h2 className="section-subtitle">
-          {t("lastUpdate")} {new Date("24/5/2025").toDateString()}
+          {t("lastUpdate")} {new Date(2025, 4, 20).toDateString()}
         </h2>
         <address id="legal-info">
           <h3>{t("legalInfo.title")}</h3>
@@ -42,9 +42,7 @@ export default function Page() {
           <p>
             {t.rich("services.exclusion", {
               strong: (chunks) => <strong>{chunks}</strong>,
-              abbr: (chunks) => (
-                <abbr title="Civil Aviation Authority">{chunks}</abbr>
-              ), //FIXME: this is hard coded abbr
+              abbr: (chunks) => <abbr title={t("CAA")}>{chunks}</abbr>,
             })}
           </p>
         </article>

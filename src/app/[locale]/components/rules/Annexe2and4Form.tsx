@@ -203,6 +203,7 @@ export default function Annexe2and4Form() {
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
                           defaultValue={currState.formData[fieldKey]}
+                          aria-describedby={`${fieldKey}-error`}
                           required
                         />
                       ) : (
@@ -218,11 +219,17 @@ export default function Annexe2and4Form() {
                               ? currState.formData[fieldKey]
                               : currState.formData[fieldKey]
                           }
+                          aria-invalid={inputErrors[fieldKey] !== ""}
+                          aria-describedby={`${fieldKey}-error`}
                           required
                         />
                       )}
                       {inputErrors[fieldKey] && (
-                        <p className="alert alert-error">
+                        <p
+                          className="alert alert-error"
+                          aria-live="polite"
+                          id={`${fieldKey}-error`}
+                        >
                           <CircleX />
                           {inputErrors[fieldKey]}
                         </p>

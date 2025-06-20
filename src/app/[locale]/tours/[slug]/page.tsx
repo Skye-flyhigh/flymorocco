@@ -98,7 +98,7 @@ export default async function Page({
   }
 
   return (
-    <main className="m-auto pt-10">
+    <main className="m-auto">
       <Hero
         title={t(`${slug}.title`)}
         subtitle={t(`${slug}.subtitle`)}
@@ -110,9 +110,7 @@ export default async function Page({
         <h2 className="text-3xl font-extrabold text-center mt-10 mb-5">
           {slug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
         </h2>
-        <h3 className="text-xl font-semibold text-center">
-          per week per person
-        </h3>
+        <h3 className="text-xl font-semibold text-center">{t("unit")}</h3>
         <TourService />
       </section>
 

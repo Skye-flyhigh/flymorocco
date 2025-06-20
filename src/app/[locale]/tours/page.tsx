@@ -37,7 +37,7 @@ export default function Page() {
   ];
 
   return (
-    <main>
+    <main id="main">
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}

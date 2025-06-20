@@ -111,7 +111,7 @@ export default function HomePage() {
     activeHeroIndex !== null ? heroImages[activeHeroIndex] : heroImages[0];
 
   return (
-    <>
+    <main id="main">
       <header
         className={`hero min-h-screen transition-opacity duration-1000 ease-in-out w-screen ${fadeIn ? "opacity-100" : "opacity-0"}`}
         style={{
@@ -145,6 +145,6 @@ export default function HomePage() {
       <FeaturedSites />
       <TourCalendar />
       <Testimonials />
-    </>
+    </main>
   );
 }

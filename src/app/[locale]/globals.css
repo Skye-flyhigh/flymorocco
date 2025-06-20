@@ -135,19 +135,22 @@ body {
 }
 
 .legals {
+  counter-reset: h3-counter;
   max-width: 750px;
   padding: 20px;
 }
 .legals > * > h3 {
   font-size: var(--text-lg) /* 1.125rem = 18px */;
+  counter-increment: h3-counter;
   font-weight: 600;
   padding-bottom: 5px;
   padding-top: 15px;
   text-transform: capitalize;
 }
 .legals > * > h3::before {
-  content: counters(h3-counter, "some text");
-  counter-increment: h3-counter;
+  content: counter(h3-counter) ". ";
+  left: 0;
+  font-weight: 600;
 }
 .legals > * > * > li {
   list-style: disc;

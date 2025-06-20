@@ -6,6 +6,7 @@ import { routing } from "@/i18n/routing";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Flymorocco",
@@ -31,11 +32,16 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  const t = await getTranslations("HomePage");
+
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale}>
           <ParallaxClientWrapper>
+            <a href="#main" className="sr-only focus:not-sr-only">
+              {t("main")}
+            </a>
             <Navbar />
             {children}
             <Footer />

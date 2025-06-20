@@ -22,7 +22,7 @@ export default function Page() {
   }, []);
 
   return (
-    <section id="description" className="py-20 px-10">
+    <main id="description" className="py-20 px-10">
       {/* 
   ────────────────────────────────────────────────────────
     🪶 FlyMorocco | Hidden Message
@@ -196,6 +196,6 @@ export default function Page() {
           </div>
         </form>
       </dialog>
-    </section>
+    </main>
   );
 }
