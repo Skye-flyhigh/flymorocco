@@ -662,5 +662,77 @@
       "contact": "Cliquez ici pour nous écrire",
       "close": "Fermer le formulaire de reservation"
     }
+  },
+  "cookies": {
+    "title": "Politique de cookies",
+    "lastUpdated": "Dernière mise à jour : ",
+    "subtitle": "Chez Flymorocco, nous nous engageons à protéger votre vie privée. Cette politique de cookies explique comment et pourquoi des cookies peuvent être utilisés sur notre site.",
+    "q1": {
+      "q": "Que sont les cookies ?",
+      "a": "Les cookies sont de petits fichiers texte stockés sur votre appareil (ordinateur, tablette, smartphone) lorsque vous visitez des sites web. Ils permettent aux sites de mémoriser des informations concernant votre visite, comme vos préférences linguistiques ou votre statut de connexion."
+    },
+    "q2": {
+      "q": "Utilisons-nous des cookies ?",
+      "a": "Flymorocco n’utilise pas directement de cookies pour collecter des informations personnelles ou suivre le comportement des utilisateurs."
+    },
+    "q3": {
+      "q": "Cookies tiers",
+      "a": "Certaines fonctionnalités intégrées à notre site peuvent utiliser des services tiers qui déposent des cookies sur votre appareil. Cela inclut : le widget Google Reviews et le widget Trustpilot. Ces services peuvent utiliser des cookies à des fins fonctionnelles, analytiques ou de personnalisation propres à leurs plateformes respectives. L’utilisation des cookies par ces services tiers est régie par leurs propres politiques de confidentialité et de cookies, que nous vous invitons à consulter."
+    },
+    "q4": {
+      "q": "Gestion des cookies",
+      "a": "Vous pouvez contrôler et gérer les paramètres de cookies directement depuis votre navigateur. La plupart des navigateurs vous permettent de : bloquer complètement les cookies, supprimer les cookies après avoir visité des sites, recevoir des alertes avant que des cookies ne soient enregistrés. Veuillez noter que désactiver les cookies peut affecter le fonctionnement des widgets tiers affichés sur notre site."
+    },
+    "q5": {
+      "q": "Contact",
+      "a": "Si vous avez des questions concernant notre utilisation des cookies, vous pouvez nous contacter via le lien ci-dessous."
+    },
+    "contact": "Cliquez ici pour nous envoyer un email"
+  },
+  "metadata": {
+    "title": "Parapente au Maroc",
+    "description": "Découvrez des expériences inoubliables au Maroc avec Flymorocco.",
+    "about": {
+      "title": "À propos",
+      "description": "Découvrez l'équipe derrière Flymorocco.",
+      "ogImageAlt": "Équipe Flymorocco"
+    },
+    "contact": {
+      "title": "Contactez-nous",
+      "description": "Toute autre question concernant le vol au Maroc ? N'hésitez pas à nous contacter."
+    },
+    "tours": {
+      "title": "Découvrez le Maroc",
+      "description": "Découvrez des expériences inoubliables au Maroc avec Flymorocco.",
+      "ogImageAlt": "Explorez le Maroc avec Flymorocco"
+    },
+    "cookies": {
+      "title": "Politique de cookies",
+      "description": "Politique de cookies de Flymorocco"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "description": "Politique de confidentialité de Flymorocco"
+    },
+    "rules": {
+      "title": "Réglementation",
+      "description": "Découvrez la réglementation du vol libre au Maroc et respectez la réglementation locale."
+    },
+    "airspaces": {
+      "title": "Espaces aériens marocains",
+      "description": "Consultez et téléchargez les espaces aériens marocains au format OpenAir."
+    },
+    "caaForms": {
+      "title": "Autorisation marocaine",
+      "description": "Générez et obtenez l'autorisation marocaine."
+    },
+    "terms": {
+      "title": "Conditions générales",
+      "description": "Découvrez l'équipe derrière Flymorocco."
+    },
+    "siteGuides": {
+      "title": "Guides de sites",
+      "description": "Guides des sites de parapente au Maroc"
+    }
   }
 }

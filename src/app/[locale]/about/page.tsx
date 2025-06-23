@@ -2,6 +2,16 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Hero from "../components/Hero";
 import PartnersCard from "../components/about/PartnersCard";
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return await buildPageMetadata({ locale, page: "about" });
+}
 
 export default function Page() {
   const t = useTranslations("about");

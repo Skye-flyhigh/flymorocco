@@ -5,6 +5,16 @@ import TourService from "../components/tours/TourService";
 import Carousel from "../components/Carousel";
 import TourCards from "../components/tours/TourCards";
 import Link from "next/link";
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return await buildPageMetadata({ locale, page: "tours" });
+}
 
 export default function Page() {
   const t = useTranslations("tours");

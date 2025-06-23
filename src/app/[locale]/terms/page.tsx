@@ -1,5 +1,15 @@
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return await buildPageMetadata({ locale, page: "terms" });
+}
 
 export default function Page() {
   const t = useTranslations("terms");

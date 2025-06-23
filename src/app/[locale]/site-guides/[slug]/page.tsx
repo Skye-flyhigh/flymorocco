@@ -6,6 +6,49 @@ import Hero from "../../components/Hero";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}) {
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: `siteGuides.${slug}` });
+  return {
+    title: t("name"),
+    description: t("description"),
+    openGraph: {
+      title: t("name"),
+      description: t("description"),
+      url: `https://flymorocco.info/${locale}`,
+      siteName: "Flymorocco",
+      images: [
+        {
+          url: `/og-image/${slug}.png`,
+          width: 1200,
+          height: 900,
+          alt: slug,
+        },
+      ],
+      locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("name"),
+      description: t("description"),
+      images: [`/og-image/${slug}.png`],
+    },
+    alternates: {
+      canonical: `https://flymorocco.com/${locale}`,
+      languages: {
+        en: "https://flymorocco.com/en",
+        fr: "https://flymorocco.com/fr",
+        es: "https://flymorocco.com/es",
+      },
+    },
+  };
+}
+
 export default async function Page({
   params,
 }: {
@@ -26,7 +69,7 @@ export default async function Page({
 
   return (
     <>
-      <main className="m-auto pt-10 flex flex-col">
+      <main className="m-auto flex flex-col">
         <Hero
           title={t(`${slug}.name`)}
           subtitle={t(`${slug}.description`)}

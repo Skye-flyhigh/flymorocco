@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -8,10 +7,51 @@ import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Flymorocco",
-  description: "Paragliding adventures in Morocco",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "metadata" });
+
+  return {
+    title: {
+      default: `Flymorocco - ${t("title")}`,
+      template: "%s | Flymorocco",
+    },
+    description: t("description"),
+    keywords: ["Morocco"],
+    authors: [{ name: "Skye" }],
+    creator: "Skye",
+    metadataBase: new URL("https://flymorocco.info"),
+    openGraph: {
+      title: "Flymorocco",
+      description: t("description"),
+      url: "https://flymorocco.info",
+      siteName: "Flymorocco",
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 900,
+          alt: "Flymorocco",
+        },
+      ],
+      type: "website",
+    },
+    alternates: {
+      canonical: "/",
+      languages: {
+        en: "/en",
+        fr: "/fr",
+      },
+    },
+    formatDetection: {
+      email: true,
+    },
+  };
+}
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

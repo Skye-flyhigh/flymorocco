@@ -663,5 +663,77 @@
       "contact": "Click here to email us",
       "close": "Close booking form"
     }
+  },
+  "cookies": {
+    "title": "Cookie policy",
+    "lastUpdated": "Last updated: ",
+    "subtitle": "At Flymorocco, we are committed to protecting your privacy. This Cookie Policy explains how and why cookies may be used on our website.",
+    "q1": {
+      "q": "What are cookies?",
+      "a": "Cookies are small text files stored on your device (computer, tablet, smartphone) when you visit websites. They help websites remember information about your visit, such as your language preferences or login status."
+    },
+    "q2": {
+      "q": "Do we use cookies?",
+      "a": "Flymorocco does not directly use cookies to collect personal information or track user behavior."
+    },
+    "q3": {
+      "q": "Third-party cookies",
+      "a": "Certain features embedded on our website may use third-party services that set cookies on your device. These include: Google Reviews widget, Trustpilot widget. These services may use cookies for functionality, analytics, or personalization related to their respective platforms. The use of cookies by these third-party services is governed by their own privacy and cookie policies, which we encourage you to review."
+    },
+    "q4": {
+      "q": "Managing cookies",
+      "a": "You can control and manage cookie settings directly from your browser. Most browsers allow you to: block cookies entirely, delete cookies after visiting websites, receive alerts before cookies are stored. Please note that disabling cookies may impact the functionality of third-party widgets displayed on our website."
+    },
+    "q5": {
+      "q": "Contact",
+      "a": "If you have any questions about our use of cookies, you can contact us with the link below."
+    },
+    "contact": "Click here to email us"
+  },
+  "metadata": {
+    "title": "Paragliding in Morocco",
+    "description": "Discover unforgettable experiences in Morocco with Flymorocco.",
+    "about": {
+      "title": "About",
+      "description": "Discover the team behind Flymorocco.",
+      "ogImageAlt": "Flymorocco Team"
+    },
+    "contact": {
+      "title": "Contact us",
+      "description": "Any other questions regarding flying in Morocco. Don't hesitate in contacting us."
+    },
+    "tours": {
+      "title": "Discover Morocco",
+      "description": "Discover unforgettable experiences in Morocco with Flymorocco.",
+      "ogImageAlt": "Explore Morocco with Flymorocco"
+    },
+    "cookies": {
+      "title": "Cookies policy",
+      "description": "Flymorocco's cookies policy"
+    },
+    "privacy": {
+      "title": "Privacy Notice",
+      "description": "Flymorocco's privacy notice"
+    },
+    "rules": {
+      "title": "Regulation",
+      "description": "Learn the free flying regulation in Morocco and comply to local regulation"
+    },
+    "airspaces": {
+      "title": "Moroccan Airspaces",
+      "description": "View and download Moroccan airspaces in openAir format"
+    },
+    "caaForms": {
+      "title": "Moroccan Authorisation",
+      "description": "Generate and get the Moroccan authorisation"
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "description": "Discover the team behind Flymorocco."
+    },
+    "siteGuides": {
+      "title": "Site Guides",
+      "description": "Paragliding site guides in Morocco"
+    }
   }
 }

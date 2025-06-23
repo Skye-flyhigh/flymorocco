@@ -7,6 +7,49 @@ import Image from "next/image";
 import SelectedCalendar from "../../components/tours/SelectedCalendar";
 import { TourSlug, validTourSlug } from "@/lib/types/tour";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string; locale: string }>;
+}) {
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: `tours.${slug}` });
+  return {
+    title: t("title"),
+    description: t("subtitle"),
+    openGraph: {
+      title: t("title"),
+      description: t("subtitle"),
+      url: `https://flymorocco.info/${locale}`,
+      siteName: "Flymorocco",
+      images: [
+        {
+          url: `/og-image/${slug}.png`,
+          width: 1200,
+          height: 900,
+          alt: slug,
+        },
+      ],
+      locale,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("subtitle"),
+      images: [`/og-image/${slug}.png`],
+    },
+    alternates: {
+      canonical: `https://flymorocco.com/${locale}`,
+      languages: {
+        en: "https://flymorocco.com/en",
+        fr: "https://flymorocco.com/fr",
+        es: "https://flymorocco.com/es",
+      },
+    },
+  };
+}
+
 export default async function Page({
   params,
 }: {
@@ -100,15 +143,15 @@ export default async function Page({
   return (
     <main className="m-auto">
       <Hero
-        title={t(`${slug}.title`)}
-        subtitle={t(`${slug}.subtitle`)}
+        title={t(`${validatedSlug}.title`)}
+        subtitle={t(`${validatedSlug}.subtitle`)}
         img={heroImage}
       />
 
       <section id="tour-description" className="py-20 px-10 flex flex-col">
-        <p className="prose">{t(`${slug}.intro`)}</p>
+        <p className="prose">{t(`${validatedSlug}.intro`)}</p>
         <h2 className="text-3xl font-extrabold text-center mt-10 mb-5">
-          {slug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
+          {validatedSlug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
         </h2>
         <h3 className="text-xl font-semibold text-center">{t("unit")}</h3>
         <TourService />
