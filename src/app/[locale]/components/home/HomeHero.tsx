@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Parallax } from "react-scroll-parallax";
 
-export default function HomeHero(images: ImageType[]) {
+export default function HomeHero({ images }: { images: ImageType[] }) {
   const t = useTranslations("HomePage");
   const [activeHeroIndex, setActiveHeroIndex] = useState<number | null>(null);
   const [fadeIn, setFadeIn] = useState(false);

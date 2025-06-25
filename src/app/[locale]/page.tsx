@@ -92,7 +92,7 @@ export default function HomePage() {
 
   return (
     <main id="main">
-      <HomeHero {...heroImages} />
+      <HomeHero images={heroImages} />
       <Carousel images={images} />
       <Explore />
       <Services />
