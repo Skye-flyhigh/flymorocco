@@ -21,25 +21,25 @@ export default function Page() {
 
   const images = [
     {
-      src: "/images/skye.jpg",
+      src: "/images/skye.webp",
       alt: "Skye Ground Handling",
       height: 1080,
       width: 1204,
     },
     {
-      src: "/images/two-niviuk.jpeg",
+      src: "/images/two-niviuk.webp",
       alt: "Two Niviuk gliders over Agafay, in Aguergour",
       height: 1500,
       width: 1497,
     },
     {
-      src: "/images/plage-626x835.jpeg",
+      src: "/images/plage-626x835.webp",
       alt: "Plage Ground Handling",
       height: 835,
       width: 626,
     },
     {
-      src: "/images/niviuk-aguergour-square.jpeg",
+      src: "/images/niviuk-aguergour-square.webp",
       alt: "Niviuk Aguergour",
       height: 1500,
       width: 1497,
@@ -51,7 +51,7 @@ export default function Page() {
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
-        img="/images/camel-1865x1415.jpg"
+        img="/images/camel-1865x1415.webp"
       />
       <section
         id="explore"

@@ -1,25 +1,25 @@
 {
   "aglou": {
     "slug": "aglou",
-    "image": "/images/aglou2-1280x960.jpeg",
+    "image": "/images/aglou2-1280x960.webp",
     "lat": 29.845,
     "lon": -9.804,
     "launch_altitude": 40,
     "windDirections": ["NW"],
     "images": [
       {
-        "src": "/images/aglou-800x600.jpeg",
+        "src": "/images/aglou-800x600.webp",
         "alt": "Busy afternoon around the cave hotel in Aglou"
       },
       {
-        "src": "/images/aglou2-800x534.jpeg",
+        "src": "/images/aglou2-800x534.webp",
         "alt": "Sunset flight over the cliff of Aglou"
       }
     ]
   },
   "aguergour": {
     "slug": "aguergour",
-    "image": "/images/aguergour-2100x1400.jpg",
+    "image": "/images/aguergour-2100x1400.webp",
     "lat": 31.297,
     "lon": -8.065,
     "launch_altitude": 950,
@@ -28,7 +28,7 @@
   },
   "ait-ourir": {
     "slug": "ait-ourir",
-    "image": "/images/aitourir_hero.webp",
+    "image": "/images/aitourir_hero-1598x910.webp",
     "lat": 31.488,
     "lon": -7.716,
     "launch_altitude": 900,
@@ -37,25 +37,25 @@
   },
   "guigou": {
     "slug": "guigou",
-    "image": "/images/guigou-2000x1333.jpg",
+    "image": "/images/guigou-2000x1333.webp",
     "lat": 33.34,
     "lon": -4.863,
     "launch_altitude": 2200,
     "windDirections": ["WNW", "NNW"],
     "images": [
       {
-        "src": "/images/guigou-800x533.jpg",
+        "src": "/images/guigou-800x533.webp",
         "alt": "Zouhair flying over Guigou"
       },
       {
-        "src": "/images/guigou3-522x348.jpg",
+        "src": "/images/guigou3-522x348.webp",
         "alt": "Looking down the ridge of Guigou"
       }
     ]
   },
   "imsouane": {
     "slug": "imsouane",
-    "image": "/images/fallback-1944x1944.jpeg",
+    "image": "/images/fallback-1944x1944.webp",
     "lat": 30.829,
     "lon": -9.799,
     "launch_altitude": 300,
@@ -64,51 +64,51 @@
   },
   "legzira": {
     "slug": "legzira",
-    "image": "/images/legzira-961x1019.jpeg",
+    "image": "/images/legzira-961x1019.webp",
     "lat": 29.439,
     "lon": -10.12,
     "launch_altitude": 250,
     "windDirections": ["W", "NW"],
     "images": [
       {
-        "src": "/images/legzira-800x600.jpeg",
+        "src": "/images/legzira-800x600.webp",
         "alt": "Flying over the arch of Legzira"
       },
       {
-        "src": "/images/legzira2-800x600.jpg",
+        "src": "/images/legzira2-800x600.webp",
         "alt": "View from Legzira mountain launch"
       },
       {
-        "src": "/images/legzira3-1085x1447.jpeg",
+        "src": "/images/legzira3-1085x1447.webp",
         "alt": "Looking down over the arch of Legzira"
       }
     ]
   },
   "m-zouda": {
     "slug": "m-zouda",
-    "image": "/images/mzouda-1280x1024.jpg",
+    "image": "/images/mzouda-1280x1024.webp",
     "lat": 31.213,
     "lon": -8.6,
     "launch_altitude": 1550,
     "windDirections": ["N"],
     "images": [
       {
-        "src": "/images/mzouda-1280x1024.jpg",
+        "src": "/images/mzouda-1280x1024.webp",
         "alt": "Illustration of M'Zouda launch"
       },
       {
-        "src": "/images/mzouda2-522x418.jpg",
+        "src": "/images/mzouda2-522x418.webp",
         "alt": "Toby Colombé flying over M'Zouda"
       },
       {
-        "src": "/images/mzouda3-901x721.jpg",
+        "src": "/images/mzouda3-901x721.webp",
         "alt": "Looking down on M'Zouda"
       }
     ]
   },
   "nid-d-aigle": {
     "slug": "nid-d-aigle",
-    "image": "/images/niddaigle-1280x853.jpg",
+    "image": "/images/niddaigle-1280x853.webp",
     "lat": 29.701,
     "lon": -9.93,
     "launch_altitude": 250,
@@ -117,40 +117,40 @@
   },
   "plage-blanche": {
     "slug": "plage-blanche",
-    "image": "/images/plage-1817x1362.jpg",
+    "image": "/images/plage-1817x1362.webp",
     "lat": 28.953,
     "lon": -10.623,
     "launch_altitude": 30,
     "windDirections": ["WNW", "NW", "NNW"],
     "images": [
       {
-        "src": "/images/plage-626x835.jpeg",
+        "src": "/images/plage-626x835.webp",
         "alt": "Ground Handling at Plage Blanche"
       },
       {
-        "src": "/images/plage-1817x1362.jpg",
+        "src": "/images/plage-1817x1362.webp",
         "alt": "Flying over the dunes of Plage Blanche"
       },
       {
-        "src": "/images/plage3-800x533.jpeg",
+        "src": "/images/plage3-800x533.webp",
         "alt": "Flying over the dunes of Plage Blanche"
       }
     ]
   },
   "tizi-n-test": {
     "slug": "tizi-n-test",
-    "image": "/images/tizi-1984x1323.jpg",
+    "image": "/images/tizi-1984x1323.webp",
     "lat": 30.86,
     "lon": -8.377,
     "launch_altitude": 2500,
     "windDirections": ["S", "SE", "SW"],
     "images": [
       {
-        "src": "/images/tizi-1984x1323.jpg",
+        "src": "/images/tizi-1984x1323.webp",
         "alt": "Looking at the takeoff of Tizi n'Test"
       },
       {
-        "src": "/images/tizi2-901x601.jpg",
+        "src": "/images/tizi2-901x601.webp",
         "alt": "Looking left from the takeoff of Tizi N Test"
       }
     ]

@@ -20,7 +20,7 @@ export default function Page() {
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
-        img={"/images/fred2-800x533.jpg"}
+        img={"/images/fred2-800x533.webp"}
       />
       <section
         id="about"
@@ -65,7 +65,7 @@ export default function Page() {
           </div>
           <figure className="avatar sm:w-1/2 w-full">
             <Image
-              src="/images/skye.jpg"
+              src="/images/skye.webp"
               alt="Skye, Ground handling Ninja"
               width={500}
               height={500}

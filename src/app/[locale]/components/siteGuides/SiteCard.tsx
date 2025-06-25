@@ -15,7 +15,7 @@ export default function SiteCard({ site }: { site: SiteMeta }) {
     siteDescription = siteDescription.substring(0, 120) + "...";
   }
 
-  const imagePath = site.image || `/images/fallback-1944x1944.jpeg`;
+  const imagePath = site.image || `/images/fallback-1944x1944.webp`;
   const { width, height } = extractImageDimensions(imagePath);
 
   return (

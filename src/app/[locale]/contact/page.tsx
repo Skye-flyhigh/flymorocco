@@ -19,7 +19,7 @@ export default function Page() {
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
-        img="/images/camel-1865x1415.jpg"
+        img="/images/camel-1865x1415.webp"
       />
       <ContactForm />
     </main>

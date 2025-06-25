@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function MissingTour() {
   const t = useTranslations("tours");
-  const imagePath = "/images/latifa-3642x3642.jpeg";
+  const imagePath = "/images/latifa-3642x3642.webp";
   const { width, height } = extractImageDimensions(imagePath);
 
   return (

@@ -44,7 +44,11 @@ export default function FeaturedSites() {
         </a>
       </div>
       <ParallaxBanner className="h-full" style={{ aspectRatio: "1 / 1" }}>
-        <ParallaxBannerLayer image={featuredSite.image} speed={-10} />
+        <ParallaxBannerLayer
+          image={featuredSite.image}
+          speed={-10}
+          className="lazy"
+        />
       </ParallaxBanner>
     </section>
   );

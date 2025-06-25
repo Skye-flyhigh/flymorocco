@@ -81,7 +81,7 @@ export default function TourService() {
       <Image
         height={1500}
         width={1497}
-        src="/images/niviuk-aguergour-square.jpeg"
+        src="/images/niviuk-aguergour-square.webp"
         alt="Tour Service"
         className="aspect-square lg:max-w-xl mask mask-squircle overflow-x-hidden"
         loading="lazy"

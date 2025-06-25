@@ -20,7 +20,7 @@ export default function Page() {
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
-        img="/images/kik-800x533.jpg"
+        img="/images/kik-800x533.webp"
       />
       <RulesNav />
       <RulesQnA />

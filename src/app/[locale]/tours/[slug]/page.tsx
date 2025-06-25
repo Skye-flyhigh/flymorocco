@@ -5,7 +5,16 @@ import MustHave from "../../components/tours/MustHave";
 import TourService from "../../components/tours/TourService";
 import Image from "next/image";
 import SelectedCalendar from "../../components/tours/SelectedCalendar";
-import { TourSlug, validTourSlug } from "@/lib/types/tour";
+import { isValidTourSlug, TOUR_SLUGS, TourSlug } from "@/lib/types/tour";
+import MissingTour from "../../components/tours/MissingTour";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
+export async function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    TOUR_SLUGS.map((slug) => ({ locale, slug })),
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -13,6 +22,11 @@ export async function generateMetadata({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { locale, slug } = await params;
+
+  if (!TOUR_SLUGS.includes(slug as TourSlug)) {
+    notFound(); // Next.js built-in 404 handling
+  }
+
   const t = await getTranslations({ locale, namespace: `tours.${slug}` });
   return {
     title: t("title"),
@@ -24,7 +38,7 @@ export async function generateMetadata({
       siteName: "Flymorocco",
       images: [
         {
-          url: `/og-image/${slug}.png`,
+          url: `/og-image/${slug}.webp`,
           width: 1200,
           height: 900,
           alt: slug,
@@ -37,7 +51,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("subtitle"),
-      images: [`/og-image/${slug}.png`],
+      images: [`/og-image/${slug}.webp`],
     },
     alternates: {
       canonical: `https://flymorocco.com/${locale}`,
@@ -57,7 +71,9 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  const validatedSlug = validTourSlug(slug);
+  if (!isValidTourSlug(slug)) {
+    return <MissingTour />;
+  }
 
   const t = await getTranslations("tours");
 
@@ -71,16 +87,16 @@ export default async function Page({
   let img: Img[] = [];
   switch (slug) {
     case "mountain":
-      heroImage = "/images/guigou-2000x1333.jpg";
+      heroImage = "/images/guigou-2000x1333.webp";
       img = [
         {
-          src: "/images/sonja-800x533.jpg",
+          src: "/images/sonja-800x533.webp",
           width: 800,
           height: 533,
           alt: "Sonja flying over Aguergour",
         },
         {
-          src: "/images/fred2-800x533.jpg",
+          src: "/images/fred2-800x533.webp",
           width: 800,
           height: 533,
           alt: "Fred flying with Atlas mountains in the background",
@@ -88,16 +104,16 @@ export default async function Page({
       ];
       break;
     case "coastal":
-      heroImage = "/images/plage-626x835.jpeg";
+      heroImage = "/images/plage-626x835.webp";
       img = [
         {
-          src: "/images/aglou2-800x534.jpeg",
+          src: "/images/aglou2-800x534.webp",
           width: 800,
           height: 532,
           alt: "Flying in Aglou",
         },
         {
-          src: "/images/legzira2-800x600.jpg",
+          src: "/images/legzira2-800x600.webp",
           width: 800,
           height: 600,
           alt: "A picture of Legzira",
@@ -105,16 +121,16 @@ export default async function Page({
       ];
       break;
     case "wellbeing":
-      heroImage = "/images/yoga-1536x1024.png";
+      heroImage = "/images/yoga-1536x1024.webp";
       img = [
         {
-          src: "/images/legzira-800x600.jpeg",
+          src: "/images/legzira-800x600.webp",
           width: 800,
           height: 600,
           alt: "A picture of Legzira",
         },
         {
-          src: "/images/skye.jpg",
+          src: "/images/skye.webp",
           width: 800,
           height: 800,
           alt: "Ground handling",
@@ -122,16 +138,16 @@ export default async function Page({
       ];
       break;
     default:
-      heroImage = "/images/camel-1865x1415.jpg";
+      heroImage = "/images/camel-1865x1415.webp";
       img = [
         {
-          src: "/images/oukaimeden.jpeg",
+          src: "/images/oukaimeden.webp",
           width: 800,
           height: 600,
           alt: "Flying over Moroccan mountains",
         },
         {
-          src: "/images/niviuk-agdou-800x600.jpeg",
+          src: "/images/niviuk-agdou-800x600.webp",
           width: 800,
           height: 600,
           alt: "Niviuk X-One flying over Moroccan village",
@@ -143,15 +159,15 @@ export default async function Page({
   return (
     <main className="m-auto">
       <Hero
-        title={t(`${validatedSlug}.title`)}
-        subtitle={t(`${validatedSlug}.subtitle`)}
+        title={t(`${slug}.title`)}
+        subtitle={t(`${slug}.subtitle`)}
         img={heroImage}
       />
 
       <section id="tour-description" className="py-20 px-10 flex flex-col">
-        <p className="prose">{t(`${validatedSlug}.intro`)}</p>
+        <p className="prose">{t(`${slug}.intro`)}</p>
         <h2 className="text-3xl font-extrabold text-center mt-10 mb-5">
-          {validatedSlug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
+          {slug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
         </h2>
         <h3 className="text-xl font-semibold text-center">{t("unit")}</h3>
         <TourService />
@@ -168,8 +184,8 @@ export default async function Page({
           width={img[0].width}
           className="object-cover aspect-square"
         />
-        <MustHave slug={validatedSlug as TourSlug} />
-        <Activities slug={validatedSlug as TourSlug} />
+        <MustHave slug={slug as TourSlug} />
+        <Activities slug={slug as TourSlug} />
         <Image
           src={img[1].src}
           alt={img[1].alt}
@@ -179,7 +195,7 @@ export default async function Page({
         />
       </section>
 
-      <SelectedCalendar slug={validatedSlug as TourSlug} />
+      <SelectedCalendar slug={slug as TourSlug} />
     </main>
   );
 }

@@ -16,17 +16,17 @@ export default function TourCards() {
   const tours: TourCard[] = [
     {
       type: "mountain",
-      img: "/images/kik-800x533.jpg",
+      img: "/images/kik-800x533.webp",
       alt: "Gaggle flying on the back of Aguergour",
     },
     {
       type: "coastal",
-      img: "/images/legzira3-1085x1447.jpeg",
+      img: "/images/legzira3-1085x1447.webp",
       alt: "Flying over the arch of Legzira",
     },
     {
       type: "wellbeing",
-      img: "/images/yoga-1536x1024.png",
+      img: "/images/yoga-1536x1024.webp",
       alt: "Relaxing by the beach",
     },
   ];

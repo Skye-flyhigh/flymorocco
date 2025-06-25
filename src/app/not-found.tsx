@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Page() {
   const t = useTranslations("notFound");
-  const imagePath = "/images/latifa-3642x3642.jpeg";
+  const imagePath = "/images/niviuk-agdou-800x600.webp";
   const { width, height } = extractImageDimensions(imagePath);
 
   return (

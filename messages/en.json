@@ -668,6 +668,9 @@
     "title": "Cookie policy",
     "lastUpdated": "Last updated: ",
     "subtitle": "At Flymorocco, we are committed to protecting your privacy. This Cookie Policy explains how and why cookies may be used on our website.",
+    "banner": "We use cookies to display reviews and improve your experience.",
+    "accept": "Accept",
+    "refuse": "Refuse",
     "q1": {
       "q": "What are cookies?",
       "a": "Cookies are small text files stored on your device (computer, tablet, smartphone) when you visit websites. They help websites remember information about your visit, such as your language preferences or login status."

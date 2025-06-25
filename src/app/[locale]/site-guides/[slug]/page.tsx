@@ -23,7 +23,7 @@ export async function generateMetadata({
       siteName: "Flymorocco",
       images: [
         {
-          url: `/og-image/${slug}.png`,
+          url: `/og-image/${slug}.webp`,
           width: 1200,
           height: 900,
           alt: slug,
@@ -36,7 +36,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("name"),
       description: t("description"),
-      images: [`/og-image/${slug}.png`],
+      images: [`/og-image/${slug}.webp`],
     },
     alternates: {
       canonical: `https://flymorocco.com/${locale}`,

@@ -1,17 +1,8 @@
 "use client";
+import { ImageType, ImageTypeSchema } from "@/lib/types/image";
 import { extractImageDimensions } from "@/scripts/imageProcessing";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { z } from "zod";
-
-const ImageTypeSchema = z.object({
-  src: z.string(),
-  alt: z.string(),
-  width: z.number().optional(),
-  height: z.number().optional(),
-});
-
-type ImageType = z.infer<typeof ImageTypeSchema>;
 
 export default function Carousel({
   images,

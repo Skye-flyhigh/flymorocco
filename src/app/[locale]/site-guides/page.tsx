@@ -22,7 +22,7 @@ export default function SiteGuidesPage() {
       <Hero
         title={t("title")}
         subtitle={t("subtitle")}
-        img="/images/ouizen-2310x1440.jpg"
+        img="/images/ouizen-2310x1440.webp"
       />
       <FeaturedSites />
       <SiteMapSection />

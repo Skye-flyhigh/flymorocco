@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
+import CookieConsent from "./components/CookieConsent";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
@@ -32,7 +33,7 @@ export async function generateMetadata({
       siteName: "Flymorocco",
       images: [
         {
-          url: "/og-image.png",
+          url: "/og-image.webp",
           width: 1200,
           height: 900,
           alt: "Flymorocco",
@@ -76,6 +77,9 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="preload" href="/images/fred-centered.webp" as="image" />
+      </head>
       <body>
         <NextIntlClientProvider locale={locale}>
           <ParallaxClientWrapper>
@@ -85,6 +89,7 @@ export default async function LocaleLayout({
             <Navbar />
             {children}
             <Footer />
+            <CookieConsent />
           </ParallaxClientWrapper>
         </NextIntlClientProvider>
       </body>

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function MissingMountain() {
   const t = useTranslations("siteGuides");
-  const imagePath = "/images/latifa-3642x3642.jpeg";
+  const imagePath = "/images/latifa-3642x3642.webp";
   const { width, height } = extractImageDimensions(imagePath);
 
   return (

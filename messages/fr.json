@@ -667,6 +667,9 @@
     "title": "Politique de cookies",
     "lastUpdated": "Dernière mise à jour : ",
     "subtitle": "Chez Flymorocco, nous nous engageons à protéger votre vie privée. Cette politique de cookies explique comment et pourquoi des cookies peuvent être utilisés sur notre site.",
+    "banner": "On utilise des Cookies pour améliorer l'expérience des utilisateurs.",
+    "accept": "Accepter",
+    "refuse": "Refuser",
     "q1": {
       "q": "Que sont les cookies ?",
       "a": "Les cookies sont de petits fichiers texte stockés sur votre appareil (ordinateur, tablette, smartphone) lorsque vous visitez des sites web. Ils permettent aux sites de mémoriser des informations concernant votre visite, comme vos préférences linguistiques ou votre statut de connexion."
