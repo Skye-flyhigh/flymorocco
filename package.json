@@ -8,7 +8,9 @@
     "format:write": "prettier --ignore-unknown --write .",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean:tmp": "npx tsx src/scripts/cleanTmp.ts",
+    "postbuild": "npm run clean:tmp"
   },
   "dependencies": {
     "@openaip/openair-parser": "^2.0.3",

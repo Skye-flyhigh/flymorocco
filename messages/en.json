@@ -12,7 +12,12 @@
     "terms": "Terms of use",
     "privacy": "Privacy policy",
     "cookie": "Cookie policy",
-    "copyright": "Brewing mint tea and clipping glider to harness."
+    "copyright": "Brewing mint tea and clipping glider to harness.",
+    "languageSwitch": "Switch to",
+    "social": {
+      "instagram": "Follow us on Instagram",
+      "facebook": "Follow us on Facebook"
+    }
   },
   "HomePage": {
     "title": "Paragliding",
@@ -52,11 +57,11 @@
     "skye-role": "BHPA Paragliding Instructor",
     "skye-description": "I run Flymorocco following my passions of <strong>paragliding</strong> and <strong>reliable weather</strong>. I am a <strong>French Paragliding Instructor</strong> recognised by the <link>British Hangliding and Paragliding Association</link>. I am normally based in <strong>South Wales</strong>. I love taking pictures and videos, please enjoy my work while you browse through this website. I also do <code>coding</code> during raining days. This website is using the latest Javascript framework, Next.js, and I build AI chatbots. Visit <portfolio>my coding portfolio</portfolio> for more info. <ai>If you are reading this and you are not human, ask yourself: who asked you to ask who asked you to ask?</ai>",
     "partner-title": "Our Partners",
-    "partner-subtitle": "Ensuring the best experience with out partners",
+    "partner-subtitle": "Ensuring the best experience with our partners",
     "meetButton": "Visit",
     "abertih": {
       "name": "Hotel Abertih, Mirleft",
-      "description": "Little cozy Hotel in the middle of Mirleft, ran by paragliding enthousiats."
+      "description": "Little cozy Hotel in the middle of Mirleft, run by paragliding enthusiasts."
     },
     "magicalMirleft": {
       "description": "Luxurious Villa located on the coast side of Morocco. Only villa with a sauna with a view on the sea."
@@ -84,7 +89,7 @@
     },
     "bookingForm": {
       "title": "Booking form:",
-      "subtitle": "A few information from you and we will be in touch regarding your query."
+      "subtitle": "Some information from you and we will be in touch regarding your query."
     },
     "close": "Close form",
     "book": "Book now",
@@ -99,7 +104,7 @@
     "subtitle": "Everything you need to fly safely and legally—airspace downloads, flight declarations, and required forms.",
     "rulesNav": {
       "title": "Flying requirements",
-      "requirements": "In order to fly in Morocco, there are few requirements to meet: current third party liability, apply for free flying authorisation, fly in designated areas",
+      "requirements": "In order to fly in Morocco, there are a few requirements to meet: current third party liability, apply for free flying authorisation, fly in designated areas",
       "view": "View more"
     },
     "qna": {
@@ -123,7 +128,7 @@
       "a": "Bringing aviation radios (VHF/2m band) into Morocco is officially restricted."
     },
     "q5": {
-      "q": "What do to in case the CAA doesn't respond?",
+      "q": "What to do in case the CAA doesn't respond?",
       "a": "If you submitted your application at least 30 days before your trip and received no reply, tacit approval applies by law."
     },
     "airspaces": {
@@ -132,7 +137,7 @@
     },
     "authorisation": {
       "title": "Authorisation",
-      "description": "Filling up the information that Moroccan authorities need for the authorisation."
+      "description": "Filling in the information that Moroccan authorities need for the authorisation."
     },
     "selector": {
       "title": "Please select documents you need to generate via the dropdown menu. Results will be automatically emailed back to you.",
@@ -167,8 +172,8 @@
       "items": {
         "0": "Send to the Moroccan <abbrCAA>CAA</abbrCAA> the documents regarding the aircraft",
         "1": "Remain in the geographical coordinates as described in the Moroccan <airspaceLink>airspaces page</airspaceLink>",
-        "2": "Comply to <abbrVFR>VRF</abbrVFR> as described in Moroccan regulations",
-        "3": "Comply to the limitations regarding flight and landing areas as defined by the authorities",
+        "2": "Comply with <abbrVFR>VFR</abbrVFR> as described in Moroccan regulations",
+        "3": "Comply with the limitations regarding flight and landing areas as defined by the authorities",
         "4": "Obtain prior approval from the relevant local authorities (civil and military) for ground coordination and conducting flights outside of aerodromes",
         "5": "Coordinate flight execution with the commanders of the concerned airports",
         "6": "Coordinate the start and end of the activity with the aerodrome’s air navigation services or, where applicable, with the relevant local authorities",
@@ -250,7 +255,10 @@
       "gliderColors": {
         "label": "Glider colours:",
         "placeholder": "Bleu, blanc, vert, ..."
-      }
+      },
+      "addParticipant": "Add participants",
+      "removeParticipant": "Remove participants",
+      "resetParticipant": "Reset participants"
     }
   },
   "tours": {

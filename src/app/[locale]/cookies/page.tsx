@@ -33,7 +33,7 @@ export default function Page() {
         })}
         <a
           href={"mailto:contact@flymorocco.info"}
-          className="link link-hover link-primary"
+          className="link link-primary link-hover"
           aria-label="Send an email"
         >
           {t("contact")}

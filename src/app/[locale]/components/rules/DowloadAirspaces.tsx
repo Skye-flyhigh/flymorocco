@@ -65,7 +65,7 @@ export default function DownloadAirspaces() {
         <tbody className="divide-y divide-gray-200">
           {openairFiles.map((file, i) => (
             <tr key={i} className="hover:bg-base-100">
-              <td className="px-4 py-2 font-medium text-primary">
+              <td className="px-4 py-2 font-medium text-primary-content">
                 {file.title}
               </td>
               <td className="px-4 py-2">{file.description}</td>

@@ -12,7 +12,12 @@
     "terms": "Conditions d'usage",
     "privacy": "Politique de Confidentialité",
     "cookie": "Politique des Cookies",
-    "copyright": "Préparation du thé à la menthe et accrochage de la voile au harnais."
+    "copyright": "Préparation du thé à la menthe et accrochage de la voile au harnais.",
+    "languageSwitch": "Changer pour ",
+    "social": {
+      "instagram": "Suis nous sur Instagram",
+      "facebook": "Suis nous sur Facebook"
+    }
   },
   "HomePage": {
     "title": "Parapente",
@@ -378,7 +383,10 @@
       "gliderColors": {
         "label": "Couleurs de la voile :",
         "placeholder": "Bleu, blanc, vert, ..."
-      }
+      },
+      "addParticipant": "Ajouter un participant",
+      "removeParticipant": "Enlever un participant",
+      "resetParticipant": "Reset les participants"
     }
   },
   "tours": {

@@ -58,7 +58,6 @@ export async function generateMetadata({
       languages: {
         en: "https://flymorocco.com/en",
         fr: "https://flymorocco.com/fr",
-        es: "https://flymorocco.com/es",
       },
     },
   };

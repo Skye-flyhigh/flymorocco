@@ -9,6 +9,7 @@ import {
   FullFormSchemaType,
   ParticipantType,
 } from "../validation/CaaFormdata";
+import fs from "fs/promises";
 
 export type CaaFormState = {
   formData: { [key: string]: string };
@@ -132,38 +133,65 @@ export async function submitCaaForm(
     });
   }
 
-  if (parsed.data.formType === "annexe2") {
-    const annexe2: pdfFile = await generateAnnexe2(parsed.data);
-    attachments.push(annexe2);
-
-    await sendFormEmail(
-      parsed.data.identification.firstName,
-      "Annexe 2",
-      attachments,
-    );
-  } else {
-    const annexe2: pdfFile = await generateAnnexe2(parsed.data);
-
-    // Narrow the type manually using type assertion
-    const fullData = parsed.data as FullFormSchemaType;
-
-    const annexe4: pdfFile = await generateAnnexe4(fullData);
-    attachments.push(annexe2, annexe4);
-
-    await sendFormEmail(
-      parsed.data.identification.firstName,
-      "Annexe 2 and 4",
-      attachments,
-    );
+  async function cleanupPdfFiles(files: pdfFile[]) {
+    for (const file of files) {
+      try {
+        await fs.unlink(file.filePath);
+        console.log(`🧹 Cleaned up: ${file.fileName}`);
+      } catch (err) {
+        console.error(`❌ Failed to cleanup ${file.fileName}:`, err);
+      }
+    }
   }
 
-  console.log(
-    `📧 Sent ${parsed.data.formType} email to ${parsed.data.contact.contactEmail}`,
-  );
+  const generatedFiles: pdfFile[] = [];
 
-  return {
-    ...prevState,
-    error: null,
-    success: true,
-  };
+  try {
+    if (parsed.data.formType === "annexe2") {
+      const annexe2: pdfFile = await generateAnnexe2(parsed.data);
+      generatedFiles.push(annexe2);
+      attachments.push(annexe2);
+
+      await sendFormEmail(
+        parsed.data.identification.firstName,
+        "Annexe 2",
+        attachments,
+      );
+    } else {
+      const annexe2: pdfFile = await generateAnnexe2(parsed.data);
+      
+      // Narrow the type manually using type assertion
+      const fullData = parsed.data as FullFormSchemaType;
+      
+      const annexe4: pdfFile = await generateAnnexe4(fullData);
+      generatedFiles.push(annexe2, annexe4);
+      attachments.push(annexe2, annexe4);
+
+      await sendFormEmail(
+        parsed.data.identification.firstName,
+        "Annexe 2 and 4",
+        attachments,
+      );
+    }
+
+    console.log(
+      `📧 Sent ${parsed.data.formType} email to ${parsed.data.contact.contactEmail}`,
+    );
+
+    return {
+      ...prevState,
+      error: null,
+      success: true,
+    };
+  } catch (emailError) {
+    console.error("❌ Error sending email:", emailError);
+    return {
+      ...prevState,
+      error: "form.submitError.emailFailed",
+      success: false,
+    };
+  } finally {
+    // Always clean up generated files, regardless of success or failure
+    await cleanupPdfFiles(generatedFiles);
+  }
 }

@@ -39,7 +39,7 @@ export default function Page() {
                     href="https://bhpa.co.uk"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link text-primary"
+                    className="link text-primary-content hover:text-primary visited:text-secondary-content"
                   >
                     {chunks}
                   </a>
@@ -48,7 +48,7 @@ export default function Page() {
                   <a
                     href="https://skye-code.ai"
                     target="_blank"
-                    className="link text-primary"
+                    className="link text-primary-content hover:text-primary visited:text-secondary-content"
                   >
                     {chunks}
                   </a>

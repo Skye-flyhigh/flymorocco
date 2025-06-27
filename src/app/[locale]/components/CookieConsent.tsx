@@ -30,12 +30,12 @@ export default function CookieConsent() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-50 shadow-lg"
+      className="fixed bottom-0 left-0 right-0 bg-accent text-white p-4 z-50 shadow-lg"
       role="dialog"
       aria-modal="true"
       aria-labelledby="cookie-title"
     >
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto flex flex-col text-accent-content sm:flex-row items-center justify-between gap-4">
         <div className="flex-1">
           <p className="text-sm" id="cookie-title">
             {t("banner")}
@@ -44,14 +44,14 @@ export default function CookieConsent() {
         <div className="flex gap-3">
           <button
             onClick={handleRefuse}
-            className="px-4 py-2 text-sm border border-gray-400 rounded hover:bg-gray-800 transition-colors"
+            className="px-4 py-2 text-sm btn btn-neutral"
             aria-label={t("refuse")}
           >
             {t("refuse")}
           </button>
           <button
             onClick={handleAccept}
-            className="px-4 py-2 bg-blue-600 text-sm rounded hover:bg-blue-700 transition-colors"
+            className="px-4 py-2 text-sm btn btn-primary"
             aria-label={t("accept")}
           >
             {t("accept")}

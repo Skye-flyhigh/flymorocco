@@ -74,7 +74,7 @@ export default function AddParticipants({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex flex-wrap gap-4 mx-auto border-base-300 rounded-xl"
+              className="flex flex-wrap flex-row gap-4 mx-auto border-base-300 rounded-xl"
             >
               <h2 className="CAA-form-legend absolute ml-7">
                 Participant #{i + 1}
@@ -193,6 +193,7 @@ export default function AddParticipants({
               type="button"
               className="bg-base-100 p-4 rounded-full"
               onClick={addParticipants}
+              aria-label={t('addParticipant')}
             >
               <Plus />
             </button>
@@ -203,6 +204,7 @@ export default function AddParticipants({
                 onClick={() => {
                   setParticipants((prev) => prev.slice(0, -1));
                 }}
+                aria-label={t('removeParticipant')}
               >
                 <Minus />
               </button>
@@ -214,6 +216,7 @@ export default function AddParticipants({
                 onClick={() => {
                   setParticipants([]);
                 }}
+                aria-label={t('resetParticipant')}
               >
                 Reset
               </button>
