@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { ContactDataSchema } from "../validation/ContactFormData";
 import { escapeHTML } from "../security/escapeHTML";
+import { verifyRecaptcha } from "../security/verifyRecaptcha";
 
 type ContactFormState = {
   data: {
@@ -27,6 +28,18 @@ export default async function submitMessage(
     email: formData.get("email") as string,
     message: formData.get("message") as string,
   };
+
+  // Verify reCAPTCHA
+  const recaptchaToken = formData.get("recaptcha-token") as string;
+  const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+
+  if (!recaptchaResult.success) {
+    return {
+      data: formValues,
+      errors: { message: ["Please complete the reCAPTCHA verification"] },
+      success: false,
+    };
+  }
 
   const { success, error, data } = ContactDataSchema.safeParse(formValues);
   if (!success) {

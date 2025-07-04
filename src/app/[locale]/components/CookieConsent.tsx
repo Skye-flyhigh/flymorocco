@@ -3,6 +3,21 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
+// Type for Google Analytics gtag function
+interface GtagWindow extends Window {
+  gtag?: (
+    command: "consent",
+    action: "default" | "update",
+    parameters: {
+      ad_user_data?: "granted" | "denied";
+      ad_personalization?: "granted" | "denied";
+      ad_storage?: "granted" | "denied";
+      analytics_storage?: "granted" | "denied";
+      wait_for_update?: number;
+    },
+  ) => void;
+}
+
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
   const t = useTranslations("cookies");
@@ -18,12 +33,33 @@ export default function CookieConsent() {
   const handleAccept = () => {
     localStorage.setItem("cookieConsent", "accepted");
     setShowConsent(false);
+
+    // Access gtag from global window object
+    const gtagWindow = window as GtagWindow;
+    if (typeof window !== "undefined" && gtagWindow.gtag) {
+      gtagWindow.gtag("consent", "update", {
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        ad_storage: "granted",
+        analytics_storage: "granted",
+      });
+    }
   };
 
   const handleRefuse = () => {
     localStorage.setItem("cookieConsent", "refused");
     setShowConsent(false);
-    // Optionally, you could block third-party scripts here
+
+    // Explicitly deny all consent categories
+    const gtagWindow = window as GtagWindow;
+    if (typeof window !== "undefined" && gtagWindow.gtag) {
+      gtagWindow.gtag("consent", "update", {
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+    }
   };
 
   if (!showConsent) return null;

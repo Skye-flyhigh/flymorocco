@@ -4,6 +4,7 @@ import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
 import { escapeHTML } from "../security/escapeHTML";
+import { verifyRecaptcha } from "../security/verifyRecaptcha";
 import {
   FormDataMapSchema,
   FullFormSchemaType,
@@ -32,6 +33,21 @@ export async function submitCaaForm(
       formData,
     };
   }
+
+  // Verify reCAPTCHA
+  const recaptchaToken = formData["recaptcha-token"];
+  const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+
+  if (!recaptchaResult.success) {
+    console.error("❌ reCAPTCHA verification failed");
+    return {
+      ...prevState,
+      error: "form.submitError.recaptcha",
+      success: false,
+      formData,
+    };
+  }
+
   console.log("📦 Raw entries formData:", formData);
 
   const baseData = {
@@ -128,7 +144,10 @@ export async function submitCaaForm(
     await resendPdfEmail({
       to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
       subject: `Flymorocco - Your ${escapeHTML(annex)} Form`,
-      html: `<p>Hello ${escapeHTML(name)},<br>Your annexes (<strong>${escapeHTML(annex)}</strong>) is attached.</p>`,
+      html: `
+      <p>Hello ${escapeHTML(name)},<br>Your annexes (<strong>${escapeHTML(annex)}</strong>) is attached.</p>
+      <p>Do not share this email; it contains personal documents…</p>
+      `,
       attachments,
     });
   }
@@ -159,10 +178,10 @@ export async function submitCaaForm(
       );
     } else {
       const annexe2: pdfFile = await generateAnnexe2(parsed.data);
-      
+
       // Narrow the type manually using type assertion
       const fullData = parsed.data as FullFormSchemaType;
-      
+
       const annexe4: pdfFile = await generateAnnexe4(fullData);
       generatedFiles.push(annexe2, annexe4);
       attachments.push(annexe2, annexe4);

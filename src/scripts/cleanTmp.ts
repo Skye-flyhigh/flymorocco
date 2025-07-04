@@ -14,7 +14,7 @@ async function cleanTmpDirectory() {
     }
 
     const files = await fs.readdir(tmpDir);
-    
+
     if (files.length === 0) {
       console.log("✨ tmp directory is already clean");
       return;
@@ -40,7 +40,6 @@ async function cleanTmpDirectory() {
 
     await Promise.all(deletePromises);
     console.log("✅ tmp directory cleanup completed");
-    
   } catch (err) {
     console.error("❌ Error during tmp cleanup:", err);
     process.exit(1);

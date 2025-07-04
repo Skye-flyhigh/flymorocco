@@ -14,10 +14,10 @@ export async function buildPageMetadata({
     title: `${t("title")}`,
     description: t("description"),
     alternates: {
-      canonical: `https://flymorocco.com/${locale}`,
+      canonical: `https://flymorocco.info/${locale}`,
       languages: {
-        en: `https://flymorocco.com/en`,
-        fr: `https://flymorocco.com/fr`,
+        en: `https://flymorocco.info/en`,
+        fr: `https://flymorocco.info/fr`,
       },
     },
     openGraph: {

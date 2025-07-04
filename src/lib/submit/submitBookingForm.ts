@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { BookingFormSchema } from "../validation/BookFormData";
 import { escapeHTML } from "../security/escapeHTML";
+import { verifyRecaptcha } from "../security/verifyRecaptcha";
 
 export type BookingFormState = {
   data: {
@@ -26,6 +27,19 @@ export async function submitBooking(
     email: formData.get("email") as string,
     start: formData.get("start") as string,
   };
+
+  // Verify reCAPTCHA
+  const recaptchaToken = formData.get("recaptcha-token") as string;
+  const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+
+  if (!recaptchaResult.success) {
+    return {
+      data: formValues,
+      errors: { email: ["Please complete the reCAPTCHA verification"] },
+      success: false,
+    };
+  }
+
   console.log("Booking form values:", formValues);
 
   const { success, error, data } = BookingFormSchema.safeParse(formValues);

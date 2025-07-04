@@ -12,7 +12,7 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   const currentLocale = useLocale();
   const [isPending, startTransition] = useTransition();
-  const t = useTranslations('nav');
+  const t = useTranslations("nav");
 
   const switchLocale = () => {
     const nextLocale = currentLocale === "en" ? "fr" : "en";
@@ -30,7 +30,7 @@ export default function LanguageSwitcher() {
     <button
       onClick={switchLocale}
       disabled={isPending}
-      aria-label={`${t('languageSwitch')} ${getLocaleName(currentLocale === "en" ? "fr" : "en")}`}
+      aria-label={`${t("languageSwitch")} ${getLocaleName(currentLocale === "en" ? "fr" : "en")}`}
       className="btn btn-sm btn-ghost gap-1 flex items-center"
     >
       <Globe className="w-4 h-4" />

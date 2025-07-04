@@ -7,6 +7,7 @@ import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
 import CookieConsent from "./components/CookieConsent";
 import { getTranslations } from "next-intl/server";
+import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -33,7 +34,7 @@ export async function generateMetadata({
       siteName: "Flymorocco",
       images: [
         {
-          url: "/og-image.webp",
+          url: "/og-image.png",
           width: 1200,
           height: 900,
           alt: "Flymorocco",
@@ -79,6 +80,27 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <link rel="preload" href="/images/fred-centered.webp" as="image" />
+
+        {/* <!-- Google tag (gtag.js) --> */}
+        <Script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        />
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  //Set default consent state
+  gtag('consent', 'default', {
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500,
+  });
+
+  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
+        </Script>
       </head>
       <body>
         <NextIntlClientProvider locale={locale}>

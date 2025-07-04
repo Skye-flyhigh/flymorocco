@@ -57,14 +57,14 @@ export default function TourService() {
         <h3 className="text-sm font-semibold mb-2 mt-2">
           {t("tourExclusions.title")}
         </h3>
-        <ul className="list-disc list-inside text-base-content/80 text-xs">
+        <ul className="list-disc list-inside text-base-content text-xs">
           <li>{t("tourExclusions.item1")}</li>
           <li>{t("tourExclusions.item2")}</li>
           <li>{t("tourExclusions.item3")}</li>
           <li>{t("tourExclusions.item4")}</li>
           <li>{t("tourExclusions.item5")}</li>
         </ul>
-        <p className="text-xs text-base-content/60 mt-3">
+        <p className="text-xs text-base-content/70 mt-3">
           {t("tourExclusions.terms")}
           <Link href="/terms" className="link link-primary">
             {t("tourExclusions.termsLink")}

@@ -55,7 +55,7 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/flymoroccoinfo/"
                 rel="noopener noreferrer"
-                aria-label={t('social.instagram')}
+                aria-label={t("social.instagram")}
                 className="hover:text-secondary transition-colors"
               >
                 <svg
@@ -73,7 +73,7 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/Flymoroccoma/"
                 rel="noopener noreferrer"
-                aria-label={t('social.facebook')}
+                aria-label={t("social.facebook")}
                 className="hover:text-secondary transition-colors"
               >
                 <svg

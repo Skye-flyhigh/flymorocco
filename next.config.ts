@@ -4,6 +4,11 @@ import type { Configuration } from "webpack";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  // output: 'export', // Enable this after converting server actions to API routes
+  // trailingSlash: true,
+  // images: {
+  //   unoptimized: true,
+  // },
   webpack(config: Configuration) {
     // Not necessary anymore, created a relative hell in the site-guide/[slug]/page.tsx
     // Ensure 'resolve' exists

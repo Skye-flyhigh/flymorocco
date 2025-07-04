@@ -1,12 +1,15 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
 import submitMessage from "@/lib/submit/submitContactForm";
 import { useTranslations } from "next-intl";
 import FormSuccess from "../rules/FormSuccess";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
+  const formRef = useRef<HTMLFormElement>(null);
+
   const initialFormData = {
     name: "",
     email: "",
@@ -18,11 +21,35 @@ export default function ContactForm() {
     success: false,
   });
 
+  const { executeRecaptcha } = useRecaptcha({
+    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+    onVerify: (token) => {
+      // Add token to form and submit
+      const form = formRef.current;
+      if (form) {
+        const tokenInput = document.createElement("input");
+        tokenInput.type = "hidden";
+        tokenInput.name = "recaptcha-token";
+        tokenInput.value = token;
+        form.appendChild(tokenInput);
+        form.requestSubmit();
+      }
+    },
+    action: "contact_form",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await executeRecaptcha();
+  };
+
   return (
     <section className="py-20 px-10 h-2/3 m-auto">
       <form
+        ref={formRef}
         key={state.success ? "success" : "form"}
         action={formAction}
+        onSubmit={handleSubmit}
         className="flex flex-col items-center justify-center"
       >
         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-md border p-4">

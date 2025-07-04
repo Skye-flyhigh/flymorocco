@@ -6,7 +6,13 @@ import {
   ParticipantType,
 } from "@/lib/validation/CaaFormdata";
 import { submitCaaForm } from "@/lib/submit/submitCaaForm";
-import { useActionState, useCallback, useEffect, useState } from "react";
+import {
+  useActionState,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import { useTranslations } from "use-intl";
 import SiteSelector from "./SiteSelector";
 import { CircleX } from "lucide-react";
@@ -14,9 +20,11 @@ import AddParticipants from "./AddParticipants";
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
 import FormButton from "./FormButton";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
+  const formRef = useRef<HTMLFormElement>(null);
 
   const [siteSelection, setSiteSelection] = useState<string[]>([]);
   const [participants, setParticipants] = useState<ParticipantType[]>([]);
@@ -84,6 +92,28 @@ export default function Annexe2and4Form() {
     success: false,
   });
 
+  const { executeRecaptcha } = useRecaptcha({
+    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+    onVerify: (token) => {
+      const form = formRef.current;
+      if (form) {
+        const tokenInput = document.createElement("input");
+        tokenInput.type = "hidden";
+        tokenInput.name = "recaptcha-token";
+        tokenInput.value = token;
+        form.appendChild(tokenInput);
+
+        const formData = new FormData(form);
+        const data: { [key: string]: string } = {};
+        formData.forEach((value, key) => {
+          data[key] = value.toString();
+        });
+        handleSubmit(data);
+      }
+    },
+    action: "annexe2and4_form",
+  });
+
   const handleParticipantsUpdate = useCallback(
     (payload: { validParticipants: ParticipantType[] }) => {
       setParticipants(payload.validParticipants);
@@ -129,15 +159,11 @@ export default function Annexe2and4Form() {
   return (
     <section id="annexe-2-and-4-form" className="w-screen bg-base-200 flex">
       <form
+        ref={formRef}
         id="CAA-form"
-        onSubmit={(e) => {
+        onSubmit={async (e) => {
           e.preventDefault();
-          const formData = new FormData(e.currentTarget);
-          const data: { [key: string]: string } = {};
-          formData.forEach((value, key) => {
-            data[key] = value.toString();
-          });
-          handleSubmit(data);
+          await executeRecaptcha();
         }}
       >
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">

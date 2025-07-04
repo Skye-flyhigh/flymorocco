@@ -567,6 +567,10 @@
       "title": "Intellectual Property",
       "description": "All site content (text, illustrations, graphics, code snippets) is the property of Flymorocco unless otherwise stated. You may not reuse of redistribute without explicit permission."
     },
+    "analytics": {
+      "title": "Google Analytics",
+      "description": "We use Google Analytics to understand how visitors interact with our website. This helps us improve your experience. Google Analytics collects anonymous information including pages visited, time spent on site, and general location data. You can control this through our cookie consent banner."
+    },
     "externalProviders": {
       "title": "External Links & Services",
       "description": "This website may contain links to third-party tools (e.g., Google, OpenMaps, Resend, Airtable). We are not responsible for the content or privacy practices of those services."
@@ -685,7 +689,7 @@
     },
     "q2": {
       "q": "Do we use cookies?",
-      "a": "Flymorocco does not directly use cookies to collect personal information or track user behavior."
+      "a": "Flymorocco use cookies to collect anonymous information or track user behavior through Google Analytics. This helps up improve your experience. You have the control to opt-out through our cookie consent banner."
     },
     "q3": {
       "q": "Third-party cookies",

@@ -10,11 +10,13 @@ import { useActionState, useEffect, useRef, useState } from "react";
 import FormSuccess from "../rules/FormSuccess";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 export default function BookingForm(tour: TourSchedule) {
   const t = useTranslations("contact");
   const [displayForm, setDisplayForm] = useState<boolean>(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
   const [isAvailable, setIsAvailable] = useState<boolean>(false);
 
   const status: string = tour.status.toLowerCase();
@@ -48,6 +50,27 @@ export default function BookingForm(tour: TourSchedule) {
     initialState,
   );
 
+  const { executeRecaptcha } = useRecaptcha({
+    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+    onVerify: (token) => {
+      const form = formRef.current;
+      if (form) {
+        const tokenInput = document.createElement("input");
+        tokenInput.type = "hidden";
+        tokenInput.name = "recaptcha-token";
+        tokenInput.value = token;
+        form.appendChild(tokenInput);
+        form.requestSubmit();
+      }
+    },
+    action: "booking_form",
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await executeRecaptcha();
+  };
+
   if (tour.slug) {
     return (
       <a
@@ -78,7 +101,9 @@ export default function BookingForm(tour: TourSchedule) {
           onClose={onClose}
         >
           <form
+            ref={formRef}
             action={formAction}
+            onSubmit={handleSubmit}
             key={state.success ? "success" : "form"}
             className="modal-box "
           >

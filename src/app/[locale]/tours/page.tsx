@@ -57,14 +57,14 @@ export default function Page() {
         id="explore"
         className="relative grid grid-rows-[150px_1fr_150px]"
       >
-              <div 
+        <div
           className="w-full h-full absolute inset-0 z-0 bg-primary/20 overflow-hidden"
           style={{
             maskImage: "url('/images/star-tile.svg')",
             maskRepeat: "repeat",
             maskSize: "132px 134px",
           }}
-      />
+        />
         <article className="row-start-2 row-end-2 backdrop-blur-xl bg-base-100/80 flex items-center justify-center py-5">
           <div id="article-container" className="max-w-2xl w-11/12 px-4">
             <h2 className="section-title">{t("explore.title")}</h2>

@@ -193,7 +193,7 @@ export default function AddParticipants({
               type="button"
               className="bg-base-100 p-4 rounded-full"
               onClick={addParticipants}
-              aria-label={t('addParticipant')}
+              aria-label={t("addParticipant")}
             >
               <Plus />
             </button>
@@ -204,7 +204,7 @@ export default function AddParticipants({
                 onClick={() => {
                   setParticipants((prev) => prev.slice(0, -1));
                 }}
-                aria-label={t('removeParticipant')}
+                aria-label={t("removeParticipant")}
               >
                 <Minus />
               </button>
@@ -216,7 +216,7 @@ export default function AddParticipants({
                 onClick={() => {
                   setParticipants([]);
                 }}
-                aria-label={t('resetParticipant')}
+                aria-label={t("resetParticipant")}
               >
                 Reset
               </button>

@@ -7,17 +7,14 @@ export default function Explore() {
   const t = useTranslations("HomePage");
 
   return (
-    <section
-      id="explore"
-      className="grid grid-rows-[150px_1fr_150px] relative"
-    >
-      <div 
-          className="w-full h-full absolute inset-0 z-0 bg-primary/20 overflow-hidden"
-          style={{
-            maskImage: "url('/images/star-tile.svg')",
-            maskRepeat: "repeat",
-            maskSize: "132px 134px",
-          }}
+    <section id="explore" className="grid grid-rows-[150px_1fr_150px] relative">
+      <div
+        className="w-full h-full absolute inset-0 z-0 bg-primary/20 overflow-hidden"
+        style={{
+          maskImage: "url('/images/star-tile.svg')",
+          maskRepeat: "repeat",
+          maskSize: "132px 134px",
+        }}
       />
       <article className="row-start-2 row-end-3 py-5 backdrop-blur-xl bg-base-100/80 flex items-center justify-center relative z-10">
         <div id="article-container" className="max-w-2xl w-11/12 px-4">

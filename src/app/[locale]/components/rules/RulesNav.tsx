@@ -45,7 +45,7 @@ export default function RulesNav() {
                 <h3 className="text-xl font-semibold mb-2">
                   {t(`${rule.key}.title`)}
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-base-content/70 text-sm">
                   {t(`${rule.key}.description`)}
                 </p>
               </article>
