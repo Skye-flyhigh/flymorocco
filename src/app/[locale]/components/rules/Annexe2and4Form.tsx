@@ -95,6 +95,7 @@ export default function Annexe2and4Form() {
   const { executeRecaptcha } = useRecaptcha({
     sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
     onVerify: (token) => {
+      console.log("Annexe2and4 reCAPTCHA token received:", token);
       const form = formRef.current;
       if (form) {
         const tokenInput = document.createElement("input");
@@ -108,6 +109,7 @@ export default function Annexe2and4Form() {
         formData.forEach((value, key) => {
           data[key] = value.toString();
         });
+        console.log("Submitting Annexe2and4 form with token");
         handleSubmit(data);
       }
     },

@@ -24,6 +24,7 @@ export default function ContactForm() {
   const { executeRecaptcha } = useRecaptcha({
     sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
     onVerify: (token) => {
+      console.log("reCAPTCHA token received:", token);
       // Add token to form and submit
       const form = formRef.current;
       if (form) {
@@ -32,6 +33,7 @@ export default function ContactForm() {
         tokenInput.name = "recaptcha-token";
         tokenInput.value = token;
         form.appendChild(tokenInput);
+        console.log("Submitting form with token");
         form.requestSubmit();
       }
     },
@@ -40,7 +42,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form submit started");
     await executeRecaptcha();
+    console.log("reCAPTCHA execution completed");
   };
 
   return (

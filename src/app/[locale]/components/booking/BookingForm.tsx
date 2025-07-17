@@ -53,6 +53,7 @@ export default function BookingForm(tour: TourSchedule) {
   const { executeRecaptcha } = useRecaptcha({
     sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
     onVerify: (token) => {
+      console.log("Booking reCAPTCHA token received:", token);
       const form = formRef.current;
       if (form) {
         const tokenInput = document.createElement("input");
@@ -60,6 +61,7 @@ export default function BookingForm(tour: TourSchedule) {
         tokenInput.name = "recaptcha-token";
         tokenInput.value = token;
         form.appendChild(tokenInput);
+        console.log("Submitting booking form with token");
         form.requestSubmit();
       }
     },
@@ -68,7 +70,9 @@ export default function BookingForm(tour: TourSchedule) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Booking form submit started");
     await executeRecaptcha();
+    console.log("Booking reCAPTCHA execution completed");
   };
 
   if (tour.slug) {
