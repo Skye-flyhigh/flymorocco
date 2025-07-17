@@ -64,16 +64,15 @@ export default function Annexe2Form() {
         ref={formRef}
         id="CAA-form"
         onSubmit={async (e) => {
-          e.preventDefault();
-          
           // Check if reCAPTCHA token already exists to prevent infinite loop
           const form = e.target as HTMLFormElement;
           const existingToken = form.querySelector('input[name="recaptcha-token"]');
           if (existingToken) {
             console.log("Annexe2 token already exists, allowing form submission");
-            return; // Let the form submit naturally
+            return; // Let the form submit naturally (don't prevent default)
           }
           
+          e.preventDefault();
           console.log("Annexe2 form submit started");
           await executeRecaptcha();
           console.log("Annexe2 reCAPTCHA execution completed");

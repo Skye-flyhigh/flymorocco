@@ -28,6 +28,8 @@ export async function submitBooking(
     start: formData.get("start") as string,
   };
 
+  console.log("Booking form values:", formValues);
+
   // Verify reCAPTCHA
   const recaptchaToken = formData.get("recaptcha-token") as string;
   const recaptchaResult = await verifyRecaptcha(recaptchaToken);
