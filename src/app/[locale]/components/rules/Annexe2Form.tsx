@@ -65,7 +65,18 @@ export default function Annexe2Form() {
         id="CAA-form"
         onSubmit={async (e) => {
           e.preventDefault();
+          
+          // Check if reCAPTCHA token already exists to prevent infinite loop
+          const form = e.target as HTMLFormElement;
+          const existingToken = form.querySelector('input[name="recaptcha-token"]');
+          if (existingToken) {
+            console.log("Annexe2 token already exists, allowing form submission");
+            return; // Let the form submit naturally
+          }
+          
+          console.log("Annexe2 form submit started");
           await executeRecaptcha();
+          console.log("Annexe2 reCAPTCHA execution completed");
         }}
       >
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
