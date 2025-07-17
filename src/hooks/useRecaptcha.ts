@@ -36,7 +36,7 @@ export const useRecaptcha = ({
       document.head.appendChild(script);
       scriptLoaded.current = true;
     }
-  }, []);
+  }, [sitekey]);
 
   const executeRecaptcha = async (): Promise<void> => {
     if (!window.grecaptcha) {
