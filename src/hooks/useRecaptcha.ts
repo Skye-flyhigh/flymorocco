@@ -30,7 +30,7 @@ export const useRecaptcha = ({
     // Load reCAPTCHA script only once
     if (!scriptLoaded.current) {
       const script = document.createElement("script");
-      script.src = "https://www.google.com/recaptcha/api.js";
+      script.src = `https://www.google.com/recaptcha/api.js?render=${sitekey}`;
       script.async = true;
       script.defer = true;
       document.head.appendChild(script);
