@@ -73,14 +73,11 @@ export default function BookingForm(tour: TourSchedule) {
     const form = e.target as HTMLFormElement;
     const existingToken = form.querySelector('input[name="recaptcha-token"]');
     if (existingToken) {
-      console.log("Token already exists, allowing form submission");
       return; // Let the form submit naturally (don't prevent default)
     }
     
     e.preventDefault();
-    console.log("Booking form submit started");
     await executeRecaptcha();
-    console.log("Booking reCAPTCHA execution completed");
   };
 
   if (tour.slug) {
