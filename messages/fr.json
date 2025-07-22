@@ -2,7 +2,7 @@
   "nav": {
     "home": "Accueil",
     "siteGuides": "Sites",
-    "tours": "Circuits",
+    "tours": "Séjours",
     "about": "À Propos",
     "rules": "Réglementation",
     "services": "Services",
@@ -41,7 +41,7 @@
     },
     "tours": {
       "title": "Circuits",
-      "description": "Rejoignez des circuits guidés avec des conseils locaux et un support de vol"
+      "description": "Rejoignez des séjours guidés avec des conseils locaux et un support de vol"
     },
     "rules": {
       "title": "Réglementation marocaine",
@@ -222,7 +222,7 @@
     "close": "Fermer le formulaire",
     "book": "Réserver maintenant",
     "website": "Visiter le site web",
-    "dates": "Dates du circuit : ",
+    "dates": "Dates du séjour : ",
     "contact": "Coordonnées",
     "process": "Traitement en cours...",
     "submit": "Envoyer"
@@ -390,17 +390,17 @@
     }
   },
   "tours": {
-    "title": "Circuits avec nous",
-    "subtitle": "Découvrez le Maroc avec nos circuits organisés",
+    "title": "Séjours avec nous",
+    "subtitle": "Découvrez le Maroc avec nos séjours organisés",
     "unit": "par semaine et par personne",
-    "calendar": "Calendrier des Circuits",
-    "upcoming": "Circuits à venir",
+    "calendar": "Calendrier des Séjours",
+    "upcoming": "Séjours à venir",
     "book": "Réserver maintenant",
     "view": "Voir plus",
     "viewLess": "Voir moins",
     "available": "Disponible",
     "full": "Complet",
-    "notAvailable": "Aucun circuit disponible, veuillez vérifier une autre date.",
+    "notAvailable": "Aucun séjour disponible, veuillez vérifier une autre date.",
     "lostTraveler": {
       "question": "Êtes-vous perdu ?",
       "wanderer": "Même les meilleurs aventuriers s'égarent parfois.",
@@ -412,12 +412,12 @@
       "subtitle": "Vous voulez échapper à la météo grise et humide de votre pays. Vous voulez voler quand les opportunités de vol sont rares chez vous.",
       "blurb": "Depuis 2021, nous aidons les pilotes à échanger les ciels gris contre des thermiques dorés. Flymorocco n'est pas seulement des vacances—c'est la liberté quand la météo chez vous dit non. Nous accueillons tous les pilotes qualifiés, de ceux qui font leurs premiers pas en vol à ceux qui recherchent de nouvelles lignes. Venez trouver votre thermique poussiéreux.",
       "scheduleLink": "Découvrez notre Programme",
-      "tourLink": "Explorez nos circuits",
+      "tourLink": "Explorez nos séjours",
       "serviceLink": "Voir nos Services"
     },
     "tourCards": {
-      "title": "Les circuits Flymorocco",
-      "description": "Trouvez ci-dessous nos différents circuits, leurs détails et prix. À partir de 950€ par personne pour une semaine."
+      "title": "Les séjours Flymorocco",
+      "description": "Trouvez ci-dessous nos différents séjours, leurs détails et prix. À partir de 950€ par personne pour une semaine."
     },
     "toursDetails": {
       "coastal": {
@@ -446,12 +446,12 @@
       }
     },
     "tourService": {
-      "title": "Services des circuits",
+      "title": "Services des séjours",
       "subtitle": "Nous fournissons tous les services dont vous avez besoin pour voler au Maroc",
       "participants": "Nous accueillons tous les pilotes qualifiés de tous niveaux.",
       "price": "Les services suivants sont fournis au prix ci-dessous pour une semaine par personne.",
       "special": "La semaine bien-être comprend également des matinées bien-être (yoga, méditation et exercices respiratoires) avec un instructeur de yoga.",
-      "notAvailable": "Il n'y a pas de circuits disponibles pour le thème sélectionné.",
+      "notAvailable": "Il n'y a pas de séjours disponibles pour le thème sélectionné.",
       "viewSchedule": "Voir le Programme",
       "accommodation": {
         "title": "Hébergement et Nourriture",
@@ -467,7 +467,7 @@
       },
       "airport": {
         "title": "Transferts aéroport",
-        "description": "Nous fournissons les transferts aéroport vers et depuis les sites de vol uniquement aux dates de début et de fin de nos circuits."
+        "description": "Nous fournissons les transferts aéroport vers et depuis les sites de vol uniquement aux dates de début et de fin de nos séjours."
       },
       "tourExclusions": {
         "title": "Ce qui n'est pas inclus ?",
@@ -491,14 +491,14 @@
       "intro": "Basé au pied du Haut Atlas, venez découvrir la campagne berbère spécifique à cette chaîne de montagnes. Survolez les terres fertiles et ouvertes du Maroc, en regardant les plaines arides de Marrakech. Le vol est thermique mais conviendrait à tous les profils de pilotes."
     },
     "wellbeing": {
-      "title": "Retraite Bien-être",
-      "subtitle": "Matinées douces, atterrissages en douceur et paix",
-      "intro": "C'est notre petit plaisir pour vous. Venez vous détendre avec nous lors de notre retraite bien-être et parapente dans le Sud du Maroc, où les matinées sont douces et centrées et les après-midis sont volés jusqu'au coucher du soleil sur la mer."
+      "title": "Retraite Bien-être de Luxe",
+      "subtitle": "Expérience exclusive en villa face à l'océan alliant sérénité et vol",
+      "intro": "Une semaine extraordinaire de bien-être de luxe dans notre magnifique villa face à l'Atlantique à Mirleft. Commencez chaque journée par une classe de yoga et méditation avec vue sur l'océan, puis survolez les falaises spectaculaires et les plages jusqu'au coucher du soleil. Parfait pour les couples qui cherchent chacun leur bonheur – que ce soit à travers le bien-être méditatif, l'aventure du parapente, ou les deux. Cette retraite intimiste offre l'équilibre ultime entre paix intérieure et liberté aérienne."
     },
     "activities": {
       "title": "Que faire d'autre aux alentours ?",
       "subtitle": "Vous êtes là pour voler, mais le Maroc a plus à offrir.",
-      "disclaimer": "Ces activités ne sont pas incluses dans le forfait du circuit, mais sont disponibles localement si vous êtes cloué au sol, prolongez votre séjour, ou vous sentez simplement aventureux.",
+      "disclaimer": "Ces activités ne sont pas incluses dans le forfait du séjour, mais sont disponibles localement si vous êtes cloué au sol, prolongez votre séjour, ou vous sentez simplement aventureux.",
       "items": {
         "camel": "Balade à dos de chameau",
         "horse": "Équitation",
