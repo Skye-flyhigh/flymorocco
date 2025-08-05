@@ -101,7 +101,7 @@
       "permanent": true
     },
     {
-      "source": "/en/rules.html?_gl=1*9rjc0v*_up*MQ",
+      "source": "/en/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
       "destination": "/en/rules",
       "permanent": true
     },
@@ -181,7 +181,7 @@
       "permanent": true
     },
     {
-      "source": "/fr/rules.html?_gl=1*9rjc0v*_up*MQ",
+      "source": "/fr/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
       "destination": "/fr/rules",
       "permanent": true
     }
