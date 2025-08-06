@@ -184,6 +184,46 @@
       "source": "/fr/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
       "destination": "/fr/rules",
       "permanent": true
+    },
+    {
+      "source": "/fr/aguergour.html",
+      "destination": "/fr/site-guides/aguergour",
+      "permanent": true
+    },
+    {
+      "source": "/en/aguergour.html",
+      "destination": "/en/site-guides/aguergour",
+      "permanent": true
+    },
+    {
+      "source": "/fr/plageblanche.html",
+      "destination": "/fr/site-guides/plage-blanche",
+      "permanent": true
+    },
+    {
+      "source": "/en/plageblanche.html",
+      "destination": "/en/site-guides/plage-blanche",
+      "permanent": true
+    },
+    {
+      "source": "/fr/tizi.html",
+      "destination": "/fr/site-guides/tizi-n-test",
+      "permanent": true
+    },
+    {
+      "source": "/en/tizi.html",
+      "destination": "/en/site-guides/tizi-n-test",
+      "permanent": true
+    },
+    {
+      "source": "/fr/tizintest.html",
+      "destination": "/fr/site-guides/tizi-n-test",
+      "permanent": true
+    },
+    {
+      "source": "/en/tizintest.html",
+      "destination": "/en/site-guides/tizi-n-test",
+      "permanent": true
     }
   ]
 }

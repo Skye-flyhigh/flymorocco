@@ -8,6 +8,8 @@ import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
 import CookieConsent from "./components/CookieConsent";
 import { getTranslations } from "next-intl/server";
 import Script from "next/script";
+import StructuredData from "./components/StructuredData";
+import AIFriendlyMeta from "./components/AIFriendlyMeta";
 
 export async function generateMetadata({
   params,
@@ -23,7 +25,9 @@ export async function generateMetadata({
       template: "%s | Flymorocco",
     },
     description: t("description"),
-    keywords: ["Morocco"],
+    keywords: locale === 'fr' 
+      ? ["parapente", "Maroc", "séjour parapente", "Atlas", "côte atlantique", "guide sites", "séjour bien-être", "Agadir", "Essaouira", "Mirleft", "guides expérimentés"]
+      : ["paragliding", "Morocco", "paragliding tour", "Atlas Mountains", "Atlantic coast", "site guides", "wellness week", "Agadir", "Essaouira", "Mirleft", "expert guides"],
     authors: [{ name: "Skye" }],
     creator: "Skye",
     metadataBase: new URL("https://flymorocco.info"),
@@ -80,6 +84,8 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <link rel="preload" href="/images/fred-centered.webp" as="image" />
+        <AIFriendlyMeta />
+        <StructuredData type="business" />
 
         {/* <!-- Google tag (gtag.js) --> */}
         <Script

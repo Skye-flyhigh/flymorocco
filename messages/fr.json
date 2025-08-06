@@ -700,6 +700,31 @@
     },
     "contact": "Cliquez ici pour nous envoyer un email"
   },
+  "seo": {
+    "title": "FlyMorocco - Parapente au Maroc | Guide des sites de vol et séjours",
+    "description": "Découvrez le parapente au Maroc avec FlyMorocco. Guide des sites de vol et séjours bien-être dans l'Atlas et sur la côte atlantique. Guides expérimentés, sites exceptionnels.",
+    "keywords": "parapente Maroc, guide de site de vol, Atlas, côte atlantique, séjour parapente, bien-être, Agadir, Marrakech, Aguergour, Ait Ourir, M'Zouda, Aglou, Nid d'aigle",
+    "business": {
+      "name": "FlyMorocco",
+      "description": "Découvrez le parapente au Maroc avec FlyMorocco. Guide des sites de vol et séjours bien-être dans l'Atlas et sur la côte atlantique. Guides expérimentés, sites exceptionnels.",
+      "phone": "+212 636 04 17 61",
+      "email": "contact@flymorocco.info"
+    },
+    "services": {
+      "coastal": {
+        "name": "Séjours côte atlantique",
+        "description": "Séjours guidés de parapente sur la côte atlantique marocaine"
+      },
+      "mountain": {
+        "name": "Séjours Atlas",
+        "description": "Séjours guidés de parapente dans les montagnes de l'Atlas"
+      },
+      "wellness": {
+        "name": "Séjours bien-être",
+        "description": "Combinaison parapente et bien-être"
+      }
+    }
+  },
   "metadata": {
     "title": "Parapente au Maroc",
     "description": "Découvrez des expériences inoubliables au Maroc avec Flymorocco.",

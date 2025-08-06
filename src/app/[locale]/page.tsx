@@ -6,6 +6,7 @@ import Testimonials from "./components/home/Testimonials";
 import Explore from "./components/home/Explore";
 import HomeHero from "./components/home/HomeHero";
 import { ImageType } from "@/lib/types/image";
+import FAQStructuredData from "./components/FAQStructuredData";
 
 const heroImages: ImageType[] = [
   {
@@ -92,6 +93,7 @@ export default function HomePage() {
 
   return (
     <main id="main">
+      <FAQStructuredData />
       <HomeHero images={heroImages} />
       <Carousel images={images} />
       <Explore />
