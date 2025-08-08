@@ -6,8 +6,6 @@ import { verifyRecaptcha } from "../security/verifyRecaptcha";
 import { TourSlug } from "../types/tour";
 import { calculateBookingTotal, type Currency } from "../utils/pricing";
 import { createBookingCheckout } from "../payments/bookingPayments";
-import { sendBookingConfirmation, sendBookingNotification } from "../email/bookingConfirmation";
-import { emailPilotsBookingVerification } from "../email/emailPilotsBookingVerification";
 
 export type BookingFormState = {
   data: Partial<BookingFormData>;
@@ -102,51 +100,6 @@ export async function submitBooking(
   });
 
   if (bookingCheckout.success) {
-
-    // Send booking confirmation and notification emails
-    const emailData = {
-      bookingData: data,
-      totalPeople,
-      soloCount,
-      baseTotal: booking.baseTotal,
-      soloTotal: booking.soloTotal,
-      grandTotal: booking.grandTotal,
-      currency,
-      stripeSessionId: bookingCheckout.checkoutUrl?.split('_')[1] || 'unknown'
-    };
-
-    // Send confirmation to customer
-    console.log("Sending booking confirmation to customer...");
-    const confirmationResult = await sendBookingConfirmation(emailData);
-    if (!confirmationResult.success) {
-      console.error("Failed to send booking confirmation:", confirmationResult.error);
-    }
-
-    // Send notification to business
-    console.log("Sending booking notification to business...");
-    const notificationResult = await sendBookingNotification(emailData);
-    if (!notificationResult.success) {
-      console.error("Failed to send booking notification:", notificationResult.error);
-    }
-
-    // Send pilot verification emails
-    console.log("Checking for pilots requiring verification...");
-    const pilotEmailResult = await emailPilotsBookingVerification(data, "verification");
-    if (pilotEmailResult.emailsSent > 0) {
-      console.log(`Pilot verification summary: ${pilotEmailResult.emailsSent} emails sent successfully`);
-      if (pilotEmailResult.errors?.length) {
-        console.error("Some pilot verification emails failed:", pilotEmailResult.errors);
-      }
-    } else {
-      console.log("No pilots found in this booking - no verification emails needed");
-    }
-
-    // Add participant to tour data here
-    // -> check for data/bookingDetails.json
-    // -> one object per tour, key startDate, filled with participant data
-    // -> non flyer participant: "John Doe": {email: "john.doe@example.com", insuranceProvider: "Big Cat", insuranceNumber: "123456789", timestamp: "booking timeStamp"}
-    // -> pilot participant: "John Doe": {email: "john.doe@example.com", insuranceProvider: "Big Cat", timestamp: "booking timeStamp", insuranceNumber: "123456789", pilotRating: boolean, thirdParty: boolean, annexe2: boolean, gliderManufacturer: "Ozone", gliderModel: "Buzz", gliderSize: "Medium", gliderColours: "Blue White"}
-
     return {
       data: formValues,
       errors: null,
