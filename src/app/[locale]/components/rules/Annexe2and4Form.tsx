@@ -21,6 +21,7 @@ import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
 import FormButton from "./FormButton";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
+import { createCustomRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
 
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
@@ -92,27 +93,15 @@ export default function Annexe2and4Form() {
     success: false,
   });
 
-  const { executeRecaptcha } = useRecaptcha({
-    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-    onVerify: (token) => {
-      const form = formRef.current;
-      if (form) {
-        const tokenInput = document.createElement("input");
-        tokenInput.type = "hidden";
-        tokenInput.name = "recaptcha-token";
-        tokenInput.value = token;
-        form.appendChild(tokenInput);
-
-        const formData = new FormData(form);
-        const data: { [key: string]: string } = {};
-        formData.forEach((value, key) => {
-          data[key] = value.toString();
-        });
-        handleSubmit(data);
-      }
-    },
-    action: "annexe2and4_form",
-  });
+  const { executeRecaptcha } = useRecaptcha(
+    createCustomRecaptchaConfig("annexe2and4_form", formRef, (formData) => {
+      const data: { [key: string]: string } = {};
+      formData.forEach((value, key) => {
+        data[key] = value.toString();
+      });
+      handleSubmit(data);
+    })
+  );
 
   const handleParticipantsUpdate = useCallback(
     (payload: { validParticipants: ParticipantType[] }) => {

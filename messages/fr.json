@@ -12,7 +12,7 @@
     "terms": "Conditions d'usage",
     "privacy": "Politique de Confidentialité",
     "cookie": "Politique des Cookies",
-    "copyright": "Préparation du thé à la menthe et accrochage de la voile au harnais.",
+    "copyright": "Le parapente au Maroc - Préparation du thé à la menthe et accrochage de la voile au harnais.",
     "languageSwitch": "Changer pour ",
     "social": {
       "instagram": "Suis nous sur Instagram",
@@ -769,6 +769,33 @@
     "siteGuides": {
       "title": "Guides de sites",
       "description": "Guides des sites de parapente au Maroc"
+    }
+  },
+  "booking": {
+    "success": {
+      "title": "Réservation Confirmée !",
+      "message": "Merci pour votre réservation ! Votre paiement a été traité avec succès.",
+      "nextSteps": {
+        "title": "Que se passe-t-il maintenant ?",
+        "step1": "Vous recevrez un email de confirmation sous peu",
+        "step2": "Nous vous enverrons vos informations détaillées avant le séjour dans les 24 heures",
+        "step3": "Tout pilote de votre groupe recevra des demandes de vérification de licence",
+        "step4": "Nous vous contacterons directement pour confirmer tous les arrangements"
+      },
+      "questions": "Des questions ? Répondez à votre email de confirmation ou contactez-nous directement.",
+      "buttons": {
+        "homepage": "Retour à l'accueil",
+        "tours": "Voir d'autres séjours"
+      },
+      "reference": {
+        "title": "Référence de réservation",
+        "save": "Sauvegardez cette référence pour vos dossiers"
+      },
+      "loading": "Chargement des détails de réservation...",
+      "noSession": {
+        "title": "Aucune session de réservation trouvée",
+        "message": "Si vous venez de finaliser un paiement, veuillez vérifier votre email pour confirmation."
+      }
     }
   }
 }

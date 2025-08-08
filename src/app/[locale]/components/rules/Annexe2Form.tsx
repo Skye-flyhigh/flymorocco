@@ -6,6 +6,7 @@ import FormButton from "./FormButton";
 import FormSuccess from "./FormSuccess";
 import FormError from "./FormError";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
+import { createCustomRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
 
 export default function Annexe2Form() {
   const t = useTranslations("rules");
@@ -34,27 +35,15 @@ export default function Annexe2Form() {
     error: null,
   });
 
-  const { executeRecaptcha } = useRecaptcha({
-    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-    onVerify: (token) => {
-      const form = formRef.current;
-      if (form) {
-        const tokenInput = document.createElement("input");
-        tokenInput.type = "hidden";
-        tokenInput.name = "recaptcha-token";
-        tokenInput.value = token;
-        form.appendChild(tokenInput);
-
-        const formData = new FormData(form);
-        const data: { [key: string]: string } = {};
-        formData.forEach((value, key) => {
-          data[key] = value.toString();
-        });
-        handleSubmit(data);
-      }
-    },
-    action: "annexe2_form",
-  });
+  const { executeRecaptcha } = useRecaptcha(
+    createCustomRecaptchaConfig("annexe2_form", formRef, (formData) => {
+      const data: { [key: string]: string } = {};
+      formData.forEach((value, key) => {
+        data[key] = value.toString();
+      });
+      handleSubmit(data);
+    })
+  );
 
   return (
     <section id="annexe-2-form" className="w-screen bg-base-200 flex">

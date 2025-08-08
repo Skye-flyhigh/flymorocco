@@ -9,6 +9,7 @@ import { isValidTourSlug, TOUR_SLUGS, TourSlug } from "@/lib/types/tour";
 import MissingTour from "../../components/tours/MissingTour";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { getTourImages } from "@/lib/utils/tourImages";
 
 export async function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -76,84 +77,8 @@ export default async function Page({
 
   const t = await getTranslations("tours");
 
-  let heroImage = "";
-  type Img = {
-    src: string;
-    width: number;
-    height: number;
-    alt: string;
-  };
-  let img: Img[] = [];
-  switch (slug) {
-    case "mountain":
-      heroImage = "/images/guigou-2000x1333.webp";
-      img = [
-        {
-          src: "/images/sonja-800x533.webp",
-          width: 800,
-          height: 533,
-          alt: "Sonja flying over Aguergour",
-        },
-        {
-          src: "/images/fred2-800x533.webp",
-          width: 800,
-          height: 533,
-          alt: "Fred flying with Atlas mountains in the background",
-        },
-      ];
-      break;
-    case "coastal":
-      heroImage = "/images/plage-626x835.webp";
-      img = [
-        {
-          src: "/images/aglou2-800x534.webp",
-          width: 800,
-          height: 532,
-          alt: "Flying in Aglou",
-        },
-        {
-          src: "/images/legzira2-800x600.webp",
-          width: 800,
-          height: 600,
-          alt: "A picture of Legzira",
-        },
-      ];
-      break;
-    case "wellbeing":
-      heroImage = "/images/yoga-1536x1024.webp";
-      img = [
-        {
-          src: "/images/legzira-800x600.webp",
-          width: 800,
-          height: 600,
-          alt: "A picture of Legzira",
-        },
-        {
-          src: "/images/skye.webp",
-          width: 800,
-          height: 800,
-          alt: "Ground handling",
-        },
-      ];
-      break;
-    default:
-      heroImage = "/images/camel-1865x1415.webp";
-      img = [
-        {
-          src: "/images/oukaimeden.webp",
-          width: 800,
-          height: 600,
-          alt: "Flying over Moroccan mountains",
-        },
-        {
-          src: "/images/niviuk-agdou-800x600.webp",
-          width: 800,
-          height: 600,
-          alt: "Niviuk X-One flying over Moroccan village",
-        },
-      ];
-      break;
-  }
+  const tourImageData = getTourImages(slug);
+  const { heroImage, images: img } = tourImageData;
 
   return (
     <main className="m-auto">

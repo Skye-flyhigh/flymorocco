@@ -153,10 +153,12 @@ export async function POST(request: NextRequest) {
     ) {
       await resendPdfEmail({
         to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
+        recipientName: name,
         subject: `Flymorocco - Your ${escapeHTML(annex)} Form`,
-        html: `
-        <p>Hello ${escapeHTML(name)},<br>Your annexes (<strong>${escapeHTML(annex)}</strong>) is attached.</p>
-        <p>Do not share this email; it contains personal documents…</p>
+        content: `
+        <p>Your annexes (<strong>${escapeHTML(annex)}</strong>) are attached to this email.</p>
+        <p><strong>Important:</strong> Do not share this email as it contains personal documents with your information.</p>
+        <p>Keep these forms safe for your paragliding activities in Morocco.</p>
         `,
         attachments,
       });

@@ -14,7 +14,7 @@ export default function Footer() {
           maskSize: "132px 134px",
         }}
       />
-      <aside className="z-10">
+      <aside className="z-10 max-w-70">
         <Image
           src="/images/FMorocco-logo-single-transparent-white.svg"
           alt="Flymorocco Logo"

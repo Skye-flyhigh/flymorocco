@@ -5,6 +5,7 @@ import submitMessage from "@/lib/submit/submitContactForm";
 import { useTranslations } from "next-intl";
 import FormSuccess from "../rules/FormSuccess";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
+import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -21,24 +22,9 @@ export default function ContactForm() {
     success: false,
   });
 
-  const { executeRecaptcha } = useRecaptcha({
-    sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-    onVerify: (token) => {
-      console.log("reCAPTCHA token received:", token);
-      // Add token to form and submit
-      const form = formRef.current;
-      if (form) {
-        const tokenInput = document.createElement("input");
-        tokenInput.type = "hidden";
-        tokenInput.name = "recaptcha-token";
-        tokenInput.value = token;
-        form.appendChild(tokenInput);
-        console.log("Submitting form with token");
-        form.requestSubmit();
-      }
-    },
-    action: "contact_form",
-  });
+  const { executeRecaptcha } = useRecaptcha(
+    createRecaptchaConfig("contact_form", formRef)
+  );
 
   const handleSubmit = async (e: React.FormEvent) => {
     // Check if reCAPTCHA token already exists to prevent infinite loop

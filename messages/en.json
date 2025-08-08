@@ -12,7 +12,7 @@
     "terms": "Terms of use",
     "privacy": "Privacy policy",
     "cookie": "Cookie policy",
-    "copyright": "Brewing mint tea and clipping glider to harness.",
+    "copyright": "Paragliding in Morocco - Brewing mint tea and clipping glider to harness.",
     "languageSwitch": "Switch to",
     "social": {
       "instagram": "Follow us on Instagram",
@@ -721,7 +721,7 @@
         "description": "Guided paragliding tours along Morocco's Atlantic coast"
       },
       "mountain": {
-        "name": "Atlas Mountain Tours", 
+        "name": "Atlas Mountain Tours",
         "description": "Guided paragliding tours in the Atlas Mountains"
       },
       "wellness": {
@@ -774,6 +774,33 @@
     "siteGuides": {
       "title": "Site Guides",
       "description": "Paragliding site guides in Morocco"
+    }
+  },
+  "booking": {
+    "success": {
+      "title": "Booking Confirmed!",
+      "message": "Thank you for your booking! Your payment has been processed successfully.",
+      "nextSteps": {
+        "title": "What happens next?",
+        "step1": "You'll receive a confirmation email shortly",
+        "step2": "We'll send your detailed pre-tour information within 24 hours",
+        "step3": "Any pilots in your group will receive license verification requests",
+        "step4": "We'll contact you directly to confirm all arrangements"
+      },
+      "questions": "Questions? Reply to your confirmation email or contact us directly.",
+      "buttons": {
+        "homepage": "Return to Homepage",
+        "tours": "View Other Tours"
+      },
+      "reference": {
+        "title": "Booking Reference",
+        "save": "Save this reference for your records"
+      },
+      "loading": "Loading booking details...",
+      "noSession": {
+        "title": "No booking session found",
+        "message": "If you just completed a payment, please check your email for confirmation."
+      }
     }
   }
 }

@@ -1,0 +1,28 @@
+{
+  "tours": {
+    "mountain": {
+      "EUR": { "base": 950, "solo": 250 },
+      "GBP": { "base": 799, "solo": 200 },
+      "USD": { "base": 1100, "solo": 280 },
+      "CAD": { "base": 1400, "solo": 350 }
+    },
+    "coastal": {
+      "EUR": { "base": 950, "solo": 250 },
+      "GBP": { "base": 799, "solo": 200 },
+      "USD": { "base": 1100, "solo": 280 },
+      "CAD": { "base": 1400, "solo": 350 }
+    },
+    "wellbeing": {
+      "EUR": { "base": 1250, "solo": 250 },
+      "GBP": { "base": 1050, "solo": 200 },
+      "USD": { "base": 1400, "solo": 280 },
+      "CAD": { "base": 1800, "solo": 350 }
+    }
+  },
+  "currencies": {
+    "EUR": { "symbol": "€", "name": "Euro" },
+    "GBP": { "symbol": "£", "name": "British Pound" },
+    "USD": { "symbol": "$", "name": "US Dollar" },
+    "CAD": { "symbol": "C$", "name": "Canadian Dollar" }
+  }
+}

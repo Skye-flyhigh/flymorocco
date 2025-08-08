@@ -107,6 +107,12 @@ export default async function LocaleLayout({
 
   gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
         </Script>
+
+        {/* Stripe.js */}
+        <Script
+          src="https://js.stripe.com/v3/"
+          strategy="lazyOnload"
+        />
       </head>
       <body>
         <NextIntlClientProvider locale={locale}>

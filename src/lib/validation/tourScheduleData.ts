@@ -6,7 +6,7 @@ export const tourScheduleData = z.object({
   end: z.string(),
   slug: z.string().optional(),
   provider: z.string().optional(),
-  type: z.string(),
+  type: z.string().min(1),
   location: z.string(),
   icon: z.string(),
   status: z.string(),
