@@ -88,6 +88,21 @@ export default function Page() {
           <h3>{t("externalProviders.title")}</h3>
           <p>{t("externalProviders.description")}</p>
         </article>
+        <article id="payment">
+          <h3>{t("payment.title")}</h3>
+          <p>{t("payment.description")}</p>
+        </article>
+        <article id="refund">
+          <h3>{t("refund.title")}</h3>
+          <p>{t("refund.description")}</p>
+          <ol>
+            {t.rich("refund.list", {
+              li: (chunks) => <li>{chunks}</li>,
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
+          </ol>
+          <p>{t("refund.processing")}</p>
+        </article>
         <article id="terms-modification">
           <h3>{t("termsModification.title")}</h3>
           <p>{t("termsModification.description")}</p>

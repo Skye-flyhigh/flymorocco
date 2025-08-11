@@ -77,7 +77,7 @@
     "aglou": {
       "name": "Aglou",
       "region": "Tiznit",
-      "description": "Aglou est un excellent terrain de jeu pour les pilotes de parapente. C'est un endroit idéal pour pratiquer le gonflage, les décollages et les atterrissages. Les plus fous s'y entraînent même au wagga !",
+      "description": "Aglou est un excellent terrain de jeu pour les pilotes de parapente, seulement a 2 heures d'Agadir, a côté de Tiznit. C'est un endroit idéal pour pratiquer le gonflage, les décollages et les atterrissages. Les plus fous s'y entraînent même au wagga !",
       "longDescription": "C'est un site incroyable qui fonctionne toute l'année au Maroc, surtout lorsqu'il y a une bonne brise de mer du NO. Pour accéder à ce site, vous devrez faire un peu de conduite dans les dunes, ce qui inclut des sables mous. De nombreux véhicules s'y enlisent, surtout lors de votre première fois. Mais avec un peu d'aide supplémentaire et de la force humaine, on peut sortir une voiture de cette situation.",
       "takeoff": "Aglou est une grande dune qui peut être survolée sur une très longue distance. Vous volerez au-dessus des maisons troglodytes où vivent les communautés de pêcheurs saisonniers. Il y a quelques rochers locaux à éviter mais c'est un décollage extrêmement facile.",
       "landing": "L'atterrissage peut se faire n'importe où sauf sur les terrasses et jardins des maisons troglodytes. Il peut se faire en bas sur la plage, sur la pente de la dune ou en atterrissage au sommet.",
@@ -108,7 +108,7 @@
     "tizi-n-test": {
       "name": "Tizi-N-Test",
       "region": "Haut Atlas",
-      "description": "Tizi-N-Test est un site dans le Haut Atlas qui fonctionne comme un site alpin sur le côté le plus sec de l'Atlas, face à Taroudant.",
+      "description": "Tizi-N-Test est un site de parapente dans le Haut Atlas, un col a 2 093 mètres qui relie Marrakech et Taroudant.",
       "longDescription": "Ce site fonctionne avec la brise de vallée et les thermiques. Il peut être turbulent et difficile à voler mais l'atterrissage est l'aspect le plus technique de ce site.",
       "takeoff": "Le décollage est directement sous la route et le restaurant, le propriétaire du restaurant vous aidera à le localiser si vous avez besoin d'aide. Il est raide et couvert de gravier ce qui le rend glissant. Il y a des cactus autour du décollage qui vous attraperont si vous glissez.",
       "landing": "L'atterrissage n'est PAS au fond de la vallée mais plus loin près de la route. C'est une zone légèrement plate, et la seule zone plate autour de cette région. Il est extrêmement difficile d'atterrir ailleurs dans cette zone. Les Gendarmes vous attendront à l'atterrissage pour vérifier votre autorisation.",
@@ -119,7 +119,7 @@
     "ait-ourir": {
       "name": "Ait Ourir",
       "region": "Marrakech",
-      "description": "Ait Ourir est un site incroyable pour voler. Il fonctionne comme Aguergour, ce qui signifie qu'il prend la même orientation de vent et fonctionne principalement avec un flux anabatique de Marrakech vers le Haut Atlas derrière.",
+      "description": "Ait Ourir est un site de parapente incroyable près de Marrakech. Il fonctionne comme Aguergour, ce qui signifie qu'il prend la même orientation de vent et fonctionne principalement avec un flux anabatique de Marrakech vers le Haut Atlas derrière.",
       "longDescription": "Contrairement à Aguergour, vous devrez marcher jusqu'au sommet pour pouvoir décoller mais heureusement, c'est toujours accessible par les sentiers de chèvres tant que vous visez le sommet.",
       "takeoff": "Le décollage n'est accessible qu'à pied après une marche de 20 à 30 minutes en suivant les sentiers de chèvres. La crête est très raide/falaise sur la plupart de sa longueur et le décollage peut être effectué tout le long de la crête mais il n'y a que deux zones où il est relativement facile de décoller. Le décollage est rocheux, prêt à attraper une ou deux lignes.",
       "landing": "Il n'y a pas de zone d'atterrissage officielle mais la plupart des gens atterriront à l'extrême ouest d'où vous commencez à marcher. Vous pouvez atterrir n'importe où de convenable en gardant à l'esprit que le sol n'est pas plat en bas.",
@@ -140,7 +140,7 @@
     "nid-d-aigle": {
       "name": "Nid d'Aigle",
       "region": "Tiznit",
-      "description": "L'un des principaux sites de parapente du Sud du Maroc. Ce site fonctionne avec la brise de mer et les thermiques du kilomètre de terre devant, permettant le vol en base nuageuse et le cross-country jusqu'à Aglou (et parfois retour).",
+      "description": "L'un des principaux sites de parapente a 2 heures d'Agadir, entre Mirleft et Tiznit. Ce site fonctionne avec la brise de mer et les thermiques du kilomètre de terre devant, permettant le vol en base nuageuse et le cross-country jusqu'à Aglou (et parfois retour).",
       "longDescription": "Les décollages sont près des restaurants au sommet. Ce sont des terrains privés et il y a des frais de décollage journaliers de 30 Dhs par personne par jour. Il y a des options de restauration et d'hébergement. Les décollages ont des parkings et sont facilement accessibles en voiture ou en camping-car !",
       "takeoff": "Les deux décollages sont privés et il y a un petit frais journalier de 30Dhs. Le décollage de Nigel est plus indulgent que l'autre Nid d'Aigle pour les débutants avec une fin de piste plus arrondie et plus douce.",
       "landing": "L'atterrissage au sommet se fait sur le terrain près du Nid d'Aigle en gardant à l'esprit la petite turbulence près du bord de la falaise ou sur le décollage de Nigel sans survoler les bâtiments. L'atterrissage en bas peut se faire près de la route mais cette zone est petite et en pente, ce n'est pas le plus facile pour les débutants. L'autre option est d'atterrir près de la petite cabane cubique en béton qui est une zone pour débutants et plus facile à approcher.",
@@ -161,7 +161,7 @@
     "legzira": {
       "name": "Legzira",
       "region": "Sidi Ifni",
-      "description": "Legzira est l'un des sites les plus pittoresques du Maroc. Décollage près ou au-dessus de la base nuageuse, face à la mer, survolant les célèbres arches sur la plage et atterrissage sur la plage près des cafés.",
+      "description": "Legzira est l'un des sites les plus pittoresques du Maroc, près de Sidi Ifni. Décollage près ou au-dessus de la base nuageuse, face à la mer, survolant les célèbres arches sur la plage et atterrissage sur la plage près des cafés.",
       "longDescription": "Le décollage peut se faire soit sur la zone plus haute de la montagne, soit sur la zone plus basse près de l'arche selon les conditions du jour. Le décollage de la montagne est accessible avec n'importe quel type de voiture.",
       "takeoff": "Il y a deux décollages selon les conditions du jour et votre capacité à monter la piste. Les deux décollages sont rocheux mais ont été nettoyés par des pilotes précédents pour minimiser les dégâts sur les voiles.",
       "landing": "L'atterrissage au sommet et l'atterrissage sur la plage sont vos options. Legzira est une zone très touristique et la plage peut être facilement encombrée, surtout près des cafés. De plus, la marée haute atteint jusqu'au pied de la falaise et les cafés limitent vraiment l'atterrissage sur la plage. Dans ce scénario, il est préférable d'atterrir au sommet de la falaise près de l'arche.",
@@ -170,7 +170,7 @@
     },
     "imsouane": {
       "name": "Imsouane",
-      "region": "Haut Atlas",
+      "region": "Souss-Massa",
       "description": "Imsouane est un spot de surf très célèbre avec son régime de vagues continu et facile. Il est moins connu pour le parapente mais il y a une crête incroyable à survoler.",
       "longDescription": "Le décollage est facilement accessible en voiture et l'atterrissage peut se faire au sommet en évitant les arbres, le camion café et les touristes ou sur la plage en faisant attention aux touristes en bas. La direction dominante du vent dans cette zone est du N ou NO ce qui rend ce site NON VOLABLE. Le terrain génère des rotors dans la zone de vol.",
       "takeoff": "Le sommet de la colline est comme une falaise sauf pour la petite zone indiquée sur cette page. Il est recommandé de décoller là où le terrain est plus doux et arrondi.",
@@ -568,11 +568,21 @@
     },
     "externalProviders": {
       "title": "Liens et services externes",
-      "description": "Ce site peut contenir des liens vers des outils tiers (ex : Google, OpenMaps, Resend, Airtable). Nous ne sommes pas responsables du contenu ou des pratiques de confidentialité de ces services."
+      "description": "Ce site peut contenir des liens vers des outils tiers (ex : Google, OpenMaps, Resend, Airtable, Stripe). Nous ne sommes pas responsables du contenu ou des pratiques de confidentialité de ces services."
     },
     "termsModification": {
       "title": "Modification des Conditions",
       "description": "Flymorocco se réserve le droit de modifier ces Conditions à tout moment. Les changements seront publiés sur cette page et prendront effet immédiatement."
+    },
+    "payment": {
+      "title": "Traitement des paiements",
+      "description": "Les réservations et paiements de séjours sont traités de manière sécurisée via Stripe, Inc. En effectuant une réservation, vous acceptez les Conditions d'utilisation et la Politique de confidentialité de Stripe. Nous collectons les informations de paiement nécessaires pour traiter votre réservation, y compris les détails de carte de crédit, qui sont gérés exclusivement par Stripe et jamais stockés sur nos serveurs."
+    },
+    "refund": {
+      "title": "Politique de remboursement et d'annulation",
+      "description": "Pour les réservations de séjours :",
+      "list": "<li><strong>Plus de 90 jours avant le séjour :</strong> Remboursement intégral moins 3% de frais de traitement</li><li><strong>90 jours avant le séjour :</strong> Remboursement à 50%</li><li><strong>Moins de 30 jours avant le séjour :</strong> Aucun remboursement</li><li><strong>Force majeure :</strong> Avoir valable 12 mois</li>",
+      "processing": "Les remboursements sont traités dans les 5-10 jours ouvrés sur votre moyen de paiement original. Les frais de traitement ne sont pas remboursables sauf pour les annulations météorologiques initiées par Flymorocco."
     },
     "jurisdiction": {
       "title": "Droit applicable",

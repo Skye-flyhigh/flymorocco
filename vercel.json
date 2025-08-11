@@ -116,6 +116,11 @@
       "permanent": true
     },
     {
+      "source": "/fr/freeflyingmorocco.html",
+      "destination": "/fr/site-guides",
+      "permanent": true
+    },
+    {
       "source": "/en/aitourir.html",
       "destination": "/en/site-guides/ait-ourir",
       "permanent": true
@@ -223,6 +228,46 @@
     {
       "source": "/en/tizintest.html",
       "destination": "/en/site-guides/tizi-n-test",
+      "permanent": true
+    },
+    {
+      "source": "/en/privacy.html",
+      "destination": "/en/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/fr/privacy.html",
+      "destination": "/fr/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/en/airspaces.html",
+      "destination": "/en/rules/airspaces",
+      "permanent": true
+    },
+    {
+      "source": "/fr/airspaces.html",
+      "destination": "/fr/rules/airspaces",
+      "permanent": true
+    },
+    {
+      "source": "/en/coast.html",
+      "destination": "/en/tours/coastal",
+      "permanent": true
+    },
+    {
+      "source": "/fr/coast.html",
+      "destination": "/fr/tours/coastal",
+      "permanent": true
+    },
+    {
+      "source": "/en/contact.html",
+      "destination": "/en/contact",
+      "permanent": true
+    },
+    {
+      "source": "/fr/contact.html",
+      "destination": "/fr/contact",
       "permanent": true
     }
   ]
