@@ -16,19 +16,18 @@ export default function RulesQnA() {
         <h3 className="sections-subtitle">{t("qna.subtitle")}</h3>
         <div className="mt-10 flex flex-col gap-4">
           {questionKeys.map((key) => (
-            <article
+            <details
               key={key}
               tabIndex={0}
               className="collapse bg-base-200 hover:bg-base-300 transition-colors"
             >
-              <button
-                type="button"
+              <summary
                 aria-controls={`answer-${key}`}
                 id={`question-${key}`}
                 className="collapse-title font-semibold"
               >
                 {t(`${key}.q`)}
-              </button>
+              </summary>
               <div
                 id={`answer-${key}`}
                 className="collapse-content text-sm"
@@ -36,7 +35,7 @@ export default function RulesQnA() {
               >
                 {t(`${key}.a`)}
               </div>
-            </article>
+            </details>
           ))}
         </div>
       </div>
