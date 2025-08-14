@@ -1,285 +1,291 @@
 {
   "headers": [
     {
-      "source": "/sitemap.xml",
+      "source": "/(.*)\\.xml$",
       "headers": [
         {
           "key": "Content-Type",
           "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0"
         }
       ]
     }
   ],
   "redirects": [
-    {
-      "source": "/fr/niddaigle.html",
-      "destination": "/fr/site-guides/nid-d-aigle",
-      "permanent": true
-    },
-    {
-      "source": "/fr/freeflyingmorocco.html",
-      "destination": "/fr/site-guides",
-      "permanent": true
-    },
-    {
-      "source": "/fr/legzira.html",
-      "destination": "/fr/site-guides/legzira",
-      "permanent": true
-    },
-    {
-      "source": "/en/legzira.html",
-      "destination": "/en/site-guides/legzira",
-      "permanent": true
-    },
-    {
-      "source": "/fr/home.html",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/en/home.html",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/fr/aitourir.html",
-      "destination": "/fr/site-guides/ait-ourir",
-      "permanent": true
-    },
-    {
-      "source": "/fr/Imsouane.html",
-      "destination": "/fr/site-guides/imsouane",
-      "permanent": true
-    },
-    {
-      "source": "/en/MZouda.html",
-      "destination": "/en/site-guides/m-zouda",
-      "permanent": true
-    },
-    {
-      "source": "/fr/About.html",
-      "destination": "/fr/about",
-      "permanent": true
-    },
-    {
-      "source": "/fr/aglou.html",
-      "destination": "/fr/site-guides/aglou",
-      "permanent": true
-    },
-    {
-      "source": "/fr/Guigou.html",
-      "destination": "/fr/site-guides/guigou",
-      "permanent": true
-    },
-    {
-      "source": "/en/atlas.html",
-      "destination": "/en/tours/mountain",
-      "permanent": true
-    },
-    {
-      "source": "/fr/terms.html",
-      "destination": "/fr/terms",
-      "permanent": true
-    },
-    {
-      "source": "/fr/coaching.html",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/fr/emergencies.html",
-      "destination": "/fr",
-      "permanent": true
-    },
-    {
-      "source": "/en/tourbooking.html",
-      "destination": "/en/tours",
-      "permanent": true
-    },
-    {
-      "source": "/index.html",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/fr/travel.html",
-      "destination": "/fr/tours",
-      "permanent": true
-    },
-    {
-      "source": "/en/rules.html",
-      "destination": "/en/rules",
-      "permanent": true
-    },
-    {
-      "source": "/en/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
-      "destination": "/en/rules",
-      "permanent": true
-    },
-    {
-      "source": "/en/niddaigle.html",
-      "destination": "/en/site-guides/nid-d-aigle",
-      "permanent": true
-    },
-    {
-      "source": "/en/freeflyingmorocco.html",
-      "destination": "/en/site-guides",
-      "permanent": true
-    },
-    {
-      "source": "/fr/freeflyingmorocco.html",
-      "destination": "/fr/site-guides",
-      "permanent": true
-    },
-    {
-      "source": "/en/aitourir.html",
-      "destination": "/en/site-guides/ait-ourir",
-      "permanent": true
-    },
-    {
-      "source": "/en/Imsouane.html",
-      "destination": "/en/site-guides/imsouane",
-      "permanent": true
-    },
-    {
-      "source": "/fr/MZouda.html",
-      "destination": "/fr/site-guides/m-zouda",
-      "permanent": true
-    },
-    {
-      "source": "/en/About.html",
-      "destination": "/en/about",
-      "permanent": true
-    },
-    {
-      "source": "/en/aglou.html",
-      "destination": "/en/site-guides/aglou",
-      "permanent": true
-    },
-    {
-      "source": "/en/Guigou.html",
-      "destination": "/en/site-guides/guigou",
-      "permanent": true
-    },
-    {
-      "source": "/fr/atlas.html",
-      "destination": "/fr/tours/mountain",
-      "permanent": true
-    },
-    {
-      "source": "/en/terms.html",
-      "destination": "/en/terms",
-      "permanent": true
-    },
-    {
-      "source": "/en/coaching.html",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/en/emergencies.html",
-      "destination": "/en",
-      "permanent": true
-    },
-    {
-      "source": "/fr/tourbooking.html",
-      "destination": "/fr/tours",
-      "permanent": true
-    },
-    {
-      "source": "/en/travel.html",
-      "destination": "/en/tours",
-      "permanent": true
-    },
-    {
-      "source": "/fr/rules.html",
-      "destination": "/fr/rules",
-      "permanent": true
-    },
-    {
-      "source": "/fr/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
-      "destination": "/fr/rules",
-      "permanent": true
-    },
-    {
-      "source": "/fr/aguergour.html",
-      "destination": "/fr/site-guides/aguergour",
-      "permanent": true
-    },
-    {
-      "source": "/en/aguergour.html",
-      "destination": "/en/site-guides/aguergour",
-      "permanent": true
-    },
-    {
-      "source": "/fr/plageblanche.html",
-      "destination": "/fr/site-guides/plage-blanche",
-      "permanent": true
-    },
-    {
-      "source": "/en/plageblanche.html",
-      "destination": "/en/site-guides/plage-blanche",
-      "permanent": true
-    },
-    {
-      "source": "/fr/tizi.html",
-      "destination": "/fr/site-guides/tizi-n-test",
-      "permanent": true
-    },
-    {
-      "source": "/en/tizi.html",
-      "destination": "/en/site-guides/tizi-n-test",
-      "permanent": true
-    },
-    {
-      "source": "/fr/tizintest.html",
-      "destination": "/fr/site-guides/tizi-n-test",
-      "permanent": true
-    },
-    {
-      "source": "/en/tizintest.html",
-      "destination": "/en/site-guides/tizi-n-test",
-      "permanent": true
-    },
-    {
-      "source": "/en/privacy.html",
-      "destination": "/en/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/fr/privacy.html",
-      "destination": "/fr/privacy",
-      "permanent": true
-    },
-    {
-      "source": "/en/airspaces.html",
-      "destination": "/en/rules/airspaces",
-      "permanent": true
-    },
-    {
-      "source": "/fr/airspaces.html",
-      "destination": "/fr/rules/airspaces",
-      "permanent": true
-    },
-    {
-      "source": "/en/coast.html",
-      "destination": "/en/tours/coastal",
-      "permanent": true
-    },
-    {
-      "source": "/fr/coast.html",
-      "destination": "/fr/tours/coastal",
-      "permanent": true
-    },
-    {
-      "source": "/en/contact.html",
-      "destination": "/en/contact",
-      "permanent": true
-    },
-    {
-      "source": "/fr/contact.html",
-      "destination": "/fr/contact",
-      "permanent": true
+        {
+          "source": "/fr/niddaigle.html",
+          "destination": "/fr/site-guides/nid-d-aigle",
+          "permanent": true
+        },
+        {
+          "source": "/fr/freeflyingmorocco.html",
+          "destination": "/fr/site-guides",
+          "permanent": true
+        },
+        {
+          "source": "/fr/legzira.html",
+          "destination": "/fr/site-guides/legzira",
+          "permanent": true
+        },
+        {
+          "source": "/en/legzira.html",
+          "destination": "/en/site-guides/legzira",
+          "permanent": true
+        },
+        {
+          "source": "/fr/home.html",
+          "destination": "/fr",
+          "permanent": true
+        },
+        {
+          "source": "/en/home.html",
+          "destination": "/en",
+          "permanent": true
+        },
+        {
+          "source": "/fr/aitourir.html",
+          "destination": "/fr/site-guides/ait-ourir",
+          "permanent": true
+        },
+        {
+          "source": "/fr/Imsouane.html",
+          "destination": "/fr/site-guides/imsouane",
+          "permanent": true
+        },
+        {
+          "source": "/en/MZouda.html",
+          "destination": "/en/site-guides/m-zouda",
+          "permanent": true
+        },
+        {
+          "source": "/fr/About.html",
+          "destination": "/fr/about",
+          "permanent": true
+        },
+        {
+          "source": "/fr/aglou.html",
+          "destination": "/fr/site-guides/aglou",
+          "permanent": true
+        },
+        {
+          "source": "/fr/Guigou.html",
+          "destination": "/fr/site-guides/guigou",
+          "permanent": true
+        },
+        {
+          "source": "/en/atlas.html",
+          "destination": "/en/tours/mountain",
+          "permanent": true
+        },
+        {
+          "source": "/fr/terms.html",
+          "destination": "/fr/terms",
+          "permanent": true
+        },
+        {
+          "source": "/fr/coaching.html",
+          "destination": "/fr",
+          "permanent": true
+        },
+        {
+          "source": "/fr/emergencies.html",
+          "destination": "/fr",
+          "permanent": true
+        },
+        {
+          "source": "/en/tourbooking.html",
+          "destination": "/en/tours",
+          "permanent": true
+        },
+        {
+          "source": "/index.html",
+          "destination": "/",
+          "permanent": true
+        },
+        {
+          "source": "/fr/travel.html",
+          "destination": "/fr/tours",
+          "permanent": true
+        },
+        {
+          "source": "/en/rules.html",
+          "destination": "/en/rules",
+          "permanent": true
+        },
+        {
+          "source": "/en/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
+          "destination": "/en/rules",
+          "permanent": true
+        },
+        {
+          "source": "/en/niddaigle.html",
+          "destination": "/en/site-guides/nid-d-aigle",
+          "permanent": true
+        },
+        {
+          "source": "/en/freeflyingmorocco.html",
+          "destination": "/en/site-guides",
+          "permanent": true
+        },
+        {
+          "source": "/fr/freeflyingmorocco.html",
+          "destination": "/fr/site-guides",
+          "permanent": true
+        },
+        {
+          "source": "/en/aitourir.html",
+          "destination": "/en/site-guides/ait-ourir",
+          "permanent": true
+        },
+        {
+          "source": "/en/Imsouane.html",
+          "destination": "/en/site-guides/imsouane",
+          "permanent": true
+        },
+        {
+          "source": "/fr/MZouda.html",
+          "destination": "/fr/site-guides/m-zouda",
+          "permanent": true
+        },
+        {
+          "source": "/en/About.html",
+          "destination": "/en/about",
+          "permanent": true
+        },
+        {
+          "source": "/en/aglou.html",
+          "destination": "/en/site-guides/aglou",
+          "permanent": true
+        },
+        {
+          "source": "/en/Guigou.html",
+          "destination": "/en/site-guides/guigou",
+          "permanent": true
+        },
+        {
+          "source": "/fr/atlas.html",
+          "destination": "/fr/tours/mountain",
+          "permanent": true
+        },
+        {
+          "source": "/en/terms.html",
+          "destination": "/en/terms",
+          "permanent": true
+        },
+        {
+          "source": "/en/coaching.html",
+          "destination": "/en",
+          "permanent": true
+        },
+        {
+          "source": "/en/emergencies.html",
+          "destination": "/en",
+          "permanent": true
+        },
+        {
+          "source": "/fr/tourbooking.html",
+          "destination": "/fr/tours",
+          "permanent": true
+        },
+        {
+          "source": "/en/travel.html",
+          "destination": "/en/tours",
+          "permanent": true
+        },
+        {
+          "source": "/fr/rules.html",
+          "destination": "/fr/rules",
+          "permanent": true
+        },
+        {
+          "source": "/fr/rules.html\\?_gl=1\\*9rjc0v\\*_up\\*MQ",
+          "destination": "/fr/rules",
+          "permanent": true
+        },
+        {
+          "source": "/fr/aguergour.html",
+          "destination": "/fr/site-guides/aguergour",
+          "permanent": true
+        },
+        {
+          "source": "/en/aguergour.html",
+          "destination": "/en/site-guides/aguergour",
+          "permanent": true
+        },
+        {
+          "source": "/fr/plageblanche.html",
+          "destination": "/fr/site-guides/plage-blanche",
+          "permanent": true
+        },
+        {
+          "source": "/en/plageblanche.html",
+          "destination": "/en/site-guides/plage-blanche",
+          "permanent": true
+        },
+        {
+          "source": "/fr/tizi.html",
+          "destination": "/fr/site-guides/tizi-n-test",
+          "permanent": true
+        },
+        {
+          "source": "/en/tizi.html",
+          "destination": "/en/site-guides/tizi-n-test",
+          "permanent": true
+        },
+        {
+          "source": "/fr/tizintest.html",
+          "destination": "/fr/site-guides/tizi-n-test",
+          "permanent": true
+        },
+        {
+          "source": "/en/tizintest.html",
+          "destination": "/en/site-guides/tizi-n-test",
+          "permanent": true
+        },
+        {
+          "source": "/en/privacy.html",
+          "destination": "/en/privacy",
+          "permanent": true
+        },
+        {
+          "source": "/fr/privacy.html",
+          "destination": "/fr/privacy",
+          "permanent": true
+        },
+        {
+          "source": "/en/airspaces.html",
+          "destination": "/en/rules/airspaces",
+          "permanent": true
+        },
+        {
+          "source": "/fr/airspaces.html",
+          "destination": "/fr/rules/airspaces",
+          "permanent": true
+        },
+        {
+          "source": "/en/coast.html",
+          "destination": "/en/tours/coastal",
+          "permanent": true
+        },
+        {
+          "source": "/fr/coast.html",
+          "destination": "/fr/tours/coastal",
+          "permanent": true
+        },
+        {
+          "source": "/en/contact.html",
+          "destination": "/en/contact",
+          "permanent": true
+        },
+        {
+          "source": "/fr/contact.html",
+          "destination": "/fr/contact",
+          "permanent": true
+        }
+      ]
     }
   ]
 }
