@@ -90,7 +90,7 @@ export default async function LocaleLayout({
         {/* <!-- Google tag (gtag.js) --> */}
         <Script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+          src="https://www.googletagmanager.com/gtag/js?id=G-4XKFT0XD2T"
         />
         <Script id="google-analytics">
           {`window.dataLayer = window.dataLayer || [];
@@ -105,7 +105,7 @@ export default async function LocaleLayout({
     'wait_for_update': 500,
   });
 
-  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`}
+  gtag('config', 'G-4XKFT0XD2T');`}
         </Script>
 
         {/* Stripe.js */}
