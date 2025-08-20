@@ -792,7 +792,7 @@
       "message": "Thank you for your booking! Your payment has been processed successfully.",
       "nextSteps": {
         "title": "What happens next?",
-        "step1": "You'll receive a confirmation email shortly",
+        "step1": "You'll receive a confirmation email shortly (please check the spam folder)",
         "step2": "We'll send your detailed pre-tour information within 24 hours",
         "step3": "Any pilots in your group will receive license verification requests",
         "step4": "We'll contact you directly to confirm all arrangements"

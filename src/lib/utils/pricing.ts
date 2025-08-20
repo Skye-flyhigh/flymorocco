@@ -1,5 +1,5 @@
-import pricingData from '@/data/pricing.json';
-import { TourSlug } from '../types/tour';
+import pricingData from "@/data/pricing.json";
+import { TourSlug } from "../types/tour";
 
 export type Currency = keyof typeof pricingData.currencies;
 
@@ -16,14 +16,19 @@ export interface CurrencyInfo {
 /**
  * Get pricing for a specific tour type and currency
  */
-export function getTourPricing(tourType: TourSlug, currency: Currency): PricingInfo {
+export function getTourPricing(
+  tourType: TourSlug,
+  currency: Currency,
+): PricingInfo {
   const pricing = pricingData.tours[tourType]?.[currency];
 
   if (!pricing) {
-    console.warn(`No pricing found for ${tourType} in ${currency}, falling back to EUR`);
+    console.warn(
+      `No pricing found for ${tourType} in ${currency}, falling back to EUR`,
+    );
     return pricingData.tours[tourType]?.EUR || pricingData.tours.mountain.EUR;
   }
-  
+
   return pricing;
 }
 
@@ -48,7 +53,7 @@ export function calculateBookingTotal(
   tourType: TourSlug,
   currency: Currency,
   totalPeople: number,
-  soloRooms: number
+  soloRooms: number,
 ): {
   basePrice: number;
   soloPrice: number;
@@ -60,11 +65,11 @@ export function calculateBookingTotal(
 } {
   const pricing = getTourPricing(tourType, currency);
   const currencyInfo = getCurrencyInfo(currency);
-  
+
   const baseTotal = totalPeople * pricing.base;
   const soloTotal = soloRooms * pricing.solo;
   const grandTotal = baseTotal + soloTotal;
-  
+
   return {
     basePrice: pricing.base,
     soloPrice: pricing.solo,

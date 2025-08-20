@@ -21,7 +21,7 @@ export default function Footer() {
           width={70}
           height={70}
           priority
-          className="invert"
+          className="invert dark:invert-45 dark:sepia-100"
         />
         <p>
           Flymorocco

@@ -5,9 +5,9 @@ import { RefObject } from "react";
  * Reusable utility to avoid code duplication across forms
  */
 export function addTokenAndSubmit(
-  token: string, 
+  token: string,
   formRef: RefObject<HTMLFormElement | null>,
-  customSubmitHandler?: (formData: FormData) => void
+  customSubmitHandler?: (formData: FormData) => void,
 ) {
   const form = formRef.current;
   if (!form) return;
@@ -40,7 +40,7 @@ export function addTokenAndSubmit(
  */
 export function createRecaptchaConfig(
   action: string,
-  formRef: RefObject<HTMLFormElement | null>
+  formRef: RefObject<HTMLFormElement | null>,
 ) {
   return {
     sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
@@ -57,7 +57,7 @@ export function createRecaptchaConfig(
 export function createCustomRecaptchaConfig(
   action: string,
   formRef: RefObject<HTMLFormElement | null>,
-  customSubmitHandler: (formData: FormData) => void
+  customSubmitHandler: (formData: FormData) => void,
 ) {
   return {
     sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,

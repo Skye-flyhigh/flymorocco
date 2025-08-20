@@ -23,7 +23,7 @@ export default function ContactForm() {
   });
 
   const { executeRecaptcha } = useRecaptcha(
-    createRecaptchaConfig("contact_form", formRef)
+    createRecaptchaConfig("contact_form", formRef),
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,7 +33,7 @@ export default function ContactForm() {
     if (existingToken) {
       return; // Let the form submit naturally (don't prevent default)
     }
-    
+
     e.preventDefault();
     await executeRecaptcha();
   };

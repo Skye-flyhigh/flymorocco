@@ -93,12 +93,13 @@ export function getTourHeroImage(tourType: TourSlug): string {
 
 export function getTourImageUrl(tourType: TourSlug, baseUrl?: string): string {
   const heroImage = getTourHeroImage(tourType);
-  const base = baseUrl || process.env.NEXT_PUBLIC_BASE_URL || "https://flymorocco.info";
-  
+  const base =
+    baseUrl || process.env.NEXT_PUBLIC_BASE_URL || "https://flymorocco.info";
+
   // For Stripe: Use production URL if localhost (Stripe can't access localhost)
-  if (base.includes('localhost')) {
+  if (base.includes("localhost")) {
     return `https://flymorocco.info${heroImage}`;
   }
-  
+
   return `${base}${heroImage}`;
 }

@@ -100,7 +100,7 @@ export default function Annexe2and4Form() {
         data[key] = value.toString();
       });
       handleSubmit(data);
-    })
+    }),
   );
 
   const handleParticipantsUpdate = useCallback(
@@ -153,12 +153,16 @@ export default function Annexe2and4Form() {
         onSubmit={async (e) => {
           // Check if reCAPTCHA token already exists to prevent infinite loop
           const form = e.target as HTMLFormElement;
-          const existingToken = form.querySelector('input[name="recaptcha-token"]');
+          const existingToken = form.querySelector(
+            'input[name="recaptcha-token"]',
+          );
           if (existingToken) {
-            console.log("Annexe2and4 token already exists, allowing form submission");
+            console.log(
+              "Annexe2and4 token already exists, allowing form submission",
+            );
             return; // Let the form submit naturally (don't prevent default)
           }
-          
+
           e.preventDefault();
           console.log("Annexe2and4 form submit started");
           await executeRecaptcha();

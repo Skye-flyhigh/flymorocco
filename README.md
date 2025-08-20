@@ -15,6 +15,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 ## ✨ Features
 
 ### Core Platform
+
 - 🌍 **Multilingual** with `next-intl` (EN/FR)
 - 🪁 **Dynamic site guides** powered by slug-based routing
 - 🖼️ **Visual-first layout** to highlight the beauty of flying sites
@@ -22,14 +23,16 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - 🗺️ **Interactive airspace maps** with Morocco's official ENR 5.5 data
 
 ### E-Commerce Booking System
+
 - 💳 **Multi-currency booking** (GBP, USD, EUR, CAD) with Stripe integration
 - 👥 **Multi-participant support** with pilot detection and verification
-- 🏠 **Solo room options** with dynamic pricing calculations  
+- 🏠 **Solo room options** with dynamic pricing calculations
 - 📧 **Professional email pipeline** (confirmations, notifications, verifications)
 - 🎯 **Marketing-optimized emails** with clickable tour banners
 - 📋 **PDF document generation** for CAA authorization forms
 
 ### Technical Excellence
+
 - ⚙️ **Type-safe data** validation with Zod schemas
 - 🔒 **Security features** with reCAPTCHA and input sanitization
 - 📱 **Responsive design** with accessibility built-in

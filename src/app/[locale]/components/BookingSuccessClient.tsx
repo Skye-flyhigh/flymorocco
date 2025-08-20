@@ -15,24 +15,26 @@ interface BookingDetails {
 export default function BookingSuccessClient() {
   const t = useTranslations("booking");
   const searchParams = useSearchParams();
-  const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
+  const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(
+    null,
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const sessionId = searchParams.get('session_id');
-    
+    const sessionId = searchParams.get("session_id");
+
     if (sessionId) {
       // In a production app, you'd fetch booking details from your API
       // For now, we'll just show the session ID
       setBookingDetails({
         sessionId,
-        customerEmail: '',
+        customerEmail: "",
         amountPaid: 0,
-        tourStart: '',
+        tourStart: "",
         participantCount: 0,
       });
     }
-    
+
     setIsLoading(false);
   }, [searchParams]);
 
@@ -60,7 +62,9 @@ export default function BookingSuccessClient() {
       <div className="alert alert-info">
         <div>
           <h4 className="font-semibold">{t("success.reference.title")}</h4>
-          <p className="text-xs font-mono break-all">{bookingDetails.sessionId}</p>
+          <p className="text-xs font-mono break-all">
+            {bookingDetails.sessionId}
+          </p>
           <p className="text-sm mt-1">{t("success.reference.save")}</p>
         </div>
       </div>

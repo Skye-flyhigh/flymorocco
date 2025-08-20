@@ -787,9 +787,9 @@
       "message": "Merci pour votre réservation ! Votre paiement a été traité avec succès.",
       "nextSteps": {
         "title": "Que se passe-t-il maintenant ?",
-        "step1": "Vous recevrez un email de confirmation sous peu",
+        "step1": "Vous recevrez un email de confirmation sous peu (verifier les spams)",
         "step2": "Nous vous enverrons vos informations détaillées avant le séjour dans les 24 heures",
-        "step3": "Tout pilote de votre groupe recevra des demandes de vérification de licence",
+        "step3": "Tous les pilotes groupe recevra des demandes de vérification de licence",
         "step4": "Nous vous contacterons directement pour confirmer tous les arrangements"
       },
       "questions": "Des questions ? Répondez à votre email de confirmation ou contactez-nous directement.",

@@ -25,9 +25,34 @@ export async function generateMetadata({
       template: "%s | Flymorocco",
     },
     description: t("description"),
-    keywords: locale === 'fr' 
-      ? ["parapente", "Maroc", "séjour parapente", "Atlas", "côte atlantique", "guide sites", "séjour bien-être", "Agadir", "Essaouira", "Mirleft", "guides expérimentés"]
-      : ["paragliding", "Morocco", "paragliding tour", "Atlas Mountains", "Atlantic coast", "site guides", "wellness week", "Agadir", "Essaouira", "Mirleft", "expert guides"],
+    keywords:
+      locale === "fr"
+        ? [
+            "parapente",
+            "Maroc",
+            "séjour parapente",
+            "Atlas",
+            "côte atlantique",
+            "guide sites",
+            "séjour bien-être",
+            "Agadir",
+            "Essaouira",
+            "Mirleft",
+            "guides expérimentés",
+          ]
+        : [
+            "paragliding",
+            "Morocco",
+            "paragliding tour",
+            "Atlas Mountains",
+            "Atlantic coast",
+            "site guides",
+            "wellness week",
+            "Agadir",
+            "Essaouira",
+            "Mirleft",
+            "expert guides",
+          ],
     authors: [{ name: "Skye" }],
     creator: "Skye",
     metadataBase: new URL("https://flymorocco.info"),
@@ -109,10 +134,7 @@ export default async function LocaleLayout({
         </Script>
 
         {/* Stripe.js */}
-        <Script
-          src="https://js.stripe.com/v3/"
-          strategy="lazyOnload"
-        />
+        <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
       </head>
       <body>
         <NextIntlClientProvider locale={locale}>

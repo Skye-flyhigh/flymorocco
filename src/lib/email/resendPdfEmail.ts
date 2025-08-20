@@ -36,7 +36,7 @@ export async function resendPdfEmail({
     const htmlEmail = createEmailTemplate({
       recipientName,
       content,
-      footerContent: footerContent || "Official Documents - FlyMorocco 📋"
+      footerContent: footerContent || "Official Documents - FlyMorocco 📋",
     });
 
     const { data, error } = await resend.emails.send({

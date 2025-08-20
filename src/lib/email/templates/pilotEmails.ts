@@ -5,7 +5,7 @@ export interface PilotEmailData {
   pilotName: string;
   tourType: TourSlug;
   tourStart: string;
-  mainContactName: string; 
+  mainContactName: string;
   mainContactEmail: string;
 }
 
@@ -48,7 +48,7 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
   return createEmailTemplate({
     recipientName: data.pilotName,
     content,
-    footerContent: "Safe Flying with FlyMorocco! 🪂"
+    footerContent: "Safe Flying with FlyMorocco! 🪂",
   });
 }
 
@@ -94,6 +94,6 @@ export function createPilotWelcomeEmail(data: PilotEmailData): string {
   return createEmailTemplate({
     recipientName: data.pilotName,
     content,
-    footerContent: "Pilot to Pilot - FlyMorocco 🪂"
+    footerContent: "Pilot to Pilot - FlyMorocco 🪂",
   });
 }

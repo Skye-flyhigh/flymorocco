@@ -1,6 +1,10 @@
 "use server";
 
-import { BookingFormSchema, BookingFormData, ParticipantData } from "../validation/BookFormData";
+import {
+  BookingFormSchema,
+  BookingFormData,
+  ParticipantData,
+} from "../validation/BookFormData";
 import { escapeHTML } from "../security/escapeHTML";
 import { verifyRecaptcha } from "../security/verifyRecaptcha";
 import { TourSlug } from "../types/tour";
@@ -19,16 +23,17 @@ export async function submitBooking(
   formData: FormData,
 ): Promise<BookingFormState> {
   // Parse participant data from form
-  const participantCount = parseInt(formData.get("participantCount") as string) || 0;
+  const participantCount =
+    parseInt(formData.get("participantCount") as string) || 0;
   const participants: ParticipantData[] = [];
-  
+
   for (let i = 0; i < participantCount; i++) {
     const participant: ParticipantData = {
-      name: escapeHTML(formData.get(`participant_${i}_name`) as string || ""),
+      name: escapeHTML((formData.get(`participant_${i}_name`) as string) || ""),
       isPilot: formData.get(`participant_${i}_isPilot`) === "true",
       soloOccupancy: formData.get(`participant_${i}_soloOccupancy`) === "true",
     };
-    
+
     // Add email if pilot
     const pilotEmail = formData.get(`participant_${i}_email`) as string;
     if (participant.isPilot && pilotEmail) {
@@ -43,13 +48,15 @@ export async function submitBooking(
     isPilot: formData.get("isPilot") === "true",
     soloOccupancy: formData.get("soloOccupancy") === "true",
     start: escapeHTML(formData.get("start") as string),
-    tourType: formData.get("tourType") as TourSlug || "mountain",
+    tourType: (formData.get("tourType") as TourSlug) || "mountain",
     participantCount,
     participants,
   };
 
   // Get currency and tour type from form
-  const currency = (formData.get("currency") as string || "EUR").toUpperCase() as Currency;
+  const currency = (
+    (formData.get("currency") as string) || "EUR"
+  ).toUpperCase() as Currency;
 
   // Verify reCAPTCHA
   const recaptchaToken = formData.get("recaptcha-token") as string;
@@ -76,9 +83,16 @@ export async function submitBooking(
 
   // Calculate pricing using centralized pricing data
   const totalPeople = data.participantCount + 1; // +1 for main booker
-  const soloCount = data.participants.filter(p => p.soloOccupancy).length + (data.soloOccupancy ? 1 : 0);
-  
-  const booking = calculateBookingTotal(data.tourType, currency, totalPeople, soloCount);
+  const soloCount =
+    data.participants.filter((p) => p.soloOccupancy).length +
+    (data.soloOccupancy ? 1 : 0);
+
+  const booking = calculateBookingTotal(
+    data.tourType,
+    currency,
+    totalPeople,
+    soloCount,
+  );
 
   if (!booking) {
     return {
@@ -109,7 +123,11 @@ export async function submitBooking(
   } else {
     return {
       data: formValues,
-      errors: { general: [bookingCheckout.error || "Error occurred during checkout session"] },
+      errors: {
+        general: [
+          bookingCheckout.error || "Error occurred during checkout session",
+        ],
+      },
       success: false,
     };
   }

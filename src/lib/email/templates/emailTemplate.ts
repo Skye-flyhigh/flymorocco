@@ -4,10 +4,10 @@ export interface EmailTemplateProps {
   footerContent?: string;
 }
 
-export function createEmailTemplate({ 
-  recipientName, 
-  content, 
-  footerContent = "Flymorocco - Expert Paragliding Tours in Morocco" 
+export function createEmailTemplate({
+  recipientName,
+  content,
+  footerContent = "Flymorocco - Expert Paragliding Tours in Morocco",
 }: EmailTemplateProps): string {
   return `
     <!DOCTYPE html>
