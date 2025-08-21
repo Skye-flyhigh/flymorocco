@@ -14,8 +14,16 @@
         "alt": "Busy afternoon around the cave hotel in Aglou"
       },
       {
-        "src": "/images/aglou2-800x534.webp",
+        "src": "/images/aglou2-1200x960.webp",
         "alt": "Sunset flight over the cliff of Aglou"
+      },
+      {
+        "src": "/images/aglou3-1400x900.webp",
+        "alt": "Flying the cliffs of Aglou"
+      },
+      {
+        "src": "/images/aglou4-1400x942.webp",
+        "alt": "Aglou higher take off from the cliff"
       }
     ]
   },
@@ -31,6 +39,18 @@
     "images": [
       {
         "src": "/images/aguergour-2100x1400.webp",
+        "alt": "View of Aguergour take-off"
+      },
+      {
+        "src": "/images/aguergour2-1400x933.webp",
+        "alt": "Plateau du Kik behind Aguergour take-off"
+      },
+      {
+        "src": "/images/aguergour3-1400x933.webp",
+        "alt": "Northern ridge of Aguergour"
+      },
+      {
+        "src": "/images/aguergour4-900x1350.webp",
         "alt": "View of Aguergour take-off"
       }
     ]
@@ -50,6 +70,14 @@
       {
         "src": "/images/aitourir_hero-1598x910.webp",
         "alt": "View from the take-off of Ait Ourir"
+      },
+      {
+        "src": "/images/aitourir2-1400x933.webp",
+        "alt": "View of the take-off of Ait Ourir"
+      },
+      {
+        "src": "/images/aitourir3-1400x874.webp",
+        "alt": "View of the Ait Ourir valley"
       }
     ]
   },
@@ -150,6 +178,14 @@
       {
         "src": "/images/niddaigle-1280x853.webp",
         "alt": "View of the take-off and ridge around Nid d'Aigle"
+      },
+      {
+        "src": "/images/niddaigle2-1500x900.webp",
+        "alt": "Nid d'Aigle ridge"
+      },
+      {
+        "src": "/images/niddaigle3-1400x933.webp",
+        "alt": "Nid d'Aigle take-off"
       }
     ]
   },
