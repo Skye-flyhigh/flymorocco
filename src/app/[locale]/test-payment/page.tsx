@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { createBookingCheckout } from '@/lib/payments/bookingPayments';
-import { BookingFormData } from '@/lib/validation/BookFormData';
+import { testPaymentAction } from './testPaymentAction';
 
 export default function TestPaymentPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,31 +8,9 @@ export default function TestPaymentPage() {
   const handleTestPayment = async () => {
     setIsLoading(true);
     
-    // Create minimal test booking data
-    const testBookingData: BookingFormData = {
-      name: "Test Customer",
-      email: "test@flymorocco.info", // Use your email for testing
-      tourType: "coastal",
-      start: "2025-09-15",
-      participants: [],
-      soloOccupancy: false,
-      isPilot: false,
-      participantCount: 1
-    };
-
     try {
-      const result = await createBookingCheckout({
-        bookingData: testBookingData,
-        totalPeople: 1,
-        soloCount: 0,
-        basePrice: 1, // £1 test
-        soloPrice: 0,
-        baseTotal: 100, // £1 in pence
-        soloTotal: 0,
-        grandTotal: 100, // £1 in pence
-        currency: 'GBP'
-      });
-
+      const result = await testPaymentAction();
+      
       if (result.success && result.checkoutUrl) {
         window.location.href = result.checkoutUrl;
       } else {
