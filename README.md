@@ -52,6 +52,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - [pdf-lib](https://www.npmjs.com/package/pdf-lib), advanced pdf generation 📝
 - [sendGrid](https://www.npmjs.com/package/@sendgrid/mail), to send the advanced pdfs
 - [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax), smooth
+- [stripe](https://stripe.com/docs) for payment processing
 
 ---
 

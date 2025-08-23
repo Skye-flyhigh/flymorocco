@@ -23,9 +23,9 @@ export async function testPaymentAction() {
       soloCount: 0,
       basePrice: 1, // £1 test
       soloPrice: 0,
-      baseTotal: 100, // £1 in pence
+      baseTotal: 1, // £1 in pence
       soloTotal: 0,
-      grandTotal: 100, // £1 in pence
+      grandTotal: 1, // £1 in pence
       currency: 'GBP'
     });
 
