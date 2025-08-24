@@ -5,9 +5,7 @@
     "lat": 29.845,
     "lon": -9.804,
     "launch_altitude": 40,
-    "windDirections": [
-      "NW"
-    ],
+    "windDirections": ["NW"],
     "images": [
       {
         "src": "/images/aglou-800x600.webp",
@@ -33,9 +31,7 @@
     "lat": 31.297,
     "lon": -8.065,
     "launch_altitude": 950,
-    "windDirections": [
-      "NW"
-    ],
+    "windDirections": ["NW"],
     "images": [
       {
         "src": "/images/aguergour-2100x1400.webp",
@@ -61,11 +57,7 @@
     "lat": 31.488,
     "lon": -7.716,
     "launch_altitude": 900,
-    "windDirections": [
-      "W",
-      "NW",
-      "N"
-    ],
+    "windDirections": ["W", "NW", "N"],
     "images": [
       {
         "src": "/images/aitourir_hero-1598x910.webp",
@@ -87,10 +79,7 @@
     "lat": 33.34,
     "lon": -4.863,
     "launch_altitude": 2200,
-    "windDirections": [
-      "WNW",
-      "NNW"
-    ],
+    "windDirections": ["WNW", "NNW"],
     "images": [
       {
         "src": "/images/guigou-800x533.webp",
@@ -108,10 +97,7 @@
     "lat": 30.829,
     "lon": -9.799,
     "launch_altitude": 300,
-    "windDirections": [
-      "W",
-      "SW"
-    ],
+    "windDirections": ["W", "SW"],
     "images": []
   },
   "legzira": {
@@ -120,10 +106,7 @@
     "lat": 29.439,
     "lon": -10.12,
     "launch_altitude": 250,
-    "windDirections": [
-      "W",
-      "NW"
-    ],
+    "windDirections": ["W", "NW"],
     "images": [
       {
         "src": "/images/legzira-800x600.webp",
@@ -145,9 +128,7 @@
     "lat": 31.213,
     "lon": -8.6,
     "launch_altitude": 1550,
-    "windDirections": [
-      "N"
-    ],
+    "windDirections": ["N"],
     "images": [
       {
         "src": "/images/mzouda-1280x1024.webp",
@@ -169,11 +150,7 @@
     "lat": 29.701,
     "lon": -9.93,
     "launch_altitude": 250,
-    "windDirections": [
-      "WNW",
-      "NW",
-      "NNW"
-    ],
+    "windDirections": ["WNW", "NW", "NNW"],
     "images": [
       {
         "src": "/images/niddaigle-1280x853.webp",
@@ -195,11 +172,7 @@
     "lat": 28.953,
     "lon": -10.623,
     "launch_altitude": 30,
-    "windDirections": [
-      "WNW",
-      "NW",
-      "NNW"
-    ],
+    "windDirections": ["WNW", "NW", "NNW"],
     "images": [
       {
         "src": "/images/plage-626x835.webp",
@@ -221,11 +194,7 @@
     "lat": 30.86,
     "lon": -8.377,
     "launch_altitude": 2500,
-    "windDirections": [
-      "S",
-      "SE",
-      "SW"
-    ],
+    "windDirections": ["S", "SE", "SW"],
     "images": [
       {
         "src": "/images/tizi-1984x1323.webp",

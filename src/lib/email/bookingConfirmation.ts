@@ -1,23 +1,11 @@
-import { BookingFormData } from "../validation/BookFormData";
-import { Currency } from "../utils/pricing";
+import { BookingConfirmationData } from "../types/bookingDetails";
 import { createEmailTemplate } from "./templates/emailTemplate";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY!);
 
-export interface BookingConfirmationData {
-  bookingData: BookingFormData;
-  totalPeople: number;
-  soloCount: number;
-  baseTotal: number;
-  soloTotal: number;
-  grandTotal: number;
-  currency: Currency;
-  stripeSessionId: string;
-}
-
 export async function sendBookingConfirmation(data: BookingConfirmationData) {
-  const { bookingData, totalPeople, grandTotal, currency } = data;
+  const { bookingData, bookingPayment, tourReference, totalPeople } = data;
 
   // Create email content
   const content = `
@@ -26,11 +14,13 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
     <div style="background: #e8f5e8; border-radius: 6px; padding: 20px; margin: 20px 0;">
       <h3 style="color: #2c5530; margin: 0 0 15px 0;">📅 Your Booking Details</h3>
       <p style="margin: 0 0 10px 0;"><strong>Tour:</strong> ${bookingData.tourType.charAt(0).toUpperCase() + bookingData.tourType.slice(1)} Week</p>
+      <p style="margin: 0 0 10px 0;"><strong>Tour Reference:</strong> ${tourReference}</p>
       <p style="margin: 0 0 10px 0;"><strong>Start Date:</strong> ${new Date(bookingData.start).toLocaleDateString()}</p>
       <p style="margin: 0 0 10px 0;"><strong>Participants:</strong> ${totalPeople} person${totalPeople > 1 ? "s" : ""}</p>
       <p style="margin: 0 0 10px 0;"><strong>Main Contact:</strong> ${bookingData.name}</p>
-      <p style="margin: 0;"><strong>Total Paid:</strong> ${currency} ${grandTotal.toLocaleString()}</p>
-    </div>
+      <p style="margin: 0;"><strong>Total Paid:</strong> ${bookingPayment.currency} ${bookingPayment.paymentAmount.toLocaleString()}</p>
+      <p style="margin: 0;"><strong>Payment reference:</strong> ${bookingPayment.stripeSessionId}</p>
+      </div>
     
     ${
       bookingData.participants.length > 0
@@ -81,7 +71,7 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
       from: "Flymorocco <noreply@flymorocco.info>",
       replyTo: "Flymorocco <contact@flymorocco.info>",
       to: [bookingData.email],
-      subject: `Booking Confirmed: ${bookingData.tourType.charAt(0).toUpperCase() + bookingData.tourType.slice(1)} Tour - ${new Date(bookingData.start).toLocaleDateString()}`,
+      subject: `Booking Confirmed: ${tourReference} ${bookingData.tourType.charAt(0).toUpperCase() + bookingData.tourType.slice(1)} Tour - ${new Date(bookingData.start).toLocaleDateString()}`,
       html: htmlEmail,
     });
 
@@ -102,8 +92,7 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
 }
 
 export async function sendBookingNotification(data: BookingConfirmationData) {
-  const { bookingData, totalPeople, grandTotal, currency, stripeSessionId } =
-    data;
+  const { bookingData, totalPeople, bookingPayment, tourReference } = data;
 
   // Create internal notification content
   const content = `
@@ -112,10 +101,11 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
     <div style="border: 1px solid #ddd; border-radius: 6px; padding: 20px; margin: 20px 0;">
       <h3 style="margin: 0 0 15px 0;">📊 Booking Summary</h3>
       <p style="margin: 0 0 10px 0;"><strong>Tour:</strong> ${bookingData.tourType.charAt(0).toUpperCase() + bookingData.tourType.slice(1)} Week</p>
+      <p style="margin: 0 0 10px 0;"><strong>Tour Reference:</strong> ${tourReference}</p>
       <p style="margin: 0 0 10px 0;"><strong>Start Date:</strong> ${new Date(bookingData.start).toLocaleDateString()}</p>
       <p style="margin: 0 0 10px 0;"><strong>Participants:</strong> ${totalPeople} person${totalPeople > 1 ? "s" : ""}</p>
-      <p style="margin: 0 0 10px 0;"><strong>Revenue:</strong> ${currency} ${grandTotal.toLocaleString()}</p>
-      <p style="margin: 0;"><strong>Stripe Session:</strong> ${stripeSessionId}</p>
+      <p style="margin: 0 0 10px 0;"><strong>Revenue:</strong> ${bookingPayment.currency} ${bookingPayment.paymentAmount.toLocaleString()}</p>
+      <p style="margin: 0;"><strong>Stripe Session:</strong> ${bookingPayment.stripeSessionId}</p>
     </div>
     
     <div style="background: #e3f2fd; border-radius: 6px; padding: 20px; margin: 20px 0;">
@@ -172,7 +162,7 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
       from: "Flymorocco Bookings <bookings@flymorocco.info>",
       replyTo: "contact@flymorocco.info",
       to: ["contact@flymorocco.info"],
-      subject: `🎯 New Booking: ${bookingData.tourType} - ${totalPeople} pax - ${currency}${grandTotal}`,
+      subject: `🎯 New Booking: ${tourReference} ${bookingData.tourType} - ${totalPeople} pax - ${bookingPayment.currency}${bookingPayment.paymentAmount}`,
       html: htmlEmail,
     });
 

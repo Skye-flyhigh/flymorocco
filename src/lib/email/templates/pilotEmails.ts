@@ -1,13 +1,5 @@
+import { PilotEmailData } from "@/lib/types/bookingDetails";
 import { createEmailTemplate } from "./emailTemplate";
-import { TourSlug } from "../../types/tour";
-
-export interface PilotEmailData {
-  pilotName: string;
-  tourType: TourSlug;
-  tourStart: string;
-  mainContactName: string;
-  mainContactEmail: string;
-}
 
 export function createPilotVerificationEmail(data: PilotEmailData): string {
   const content = `
@@ -32,6 +24,7 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
     <div style="background: #e8f5e8; border-radius: 6px; padding: 20px; margin: 20px 0;">
       <h3 style="color: #2c5530; margin: 0 0 15px 0;">✈️ Your Tour Details</h3>
       <p style="margin: 0 0 10px 0;"><strong>Tour Type:</strong> ${data.tourType.charAt(0).toUpperCase() + data.tourType.slice(1)} Week</p>
+      <p style="margin: 0 0 10px 0;"><strong>Tour Reference:</strong> ${data.tourReference}</p>
       <p style="margin: 0 0 10px 0;"><strong>Start and End Dates:</strong> ${new Date(data.tourStart).toLocaleDateString()} to ${new Date(new Date(data.tourStart).getTime() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString()}</p>
       <p style="margin: 0 0 10px 0;"><strong>Main Contact:</strong> ${data.mainContactName}</p>
       <p style="margin: 0;"><strong>Contact Email:</strong> ${data.mainContactEmail}</p>
@@ -41,9 +34,9 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
     
     <p style="margin-top: 25px;">
       <strong>Questions?</strong> Simply reply to this email or contact us directly.<br>
-      <strong>Urgent matters:</strong> WhatsApp +212 636 04 17 61
+      <strong>Urgent matters:</strong> WhatsApp <a href=\"https://wa.me/+212636041761\">+212 636 04 17 61</a>
     </p>
-  `;
+  `; //TODO: Double check the whatsapp link validity and refactor it in the rest of the email templates
 
   return createEmailTemplate({
     recipientName: data.pilotName,
@@ -54,14 +47,14 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
 
 export function createPilotWelcomeEmail(data: PilotEmailData): string {
   const content = `
-    <p>Welcome to your <strong>${data.tourType}</strong> paragliding adventure with FlyMorocco!</p>
+    <p>Welcome to your <strong>${data.tourType}</strong> paragliding adventure, reference <strong>${data.tourReference}</strong> with FlyMorocco!</p>
     
     <p>As a fellow pilot, you know the thrill of soaring above stunning landscapes. Get ready to experience Morocco's most spectacular flying sites with our expert local guides.</p>
     
     <div style="background: #e3f2fd; border-radius: 6px; padding: 20px; margin: 20px 0;">
       <h3 style="color: #1565c0; margin: 0 0 15px 0;">🏔️ What Awaits You</h3>
       <ul style="color: #1565c0; margin: 0; padding-left: 20px;">
-        <li>Flying over the majestic Atlas Mountains</li>
+        <li>Flying holidays in a warmer country</li>
         <li>Coastal thermals along the Atlantic</li>
         <li>Delicious Moroccan food</li>
         <li>Traditional Berber villages from above</li>

@@ -3,13 +3,16 @@ import Stripe from "stripe";
 import {
   sendBookingConfirmation,
   sendBookingNotification,
-  type BookingConfirmationData,
 } from "@/lib/email/bookingConfirmation";
 import { emailPilotsBookingVerification } from "@/lib/email/emailPilotsBookingVerification";
 import { BookingFormData } from "@/lib/validation/BookFormData";
 import { Currency } from "@/lib/utils/pricing";
-import { PaymentInfo } from "@/lib/types/bookingDetails";
+import {
+  BookingConfirmationData,
+  PaymentInfo,
+} from "@/lib/types/bookingDetails";
 import { saveBookingDetails } from "@/lib/services/bookingService";
+import { generateBookingRef } from "@/lib/services/generateBookingRef";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-07-30.basil",
@@ -58,21 +61,23 @@ export async function POST(request: NextRequest) {
           (p: { soloOccupancy: boolean }) => p.soloOccupancy,
         ).length + (bookingData.soloOccupancy ? 1 : 0) || 0;
 
+      // Generate a tourReference
+      const tourReference = generateBookingRef(
+        new Date(paymentInfo.paymentTimestamp),
+      );
+
       // Use professional email templates for booking confirmation and notification
-      const emailData: BookingConfirmationData = {
+      const booking: BookingConfirmationData = {
         bookingData: bookingData as BookingFormData,
+        bookingPayment: paymentInfo as PaymentInfo,
+        tourReference: tourReference,
         totalPeople: participantCount,
         soloCount,
-        baseTotal: paymentInfo.baseTotal,
-        soloTotal: paymentInfo.soloTotal,
-        grandTotal: paymentInfo.paymentAmount as number,
-        currency: paymentInfo.currency as Currency,
-        stripeSessionId: session.id,
       };
 
       // Send professional booking confirmation to customer
       console.log("Sending booking confirmation to customer...");
-      const confirmationResult = await sendBookingConfirmation(emailData);
+      const confirmationResult = await sendBookingConfirmation(booking);
       if (!confirmationResult.success) {
         console.error(
           "Failed to send booking confirmation:",
@@ -82,7 +87,7 @@ export async function POST(request: NextRequest) {
 
       // Send professional booking notification to business
       console.log("Sending booking notification to business...");
-      const notificationResult = await sendBookingNotification(emailData);
+      const notificationResult = await sendBookingNotification(booking);
       if (!notificationResult.success) {
         console.error(
           "Failed to send booking notification:",
@@ -93,7 +98,7 @@ export async function POST(request: NextRequest) {
       // Send pilot verification emails using professional template
       console.log("Checking for pilots requiring verification...");
       const pilotEmailResult = await emailPilotsBookingVerification(
-        bookingData as BookingFormData,
+        booking,
         "verification",
       );
       if (pilotEmailResult.emailsSent > 0) {
@@ -116,7 +121,7 @@ export async function POST(request: NextRequest) {
 
       // Redirect to Stripe checkout - emails will be sent after payment completion via webhook
 
-      await saveBookingDetails({ bookingData, paymentInfo });
+      await saveBookingDetails(booking);
     } catch (error) {
       console.error("Error processing checkout session:", error);
     }

@@ -1,3 +1,7 @@
+import { Currency } from "../utils/pricing";
+import { BookingFormData } from "../validation/BookFormData";
+import { TourSlug } from "./tour";
+
 export interface ParticipantDetails {
   name: string;
   email: string;
@@ -47,9 +51,26 @@ export interface BookingDetails {
 
 export interface PaymentInfo {
   stripeSessionId: string;
-  paymentAmount: number;
   soloTotal: number;
   baseTotal: number;
-  currency: string;
+  paymentAmount: number;
+  currency: Currency;
   paymentTimestamp: string;
+}
+
+export interface BookingConfirmationData {
+  bookingData: BookingFormData;
+  bookingPayment: PaymentInfo;
+  tourReference: string;
+  totalPeople: number;
+  soloCount: number;
+}
+
+export interface PilotEmailData {
+  pilotName: string;
+  tourType: TourSlug;
+  tourStart: string;
+  mainContactName: string;
+  mainContactEmail: string;
+  tourReference: string;
 }

@@ -1,19 +1,39 @@
 import fs from "fs";
-import { BookingFormData, ParticipantData } from "../validation/BookFormData";
+import path from "path";
+import { ParticipantData } from "../validation/BookFormData";
 import {
+  BookingConfirmationData,
   BookingDetails,
   ParticipantBookingDetails,
-  PaymentInfo,
 } from "../types/bookingDetails";
+import { saveBookingToGoogleSheets } from "./googleSheetsService";
 
-export async function saveBookingDetails({
-  bookingData,
-  paymentInfo,
-}: {
-  bookingData: BookingFormData;
-  paymentInfo: PaymentInfo;
-}) {
-  const bookingDetailsJSONPath = "@/data/bookingDetails.json";
+export async function saveBookingDetails(booking: BookingConfirmationData) {
+  // Try Google Sheets first, fallback to JSON if it fails
+  try {
+    const sheetsResult = await saveBookingToGoogleSheets(booking);
+    if (sheetsResult.success) {
+      console.log(
+        `Booking ${booking.tourReference} saved to Google Sheets successfully`,
+      );
+      return sheetsResult;
+    } else {
+      console.warn("Google Sheets save failed, falling back to JSON file");
+    }
+  } catch (error) {
+    console.warn(
+      "Google Sheets integration error, using JSON fallback:",
+      error,
+    );
+  }
+
+  // JSON fallback (original code)
+  const bookingDetailsJSONPath = path.join(
+    process.cwd(),
+    "src",
+    "data",
+    "bookingDetails.json",
+  );
 
   let existingBookingDetails: BookingDetails = {};
 
@@ -29,7 +49,7 @@ export async function saveBookingDetails({
     console.error("Failed to read booking details files:", error);
   }
 
-  const tourStartDate = bookingData.start;
+  const tourStartDate = booking.bookingData.start;
   const tourKey =
     Object.keys(existingBookingDetails).find((key) => key === tourStartDate) ??
     tourStartDate;
@@ -69,9 +89,9 @@ export async function saveBookingDetails({
       flightDetails: {
         arrivalFlightNumber: "",
         departureFlightNumber: "",
-        arrivalDate: bookingData.start,
+        arrivalDate: booking.bookingData.start,
         arrivalTime: "",
-        departureDate: new Date(bookingData.start).toDateString(),
+        departureDate: new Date(booking.bookingData.start).toDateString(),
         departureTime: "",
       },
     };
@@ -95,9 +115,9 @@ export async function saveBookingDetails({
 
   // Add participant details
   let participants: ParticipantBookingDetails = {};
-  if (bookingData.participants.length > 0) {
+  if (booking.bookingData.participants.length > 0) {
     participants =
-      bookingData.participants?.reduce(
+      booking.bookingData.participants?.reduce(
         (acc: ParticipantBookingDetails, participant: ParticipantData) => {
           acc[participant.name] = requiredInfo({
             name: participant.name,
@@ -114,15 +134,15 @@ export async function saveBookingDetails({
   // Add booker details
   const bookerDetails = {
     ...requiredInfo({
-      name: bookingData.name,
-      email: bookingData.email,
-      isPilot: bookingData.isPilot,
-      soloOccupancy: bookingData.soloOccupancy,
+      name: booking.bookingData.name,
+      email: booking.bookingData.email,
+      isPilot: booking.bookingData.isPilot,
+      soloOccupancy: booking.bookingData.soloOccupancy,
     }),
-    paymentInfo: paymentInfo,
+    paymentInfo: booking.bookingPayment,
   };
 
-  participants[bookingData.name] = bookerDetails;
+  participants[booking.bookingData.name] = bookerDetails;
 
   if (tourKey) {
     // If tour data exists, merge with new participants

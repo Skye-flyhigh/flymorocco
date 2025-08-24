@@ -30,6 +30,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - 📧 **Professional email pipeline** (confirmations, notifications, verifications)
 - 🎯 **Marketing-optimized emails** with clickable tour banners
 - 📋 **PDF document generation** for CAA authorization forms
+- 🧑‍💻 **Google Spreadsheet integration** for booking management
 
 ### Technical Excellence
 

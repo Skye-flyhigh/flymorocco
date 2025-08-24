@@ -1,11 +1,11 @@
 "use server";
 
 import { Resend } from "resend";
-import { BookingFormData } from "../validation/BookFormData";
 import {
   createPilotVerificationEmail,
   createPilotWelcomeEmail,
 } from "./templates/pilotEmails";
+import { BookingConfirmationData } from "../types/bookingDetails";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -16,11 +16,13 @@ export interface PilotEmailResult {
 }
 
 export async function emailPilotsBookingVerification(
-  bookingData: BookingFormData,
+  booking: BookingConfirmationData,
   emailType: "verification" | "welcome" = "verification",
 ): Promise<PilotEmailResult> {
   // Collect all pilots (participants + main contact if pilot)
   const pilots = [];
+
+  const { bookingData, tourReference } = booking;
 
   // Add pilot participants
   bookingData.participants.forEach((participant) => {
@@ -52,31 +54,27 @@ export async function emailPilotsBookingVerification(
     // Send emails to all pilots
     await Promise.all(
       pilots.map(async (pilot) => {
+        const emailData = {
+          pilotName: pilot.name,
+          tourType: bookingData.tourType,
+          tourStart: bookingData.start,
+          mainContactName: bookingData.name,
+          mainContactEmail: bookingData.email,
+          tourReference,
+        };
         try {
           const emailTemplate =
             emailType === "verification"
-              ? createPilotVerificationEmail({
-                  pilotName: pilot.name,
-                  tourType: bookingData.tourType,
-                  tourStart: bookingData.start,
-                  mainContactName: bookingData.name,
-                  mainContactEmail: bookingData.email,
-                })
-              : createPilotWelcomeEmail({
-                  pilotName: pilot.name,
-                  tourType: bookingData.tourType,
-                  tourStart: bookingData.start,
-                  mainContactName: bookingData.name,
-                  mainContactEmail: bookingData.email,
-                });
+              ? createPilotVerificationEmail(emailData)
+              : createPilotWelcomeEmail(emailData);
 
           await resend.emails.send({
             from: "FlyMorocco <noreply@flymorocco.info>",
             to: pilot.email,
             subject:
               emailType === "verification"
-                ? `Pilot Information Request - ${bookingData.tourType} Tour`
-                : `Welcome Pilot! Your ${bookingData.tourType} Adventure Awaits`,
+                ? `Pilot Information Request - ${bookingData.tourType} Tour - Ref ${tourReference}`
+                : `Welcome Pilot! Your ${bookingData.tourType} Adventure Awaits - Ref ${tourReference}`,
             html: emailTemplate,
           });
 
