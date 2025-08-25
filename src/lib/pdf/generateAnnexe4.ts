@@ -411,8 +411,7 @@ export default async function generateAnnexe4(
   const pdfBytes = await pdfDoc.save();
   // Output to a file in the tmp directory for testing
   const fileName = `annexe4-filled-${Date.now()}.pdf`;
-  const filePath = path.join(process.cwd(), "tmp", fileName);
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const filePath = path.join("/tmp", fileName);
   fs.writeFileSync(filePath, pdfBytes);
 
   console.log("✅ Annexe 4 PDF filled:", filePath);

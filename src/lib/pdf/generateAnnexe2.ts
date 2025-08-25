@@ -33,8 +33,7 @@ export default async function generateAnnexe2(
 
   const fileName = `annexe2-filled-${Date.now()}.pdf`;
   const pdfBytes = await pdfDoc.save();
-  const filePath = path.join(process.cwd(), "tmp", fileName);
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  const filePath = path.join("/tmp", fileName);
   fs.writeFileSync(filePath, pdfBytes);
 
   console.log("✅ Annexe 2 PDF filled:", filePath);

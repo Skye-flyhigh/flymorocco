@@ -6,9 +6,24 @@ import {
 
 // Initialize Google Sheets client
 function getGoogleSheetsClient() {
-  const credentials = JSON.parse(
-    process.env.GOOGLE_SERVICE_ACCOUNT_KEY || "{}",
-  );
+  const serviceAccountKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
+  if (!serviceAccountKey) {
+    throw new Error("GOOGLE_SERVICE_ACCOUNT_KEY environment variable not set");
+  }
+
+  let credentials;
+  try {
+    credentials = JSON.parse(serviceAccountKey);
+  } catch (error) {
+    console.error("Failed to parse GOOGLE_SERVICE_ACCOUNT_KEY:", error);
+    throw new Error(
+      "Invalid GOOGLE_SERVICE_ACCOUNT_KEY format - must be valid JSON",
+    );
+  }
+
+  if (!credentials.client_email) {
+    throw new Error("Service account key missing client_email field");
+  }
 
   const auth = new google.auth.GoogleAuth({
     credentials,
