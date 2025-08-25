@@ -15,11 +15,13 @@ export default async function generateAnnexe2(
   const fullName = `${firstName} ${lastName}`;
   const todayStr = new Date().toLocaleDateString("fr-FR");
 
-  const templatePath = path.join(
-    process.cwd(),
-    "public/pdf/Annexe2_Template.pdf",
-  );
-  const formPdfBytes = fs.readFileSync(templatePath);
+  // Fetch template from GitHub raw URL instead of filesystem
+  const templateUrl = `https://raw.githubusercontent.com/Skye-flyhigh/flymorocco/main/public/pdf/Annexe2_Template.pdf`;
+  const response = await fetch(templateUrl);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch PDF template: ${response.statusText}`);
+  }
+  const formPdfBytes = new Uint8Array(await response.arrayBuffer());
 
   const pdfDoc = await PDFDocument.load(formPdfBytes);
   const form = pdfDoc.getForm();
