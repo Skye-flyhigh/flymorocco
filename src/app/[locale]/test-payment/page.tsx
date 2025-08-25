@@ -12,7 +12,9 @@ export default function TestPaymentPage() {
       const result = await testBookingSaveAction();
 
       if (result.success) {
-        alert(`Success! Saved ${result.rowsAdded} rows to Google Sheets. Booking ref: ${result.bookingRef}`);
+        alert(
+          `Success! Saved ${result.rowsAdded} rows to Google Sheets. Booking ref: ${result.bookingRef}`,
+        );
       } else {
         alert("Booking save failed: " + result.error);
       }
@@ -57,7 +59,8 @@ export default function TestPaymentPage() {
         </button>
 
         <p className="text-xs text-gray-500 mt-4">
-          This will test Google Sheets integration with mock booking data - no charges!
+          This will test Google Sheets integration with mock booking data - no
+          charges!
         </p>
       </div>
     </div>

@@ -151,7 +151,6 @@ export default function BookingForm(tour: TourSchedule) {
     await executeRecaptcha();
   };
 
-  // FIXME: Handle redirect to Stripe checkout when server action returns checkout URL
   React.useEffect(() => {
     if (state.checkoutUrl) {
       window.location.href = state.checkoutUrl;

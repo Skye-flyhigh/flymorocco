@@ -95,11 +95,7 @@ export default function Annexe2and4Form() {
 
   const { executeRecaptcha } = useRecaptcha(
     createCustomRecaptchaConfig("annexe2and4_form", formRef, (formData) => {
-      const data: { [key: string]: string } = {};
-      formData.forEach((value, key) => {
-        data[key] = value.toString();
-      });
-      handleSubmit(data);
+      handleSubmit(formData);
     }),
   );
 
@@ -117,10 +113,12 @@ export default function Annexe2and4Form() {
     [],
   );
 
-  const startDate = currState.formData["startDate"];
-  const endDate = currState.formData["endDate"];
-  const insuranceValidity = currState.formData["insuranceValidity"];
   useEffect(() => {
+    const startDate = currState?.formData?.["trip.startDate"] ?? "";
+    const endDate = currState?.formData?.["trip.endDate"] ?? "";
+    const insuranceValidity =
+      currState?.formData?.["trip.insuranceValidity"] ?? "";
+
     if (
       startDate &&
       endDate &&
@@ -139,7 +137,7 @@ export default function Annexe2and4Form() {
         return newErrors;
       });
     }
-  }, [t, startDate, endDate, insuranceValidity]);
+  }, [t, currState?.formData]);
 
   const inputClassName = "input mb-4";
   const inputErrorStyling = (field: string) =>
@@ -231,7 +229,11 @@ export default function Annexe2and4Form() {
                           name={`${fieldsetKey}.${fieldKey}`}
                           className={inputErrorStyling(fieldKey)}
                           placeholder={t(`form.${fieldKey}.placeholder`)}
-                          defaultValue={currState.formData[fieldKey]}
+                          defaultValue={
+                            (currState?.formData?.[
+                              `${fieldsetKey}.${fieldKey}`
+                            ] as string) ?? ""
+                          }
                           aria-describedby={`${fieldKey}-error`}
                           required
                         />
@@ -245,8 +247,12 @@ export default function Annexe2and4Form() {
                             fieldKey === "insuranceValidity" ||
                             fieldKey === "startDate" ||
                             fieldKey === "endDate"
-                              ? currState.formData[fieldKey]
-                              : currState.formData[fieldKey]
+                              ? ((currState?.formData?.[
+                                  `${fieldsetKey}.${fieldKey}`
+                                ] as string) ?? "")
+                              : ((currState?.formData?.[
+                                  `${fieldsetKey}.${fieldKey}`
+                                ] as string) ?? "")
                           }
                           aria-invalid={inputErrors[fieldKey] !== ""}
                           aria-describedby={`${fieldKey}-error`}

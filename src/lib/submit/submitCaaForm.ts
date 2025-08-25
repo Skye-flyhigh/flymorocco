@@ -4,7 +4,6 @@ import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
 import generateAnnexe4 from "../pdf/generateAnnexe4";
 import { escapeHTML } from "../security/escapeHTML";
-import { verifyRecaptcha } from "../security/verifyRecaptcha";
 import {
   FormDataMapSchema,
   FullFormSchemaType,
@@ -13,14 +12,14 @@ import {
 import fs from "fs/promises";
 
 export type CaaFormState = {
-  formData: { [key: string]: string };
+  formData: Record<string, string | Date>;
   error: string | null;
   success: boolean;
 };
 
 export async function submitCaaForm(
   prevState: CaaFormState,
-  formData: { [key: string]: string },
+  formData: FormData,
 ): Promise<CaaFormState> {
   //Check if the data is sent through
   if (!formData) {
@@ -33,31 +32,16 @@ export async function submitCaaForm(
       formData,
     };
   }
-
-  // Verify reCAPTCHA
-  const recaptchaToken = formData["recaptcha-token"];
-  const recaptchaResult = await verifyRecaptcha(recaptchaToken);
-
-  if (!recaptchaResult.success) {
-    console.error("❌ reCAPTCHA verification failed");
-    return {
-      ...prevState,
-      error: "form.submitError.recaptcha",
-      success: false,
-      formData,
-    };
-  }
-
   console.log("📦 Raw entries formData:", formData);
 
   const baseData = {
-    formType: formData.formType as "annexe2" | "annexe2and4",
+    formType: formData.get("formType") as "annexe2" | "annexe2and4",
     identification: {
-      lastName: escapeHTML(formData["identification.lastName"]),
-      firstName: escapeHTML(formData["identification.firstName"]),
+      lastName: escapeHTML(formData.get("identification.lastName") as string),
+      firstName: escapeHTML(formData.get("identification.firstName") as string),
     },
     contact: {
-      contactEmail: escapeHTML(formData["contact.contactEmail"]),
+      contactEmail: escapeHTML(formData.get("contact.contactEmail") as string),
     },
   };
 
@@ -69,45 +53,67 @@ export async function submitCaaForm(
     return participantArr;
   };
   let participants: ParticipantType[] = [];
-  if (formData["participants"]) {
+  if (formData.get("participants")) {
     participants = checkDateFormatParticipants(
-      JSON.parse(formData["participants"]),
+      JSON.parse(formData.get("participants") as string),
     );
   }
 
   const fullData =
-    formData.formType === "annexe2and4"
+    formData.get("formType") === "annexe2and4"
       ? {
           ...baseData,
           identification: {
             ...baseData.identification,
-            nationality: escapeHTML(formData["identification.nationality"]),
+            nationality: escapeHTML(
+              formData.get("identification.nationality") as string,
+            ),
             passportNumber: escapeHTML(
-              formData["identification.passportNumber"],
+              formData.get("identification.passportNumber") as string,
             ),
           },
           contact: {
             ...baseData.contact,
-            contactPhone: Number(formData["contact.contactPhone"]),
-            address: escapeHTML(formData["contact.address"]),
+            contactPhone: Number(formData.get("contact.contactPhone")),
+            address: escapeHTML(formData.get("contact.address") as string),
           },
           trip: {
-            startDate: new Date(formData["trip.startDate"]),
-            endDate: new Date(formData["trip.endDate"]),
-            insuranceValidity: new Date(formData["trip.insuranceValidity"]),
+            startDate: new Date(formData.get("trip.startDate") as string),
+            endDate: new Date(formData.get("trip.endDate") as string),
+            insuranceValidity: new Date(
+              formData.get("trip.insuranceValidity") as string,
+            ),
           },
           glider: {
             gliderManufacturer: escapeHTML(
-              formData["glider.gliderManufacturer"],
+              formData.get("glider.gliderManufacturer") as string,
             ),
-            gliderModel: escapeHTML(formData["glider.gliderModel"]),
-            gliderSize: escapeHTML(formData["glider.gliderSize"]),
-            gliderColors: escapeHTML(formData["glider.gliderColors"]),
+            gliderModel: escapeHTML(
+              formData.get("glider.gliderModel") as string,
+            ),
+            gliderSize: escapeHTML(formData.get("glider.gliderSize") as string),
+            gliderColors: escapeHTML(
+              formData.get("glider.gliderColors") as string,
+            ),
           },
-          siteSelection: JSON.parse(formData["siteSelection"]),
+          siteSelection: JSON.parse(formData.get("siteSelection") as string),
           participants,
         }
       : baseData;
+
+  // Verify reCAPTCHA
+  const recaptchaToken = formData.get("recaptcha-token");
+  const recaptchaResult = await recaptchaToken;
+
+  if (!recaptchaResult) {
+    console.error("❌ reCAPTCHA verification failed");
+    return {
+      ...prevState,
+      error: "form.submitError.recaptcha",
+      success: false,
+      formData: prevState.formData,
+    };
+  }
 
   console.log("Formatted Data before Zod parsing:", fullData);
 
@@ -127,7 +133,7 @@ export async function submitCaaForm(
     return {
       ...prevState,
       error: "Form validation failed:" + Object.keys(errorMap).join(" "),
-      formData: formData,
+      formData: prevState.formData,
       success: false,
     };
   }

@@ -190,6 +190,16 @@ export class GoogleSheetsBookingService {
         rows.push(createParticipantRow(participantDetails));
       });
 
+      const writeResult = await this.writeDataToGoogleSheets(
+        "Sheet1!A:AH",
+        rows,
+      );
+      if (!writeResult.success) {
+        throw new Error(
+          `Failed to write to Google Sheets: ${writeResult.error}`,
+        );
+      }
+
       console.log(
         `Added rows to Google Sheets for booking ${booking.tourReference}`,
       );
@@ -200,7 +210,32 @@ export class GoogleSheetsBookingService {
     }
   }
 
-  // Add these methods inside the GoogleSheetsBookingService class
+  async writeDataToGoogleSheets(range: string, rows: unknown[][]) {
+    try {
+      // Single batch append instead of individual Promise.all chaos
+      const response = await this.sheets.spreadsheets.values.append({
+        spreadsheetId: this.spreadsheetId,
+        range: range,
+        valueInputOption: "USER_ENTERED",
+        requestBody: {
+          values: rows, // All rows in one batch operation
+        },
+        includeValuesInResponse: true, // Boolean, not row data
+      });
+
+      console.log(
+        "Successfully wrote to Google Sheets:",
+        response.data.updates,
+      );
+      return {
+        success: true,
+        rowsAdded: response.data.updates?.updatedRows || rows.length,
+      };
+    } catch (error) {
+      console.error("Failed to write to Google Sheets:", error);
+      return { success: false, error: String(error) };
+    }
+  }
 
   async updateParticipant(
     bookingRef: string,

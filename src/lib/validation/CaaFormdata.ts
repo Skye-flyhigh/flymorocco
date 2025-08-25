@@ -62,6 +62,7 @@ export type FormType = z.infer<typeof FormTypeEnum>;
 export const FormTypeEnum = z.enum(["annexe2", "annexe2and4"]);
 
 export type Annex2Type = z.infer<typeof Annexe2Schema>;
+export type Annex2and4Type = z.infer<typeof FullFormSchema>;
 export type GliderSchemaType = z.infer<typeof GliderDataSchema>;
 export type ParticipantType = z.infer<typeof ParticipantSchema>;
 export type FullFormSchemaType = z.infer<typeof FullFormSchema>;

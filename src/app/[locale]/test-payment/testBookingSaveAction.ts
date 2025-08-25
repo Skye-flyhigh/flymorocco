@@ -25,7 +25,7 @@ export async function testBookingSaveAction() {
         },
         {
           name: "John Passenger",
-          email: "john@example.com", 
+          email: "john@example.com",
           isPilot: false,
           soloOccupancy: false,
         },
@@ -36,7 +36,7 @@ export async function testBookingSaveAction() {
     const testPaymentInfo = {
       stripeSessionId: "test_session_" + Date.now(),
       baseTotal: 200000, // £2000 in pence
-      soloTotal: 50000,  // £500 in pence  
+      soloTotal: 50000, // £500 in pence
       paymentAmount: 250000, // £2500 in pence
       currency: "GBP" as const,
       paymentTimestamp: new Date().toISOString(),

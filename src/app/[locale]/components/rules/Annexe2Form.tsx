@@ -6,7 +6,7 @@ import FormButton from "./FormButton";
 import FormSuccess from "./FormSuccess";
 import FormError from "./FormError";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
-import { createCustomRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
+import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
 
 export default function Annexe2Form() {
   const t = useTranslations("rules");
@@ -29,45 +29,35 @@ export default function Annexe2Form() {
     "contact.contactEmail": "example@provider.com",
   };
 
-  const [currState, handleSubmit, isPending] = useActionState(submitCaaForm, {
+  const [currState, formAction, isPending] = useActionState(submitCaaForm, {
     formData: initFormData,
     success: false,
     error: null,
   });
 
   const { executeRecaptcha } = useRecaptcha(
-    createCustomRecaptchaConfig("annexe2_form", formRef, (formData) => {
-      const data: { [key: string]: string } = {};
-      formData.forEach((value, key) => {
-        data[key] = value.toString();
-      });
-      handleSubmit(data);
-    }),
+    createRecaptchaConfig("annexe2_form", formRef),
   );
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    // Check if reCAPTCHA token already exists to prevent infinite loop
+    const form = e.target as HTMLFormElement;
+    const existingToken = form.querySelector('input[name="recaptcha-token"]');
+    if (existingToken) {
+      return; // Let the form submit naturally (don't prevent default)
+    }
+
+    e.preventDefault();
+    await executeRecaptcha();
+  };
 
   return (
     <section id="annexe-2-form" className="w-screen bg-base-200 flex">
       <form
         ref={formRef}
         id="CAA-form"
-        onSubmit={async (e) => {
-          // Check if reCAPTCHA token already exists to prevent infinite loop
-          const form = e.target as HTMLFormElement;
-          const existingToken = form.querySelector(
-            'input[name="recaptcha-token"]',
-          );
-          if (existingToken) {
-            console.log(
-              "Annexe2 token already exists, allowing form submission",
-            );
-            return; // Let the form submit naturally (don't prevent default)
-          }
-
-          e.preventDefault();
-          console.log("Annexe2 form submit started");
-          await executeRecaptcha();
-          console.log("Annexe2 reCAPTCHA execution completed");
-        }}
+        action={formAction}
+        onSubmit={handleSubmit}
       >
         <h2 className="text-3xl font-semibold title m-4 self-center border-b-base-300">
           {t("annexe2.title")}
@@ -98,7 +88,11 @@ export default function Annexe2Form() {
                   name={`identification.${field}`}
                   className="input"
                   placeholder={t(`form.${field}.placeholder`)}
-                  defaultValue={currState.formData[field] ?? ""}
+                  defaultValue={
+                    (currState?.formData?.[
+                      `identification.${field}`
+                    ] as string) ?? ""
+                  }
                   required
                 />
               </div>
@@ -115,7 +109,9 @@ export default function Annexe2Form() {
               name="contact.contactEmail"
               className="input"
               placeholder={t(`form.contactEmail.placeholder`)}
-              defaultValue={currState.formData.contactEmail ?? ""}
+              defaultValue={
+                (currState?.formData?.["contact.contactEmail"] as string) ?? ""
+              }
               required
             />
           </fieldset>
