@@ -127,6 +127,9 @@ export default async function LocaleLayout({
 
         {/* Stripe.js */}
         <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
+        
+        {/* Google Analytics */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </head>
       <body>
         <NextIntlClientProvider locale={locale}>
@@ -138,7 +141,6 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <CookieConsent />
-            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
           </ParallaxClientWrapper>
         </NextIntlClientProvider>
       </body>
