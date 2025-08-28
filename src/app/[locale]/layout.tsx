@@ -10,6 +10,8 @@ import { getTranslations } from "next-intl/server";
 import Script from "next/script";
 import StructuredData from "./components/StructuredData";
 import AIFriendlyMeta from "./components/AIFriendlyMeta";
+import GoogleAnalytics from "./components/GoogleAnalytics";
+import { siteMeta } from "@/lib/validation/siteMeta";
 
 export async function generateMetadata({
   params,
@@ -19,40 +21,50 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
+  const baseKeywords =
+    locale === "fr"
+      ? [
+          "parapente",
+          "Maroc",
+          "séjour parapente",
+          "Atlas",
+          "côte atlantique",
+          "guide sites",
+          "séjour bien-être",
+          "Agadir",
+          "Marrakech",
+          "Mirleft",
+          "DGAC du Maroc",
+          "Espaces aériens du Maroc",
+          "guides expérimentés",
+        ]
+      : [
+          "paragliding",
+          "Morocco",
+          "paragliding tour",
+          "Atlas Mountains",
+          "Atlantic coast",
+          "site guides",
+          "wellness week",
+          "Agadir",
+          "Marrakech",
+          "Mirleft",
+          "Moroccan CAA",
+          "Moroccan Airspaces",
+          "expert guides",
+        ];
+
+  const paraglidingSites = Object.keys(siteMeta);
+
+  const keywords = [...baseKeywords, ...paraglidingSites];
+
   return {
     title: {
       default: `Flymorocco - ${t("title")}`,
       template: "%s | Flymorocco",
     },
     description: t("description"),
-    keywords:
-      locale === "fr"
-        ? [
-            "parapente",
-            "Maroc",
-            "séjour parapente",
-            "Atlas",
-            "côte atlantique",
-            "guide sites",
-            "séjour bien-être",
-            "Agadir",
-            "Essaouira",
-            "Mirleft",
-            "guides expérimentés",
-          ]
-        : [
-            "paragliding",
-            "Morocco",
-            "paragliding tour",
-            "Atlas Mountains",
-            "Atlantic coast",
-            "site guides",
-            "wellness week",
-            "Agadir",
-            "Essaouira",
-            "Mirleft",
-            "expert guides",
-          ],
+    keywords,
     authors: [{ name: "Skye" }],
     creator: "Skye",
     metadataBase: new URL("https://flymorocco.info"),
@@ -146,6 +158,7 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <CookieConsent />
+            <GoogleAnalytics />
           </ParallaxClientWrapper>
         </NextIntlClientProvider>
       </body>

@@ -5,6 +5,7 @@ import MissingMountain from "../../components/siteGuides/MissingMountain";
 import Hero from "../../components/Hero";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
+import SiteGuideTracker from "../../components/siteGuides/SiteGuideTracker";
 
 export async function generateMetadata({
   params,
@@ -16,6 +17,10 @@ export async function generateMetadata({
   return {
     title: t("name"),
     description: t("description"),
+    keywords:
+      locale === "fr"
+        ? ["parapente", "Maroc", "séjour parapente", t("name")]
+        : ["paragliding", "Morocco", "paragliding tour", t("name")],
     openGraph: {
       title: t("name"),
       description: t("description"),
@@ -43,7 +48,6 @@ export async function generateMetadata({
       languages: {
         en: "https://flymorocco.com/en",
         fr: "https://flymorocco.com/fr",
-        es: "https://flymorocco.com/es",
       },
     },
   };
@@ -69,6 +73,7 @@ export default async function Page({
 
   return (
     <>
+      <SiteGuideTracker siteName={slug} />
       <main className="m-auto flex flex-col">
         <Hero
           title={t(`${slug}.name`)}

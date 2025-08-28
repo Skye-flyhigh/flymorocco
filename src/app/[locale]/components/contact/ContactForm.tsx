@@ -1,11 +1,12 @@
 "use client";
 
-import { useActionState, useRef } from "react";
+import { useActionState, useRef, useEffect } from "react";
 import submitMessage from "@/lib/submit/submitContactForm";
 import { useTranslations } from "next-intl";
 import FormSuccess from "../rules/FormSuccess";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
+import { trackContactForm } from "@/lib/analytics";
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -25,6 +26,13 @@ export default function ContactForm() {
   const { executeRecaptcha } = useRecaptcha(
     createRecaptchaConfig("contact_form", formRef),
   );
+
+  // Track successful form submission
+  useEffect(() => {
+    if (state.success) {
+      trackContactForm("contact");
+    }
+  }, [state.success]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     // Check if reCAPTCHA token already exists to prevent infinite loop

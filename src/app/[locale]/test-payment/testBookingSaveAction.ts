@@ -32,12 +32,12 @@ export async function testBookingSaveAction() {
       ],
     };
 
-    // Create mock payment info
+    // Create mock payment info with realistic tour pricing
     const testPaymentInfo = {
       stripeSessionId: "test_session_" + Date.now(),
-      baseTotal: 200000, // £2000 in pence
-      soloTotal: 50000, // £500 in pence
-      paymentAmount: 250000, // £2500 in pence
+      baseTotal: 45000, // £450 in pence (realistic base tour cost)
+      soloTotal: 10000, // £100 in pence (realistic solo supplement)
+      paymentAmount: 55000, // £550 in pence (total for test booking)
       currency: "GBP" as const,
       paymentTimestamp: new Date().toISOString(),
     };

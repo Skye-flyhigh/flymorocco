@@ -3,6 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
+import { trackBookingEvent } from "@/lib/analytics";
 
 interface BookingDetails {
   sessionId: string;
@@ -33,6 +34,9 @@ export default function BookingSuccessClient() {
         tourStart: "",
         participantCount: 0,
       });
+
+      // Track successful booking completion
+      trackBookingEvent("payment_success", "booking_completed");
     }
 
     setIsLoading(false);

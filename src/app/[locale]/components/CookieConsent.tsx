@@ -2,21 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-
-// Type for Google Analytics gtag function
-interface GtagWindow extends Window {
-  gtag?: (
-    command: "consent",
-    action: "default" | "update",
-    parameters: {
-      ad_user_data?: "granted" | "denied";
-      ad_personalization?: "granted" | "denied";
-      ad_storage?: "granted" | "denied";
-      analytics_storage?: "granted" | "denied";
-      wait_for_update?: number;
-    },
-  ) => void;
-}
+import { updateAnalyticsConsent, checkGoogleAnalytics } from "@/lib/analytics";
 
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
@@ -34,32 +20,21 @@ export default function CookieConsent() {
     localStorage.setItem("cookieConsent", "accepted");
     setShowConsent(false);
 
-    // Access gtag from global window object
-    const gtagWindow = window as GtagWindow;
-    if (typeof window !== "undefined" && gtagWindow.gtag) {
-      gtagWindow.gtag("consent", "update", {
-        ad_user_data: "granted",
-        ad_personalization: "granted",
-        ad_storage: "granted",
-        analytics_storage: "granted",
-      });
-    }
+    // Use enhanced analytics consent function
+    updateAnalyticsConsent(true);
+
+    // Debug check after a brief delay to allow gtag to process
+    setTimeout(() => {
+      checkGoogleAnalytics();
+    }, 1000);
   };
 
   const handleRefuse = () => {
     localStorage.setItem("cookieConsent", "refused");
     setShowConsent(false);
 
-    // Explicitly deny all consent categories
-    const gtagWindow = window as GtagWindow;
-    if (typeof window !== "undefined" && gtagWindow.gtag) {
-      gtagWindow.gtag("consent", "update", {
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-        ad_storage: "denied",
-        analytics_storage: "denied",
-      });
-    }
+    // Use enhanced analytics consent function
+    updateAnalyticsConsent(false);
   };
 
   if (!showConsent) return null;

@@ -3,6 +3,7 @@ import {
   BookingConfirmationData,
   ParticipantDetails,
 } from "../types/bookingDetails";
+import { TourByDate } from "../types/tour";
 
 // Initialize Google Sheets client
 function getGoogleSheetsClient() {
@@ -95,7 +96,7 @@ export class GoogleSheetsBookingService {
           booking.bookingData.start, // Tour start date
           this.tourEndDate(booking.bookingData.start), // Tour end date
           booking.bookingData.tourType, // Tour type
-          participant.soloOccupancy ? "Yes" : "No", // Solo Occupancy
+          participant.soloOccupancy ? "TRUE" : "FALSE", // Solo Occupancy
           participant.dietary || "", // Dietary
           participant.medical || "", // Medical
           participant.emergencyContact.name || "", // Emergency Contact Name
@@ -111,18 +112,20 @@ export class GoogleSheetsBookingService {
           participant.flightDetails.departureDate || "", // Flight Departure Date
           participant.flightDetails.departureTime || "", // Flight Departure time
           participant.paymentInfo?.stripeSessionId || "", // Stripe ID (only booker has this)
-          participant.paymentInfo?.paymentAmount || "", // Payment amount (only booker)
+          participant.paymentInfo?.paymentAmount
+            ? (participant.paymentInfo.paymentAmount / 100).toFixed(2)
+            : "", // Payment amount (convert from pence)
           participant.paymentInfo?.currency || "", // Currency (only booker)
           participant.timestamp, // Timestamp
-          participant.pilotRating !== undefined ? "Yes" : "No", // is Pilot
-          participant.flyingExperience || "NA", // Flying Experience
-          participant.pilotRating ? "Yes" : "NA", // Pilot Rating
-          participant.thirdParty ? "Yes" : "NA", // Third party liability
-          participant.annexe2 ? "Yes" : "NA", // Annex 2
-          participant.gliderManufacturer || "NA", // Glider Manufacturer
-          participant.gliderModel || "NA", // Glider Model
-          participant.gliderSize || "NA", // Glider Size
-          participant.gliderColours || "NA", // Glider Colours
+          participant.pilotRating !== undefined ? "TRUE" : "FALSE", // is Pilot
+          participant.flyingExperience || "FALSE", // Flying Experience
+          participant.pilotRating ? "TRUE" : "FALSE", // Pilot Rating
+          participant.thirdParty ? "TRUE" : "FALSE", // Third party liability
+          participant.annexe2 ? "TRUE" : "FALSE", // Annex 2
+          participant.gliderManufacturer || "FALSE", // Glider Manufacturer
+          participant.gliderModel || "FALSE", // Glider Model
+          participant.gliderSize || "FALSE", // Glider Size
+          participant.gliderColours || "FALSE", // Glider Colours
         ];
       };
 
@@ -276,12 +279,175 @@ export class GoogleSheetsBookingService {
   }
 
   async getAllBookings() {
-    // TODO: Read all data from spreadsheet
-    console.log("Get all bookings");
-    return {
-      success: true,
-      bookings: [],
-      message: "Method not implemented yet",
-    };
+    try {
+      console.log("Fetching all bookings from Google Sheets...");
+
+      // Read all data from the sheet (skip header row)
+      const response = await this.sheets.spreadsheets.values.get({
+        spreadsheetId: this.spreadsheetId,
+        range: "Sheet1!A2:AH1000", // Get up to 1000 rows, adjust as needed
+      });
+
+      const rows = response.data.values || [];
+
+      if (rows.length === 0) {
+        return {
+          success: true,
+          bookings: [],
+          message: "No booking data found in Google Sheets",
+        };
+      }
+
+      // Parse rows into proper ParticipantDetails objects
+      const participants = rows
+        .filter((row) => row[0]) // Filter out empty rows (must have tour reference)
+        .map((row) => ({
+          name: row[1] || "",
+          email: row[2] || "",
+          soloOccupancy: row[6] === "TRUE",
+          dietary: row[7] || "",
+          medical: row[8] || "",
+          emergencyContact: {
+            name: row[9] || "",
+            phone: row[10] || "",
+          },
+          insurance: {
+            provider: row[11] || "",
+            number: row[12] || "",
+          },
+          passport: {
+            number: row[13] || "",
+            expiryDate: row[14] || "",
+          },
+          flightDetails: {
+            arrivalFlightNumber: row[15] || "",
+            arrivalDate: row[3] || "", // Use tour start date as default
+            arrivalTime: row[16] || "",
+            departureFlightNumber: row[17] || "",
+            departureDate: row[4] || "", // Use tour end date as default
+            departureTime: row[18] || "",
+          },
+          paymentInfo: row[19]
+            ? {
+                // Only if there's a stripe session ID
+                stripeSessionId: row[19],
+                paymentAmount: parseFloat(row[20] || "0"),
+                currency: row[21] || "GBP",
+                soloTotal: 0, // These would need to be stored separately if needed
+                baseTotal: 0,
+                paymentTimestamp: row[22] || "",
+              }
+            : undefined,
+          timestamp: row[22] || new Date().toISOString(),
+          // Additional fields for pilots
+          flyingExperience: row[23] || "",
+          pilotRating: row[24] === "TRUE",
+          thirdParty: row[25] === "TRUE",
+          annexe2: row[26] === "TRUE",
+          gliderManufacturer: row[27] || "",
+          gliderModel: row[28] || "",
+          gliderSize: row[29] || "",
+          gliderColours: row[30] || "",
+          // Tour context (not part of ParticipantDetails but needed for grouping)
+          tourReference: row[0] || "",
+          tourStartDate: row[3] || "",
+          tourEndDate: row[4] || "",
+          tourType: row[5] || "",
+        })) as (ParticipantDetails & {
+        tourReference: string;
+        tourStartDate: string;
+        tourEndDate: string;
+        tourType: string;
+      })[];
+
+      // Group participants by tour start date
+      const toursByDate = participants.reduce(
+        (tours, participant) => {
+          const tourDate = participant.tourStartDate;
+          if (!tours[tourDate]) {
+            tours[tourDate] = {
+              tourStartDate: tourDate,
+              tourEndDate: participant.tourEndDate,
+              tourType: participant.tourType,
+              participants: [],
+              totalPeople: 0,
+              totalRevenue: 0,
+              pilotsCount: 0,
+              currency: participant.paymentInfo?.currency || "GBP",
+            };
+          }
+
+          tours[tourDate].participants.push(participant);
+          tours[tourDate].totalPeople += 1;
+
+          // Add revenue only from the person who made the payment (has paymentInfo)
+          if (participant.paymentInfo) {
+            tours[tourDate].totalRevenue +=
+              participant.paymentInfo.paymentAmount;
+          }
+
+          // Count pilots
+          if (participant.pilotRating) {
+            tours[tourDate].pilotsCount += 1;
+          }
+
+          return tours;
+        },
+        {} as Record<string, TourByDate>,
+      );
+
+      // Convert to array and sort by date
+      const bookings = Object.values(toursByDate).sort(
+        (a: TourByDate, b: TourByDate) =>
+          new Date(b.tourStartDate).getTime() -
+          new Date(a.tourStartDate).getTime(),
+      );
+
+      console.log(`Successfully fetched ${bookings.length} unique bookings`);
+
+      return {
+        success: true,
+        bookings,
+        message: `Found ${bookings.length} bookings`,
+      };
+    } catch (error) {
+      console.error("Error fetching bookings from Google Sheets:", error);
+      return {
+        success: false,
+        bookings: [],
+        message: "Failed to fetch bookings from Google Sheets",
+      };
+    }
   }
 }
+
+// The GoogleSheetsBookingService class was perfect for the immediate
+//    need (catching booking data), but for a custom dashboard +
+//   customer portal, you're right to reconsider.
+
+//   For your evolving architecture, I'd suggest:
+
+//   Short term (keep the class):
+//   - Google Sheets as your business intelligence backbone
+//   - Gives you immediate data analysis and CSV export
+//   - Zero hosting costs for database functionality
+
+//   Medium term (hybrid approach):
+//   - Add a proper database (PostgreSQL/Supabase/PlanetScale)
+//   - Keep Google Sheets as backup/reporting layer
+//   - Database for real-time dashboard queries
+//   - Google Sheets for business analytics/exports
+
+//   Long term (evolve the class):
+//   - Transform GoogleSheetsBookingService into BookingDataService
+//   - Abstract interface that can write to both database AND sheets
+//   - Customer portal reads from database (fast queries)
+//   - Your business dashboard can use both sources
+
+//   Architecture vision:
+//   Customer Booking → Database (primary) → Customer Portal
+//                   ↘ Google Sheets (backup) → Business Analytics
+
+//   The class structure you have is actually perfect for this
+//   evolution - you can extend it to handle multiple data destinations
+//    without changing the booking flow.
