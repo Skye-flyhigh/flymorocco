@@ -28,6 +28,17 @@
   ],
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.flymorocco.info"
+        }
+      ],
+      "destination": "https://flymorocco.info/$1",
+      "permanent": true
+    },
+    {
       "source": "/fr/niddaigle.html",
       "destination": "/fr/site-guides/nid-d-aigle",
       "permanent": true
