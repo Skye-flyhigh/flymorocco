@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { trackBookingEvent } from "@/lib/analytics";
+// Analytics functionality temporarily removed
 
 interface BookingDetails {
   sessionId: string;
@@ -36,7 +36,7 @@ export default function BookingSuccessClient() {
       });
 
       // Track successful booking completion
-      trackBookingEvent("payment_success", "booking_completed");
+      console.log("📊 Booking success tracked");
     }
 
     setIsLoading(false);

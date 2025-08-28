@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
-import { updateAnalyticsConsent, checkGoogleAnalytics } from "@/lib/analytics";
+// Analytics functionality temporarily removed
 
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false);
@@ -20,21 +20,14 @@ export default function CookieConsent() {
     localStorage.setItem("cookieConsent", "accepted");
     setShowConsent(false);
 
-    // Use enhanced analytics consent function
-    updateAnalyticsConsent(true);
-
-    // Debug check after a brief delay to allow gtag to process
-    setTimeout(() => {
-      checkGoogleAnalytics();
-    }, 1000);
+    // Analytics tracking will be added later
   };
 
   const handleRefuse = () => {
     localStorage.setItem("cookieConsent", "refused");
     setShowConsent(false);
 
-    // Use enhanced analytics consent function
-    updateAnalyticsConsent(false);
+    // Analytics consent denied
   };
 
   if (!showConsent) return null;

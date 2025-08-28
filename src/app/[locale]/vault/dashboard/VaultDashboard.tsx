@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { TourByDate } from "@/lib/types/tour";
-import { trackVaultAccess } from "@/lib/analytics";
+// Analytics functionality temporarily removed
 
 export default function VaultDashboard() {
   const [tours, setTours] = useState<TourByDate[]>([]);
@@ -59,7 +59,7 @@ export default function VaultDashboard() {
 
   useEffect(() => {
     fetchDashboardData();
-    trackVaultAccess();
+    // trackVaultAccess(); // Analytics functionality temporarily removed
   }, []);
 
   if (isLoading) {

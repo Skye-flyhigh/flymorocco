@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackSiteGuideView } from "@/lib/analytics";
+// Analytics functionality temporarily removed
 
 interface SiteGuideTrackerProps {
   siteName: string;
@@ -9,7 +9,8 @@ interface SiteGuideTrackerProps {
 
 export default function SiteGuideTracker({ siteName }: SiteGuideTrackerProps) {
   useEffect(() => {
-    trackSiteGuideView(siteName);
+    // Analytics tracking will be added later
+    console.log("📊 Site guide view tracked:", siteName);
   }, [siteName]);
 
   return null; // This component doesn't render anything

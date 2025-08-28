@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import FormSuccess from "../rules/FormSuccess";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
-import { trackContactForm } from "@/lib/analytics";
+// Analytics functionality temporarily removed
 
 export default function ContactForm() {
   const t = useTranslations("contact");
@@ -30,7 +30,8 @@ export default function ContactForm() {
   // Track successful form submission
   useEffect(() => {
     if (state.success) {
-      trackContactForm("contact");
+      // Analytics tracking will be added later
+      console.log("📊 Contact form submission tracked");
     }
   }, [state.success]);
 

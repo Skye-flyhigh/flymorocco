@@ -13,6 +13,7 @@
     "postbuild": "npm run clean:tmp"
   },
   "dependencies": {
+    "@next/third-parties": "^15.5.2",
     "@openaip/openair-parser": "^2.0.3",
     "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",

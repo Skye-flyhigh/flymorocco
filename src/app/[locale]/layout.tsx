@@ -10,7 +10,7 @@ import { getTranslations } from "next-intl/server";
 import Script from "next/script";
 import StructuredData from "./components/StructuredData";
 import AIFriendlyMeta from "./components/AIFriendlyMeta";
-import GoogleAnalytics from "./components/GoogleAnalytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteMeta } from "@/lib/validation/siteMeta";
 
 export async function generateMetadata({
@@ -124,26 +124,6 @@ export default async function LocaleLayout({
         <AIFriendlyMeta />
         <StructuredData type="business" />
 
-        {/* <!-- Google tag (gtag.js) --> */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-4XKFT0XD2T"
-        />
-        <Script id="google-analytics">
-          {`window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-
-  //Set default consent state
-  gtag('consent', 'default', {
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'ad_storage': 'denied',
-    'analytics_storage': 'denied',
-    'wait_for_update': 500,
-  });
-
-  gtag('config', 'G-4XKFT0XD2T');`}
-        </Script>
 
         {/* Stripe.js */}
         <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
@@ -158,7 +138,7 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <CookieConsent />
-            <GoogleAnalytics />
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
           </ParallaxClientWrapper>
         </NextIntlClientProvider>
       </body>
