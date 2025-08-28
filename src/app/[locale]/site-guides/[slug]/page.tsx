@@ -6,6 +6,7 @@ import Hero from "../../components/Hero";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import SiteGuideTracker from "../../components/siteGuides/SiteGuideTracker";
+import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -19,8 +20,8 @@ export async function generateMetadata({
     description: t("description"),
     keywords:
       locale === "fr"
-        ? ["parapente", "Maroc", "séjour parapente", t("name")]
-        : ["paragliding", "Morocco", "paragliding tour", t("name")],
+        ? ["parapente", "Maroc", "parapente Maroc", t("name")]
+        : ["paragliding", "Morocco", "paragliding Morocco", t("name")],
     openGraph: {
       title: t("name"),
       description: t("description"),
@@ -64,6 +65,19 @@ export default async function Page({
   const t = await getTranslations("siteGuides");
 
   if (!meta || !slug) return <MissingMountain />;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: t(`${slug}.name`),
+    description: t(`${slug}.description`),
+    image: meta.image,
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: meta.lat,
+      longitude: meta.lon,
+    },
+  };
 
   const legislation = t(`${slug}.legislation`);
   const legislationExists =
@@ -150,6 +164,11 @@ export default async function Page({
       >
         <Carousel images={meta.images} />
       </div>
+      <Script
+        id="schema-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
     </>
   );
 }

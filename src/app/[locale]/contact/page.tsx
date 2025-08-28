@@ -9,7 +9,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return await buildPageMetadata({ locale, page: "contact" });
+
+  const metadata = await buildPageMetadata({ locale, page: "contact" });
+  const keywords =
+    locale === "fr"
+      ? [
+          "contact",
+          "formulaire de contact",
+          "demande d'information",
+          "service client",
+        ]
+      : ["contact", "contact form", "inquiry", "customer service"];
+
+  metadata.keywords = [...(metadata.keywords || []), ...keywords];
+
+  return metadata;
 }
 
 export default function Page() {

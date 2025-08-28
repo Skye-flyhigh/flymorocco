@@ -6,6 +6,7 @@ import Carousel from "../components/Carousel";
 import TourCards from "../components/tours/TourCards";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -13,11 +14,56 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return await buildPageMetadata({ locale, page: "tours" });
+
+  const metadata = await buildPageMetadata({ locale, page: "tours" });
+
+  const keywords =
+    locale === "fr"
+      ? [
+          "séjour parapente Maroc",
+          "découverte parapente du Maroc",
+          "séjour guidé parapente",
+          "vacances parapente Maroc",
+        ]
+      : [
+          "paragliding tour Morocco",
+          "paragliding guided tour",
+          "paragliding guided tour Morocco",
+          "discover paragliding in Morocco",
+          "paragliding holidays Morocco",
+        ];
+
+  metadata.keywords = [...(metadata.keywords || []), ...keywords];
+
+  return metadata;
 }
 
 export default function Page() {
   const t = useTranslations("tours");
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "TouristAttraction",
+    name: t("title"),
+    description: t("description"),
+    image: "/images/niviuk-aguergour-square.webp",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "MA",
+      addressRegion: "Atlas Mountains",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 31.6295,
+      longitude: -8.0009,
+    },
+    touristType: "Paragliding Tourism",
+    availableLanguage: ["en", "fr"],
+    provider: {
+      "@type": "Organization",
+      name: "FlyMorocco",
+    },
+  };
 
   const images = [
     {
@@ -104,6 +150,11 @@ export default function Page() {
         <Carousel images={images} />
       </section>
       <TourCalendar />
+      <Script
+        id="tour-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
     </main>
   );
 }

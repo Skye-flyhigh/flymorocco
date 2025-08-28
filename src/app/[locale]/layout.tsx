@@ -28,8 +28,8 @@ export async function generateMetadata({
           "Maroc",
           "séjour parapente",
           "Atlas",
-          "côte atlantique",
-          "guide sites",
+          "guide sites de vol parapente au Maroc",
+          "parapente Maroc",
           "séjour bien-être",
           "Agadir",
           "Marrakech",
@@ -44,7 +44,9 @@ export async function generateMetadata({
           "paragliding tour",
           "Atlas Mountains",
           "Atlantic coast",
-          "site guides",
+          "paragliding in Morocco",
+          "Morocco paragliding",
+          "paragliding site guides in Morocco",
           "wellness week",
           "Agadir",
           "Marrakech",
@@ -124,10 +126,9 @@ export default async function LocaleLayout({
         <AIFriendlyMeta />
         <StructuredData type="business" />
 
-
         {/* Stripe.js */}
         <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
-        
+
         {/* Google Analytics */}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
       </head>

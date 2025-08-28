@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { siteMeta } from "../validation/siteMeta";
 
 export async function buildPageMetadata({
   locale,
@@ -11,21 +10,18 @@ export async function buildPageMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: `metadata.${page}` });
 
-  const baseKeywords =
+  const keywords =
     locale === "fr"
       ? [
           "parapente",
           "Maroc",
           "séjour parapente",
           "Atlas",
-          "côte atlantique",
           "guide sites",
           "séjour bien-être",
           "Agadir",
           "Marrakech",
           "Mirleft",
-          "DGAC du Maroc",
-          "Espaces aériens du Maroc",
           "guides expérimentés",
         ]
       : [
@@ -39,14 +35,8 @@ export async function buildPageMetadata({
           "Agadir",
           "Marrakech",
           "Mirleft",
-          "Moroccan CAA",
-          "Moroccan Airspaces",
           "expert guides",
         ];
-
-  const paraglidingSites = Object.keys(siteMeta);
-
-  const keywords = [...baseKeywords, ...paraglidingSites];
 
   return {
     title: `${t("title")}`,

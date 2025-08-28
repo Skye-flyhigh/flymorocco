@@ -4,6 +4,7 @@ import FeaturedSites from "../components/FeaturedSites";
 import SiteMapSection from "../components/SiteMapSection";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import SearchSiteBar from "../components/siteGuides/SearchSite";
+import { siteMeta } from "@/lib/validation/siteMeta";
 
 export async function generateMetadata({
   params,
@@ -11,7 +12,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return await buildPageMetadata({ locale, page: "siteGuides" });
+
+  const metadata = await buildPageMetadata({ locale, page: "siteGuides" });
+  const paraglidingSites = Object.keys(siteMeta);
+
+  metadata.keywords = [...(metadata.keywords || []), ...paraglidingSites];
+
+  return metadata;
 }
 
 export default function SiteGuidesPage() {
