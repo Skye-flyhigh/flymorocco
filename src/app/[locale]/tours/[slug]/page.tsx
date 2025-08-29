@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { getTourImages } from "@/lib/utils/tourImages";
 import Script from "next/script";
+import rawPricing from "@/data/pricing.json";
 
 export async function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -161,6 +162,19 @@ export default async function Page({
   params: Promise<{ slug: string; locale: string }>;
 }) {
   const { slug, locale } = await params;
+  const pricing: Record<string, Record<string, number>> = {
+    EUR: {
+      wellbeing: rawPricing.tours.wellbeing.EUR.base,
+      mountain: rawPricing.tours.mountain.EUR.base,
+      coastal: rawPricing.tours.coastal.EUR.base,
+    },
+    GBP: {
+      wellbeing: rawPricing.tours.wellbeing.GBP.base,
+      mountain: rawPricing.tours.mountain.GBP.base,
+      coastal: rawPricing.tours.coastal.GBP.base,
+    }
+  }
+  const price = pricing.EUR[slug];
 
   if (!isValidTourSlug(slug)) {
     return <MissingTour />;
@@ -213,7 +227,7 @@ export default async function Page({
       "@type": "Offer",
       url: `https://flymorocco.com/${locale}/tours/${slug}`,
       priceCurrency: "EUR",
-      price: slug === "wellbeing" ? "1250" : "950",
+      price,
       itemOffered: {
         "@type": "Service",
         serviceType: t(`${slug}.serviceType`),
@@ -246,7 +260,7 @@ export default async function Page({
       <section id="tour-description" className="py-20 px-10 flex flex-col">
         <p className="prose">{t(`${slug}.intro`)}</p>
         <h2 className="text-3xl font-extrabold text-center mt-10 mb-5">
-          {slug === "wellbeing" ? "£1,050 / €1,250" : "£799 / €950"}
+          {`€${pricing.EUR[slug]} / £${pricing.GBP[slug]}`}
         </h2>
         <h3 className="text-xl font-semibold text-center">{t("unit")}</h3>
         <TourService />

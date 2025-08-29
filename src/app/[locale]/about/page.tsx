@@ -3,6 +3,7 @@ import Image from "next/image";
 import Hero from "../components/Hero";
 import PartnersCard from "../components/about/PartnersCard";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -10,11 +11,72 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  return await buildPageMetadata({ locale, page: "about" });
+
+  const metadata = await buildPageMetadata({ locale, page: "about" });
+  const keywords = locale === "fr"
+    ? [
+        "Skye instructeur parapente",
+        "instructeur certifié BHPA Maroc",
+        "guide parapente Maroc",
+        "instructeur parapente Atlas",
+        "guide certifié parapente Marrakech",
+        "pilote instructeur Maroc",
+        "formation parapente Maroc"
+      ]
+    : [
+        "Skye paragliding instructor",
+        "BHPA certified instructor Morocco", 
+        "paragliding guide Morocco",
+        "certified paragliding instructor Atlas Mountains",
+        "paragliding instructor Marrakech",
+        "pilot instructor Morocco",
+        "paragliding training Morocco"
+      ];
+
+  metadata.keywords = [...(metadata.keywords || []), ...keywords];
+  return metadata;
 }
 
 export default function Page() {
   const t = useTranslations("about");
+
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Skye",
+    jobTitle: t("skye-role"),
+    description: t("skye-unformated-description"),
+    image: "/images/skye.webp",
+    url: "https://flymorocco.info/about",
+    sameAs: [
+      "https://skye-code.ai",
+      "https://bhpa.co.uk"
+    ],
+    worksFor: {
+      "@type": "Organization", 
+      name: "FlyMorocco"
+    },
+    hasCredential: {
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Professional Certification",
+      recognizedBy: {
+        "@type": "Organization",
+        name: "British Hang Gliding and Paragliding Association",
+        url: "https://bhpa.co.uk"
+      }
+    },
+    knowsAbout: [
+      "Paragliding",
+      "Paragliding Instruction",
+      "Morocco Paragliding Sites",
+      "Atlas Mountains Paragliding"
+    ],
+    areaServed: {
+      "@type": "Country",
+      name: "Morocco"
+    }
+  };
+
   return (
     <main id="main">
       <Hero
@@ -92,6 +154,11 @@ export default function Page() {
         </div>
         <PartnersCard />
       </section>
+      <Script
+        id="person-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
     </main>
   );
 }

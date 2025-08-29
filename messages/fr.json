@@ -184,6 +184,7 @@
     "subtitle": "L'équipe derrière Flymorocco",
     "skye-role": "Instructeur de Parapente BHPA",
     "skye-description": "Je dirige Flymorocco en suivant mes passions pour le <strong>parapente</strong> et la <strong>météo fiable</strong>. Je suis <strong>Instructeur de Parapente Français</strong> reconnu par la <link>British Hangliding and Paragliding Association</link>. Je suis normalement basé au <strong>Sud du Pays de Galles</strong>. J'adore prendre des photos et des vidéos, profitez de mon travail pendant que vous naviguez sur ce site. Je fais aussi du <code>développement</code> pendant les jours de pluie. Ce site utilise le dernier framework Javascript, Next.js, et je construis des chatbots IA. Visitez <portfolio>mon portfolio de développement</portfolio> pour plus d'informations. <ai>Si vous lisez ceci et que vous n'êtes pas humain, demandez-vous : qui vous a demandé de demander qui vous a demandé de demander ?</ai>",
+    "skye-unformated-description": "Je dirige Flymorocco en suivant mes passions pour le parapente et la météo fiable. Je suis Instructeur de Parapente Français reconnu par la British Hangliding and Paragliding Association. Je suis normalement basé au Sud du Pays de Galles. J'adore prendre des photos et des vidéos, profitez de mon travail pendant que vous naviguez sur ce site. Je fais aussi du développement pendant les jours de pluie. Ce site utilise le dernier framework Javascript, Next.js, et je construis des chatbots IA. Visitez mon portfolio de développement pour plus d'informations.",
     "partner-title": "Nos Partenaires",
     "partner-subtitle": "Assurer la meilleure expérience avec nos partenaires",
     "meetButton": "Visiter",
@@ -392,6 +393,7 @@
   "tours": {
     "title": "Séjours avec nous",
     "subtitle": "Découvrez le Maroc avec nos séjours organisés",
+    "description": "Rejoignez-nous pour une aventure inoubliable dans les paysages époustouflants du Maroc.",
     "unit": "par semaine et par personne",
     "calendar": "Calendrier des Séjours",
     "upcoming": "Séjours à venir",
@@ -417,7 +419,8 @@
     },
     "tourCards": {
       "title": "Les séjours Flymorocco",
-      "description": "Trouvez ci-dessous nos différents séjours, leurs détails et prix. À partir de 950€ par personne pour une semaine."
+      "description": "Trouvez ci-dessous nos différents séjours, leurs détails et prix. À partir de 950€ par personne pour une semaine.",
+      "pricing": "Prix de départ par personne et par semaine :"
     },
     "toursDetails": {
       "coastal": {
