@@ -1,18 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-import {
-  sendBookingConfirmation,
-  sendBookingNotification,
-} from "@/lib/email/bookingConfirmation";
-import { emailPilotsBookingVerification } from "@/lib/email/emailPilotsBookingVerification";
 import { BookingFormData } from "@/lib/validation/BookFormData";
 import { Currency } from "@/lib/utils/pricing";
-import {
-  BookingConfirmationData,
-  PaymentInfo,
-} from "@/lib/types/bookingDetails";
-import { saveBookingDetails } from "@/lib/services/bookingService";
-import { generateBookingRef } from "@/lib/services/generateBookingRef";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2025-07-30.basil",
@@ -46,14 +35,6 @@ export async function POST(request: NextRequest) {
       const participantCount = parseInt(
         session.metadata?.participantCount || "0",
       );
-      const paymentInfo: PaymentInfo = {
-        stripeSessionId: session.id,
-        baseTotal: parseInt(session.metadata?.baseTotal || "0"),
-        soloTotal: parseInt(session.metadata?.soloTotal || "0"),
-        paymentAmount: session.amount_total as number,
-        currency: session.currency as Currency,
-        paymentTimestamp: new Date().toISOString(),
-      };
 
       // Calculate counts for email
       const soloCount =
@@ -61,67 +42,55 @@ export async function POST(request: NextRequest) {
           (p: { soloOccupancy: boolean }) => p.soloOccupancy,
         ).length + (bookingData.soloOccupancy ? 1 : 0) || 0;
 
-      // Generate a tourReference
-      const tourReference = generateBookingRef(
-        new Date(paymentInfo.paymentTimestamp),
-      );
-
-      // Use professional email templates for booking confirmation and notification
-      const booking: BookingConfirmationData = {
+      // Transform Stripe data for our standardized booking API
+      const bookingRequest = {
         bookingData: bookingData as BookingFormData,
-        bookingPayment: paymentInfo as PaymentInfo,
-        tourReference: tourReference,
         totalPeople: participantCount,
         soloCount,
+        grandTotal: (session.amount_total as number) / 100, // Convert from cents
+        currency: (session.currency || "EUR").toUpperCase() as Currency,
+        bookingRef: session.id, // Use Stripe session ID as booking reference
+        paymentStatus: "completed" as const,
       };
 
-      // Send professional booking confirmation to customer
-      console.log("Sending booking confirmation to customer...");
-      const confirmationResult = await sendBookingConfirmation(booking);
-      if (!confirmationResult.success) {
-        console.error(
-          "Failed to send booking confirmation:",
-          confirmationResult.error,
+      // Call our centralized booking API
+      console.log("Processing booking through centralized API...");
+      try {
+        const bookingResponse = await fetch(
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/bookings`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(bookingRequest),
+          },
         );
-      }
 
-      // Send professional booking notification to business
-      console.log("Sending booking notification to business...");
-      const notificationResult = await sendBookingNotification(booking);
-      if (!notificationResult.success) {
-        console.error(
-          "Failed to send booking notification:",
-          notificationResult.error,
-        );
-      }
+        const result = await bookingResponse.json();
 
-      // Send pilot verification emails using professional template
-      console.log("Checking for pilots requiring verification...");
-      const pilotEmailResult = await emailPilotsBookingVerification(
-        booking,
-        "verification",
-      );
-      if (pilotEmailResult.emailsSent > 0) {
-        console.log(
-          `Pilot verification summary: ${pilotEmailResult.emailsSent} emails sent successfully`,
-        );
-        if (pilotEmailResult.errors?.length) {
-          console.error(
-            "Some pilot verification emails failed:",
-            pilotEmailResult.errors,
+        if (!result.success) {
+          console.error("Failed to process booking through API:", result.error);
+        } else {
+          console.log(
+            "Booking processed successfully via API:",
+            result.tourReference,
           );
         }
-      } else {
-        console.log(
-          "No pilots found in this booking - no verification emails needed",
+      } catch (error) {
+        console.error("Error calling booking API from webhook:", error);
+        console.error(
+          "CRITICAL: Booking processing failed for Stripe session:",
+          session.id,
         );
+        console.error(
+          "Manual intervention required - booking data:",
+          JSON.stringify(bookingRequest),
+        );
+
+        // Do NOT duplicate business logic here - log for manual processing
+        // The booking API should be the single source of truth for all processing
       }
-
-      console.log("Booking emails sent successfully for session:", session.id);
-
-      // Redirect to Stripe checkout - emails will be sent after payment completion via webhook
-
-      await saveBookingDetails(booking);
     } catch (error) {
       console.error("Error processing checkout session:", error);
     }

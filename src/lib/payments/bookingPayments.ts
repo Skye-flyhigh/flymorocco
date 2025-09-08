@@ -22,6 +22,7 @@ export interface CreateCheckoutParams {
 export interface CheckoutResult {
   success: boolean;
   checkoutUrl?: string;
+  bookingRef?: string;
   error?: string;
 }
 
@@ -36,7 +37,9 @@ export async function dummyBookingCheckout(
   };
 }
 
-export async function createBookingCheckout(
+// STRIPE DISABLED - Payment processing temporarily removed
+// Original Stripe implementation preserved for future use
+export async function createBookingCheckout_DISABLED(
   params: CreateCheckoutParams,
 ): Promise<CheckoutResult> {
   const {

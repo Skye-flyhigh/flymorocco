@@ -13,25 +13,26 @@ export async function generateMetadata({
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "about" });
-  const keywords = locale === "fr"
-    ? [
-        "Skye instructeur parapente",
-        "instructeur certifié BHPA Maroc",
-        "guide parapente Maroc",
-        "instructeur parapente Atlas",
-        "guide certifié parapente Marrakech",
-        "pilote instructeur Maroc",
-        "formation parapente Maroc"
-      ]
-    : [
-        "Skye paragliding instructor",
-        "BHPA certified instructor Morocco", 
-        "paragliding guide Morocco",
-        "certified paragliding instructor Atlas Mountains",
-        "paragliding instructor Marrakech",
-        "pilot instructor Morocco",
-        "paragliding training Morocco"
-      ];
+  const keywords =
+    locale === "fr"
+      ? [
+          "Skye instructeur parapente",
+          "instructeur certifié BHPA Maroc",
+          "guide parapente Maroc",
+          "instructeur parapente Atlas",
+          "guide certifié parapente Marrakech",
+          "pilote instructeur Maroc",
+          "formation parapente Maroc",
+        ]
+      : [
+          "Skye paragliding instructor",
+          "BHPA certified instructor Morocco",
+          "paragliding guide Morocco",
+          "certified paragliding instructor Atlas Mountains",
+          "paragliding instructor Marrakech",
+          "pilot instructor Morocco",
+          "paragliding training Morocco",
+        ];
 
   metadata.keywords = [...(metadata.keywords || []), ...keywords];
   return metadata;
@@ -48,13 +49,10 @@ export default function Page() {
     description: t("skye-unformated-description"),
     image: "/images/skye.webp",
     url: "https://flymorocco.info/about",
-    sameAs: [
-      "https://skye-code.ai",
-      "https://bhpa.co.uk"
-    ],
+    sameAs: ["https://skye-code.ai", "https://bhpa.co.uk"],
     worksFor: {
-      "@type": "Organization", 
-      name: "FlyMorocco"
+      "@type": "Organization",
+      name: "FlyMorocco",
     },
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
@@ -62,19 +60,19 @@ export default function Page() {
       recognizedBy: {
         "@type": "Organization",
         name: "British Hang Gliding and Paragliding Association",
-        url: "https://bhpa.co.uk"
-      }
+        url: "https://bhpa.co.uk",
+      },
     },
     knowsAbout: [
       "Paragliding",
       "Paragliding Instruction",
       "Morocco Paragliding Sites",
-      "Atlas Mountains Paragliding"
+      "Atlas Mountains Paragliding",
     ],
     areaServed: {
       "@type": "Country",
-      name: "Morocco"
-    }
+      name: "Morocco",
+    },
   };
 
   return (

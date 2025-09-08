@@ -6,6 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY!);
 
 export async function sendBookingConfirmation(data: BookingConfirmationData) {
   const { bookingData, bookingPayment, tourReference, totalPeople } = data;
+  const paymentAmount = (bookingPayment.paymentAmount / 100).toLocaleString();
 
   // Create email content
   const content = `
@@ -18,7 +19,7 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
       <p style="margin: 0 0 10px 0;"><strong>Start Date:</strong> ${new Date(bookingData.start).toLocaleDateString()}</p>
       <p style="margin: 0 0 10px 0;"><strong>Participants:</strong> ${totalPeople} person${totalPeople > 1 ? "s" : ""}</p>
       <p style="margin: 0 0 10px 0;"><strong>Main Contact:</strong> ${bookingData.name}</p>
-      <p style="margin: 0;"><strong>Total Paid:</strong> ${bookingPayment.currency} ${bookingPayment.paymentAmount.toLocaleString()}</p>
+      <p style="margin: 0;"><strong>Total Price:</strong> ${bookingPayment.currency} ${paymentAmount}</p>
       <p style="margin: 0;"><strong>Payment reference:</strong> ${bookingPayment.stripeSessionId}</p>
       </div>
     
@@ -93,6 +94,7 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
 
 export async function sendBookingNotification(data: BookingConfirmationData) {
   const { bookingData, totalPeople, bookingPayment, tourReference } = data;
+  const paymentAmount = (bookingPayment.paymentAmount / 100).toLocaleString();
 
   // Create internal notification content
   const content = `
@@ -104,7 +106,7 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
       <p style="margin: 0 0 10px 0;"><strong>Tour Reference:</strong> ${tourReference}</p>
       <p style="margin: 0 0 10px 0;"><strong>Start Date:</strong> ${new Date(bookingData.start).toLocaleDateString()}</p>
       <p style="margin: 0 0 10px 0;"><strong>Participants:</strong> ${totalPeople} person${totalPeople > 1 ? "s" : ""}</p>
-      <p style="margin: 0 0 10px 0;"><strong>Revenue:</strong> ${bookingPayment.currency} ${bookingPayment.paymentAmount.toLocaleString()}</p>
+      <p style="margin: 0 0 10px 0;"><strong>Revenue:</strong> ${bookingPayment.currency} ${paymentAmount}</p>
       <p style="margin: 0;"><strong>Stripe Session:</strong> ${bookingPayment.stripeSessionId}</p>
     </div>
     
@@ -114,7 +116,6 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
       <p style="margin: 0 0 10px 0;"><strong>Email:</strong> ${bookingData.email}</p>
       <p style="margin: 0;"><strong>Is Pilot:</strong> ${bookingData.isPilot ? "Yes ✈️" : "No"}</p>
     </div>
-    
     ${
       bookingData.participants.length > 0
         ? `
@@ -162,7 +163,7 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
       from: "Flymorocco Bookings <bookings@flymorocco.info>",
       replyTo: "contact@flymorocco.info",
       to: ["contact@flymorocco.info"],
-      subject: `🎯 New Booking: ${tourReference} ${bookingData.tourType} - ${totalPeople} pax - ${bookingPayment.currency}${bookingPayment.paymentAmount}`,
+      subject: `🎯 New Booking: ${tourReference} ${bookingData.tourType} - ${totalPeople} pax - ${bookingPayment.currency}${paymentAmount}`,
       html: htmlEmail,
     });
 

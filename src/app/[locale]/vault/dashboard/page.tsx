@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import VaultDashboard from "./VaultDashboard";
+import VaultDashboard from "../../components/vault/VaultDashboard";
 
 export default async function Dashboard() {
   const cookieStore = await cookies();

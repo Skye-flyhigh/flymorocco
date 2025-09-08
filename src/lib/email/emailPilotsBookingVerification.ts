@@ -44,6 +44,7 @@ export async function emailPilotsBookingVerification(
 
   // Early return if no pilots to email
   if (pilots.length === 0) {
+    console.log("No pilot participants found.");
     return { success: true, emailsSent: 0 };
   }
 
@@ -52,40 +53,39 @@ export async function emailPilotsBookingVerification(
 
   try {
     // Send emails to all pilots
-    await Promise.all(
-      pilots.map(async (pilot) => {
-        const emailData = {
-          pilotName: pilot.name,
-          tourType: bookingData.tourType,
-          tourStart: bookingData.start,
-          mainContactName: bookingData.name,
-          mainContactEmail: bookingData.email,
-          tourReference,
-        };
-        try {
-          const emailTemplate =
+    for (const pilot of pilots) {
+      const emailData = {
+        pilotName: pilot.name,
+        tourType: bookingData.tourType,
+        tourStart: bookingData.start,
+        mainContactName: bookingData.name,
+        mainContactEmail: bookingData.email,
+        tourReference,
+      };
+      try {
+        const emailTemplate =
+          emailType === "verification"
+            ? createPilotVerificationEmail(emailData)
+            : createPilotWelcomeEmail(emailData);
+
+        await resend.emails.send({
+          from: "Flymorocco <contact@flymorocco.info>",
+          to: [pilot.email],
+          subject:
             emailType === "verification"
-              ? createPilotVerificationEmail(emailData)
-              : createPilotWelcomeEmail(emailData);
+              ? `Pilot Information Request - ${bookingData.tourType} Tour - Ref ${tourReference}`
+              : `Welcome Pilot! Your ${bookingData.tourType} Adventure Awaits - Ref ${tourReference}`,
+          html: emailTemplate,
+        });
 
-          await resend.emails.send({
-            from: "FlyMorocco <noreply@flymorocco.info>",
-            to: pilot.email,
-            subject:
-              emailType === "verification"
-                ? `Pilot Information Request - ${bookingData.tourType} Tour - Ref ${tourReference}`
-                : `Welcome Pilot! Your ${bookingData.tourType} Adventure Awaits - Ref ${tourReference}`,
-            html: emailTemplate,
-          });
-
-          emailsSent++;
-        } catch (emailError) {
-          const errorMsg = `Failed to send email to ${pilot.email}: ${emailError}`;
-          console.error(errorMsg);
-          errors.push(errorMsg);
-        }
-      }),
-    );
+        emailsSent++;
+        await new Promise((resolve) => setTimeout(resolve, 550));
+      } catch (emailError) {
+        const errorMsg = `Failed to send email to ${pilot.email}: ${emailError}`;
+        console.error(errorMsg);
+        errors.push(errorMsg);
+      }
+    }
 
     return {
       success: errors.length === 0,

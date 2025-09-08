@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import rawPricing from "@/data/pricing.json";
 
-
 type TourCard = {
   type: string;
   img: string;
@@ -33,7 +32,7 @@ export default function TourCards() {
     },
   ];
 
-    const pricing: Record<string, Record<string, number>> = {
+  const pricing: Record<string, Record<string, number>> = {
     EUR: {
       wellbeing: rawPricing.tours.wellbeing.EUR.base,
       mountain: rawPricing.tours.mountain.EUR.base,
@@ -43,13 +42,15 @@ export default function TourCards() {
       wellbeing: rawPricing.tours.wellbeing.GBP.base,
       mountain: rawPricing.tours.mountain.GBP.base,
       coastal: rawPricing.tours.coastal.GBP.base,
-    }
+    },
   };
 
   return (
     <section id="tour-cards" className="py-20 px-10">
       <h1 className="section-title ml-5">{t("tourCards.title")}</h1>
-      <h2 className="section-subtitle ml-5">{t("tourCards.description")} {t("tourCards.pricing")}</h2>
+      <h2 className="section-subtitle ml-5">
+        {t("tourCards.description")} {t("tourCards.pricing")}
+      </h2>
       <h3 className="section-subtitle font-extrabold !text-3xl text-center m-5">{`€${pricing.EUR.mountain} / £${pricing.GBP.mountain}`}</h3>
       <div id="card-container" className="flex flex-wrap gap-4 justify-center">
         {tours.map((tour) => {

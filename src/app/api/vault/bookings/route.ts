@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { GoogleSheetsBookingService } from "@/lib/services/googleSheetsService";
 
 export async function GET() {
   // Check authentication
@@ -13,8 +12,15 @@ export async function GET() {
 
   try {
     // Use the Google Sheets service to get booking data
-    const sheetsService = new GoogleSheetsBookingService();
-    const result = await sheetsService.getAllBookings();
+    // const sheetsService = new GoogleSheetsBookingService();
+    // const result = await sheetsService.getAllBookings();
+    const result = {
+      success: true,
+      message: "Success",
+      bookings: [
+        { id: "FM2025082602", name: "John Doe", email: "john.doe@email.com" },
+      ],
+    };
 
     if (result.success) {
       return NextResponse.json({

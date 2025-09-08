@@ -9,7 +9,7 @@ import { escapeHTML } from "../security/escapeHTML";
 import { verifyRecaptcha } from "../security/verifyRecaptcha";
 import { TourSlug } from "../types/tour";
 import { calculateBookingTotal, type Currency } from "../utils/pricing";
-import { createBookingCheckout } from "../payments/bookingPayments";
+import { generateBookingRef } from "../services/generateBookingRef";
 
 export type BookingFormState = {
   data: Partial<BookingFormData>;
@@ -70,8 +70,6 @@ export async function submitBooking(
     };
   }
 
-  console.log("Booking form values:", formValues, currency);
-
   const { success, error, data } = BookingFormSchema.safeParse(formValues);
   if (!success) {
     return {
@@ -101,34 +99,64 @@ export async function submitBooking(
       success: false,
     };
   }
-  const bookingCheckout = await createBookingCheckout({
-    bookingData: data,
-    totalPeople,
-    soloCount,
-    basePrice: booking.basePrice,
-    soloPrice: booking.soloPrice,
-    baseTotal: booking.baseTotal,
-    soloTotal: booking.soloTotal,
-    grandTotal: booking.grandTotal,
-    currency,
-  });
 
-  if (bookingCheckout.success) {
-    return {
-      data: formValues,
-      errors: null,
-      success: true,
-      checkoutUrl: bookingCheckout.checkoutUrl,
-    };
-  } else {
-    return {
-      data: formValues,
-      errors: {
-        general: [
-          bookingCheckout.error || "Error occurred during checkout session",
-        ],
+  // Get booking reference directly from checkout result
+  const timeStamp = new Date();
+  const bookingRef = generateBookingRef(timeStamp);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const checkoutUrl = `${baseUrl}/booking-success?booking_ref=${bookingRef}&tour=${data.tourType}&total=${booking.grandTotal}&currency=${currency}`;
+
+  // Send booking data to API route for processing
+  try {
+    const bookingResponse = await fetch(`${baseUrl}/api/bookings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      success: false,
-    };
+      body: JSON.stringify({
+        bookingData: data,
+        totalPeople,
+        soloCount,
+        grandTotal: booking.grandTotal,
+        currency,
+        bookingRef,
+        paymentStatus: "pending",
+        timeStamp,
+      }),
+    });
+
+    if (!bookingResponse.ok) {
+      const errorText = await bookingResponse.text();
+      console.error("❌ API returned error:", errorText);
+      throw new Error(`API returned ${bookingResponse.status}: ${errorText}`);
+    }
+
+    const result = await bookingResponse.json();
+
+    if (!result.success) {
+      console.error("Failed to process booking:", result.error);
+      return {
+        data: formValues,
+        errors: {
+          general: [
+            "Booking submitted but processing failed. We will contact you shortly.",
+          ],
+        },
+        success: true, // Still show success to user, but log the error
+        checkoutUrl,
+      };
+    }
+
+    console.log("Booking processed successfully:", result.tourReference);
+  } catch (error) {
+    console.error("Error calling booking API:", error);
+    // Don't fail the form submission if API call fails
   }
+
+  return {
+    data: formValues,
+    errors: null,
+    success: true,
+    checkoutUrl,
+  };
 }

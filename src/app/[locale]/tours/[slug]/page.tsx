@@ -172,8 +172,8 @@ export default async function Page({
       wellbeing: rawPricing.tours.wellbeing.GBP.base,
       mountain: rawPricing.tours.mountain.GBP.base,
       coastal: rawPricing.tours.coastal.GBP.base,
-    }
-  }
+    },
+  };
   const price = pricing.EUR[slug];
 
   if (!isValidTourSlug(slug)) {

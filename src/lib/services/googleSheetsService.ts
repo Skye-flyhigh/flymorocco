@@ -218,9 +218,6 @@ export class GoogleSheetsBookingService {
         );
       }
 
-      console.log(
-        `Added rows to Google Sheets for booking ${booking.tourReference}`,
-      );
       return { success: true, rowsAdded: rows.length };
     } catch (error) {
       console.error(`Error saving to Google Sheets:`, error);
@@ -241,10 +238,6 @@ export class GoogleSheetsBookingService {
         includeValuesInResponse: true, // Boolean, not row data
       });
 
-      console.log(
-        "Successfully wrote to Google Sheets:",
-        response.data.updates,
-      );
       return {
         success: true,
         rowsAdded: response.data.updates?.updatedRows || rows.length,
