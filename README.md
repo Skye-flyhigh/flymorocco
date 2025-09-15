@@ -24,7 +24,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 
 ### E-Commerce Booking System
 
-- 💳 **Multi-currency booking** (GBP, USD, EUR, CAD) with Stripe integration
+- 💳 **Multi-currency booking** (GBP, USD, EUR, CAD) through Wise
 - 👥 **Multi-participant support** with pilot detection and verification
 - 🏠 **Solo room options** with dynamic pricing calculations
 - 📧 **Professional email pipeline** (confirmations, notifications, verifications)
@@ -52,8 +52,7 @@ It serves guide pages for multiple flying sites, dynamically rendered and mainta
 - [OpenAir parser](https://www.npmjs.com/package/@openaip/openair-parser?activeTab=readme), need content for map
 - [pdf-lib](https://www.npmjs.com/package/pdf-lib), advanced pdf generation 📝
 - [sendGrid](https://www.npmjs.com/package/@sendgrid/mail), to send the advanced pdfs
-- [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax), smooth
-- [stripe](https://stripe.com/docs) for payment processing
+- [react-scroll-parallax](https://www.npmjs.com/package/react-scroll-parallax), smooth scrolling effects
 
 ---
 

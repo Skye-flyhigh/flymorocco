@@ -714,45 +714,45 @@
     "contact": "Cliquez ici pour nous envoyer un email"
   },
   "seo": {
-    "title": "FlyMorocco - Parapente au Maroc | Guide des sites de vol et séjours",
-    "description": "Découvrez le parapente au Maroc avec FlyMorocco. Guide des sites de vol et séjours bien-être dans l'Atlas et sur la côte atlantique. Guides expérimentés, sites exceptionnels.",
-    "keywords": "parapente Maroc, guide de site de vol, Atlas, côte atlantique, séjour parapente, bien-être, Agadir, Marrakech, Aguergour, Ait Ourir, M'Zouda, Aglou, Nid d'aigle",
+    "title": "Où faire du parapente au Maroc ? | Guides experts & répertoire complet",
+    "description": "Découvrez les meilleures sites de parapente Maroc avec instructeurs. Guides sites complets, séjours experts, Atlas, vol côtier et réglementation officielle.",
+    "keywords": "meilleur site de parapente Maroc, où faire parapente Maroc, sites parapente Maroc, parapente Atlas, parapente côtier Maroc, séjours parapente Maroc, instructeurs BHPA Maroc, réglementation vol Maroc, Aguergour, Ait Ourir, Aglou, Nid d'aigle, parapente Marrakech",
     "business": {
-      "name": "FlyMorocco",
-      "description": "Découvrez le parapente au Maroc avec FlyMorocco. Guide des sites de vol et séjours bien-être dans l'Atlas et sur la côte atlantique. Guides expérimentés, sites exceptionnels.",
+      "name": "Flymorocco",
+      "description": "Experts parapente Maroc leaders offrant guides sites complets, séjours expert-guidés et assistance réglementation à travers Atlas et côte atlantique avec instructeurs certifiés BHPA.",
       "phone": "+212 636 04 17 61",
       "email": "contact@flymorocco.info"
     },
     "services": {
       "coastal": {
-        "name": "Séjours côte atlantique",
-        "description": "Séjours guidés de parapente sur la côte atlantique marocaine"
+        "name": "Où faire du parapente côtier au Maroc ?",
+        "description": "Vol thermique et relief côte atlantique au-dessus falaises, plages et dunes avec guidage expert"
       },
       "mountain": {
-        "name": "Séjours Atlas",
-        "description": "Séjours guidés de parapente dans les montagnes de l'Atlas"
+        "name": "Comment voler en parapente dans l'Atlas Maroc ?",
+        "description": "Vol thermique haute altitude avec expertise météo montagne et vues campagne berbère"
       },
       "wellness": {
-        "name": "Séjours bien-être",
-        "description": "Combinaison parapente et bien-être"
+        "name": "Meilleure retraite bien-être parapente Maroc ?",
+        "description": "Retraite villa luxe combinant vol mindful, yoga quotidien, méditation et aventures côtières"
       }
     }
   },
   "metadata": {
-    "title": "Parapente au Maroc",
-    "description": "Découvrez des expériences inoubliables au Maroc avec Flymorocco.",
+    "title": "Meilleur parapente au Maroc 2025 ? | Guide complet & séjours experts",
+    "description": "Découvrez les meilleurs sites parapente Maroc, séjours guidés et réglementation. Instructeurs experts BHPA, Atlas, vol côtier et guides sites complets.",
     "about": {
       "title": "À propos",
-      "description": "Découvrez l'équipe derrière Flymorocco.",
+      "description": "Rencontrez les instructeurs parapente certifiés BHPA avec vaste expérience Maroc, partenariats locaux et record de sécurité prouvé sur sites de vol divers.",
       "ogImageAlt": "Équipe Flymorocco"
     },
     "contact": {
       "title": "Contactez-nous",
-      "description": "Toute autre question concernant le vol au Maroc ? N'hésitez pas à nous contacter."
+      "description": "Conseils experts personnalisés pour parapente au Maroc, planification séjours, recommandations sites et assistance réglementaire par instructeurs certifiés."
     },
     "tours": {
       "title": "Découvrez le Maroc",
-      "description": "Découvrez des expériences inoubliables au Maroc avec Flymorocco.",
+      "description": "Séjours parapente expert-guidés combinant aventure, culture et sécurité à travers les paysages divers du Maroc des sommets de l'Atlas à la côte atlantique.",
       "ogImageAlt": "Explorez le Maroc avec Flymorocco"
     },
     "cookies": {
@@ -765,7 +765,7 @@
     },
     "rules": {
       "title": "Réglementation",
-      "description": "Découvrez la réglementation du vol libre au Maroc et respectez la réglementation locale."
+      "description": "Guide complet de la réglementation parapente Maroc, exigences autorisation DGAC, restrictions espaces aériens et procédures conformité légale."
     },
     "airspaces": {
       "title": "Espaces aériens marocains",
@@ -781,7 +781,7 @@
     },
     "siteGuides": {
       "title": "Guides de sites",
-      "description": "Guides des sites de parapente au Maroc"
+      "description": "Répertoire complet des sites de parapente au Maroc avec routes d'accès, conditions météo et informations sécurité"
     }
   },
   "booking": {

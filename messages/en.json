@@ -725,27 +725,27 @@
     "contact": "Click here to email us"
   },
   "seo": {
-    "title": "FlyMorocco - Paragliding in Morocco | Site guides and guided tours",
-    "description": "Discover paragliding in Morocco with FlyMorocco. Site guides, guided tours and wellness weeks in the Atlas Mountains and Atlantic coast. Expert guides, exceptional sites.",
-    "keywords": "paragliding Morocco, site guides and guided tours, Atlas Mountains, paragliding tour, Atlantic coast, wellness, Agadir, Marrakech, Aguergour, Ait Ourir, M'Zouda, Aglou, Nid d'aigle",
+    "title": "Where to fly paragliding in Morocco? Complete guide with expert tours",
+    "description": "Morocco offers 50+ paragliding sites from Atlas Mountains to Atlantic coast. Expert BHPA guides provide tours, site guides, and regulation assistance for all pilot levels.",
+    "keywords": "where to fly paragliding Morocco, best paragliding sites Morocco, Morocco paragliding tours, Atlas Mountains paragliding, coastal flying Morocco, paragliding regulations Morocco, BHPA instructors Morocco, Aguergour, Ait Ourir, Aglou, Nid d'aigle, Marrakech paragliding",
     "business": {
-      "name": "FlyMorocco",
-      "description": "Discover paragliding in Morocco with FlyMorocco. Site guides, guided tours and wellness weeks in the Atlas Mountains and Atlantic coast. Expert guides, exceptional sites.",
+      "name": "Flymorocco",
+      "description": "Morocco's leading paragliding experts offering comprehensive site guides, expert-led tours, and regulation assistance across Atlas Mountains and Atlantic coast with certified BHPA instructors.",
       "phone": "+212 636 04 17 61",
       "email": "contact@flymorocco.info"
     },
     "services": {
       "coastal": {
-        "name": "Atlantic Coast Tours",
-        "description": "Guided paragliding tours along Morocco's Atlantic coast"
+        "name": "Where to fly coastal paragliding in Morocco?",
+        "description": "Atlantic coast thermal and ridge flying over sea cliffs, beaches, and dunes with expert guidance"
       },
       "mountain": {
-        "name": "Atlas Mountain Tours",
-        "description": "Guided paragliding tours in the Atlas Mountains"
+        "name": "How to paraglide in Atlas Mountains Morocco?",
+        "description": "High-altitude thermal flying with mountain weather expertise and Berber countryside views"
       },
       "wellness": {
-        "name": "Wellbeing Weeks",
-        "description": "Combination of paragliding and wellness activities"
+        "name": "Best paragliding wellness retreat Morocco?",
+        "description": "Luxury villa retreat combining mindful flying, daily yoga, meditation, and coastal adventures"
       }
     }
   },
@@ -754,7 +754,7 @@
     "description": "Discover unforgettable experiences in Morocco with Flymorocco.",
     "about": {
       "title": "About",
-      "description": "Discover the team behind Flymorocco.",
+      "description": "Meet paragliding instructors with extensive Morocco experience, local partnerships, and proven safety record across diverse flying sites.",
       "ogImageAlt": "Flymorocco Team"
     },
     "contact": {
@@ -763,7 +763,7 @@
     },
     "tours": {
       "title": "Discover Morocco",
-      "description": "Discover unforgettable experiences in Morocco with Flymorocco.",
+      "description": "Expert-guided paragliding tours combining adventure, culture, and safety across Morocco's diverse landscapes from Atlas peaks to Atlantic coast.",
       "ogImageAlt": "Explore Morocco with Flymorocco"
     },
     "cookies": {
@@ -776,7 +776,7 @@
     },
     "rules": {
       "title": "Regulation",
-      "description": "Learn the free flying regulation in Morocco and comply to local regulation"
+      "description": "Complete guide to Morocco paragliding regulations, DGAC authorization requirements, airspace restrictions, and legal compliance procedures."
     },
     "airspaces": {
       "title": "Moroccan Airspaces",
@@ -792,7 +792,7 @@
     },
     "siteGuides": {
       "title": "Site Guides",
-      "description": "Paragliding site guides in Morocco"
+      "description": "Complete directory of paragliding sites in Morocco with access routes, weather conditions, and safety information"
     }
   },
   "booking": {
