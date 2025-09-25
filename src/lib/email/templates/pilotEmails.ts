@@ -13,8 +13,9 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
       
       <h4 style="color: #856404; margin: 15px 0 10px 0;">Please reply to this email with:</h4>
       <ol style="color: #856404; margin: 0; padding-left: 20px;">
-        <li>📋 Copy of your pilot license (photo or scan)</li>
-        <li>🛡️ Current third party liability certificate</li>
+      <li>🛂 Copy of your passport (a clear photo or scan</li>
+        <li>📋 Copy of your pilot license (a clear photo or scan)</li>
+        <li>🛡️ Current third party liability certificate (in English if possible)</li>
         <li>🏆 Experience level (total hours/years flying)</li>
         <li>🪂 Glider details (manufacturer, model, size, colours)</li>
         <li>✍️ Annex 2 filled and signed (<a href=\"https://flymorocco.info/rules/authorisation\" style=\"color: #856404;\">Form link here</a>)</li>
