@@ -27,13 +27,17 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "www.abertih.com",
-        port: "",
         pathname: "/GB/img/slider/**",
       },
       {
         protocol: "https",
+        hostname: "www.abertih.com",
+        pathname: "/img/portfolio/**"
+      },
+      {
+        protocol: "https",
         hostname: "magicalmirleft.com",
-        pathname: "/wp-content/uploads/2024/03/**",
+        pathname: "/wp-content/uploads/2024/**/**",
       },
       {
         protocol: "https",

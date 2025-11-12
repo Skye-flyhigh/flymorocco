@@ -12,10 +12,12 @@ import { routing } from "@/i18n/routing";
 import { getTourImages } from "@/lib/utils/tourImages";
 import Script from "next/script";
 import rawPricing from "@/data/pricing.json";
+import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+import Carousel from "../../components/Carousel";
 
 export async function generateStaticParams() {
-  return routing.locales.flatMap((locale) =>
-    TOUR_SLUGS.map((slug) => ({ locale, slug })),
+  return routing.locales.flatMap((locale: string) =>
+    TOUR_SLUGS.map((slug: string) => ({ locale, slug })),
   );
 }
 
@@ -23,7 +25,7 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string; locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale, slug } = await params;
 
   if (!TOUR_SLUGS.includes(slug as TourSlug)) {
@@ -208,7 +210,7 @@ export default async function Page({
     description: t(`${slug}.description`),
     provider: {
       "@type": "Organization",
-      name: "FlyMorocco",
+      name: "Flymorocco",
       url: "https://flymorocco.com",
     },
     image: heroImage,
@@ -237,7 +239,7 @@ export default async function Page({
         },
         provider: {
           "@type": "Organization",
-          name: "FlyMorocco",
+          name: "Flymorocco",
           url: "https://flymorocco.com",
         },
         geo: {
@@ -266,26 +268,30 @@ export default async function Page({
         <TourService />
       </section>
 
-      <section
-        id="tour-details"
-        className="grid lg:grid-cols-2 grid-rows-2 justify-center items-center"
-      >
-        <Image
-          src={img[0].src}
-          alt={img[0].alt}
-          height={img[0].height}
-          width={img[0].width}
-          className="object-cover aspect-square"
-        />
-        <MustHave slug={slug as TourSlug} />
-        <Activities slug={slug as TourSlug} />
-        <Image
-          src={img[1].src}
-          alt={img[1].alt}
-          height={img[1].height}
-          width={img[1].width}
-          className="object-cover aspect-square"
-        />
+      <section id="tour-details">
+        <div className="grid lg:grid-cols-2  justify-center items-center">
+          <Image
+            src={img[0].src}
+            alt={img[0].alt}
+            height={img[0].height}
+            width={img[0].width}
+            className="object-cover aspect-square"
+          />
+          <MustHave slug={slug as TourSlug} />
+        </div>
+
+        <Carousel images={img} />
+
+        <div className="grid lg:grid-cols-2 justify-center items-center">
+          <Activities slug={slug as TourSlug} />
+          <Image
+            src={img[1].src}
+            alt={img[1].alt}
+            height={img[1].height}
+            width={img[1].width}
+            className="object-cover aspect-square"
+          />
+        </div>
       </section>
 
       <SelectedCalendar slug={slug as TourSlug} />
