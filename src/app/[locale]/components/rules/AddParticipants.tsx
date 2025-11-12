@@ -59,7 +59,7 @@ export default function AddParticipants({
     <AnimatePresence>
       <motion.section
         id="CAA-form-section"
-        className="!flex"
+        className="flex"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -10 }}
@@ -74,12 +74,12 @@ export default function AddParticipants({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex flex-wrap flex-row gap-4 mx-auto border-base-300 rounded-xl"
+              className="flex flex-row gap-4 mx-auto border-base-300 rounded-xl lg:min-w-lg"
             >
               <h2 className="CAA-form-legend absolute ml-7">
                 Participant #{i + 1}
               </h2>
-              <fieldset id="identification" className="CAA-form-fieldset mt-10">
+              <fieldset id="identification" className="CAA-form-fieldset mt-10 min-w-96">
                 <legend className="CAA-form-legend">
                   {t("identification")}
                 </legend>
@@ -139,7 +139,7 @@ export default function AddParticipants({
                   );
                 })}
               </fieldset>
-              <fieldset id="glider" className="CAA-form-fieldset md:mt-10">
+              <fieldset id="glider" className="CAA-form-fieldset md:mt-10 min-w-96">
                 <legend className="CAA-form-legend">{t("glider")}</legend>
                 {Object.entries(participant.glider).map(([key, value]) => {
                   return (
