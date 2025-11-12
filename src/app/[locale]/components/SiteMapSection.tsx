@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "use-intl";
+import { useTranslations } from "next-intl";
 import SiteMapContainer from "./siteGuides/SiteMapContainer";
 
 export default function SiteMapSection() {
