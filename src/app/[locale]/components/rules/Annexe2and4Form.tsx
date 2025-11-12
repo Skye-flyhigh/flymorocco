@@ -13,7 +13,7 @@ import {
   useState,
   useRef,
 } from "react";
-import { useTranslations } from "use-intl";
+import { useTranslations } from "next-intl";
 import SiteSelector from "./SiteSelector";
 import { CircleX } from "lucide-react";
 import AddParticipants from "./AddParticipants";
