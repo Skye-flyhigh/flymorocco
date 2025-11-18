@@ -70,16 +70,16 @@ export default function AddParticipants({
           return (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex flex-row gap-4 mx-auto border-base-300 rounded-xl lg:min-w-lg"
+              className="flex md:flex-row flex-col gap-4 mx-auto border-base-300 my-2 rounded-xl sm:min-w-lg"
             >
               <h2 className="CAA-form-legend absolute ml-7">
                 Participant #{i + 1}
               </h2>
-              <fieldset id="identification" className="CAA-form-fieldset mt-10 min-w-96">
+              <fieldset id="identification" className="CAA-form-fieldset mt-10 sm:min-w-96">
                 <legend className="CAA-form-legend">
                   {t("identification")}
                 </legend>
@@ -139,7 +139,7 @@ export default function AddParticipants({
                   );
                 })}
               </fieldset>
-              <fieldset id="glider" className="CAA-form-fieldset md:mt-10 min-w-96">
+              <fieldset id="glider" className="CAA-form-fieldset md:mt-10 sm:min-w-96">
                 <legend className="CAA-form-legend">{t("glider")}</legend>
                 {Object.entries(participant.glider).map(([key, value]) => {
                   return (
@@ -177,7 +177,7 @@ export default function AddParticipants({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="w-full flex flex-wrap justify-evenly mb-4 mt-10 md:mx-10 mx-5 p-5 border-base-300 rounded-xl bg-base-200"
+          className="w-full flex flex-wrap justify-evenly my-2 md:mx-10  p-5 border-base-300 rounded-xl bg-base-200"
         >
           <h3
             id="CAA-form-legend"
