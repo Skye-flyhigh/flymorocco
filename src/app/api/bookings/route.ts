@@ -52,6 +52,7 @@ export async function POST(request: NextRequest) {
     const booking: BookingConfirmationData = {
       bookingData: bookingData,
       bookingPayment: paymentInfo,
+      bookingStatus: ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"],
       tourReference: bookingRef,
       totalPeople,
       soloCount,

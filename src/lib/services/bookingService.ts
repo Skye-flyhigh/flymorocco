@@ -67,9 +67,10 @@ export async function saveBookingDetails(booking: BookingConfirmationData) {
     isPilot: boolean;
     soloOccupancy: boolean;
   }) => {
-    const baseInfo = {
+    return {
       name: name,
       email: email,
+      status: "PENDING" as const,
       soloOccupancy: soloOccupancy,
       dietary: "",
       medical: "",
@@ -94,11 +95,7 @@ export async function saveBookingDetails(booking: BookingConfirmationData) {
         departureDate: new Date(booking.bookingData.start).toDateString(),
         departureTime: "",
       },
-    };
-
-    if (isPilot) {
-      return {
-        ...baseInfo,
+      pilot: isPilot ? {
         flyingExperience: "",
         pilotRating: false,
         thirdParty: false,
@@ -107,10 +104,8 @@ export async function saveBookingDetails(booking: BookingConfirmationData) {
         gliderModel: "",
         gliderSize: "",
         gliderColours: "",
-      };
-    }
-
-    return baseInfo;
+      } : undefined,
+    };
   };
 
   // Add participant details

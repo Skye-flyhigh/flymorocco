@@ -17,3 +17,10 @@ export interface TourByDate {
   pilotsCount: number;
   currency: string;
 }
+
+export interface TourBooking {
+  reference: string;
+  startDate: string;
+  endDate: string;
+  type: string;
+}

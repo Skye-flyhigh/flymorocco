@@ -2,9 +2,12 @@ import { Currency } from "../utils/pricing";
 import { BookingFormData } from "../validation/BookFormData";
 import { TourSlug } from "./tour";
 
+export const BOOKING_STATUS = ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"] as const;
+
 export interface ParticipantDetails {
   name: string;
   email: string;
+  status: (typeof BOOKING_STATUS)[number];
   soloOccupancy: boolean;
   dietary: string;
   medical: string;
@@ -31,14 +34,16 @@ export interface ParticipantDetails {
     departureTime: string;
   };
   // Pilot-specific fields (optional)
-  pilotRating?: boolean;
-  thirdParty?: boolean;
-  annexe2?: boolean;
-  gliderManufacturer?: string;
-  gliderModel?: string;
-  gliderSize?: string;
-  gliderColours?: string;
-  flyingExperience?: string;
+  pilot?: {
+    pilotRating: boolean;
+    thirdParty: boolean;
+    annexe2: boolean;
+    gliderManufacturer: string;
+    gliderModel: string;
+    gliderSize: string;
+    gliderColours: string;
+    flyingExperience: string;
+  }
 }
 
 export interface ParticipantBookingDetails {
@@ -61,6 +66,7 @@ export interface PaymentInfo {
 export interface BookingConfirmationData {
   bookingData: BookingFormData;
   bookingPayment: PaymentInfo;
+  bookingStatus: typeof BOOKING_STATUS;
   tourReference: string;
   totalPeople: number;
   soloCount: number;

@@ -49,6 +49,7 @@ export async function testBookingSaveAction() {
     const booking: BookingConfirmationData = {
       bookingData: testBookingData,
       bookingPayment: testPaymentInfo,
+      bookingStatus: ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"],
       tourReference: tourReference,
       totalPeople: 2,
       soloCount: 1,

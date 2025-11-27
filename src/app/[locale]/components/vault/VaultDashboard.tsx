@@ -232,7 +232,7 @@ export default function VaultDashboard() {
                                   <h5 className="font-medium text-white">
                                     {participant.name}
                                   </h5>
-                                  {participant.pilotRating && (
+                                  {participant.pilot?.pilotRating && (
                                     <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-orange-900 text-orange-200">
                                       🪂 Pilot
                                     </span>
@@ -321,13 +321,13 @@ export default function VaultDashboard() {
                                   </span>
                                 </div>
                               )}
-                              {participant.flyingExperience && (
+                              {participant.pilot?.flyingExperience && (
                                 <div>
                                   <span className="text-slate-400">
                                     Experience:
                                   </span>
                                   <span className="ml-1 text-slate-300">
-                                    {participant.flyingExperience}
+                                    {participant.pilot.flyingExperience}
                                   </span>
                                 </div>
                               )}
