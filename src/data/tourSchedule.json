@@ -78,5 +78,90 @@
     "icon": "rocket",
     "status": "available",
     "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2026-03-22",
+    "end": "2026-03-28",
+    "type": "Mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2026-03-29",
+    "end": "2026-04-04",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-10-24",
+    "end": "2026-10-31",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-11-01",
+    "end": "2026-11-07",
+    "type": "mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2026-11-07",
+    "end": "2026-11-14",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisMirleft"
+  },
+  {
+    "start": "2026-11-15",
+    "end": "2026-11-22",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2026-11-15",
+    "end": "2026-11-22",
+    "type": "mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2026-11-22",
+    "end": "2026-11-28",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-11-29",
+    "end": "2026-12-05",
+    "type": "mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
   }
 ]
