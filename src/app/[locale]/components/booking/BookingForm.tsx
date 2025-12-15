@@ -353,12 +353,12 @@ export default function BookingForm(tour: TourSchedule) {
               {/* Participants Section */}
               <fieldset className="fieldset mb-6">
                 <legend className="fieldset-legend text-lg font-semibold mb-4">
-                  Participants
+                  Extra participants
                 </legend>
 
                 {/* Participant count selector */}
                 <div className="flex items-center gap-4 mb-4">
-                  <label className="font-medium">Number of participants:</label>
+                  <label className="font-medium">Number of additional participants:</label>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"

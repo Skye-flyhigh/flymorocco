@@ -98,6 +98,78 @@
     "translationKey": "coastal"
   },
   {
+    "start": "2026-04-04",
+    "end": "2026-04-11",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-04-11",
+    "end": "2026-04-18",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-04-18",
+    "end": "2026-04-25",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-04-25",
+    "end": "2026-05-02",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-05-02",
+    "end": "2026-05-09",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-05-09",
+    "end": "2026-05-16",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-05-16",
+    "end": "2026-05-23",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2026-05-23",
+    "end": "2026-05-30",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
     "start": "2026-10-24",
     "end": "2026-10-31",
     "type": "coastal",
