@@ -7,12 +7,13 @@ import TourCards from "../components/tours/TourCards";
 import Link from "next/link";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import Script from "next/script";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "tours" });

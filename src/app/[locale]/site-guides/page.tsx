@@ -5,12 +5,13 @@ import SiteMapSection from "../components/SiteMapSection";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import SearchSiteBar from "../components/siteGuides/SearchSite";
 import { siteMeta } from "@/lib/validation/siteMeta";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "siteGuides" });

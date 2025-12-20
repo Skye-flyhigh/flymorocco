@@ -52,13 +52,13 @@
     "title": "Que disent nos clients de nous ?"
   },
   "siteGuides": {
-    "title": "Sites de Vol Libre au Maroc",
+    "title": "Sites de Vol Libre Parapente au Maroc",
     "subtitle": "Description des différents sites de vol au Maroc. Localisation, accès, informations, etc.",
     "more": "Plus",
     "less": "Moins",
     "return": "Retour aux Guides de Sites",
     "viewSite": "Voir le Site",
-    "featuring": "Site mis en avant aujourd'hui",
+    "featuring": "Site de parapente du jour",
     "takeoff": "Décollage",
     "landing": "Atterrissage",
     "flying": "Vol",
@@ -486,17 +486,23 @@
     "coastal": {
       "title": "Circuits Côtiers",
       "subtitle": "Plages apaisantes et brise marine",
-      "intro": "Situé dans le Sud du Maroc, vous profiterez de la vie côtière que Mirleft offre. Des belles promenades sur la plage à la délicieuse cuisine au bord de mer fraîche du marché. Le vol est étonnamment varié et conviendrait à tous les profils de pilotes, du pur vol côtier au-dessus des falaises maritimes au vol thermique sur les collines."
+      "intro": "Situé dans le Sud du Maroc, vous profiterez de la vie côtière que Mirleft offre. Des belles promenades sur la plage à la délicieuse cuisine au bord de mer fraîche du marché. Le vol est étonnamment varié et conviendrait à tous les profils de pilotes, du pur vol côtier au-dessus des falaises maritimes au vol thermique sur les collines.",
+      "description": "Profitez des meilleurs vols en parapente sur la côte de Mirleft, Maroc, avec nos guides professionels.",
+      "serviceType": "Séjours à la côte de parapente"
     },
     "mountain": {
       "title": "Circuit Montagne",
       "subtitle": "Hauteurs du Haut Atlas et air frais",
-      "intro": "Basé au pied du Haut Atlas, venez découvrir la campagne berbère spécifique à cette chaîne de montagnes. Survolez les terres fertiles et ouvertes du Maroc, en regardant les plaines arides de Marrakech. Le vol est thermique mais conviendrait à tous les profils de pilotes."
+      "intro": "Basé au pied du Haut Atlas, venez découvrir la campagne berbère spécifique à cette chaîne de montagnes. Survolez les terres fertiles et ouvertes du Maroc, en regardant les plaines arides de Marrakech. Le vol est thermique mais conviendrait à tous les profils de pilotes.",
+      "description": "Profitez des meilleurs vols à la montagne dans l'Atlas, Marrakech avec nos guides professionels.",
+      "serviceType": "Séjours à la montagne Atlas de parapente"
     },
     "wellbeing": {
       "title": "Retraite Bien-être de Luxe",
       "subtitle": "Expérience exclusive en villa face à l'océan alliant sérénité et vol",
-      "intro": "Une semaine extraordinaire de bien-être de luxe dans notre magnifique villa face à l'Atlantique à Mirleft. Commencez chaque journée par une classe de yoga et méditation avec vue sur l'océan, puis survolez les falaises spectaculaires et les plages jusqu'au coucher du soleil. Parfait pour les couples qui cherchent chacun leur bonheur – que ce soit à travers le bien-être méditatif, l'aventure du parapente, ou les deux. Cette retraite intimiste offre l'équilibre ultime entre paix intérieure et liberté aérienne."
+      "intro": "Une semaine extraordinaire de bien-être de luxe dans notre magnifique villa face à l'Atlantique à Mirleft. Commencez chaque journée par une classe de yoga et méditation avec vue sur l'océan, puis survolez les falaises spectaculaires et les plages jusqu'au coucher du soleil. Parfait pour les couples qui cherchent chacun leur bonheur – que ce soit à travers le bien-être méditatif, l'aventure du parapente, ou les deux. Cette retraite intimiste offre l'équilibre ultime entre paix intérieure et liberté aérienne.",
+      "description": "Venez vous relaxer avec notre experience bien être, méditation et yoga en combinaison du parapente a Mirleft, Maroc",
+      "serviceType": "Séjour bien être de Luxe"
     },
     "activities": {
       "title": "Que faire d'autre aux alentours ?",
@@ -590,6 +596,11 @@
     "jurisdiction": {
       "title": "Droit applicable",
       "description": "Ces Conditions sont régies par le droit marocain. Tout litige découlant de l'utilisation de ce site sera réglé par les tribunaux compétents de Marrakech, Maroc."
+    },
+    "CAA": "Direction Générale de l'Aviation Civile",
+    "analytics": {
+      "description": "On utilise Google Analytics pour comprendre comment les internautes intéragissent avec notre site internet. Cela nous aide à améliorer votre expérience. Google Analytics collecte des informations anonymes qui incluent les pages visitées, le temps passé sur le site et l'origine de votre connection. Vous pouvez contrôler tout ceci a travers de la bannière de consentement.",
+      "title": "Google Analytics"
     }
   },
   "privacy": {
@@ -742,47 +753,48 @@
     "title": "Meilleur parapente au Maroc 2025 ? | Guide complet & séjours experts",
     "description": "Découvrez les meilleurs sites parapente Maroc, séjours guidés et réglementation. Instructeurs experts BHPA, Atlas, vol côtier et guides sites complets.",
     "about": {
-      "title": "À propos",
+      "title": "À propos de l'équipe de Flymorocco et ses partners",
       "description": "Rencontrez les instructeurs parapente certifiés BHPA avec vaste expérience Maroc, partenariats locaux et record de sécurité prouvé sur sites de vol divers.",
       "ogImageAlt": "Équipe Flymorocco"
     },
     "contact": {
-      "title": "Contactez-nous",
+      "title": "Contactez-nous - Flymorocco",
       "description": "Conseils experts personnalisés pour parapente au Maroc, planification séjours, recommandations sites et assistance réglementaire par instructeurs certifiés."
     },
     "tours": {
-      "title": "Découvrez le Maroc",
+      "title": "Découvrez le Maroc - Séjour de parapente",
       "description": "Séjours parapente expert-guidés combinant aventure, culture et sécurité à travers les paysages divers du Maroc des sommets de l'Atlas à la côte atlantique.",
       "ogImageAlt": "Explorez le Maroc avec Flymorocco"
     },
     "cookies": {
-      "title": "Politique de cookies",
+      "title": "Politique de cookies de Flymorocco",
       "description": "Politique de cookies de Flymorocco"
     },
     "privacy": {
-      "title": "Politique de confidentialité",
+      "title": "Politique de confidentialité de Flymorocco",
       "description": "Politique de confidentialité de Flymorocco"
     },
     "rules": {
-      "title": "Réglementation",
+      "title": "Réglementation aérienne du Maroc pour les parapentistes et les touristes",
       "description": "Guide complet de la réglementation parapente Maroc, exigences autorisation DGAC, restrictions espaces aériens et procédures conformité légale."
     },
     "airspaces": {
-      "title": "Espaces aériens marocains",
-      "description": "Consultez et téléchargez les espaces aériens marocains au format OpenAir."
+      "title": "Espaces aériens marocains pour le parapente",
+      "description": "Consultez les cartes des espaces aériens et téléchargez les espaces aériens marocains au format OpenAir."
     },
     "caaForms": {
-      "title": "Autorisation marocaine",
-      "description": "Générez et obtenez l'autorisation marocaine."
+      "title": "Autorisation marocaine - annexe 2 et 4 parapente pour la DGAC",
+      "description": "Générez les annexe 2 et 4, essentiels pour votre dossier de parapente pour obtenir l'autorisation marocaine."
     },
     "terms": {
-      "title": "Conditions générales",
+      "title": "Conditions générales de Flymorocco",
       "description": "Découvrez l'équipe derrière Flymorocco."
     },
     "siteGuides": {
-      "title": "Guides de sites",
+      "title": "Guides de sites de parapente au Maroc",
       "description": "Répertoire complet des sites de parapente au Maroc avec routes d'accès, conditions météo et informations sécurité"
-    }
+    },
+    "${page}": {}
   },
   "booking": {
     "success": {

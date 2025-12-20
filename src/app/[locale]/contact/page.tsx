@@ -2,12 +2,13 @@ import { useTranslations } from "next-intl";
 import Hero from "../components/Hero";
 import ContactForm from "../components/contact/ContactForm";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "contact" });

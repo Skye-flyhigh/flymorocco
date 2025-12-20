@@ -3,12 +3,13 @@ import Hero from "../components/Hero";
 import RulesNav from "../components/rules/RulesNav";
 import RulesQnA from "../components/rules/RulesQnA";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "rules" });
