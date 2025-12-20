@@ -12,12 +12,13 @@ import StructuredData from "./components/StructuredData";
 import AIFriendlyMeta from "./components/AIFriendlyMeta";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { siteMeta } from "@/lib/validation/siteMeta";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
 
@@ -65,7 +66,6 @@ export async function generateMetadata({
       default: `Flymorocco - ${t("title")}`,
       template: "%s | Flymorocco",
     },
-    description: t("description"),
     keywords,
     authors: [{ name: "Skye" }],
     creator: "Skye",

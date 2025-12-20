@@ -7,6 +7,7 @@ import Explore from "./components/home/Explore";
 import HomeHero from "./components/home/HomeHero";
 import { ImageType } from "@/lib/types/image";
 import FAQStructuredData from "./components/FAQStructuredData";
+import { Metadata } from "next";
 
 const heroImages: ImageType[] = [
   {
@@ -25,7 +26,7 @@ const heroImages: ImageType[] = [
   },
 ];
 
-export const metadata = {
+export const metadata: Metadata = {
   other: {
     "preload-image": "true", // Flag for documentation
   },
