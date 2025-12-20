@@ -742,47 +742,48 @@
     "title": "Meilleur parapente au Maroc 2025 ? | Guide complet & séjours experts",
     "description": "Découvrez les meilleurs sites parapente Maroc, séjours guidés et réglementation. Instructeurs experts BHPA, Atlas, vol côtier et guides sites complets.",
     "about": {
-      "title": "À propos",
+      "title": "À propos de l'équipe de Flymorocco et ses partners",
       "description": "Rencontrez les instructeurs parapente certifiés BHPA avec vaste expérience Maroc, partenariats locaux et record de sécurité prouvé sur sites de vol divers.",
       "ogImageAlt": "Équipe Flymorocco"
     },
     "contact": {
-      "title": "Contactez-nous",
+      "title": "Contactez-nous - Flymorocco",
       "description": "Conseils experts personnalisés pour parapente au Maroc, planification séjours, recommandations sites et assistance réglementaire par instructeurs certifiés."
     },
     "tours": {
-      "title": "Découvrez le Maroc",
+      "title": "Découvrez le Maroc - Séjour de parapente",
       "description": "Séjours parapente expert-guidés combinant aventure, culture et sécurité à travers les paysages divers du Maroc des sommets de l'Atlas à la côte atlantique.",
       "ogImageAlt": "Explorez le Maroc avec Flymorocco"
     },
     "cookies": {
-      "title": "Politique de cookies",
+      "title": "Politique de cookies de Flymorocco",
       "description": "Politique de cookies de Flymorocco"
     },
     "privacy": {
-      "title": "Politique de confidentialité",
+      "title": "Politique de confidentialité de Flymorocco",
       "description": "Politique de confidentialité de Flymorocco"
     },
     "rules": {
-      "title": "Réglementation",
+      "title": "Réglementation aérienne du Maroc pour les parapentistes et les touristes",
       "description": "Guide complet de la réglementation parapente Maroc, exigences autorisation DGAC, restrictions espaces aériens et procédures conformité légale."
     },
     "airspaces": {
-      "title": "Espaces aériens marocains",
-      "description": "Consultez et téléchargez les espaces aériens marocains au format OpenAir."
+      "title": "Espaces aériens marocains pour le parapente",
+      "description": "Consultez les cartes des espaces aériens et téléchargez les espaces aériens marocains au format OpenAir."
     },
     "caaForms": {
-      "title": "Autorisation marocaine",
-      "description": "Générez et obtenez l'autorisation marocaine."
+      "title": "Autorisation marocaine - annexe 2 et 4 parapente pour la DGAC",
+      "description": "Générez les annexe 2 et 4, essentiels pour votre dossier de parapente pour obtenir l'autorisation marocaine."
     },
     "terms": {
-      "title": "Conditions générales",
+      "title": "Conditions générales de Flymorocco",
       "description": "Découvrez l'équipe derrière Flymorocco."
     },
     "siteGuides": {
-      "title": "Guides de sites",
+      "title": "Guides de sites de parapente au Maroc",
       "description": "Répertoire complet des sites de parapente au Maroc avec routes d'accès, conditions météo et informations sécurité"
-    }
+    },
+    "${page}": {}
   },
   "booking": {
     "success": {

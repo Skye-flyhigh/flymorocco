@@ -753,45 +753,45 @@
     "title": "Paragliding in Morocco",
     "description": "Discover unforgettable experiences in Morocco with Flymorocco.",
     "about": {
-      "title": "About",
+      "title": "About Flymorocco Team & Partners",
       "description": "Meet paragliding instructors with extensive Morocco experience, local partnerships, and proven safety record across diverse flying sites.",
       "ogImageAlt": "Flymorocco Team"
     },
     "contact": {
-      "title": "Contact us",
-      "description": "Any other questions regarding flying in Morocco. Don't hesitate in contacting us."
+      "title": "Contact us - Flymorocco team",
+      "description": "Any other questions regarding flying paraglider in Morocco. Don't hesitate in contacting us."
     },
     "tours": {
-      "title": "Discover Morocco",
+      "title": "Discover Morocco - Holiday for paragliding pilots and yoga retreat and wellness",
       "description": "Expert-guided paragliding tours combining adventure, culture, and safety across Morocco's diverse landscapes from Atlas peaks to Atlantic coast.",
       "ogImageAlt": "Explore Morocco with Flymorocco"
     },
     "cookies": {
-      "title": "Cookies policy",
+      "title": "Flymorocco's Cookies policy",
       "description": "Flymorocco's cookies policy"
     },
     "privacy": {
-      "title": "Privacy Notice",
+      "title": "Flymorocco's Privacy Notice",
       "description": "Flymorocco's privacy notice"
     },
     "rules": {
-      "title": "Regulation",
+      "title": "Moroccan Air Regulation for Paragliding",
       "description": "Complete guide to Morocco paragliding regulations, DGAC authorization requirements, airspace restrictions, and legal compliance procedures."
     },
     "airspaces": {
-      "title": "Moroccan Airspaces",
-      "description": "View and download Moroccan airspaces in openAir format"
+      "title": "Moroccan Airspaces - Flying paraglider, OpenAir format",
+      "description": "Find out location of Class A to D airspace, danger, prohibited and restrictive areas for flying with a paraglider. View and download Moroccan airspaces in openAir format"
     },
     "caaForms": {
-      "title": "Moroccan Authorisation",
-      "description": "Generate and get the Moroccan authorisation"
+      "title": "Moroccan Authorisation - Free flying - Paragliding",
+      "description": "Generate both annexe 2 and 4 to submit to the Moroccan DGAC to get the Free flying authorisation"
     },
     "terms": {
-      "title": "Terms & Conditions",
+      "title": "Flymorocco's Terms & Conditions",
       "description": "Discover the team behind Flymorocco."
     },
     "siteGuides": {
-      "title": "Site Guides",
+      "title": "Paragliding site Guides",
       "description": "Complete directory of paragliding sites in Morocco with access routes, weather conditions, and safety information"
     }
   },
