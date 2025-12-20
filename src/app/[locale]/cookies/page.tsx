@@ -1,11 +1,12 @@
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
   return await buildPageMetadata({ locale, page: "cookies" });
 }
