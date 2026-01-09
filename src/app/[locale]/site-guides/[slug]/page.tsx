@@ -7,12 +7,13 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import SiteGuideTracker from "../../components/siteGuides/SiteGuideTracker";
 import Script from "next/script";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: `siteGuides.${slug}` });
   return {

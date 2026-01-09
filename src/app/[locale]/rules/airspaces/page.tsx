@@ -1,12 +1,13 @@
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import SiteMapSection from "../../components/SiteMapSection";
 import DownloadAirspaces from "../../components/rules/DowloadAirspaces";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "airspaces" });

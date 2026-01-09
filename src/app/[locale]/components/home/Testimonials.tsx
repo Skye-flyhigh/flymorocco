@@ -8,7 +8,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="py-20 text-center">
-      <h1 className="section-title">{t("title")}</h1>
+      <h2 className="section-title">{t("title")}</h2>
       <TrustpilotWidget />
       <GoogleBusinessWidget />
     </section>

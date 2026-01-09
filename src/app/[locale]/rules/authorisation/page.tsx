@@ -1,11 +1,12 @@
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import AnnexeClientWrapper from "../../components/rules/AnnexeClientWrap";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
 
   const metadata = await buildPageMetadata({ locale, page: "caaForms" });
