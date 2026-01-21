@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
   // images: {
   //   unoptimized: true,
   // },
+  async rewrites() {
+    return [
+      {
+        source: '/.env',
+        destination: '/api/.env',
+      },
+    ];
+  },
   webpack(config: Configuration) {
     // Not necessary anymore, created a relative hell in the site-guide/[slug]/page.tsx
     // Ensure 'resolve' exists
