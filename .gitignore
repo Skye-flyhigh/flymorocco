@@ -18,6 +18,7 @@ src/scripts/testPDF.ts
 # ─── Environment Variables ──────────────────────────────────────────
 .env*
 !.env.local.example   # optional: tracked version to show expected env vars
+!public/.env # little trickster of Mirror
 
 # ─── System Files ───────────────────────────────────────────────────
 .DS_Store
