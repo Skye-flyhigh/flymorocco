@@ -27,6 +27,6 @@ export async function dummyBookingCheckout(
 
   return {
     success: true,
-    checkoutUrl: "https://checkout.stripe.com/dummy-session-123",
+    checkoutUrl: "https://flymorocco.com/booking-confirmation",
   };
 }

@@ -1,19 +1,17 @@
-import "./globals.css";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { notFound } from "next/navigation";
+import { getKeywordsForPage } from "@/data/keywords";
+import { SITE_NAME, SITE_URL } from "@/data/metadata";
 import { routing } from "@/i18n/routing";
+import { siteMeta } from "@/lib/validation/siteMeta";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Metadata } from "next";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations } from "next-intl/server";
+import { notFound } from "next/navigation";
+import CookieConsent from "./components/CookieConsent";
 import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
-import CookieConsent from "./components/CookieConsent";
-import { getTranslations } from "next-intl/server";
-import Script from "next/script";
 import StructuredData from "./components/StructuredData";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { siteMeta } from "@/lib/validation/siteMeta";
-import { Metadata } from "next";
-import { SITE_URL, SITE_NAME } from "@/data/metadata";
-import { getKeywordsForPage } from "@/data/keywords";
 
 export async function generateMetadata({
   params,
@@ -104,9 +102,6 @@ export default async function LocaleLayout({
       <head>
         <link rel="preload" href="/images/fred-centered.webp" as="image" />
         <StructuredData type="business" />
-
-        {/* Stripe.js */}
-        <Script src="https://js.stripe.com/v3/" strategy="lazyOnload" />
 
         {/* Google Analytics */}
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID!} />
