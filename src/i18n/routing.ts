@@ -6,6 +6,12 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale: "en",
+
+  // Use permanent redirects (301) instead of temporary (307)
+  localePrefix: 'always',
+
+  // Disable automatic locale detection for SEO
+  localeDetection: false
 });
 
 export type Locale = (typeof routing.locales)[number];
