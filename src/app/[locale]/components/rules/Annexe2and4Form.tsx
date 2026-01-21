@@ -1,27 +1,28 @@
 "use client";
 
+import { useRecaptcha } from "@/hooks/useRecaptcha";
+import { submitCaaForm } from "@/lib/submit/submitCaaForm";
+import { next30Days } from "@/lib/utils/next-30-days";
+import { createCustomRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
 import {
   FullFormSchema,
   FullFormSchemaType,
   ParticipantType,
 } from "@/lib/validation/CaaFormdata";
-import { submitCaaForm } from "@/lib/submit/submitCaaForm";
+import { CircleX } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   useActionState,
   useCallback,
   useEffect,
-  useState,
   useRef,
+  useState,
 } from "react";
-import { useTranslations } from "next-intl";
-import SiteSelector from "./SiteSelector";
-import { CircleX } from "lucide-react";
 import AddParticipants from "./AddParticipants";
+import FormButton from "./FormButton";
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
-import FormButton from "./FormButton";
-import { useRecaptcha } from "@/hooks/useRecaptcha";
-import { createCustomRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
+import SiteSelector from "./SiteSelector";
 
 export default function Annexe2and4Form() {
   const t = useTranslations("rules");
@@ -255,7 +256,8 @@ export default function Annexe2and4Form() {
                                 ] as string) ?? "")
                           }
                           aria-invalid={inputErrors[fieldKey] !== ""}
-                          aria-describedby={`${fieldKey}-error`}
+                            aria-describedby={`${fieldKey}-error`}
+                          min={next30Days()}
                           required
                         />
                       )}

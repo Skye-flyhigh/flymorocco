@@ -1,10 +1,11 @@
 "use client";
 
-import { Minus, Plus } from "lucide-react";
-import { useEffect, useState } from "react";
+import { next30Days } from "@/lib/utils/next-30-days";
 import { ParticipantType } from "@/lib/validation/CaaFormdata";
+import { AnimatePresence, motion } from "framer-motion";
+import { Minus, Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
 
 type AddParticipantsProps = {
   participantAction: (payload: {
@@ -53,8 +54,6 @@ export default function AddParticipants({
     participantAction({ validParticipants });
   }, [participants, participantAction]);
 
-  console.log("Participants from addParticipant component:", participants);
-
   return (
     <AnimatePresence>
       <motion.section
@@ -85,8 +84,7 @@ export default function AddParticipants({
                 </legend>
 
                 {Object.entries(participant).map(([key, value]) => {
-                  if (typeof value === "object" || key === "glider")
-                    return null;
+                  // Handle insuranceValidity date input first (before object check)
                   if (key === "insuranceValidity") {
                     return (
                       <div key={key}>
@@ -98,8 +96,8 @@ export default function AddParticipants({
                           type="date"
                           name="insuranceValidity"
                           className="input"
-                          placeholder={t(`insuranceValidity.placeholder`)}
-                          value={new Date(value).toISOString().split("T", 1)[0]}
+                          value={new Date(value as Date).toISOString().split("T", 1)[0]}
+                          min={next30Days()}
                           onChange={(e) => {
                             const updated = [...participants];
                             updated[i] = {
@@ -113,6 +111,9 @@ export default function AddParticipants({
                       </div>
                     );
                   }
+                  // Skip glider object (handled in separate fieldset)
+                  if (typeof value === "object" || key === "glider")
+                    return null;
                   return (
                     <div key={key}>
                       <label htmlFor={key} className="CAA-form-label">
