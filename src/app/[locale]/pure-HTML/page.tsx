@@ -141,7 +141,7 @@ export default function Page() {
         </p>
         <p>
           Location: <wbr />
-          flymorocco.com/tours/mountain
+          flymorocco.info/tours/mountain
         </p>
       </address>
 

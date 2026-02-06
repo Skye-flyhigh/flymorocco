@@ -46,10 +46,10 @@ export async function generateMetadata({
       images: [`/og-image/${slug}.webp`],
     },
     alternates: {
-      canonical: `https://flymorocco.com/${locale}`,
+      canonical: `https://flymorocco.info/${locale}`,
       languages: {
-        en: "https://flymorocco.com/en",
-        fr: "https://flymorocco.com/fr",
+        en: "https://flymorocco.info/en",
+        fr: "https://flymorocco.info/fr",
       },
     },
   };

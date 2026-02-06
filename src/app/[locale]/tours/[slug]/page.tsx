@@ -149,10 +149,10 @@ export async function generateMetadata({
       images: [`/og-image/${slug}.webp`],
     },
     alternates: {
-      canonical: `https://flymorocco.com/${locale}`,
+      canonical: `https://flymorocco.info/${locale}`,
       languages: {
-        en: "https://flymorocco.com/en",
-        fr: "https://flymorocco.com/fr",
+        en: "https://flymorocco.info/en",
+        fr: "https://flymorocco.info/fr",
       },
     },
   };
@@ -211,7 +211,7 @@ export default async function Page({
     provider: {
       "@type": "Organization",
       name: "Flymorocco",
-      url: "https://flymorocco.com",
+      url: "https://flymorocco.info",
     },
     image: heroImage,
     additionalType: "https://schema.org/TouristAttraction",
@@ -227,7 +227,7 @@ export default async function Page({
     },
     offers: {
       "@type": "Offer",
-      url: `https://flymorocco.com/${locale}/tours/${slug}`,
+      url: `https://flymorocco.info/${locale}/tours/${slug}`,
       priceCurrency: "EUR",
       price,
       itemOffered: {
@@ -240,7 +240,7 @@ export default async function Page({
         provider: {
           "@type": "Organization",
           name: "Flymorocco",
-          url: "https://flymorocco.com",
+          url: "https://flymorocco.info",
         },
         geo: {
           "@type": "GeoCoordinates",
