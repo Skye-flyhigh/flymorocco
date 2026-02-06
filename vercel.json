@@ -31,17 +31,6 @@
       "source": "/(.*)",
       "has": [
         {
-          "type": "host",
-          "value": "www.flymorocco.info"
-        }
-      ],
-      "destination": "https://flymorocco.info/$1",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [
-        {
           "type": "header",
           "key": "x-forwarded-proto",
           "value": "http"
@@ -354,7 +343,11 @@
     },
     {
       "source": "/wp-admin/install.php",
-      "destination": "/api/honeypot?bait=wp-install"
+      "destination": "/api/honeypot?bait=wordpress"
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/api/honeypot?bait=wordpress"
     },
     {
       "source": "/.git/config",
