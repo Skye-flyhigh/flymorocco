@@ -27,6 +27,6 @@ export async function dummyBookingCheckout(
 
   return {
     success: true,
-    checkoutUrl: "https://flymorocco.com/booking-confirmation",
+    checkoutUrl: "https://flymorocco.info/booking-confirmation",
   };
 }
