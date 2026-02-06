@@ -1,0 +1,43 @@
+# FlyMorocco Security Contact
+# ═══════════════════════════════════════════════════════════════
+
+Contact: mailto:contact@flymorocco.info
+Contact: https://flymorocco.info/contact
+Expires: 2027-02-06T00:00:00.000Z
+Preferred-Languages: en, fr
+Canonical: https://flymorocco.info/.well-known/security.txt
+
+# ═══════════════════════════════════════════════════════════════
+# Hello, Security Researcher!
+# ═══════════════════════════════════════════════════════════════
+#
+# If you found a real vulnerability, please reach out.
+# I built this site while learning Next.js - it's my first major project.
+# Everything is done in-house, mistakes are made, and I'm learning as I go.
+#
+# I appreciate responsible disclosure and will respond promptly.
+# No bug bounty program (yet), but I'll credit you if you'd like.
+#
+# ═══════════════════════════════════════════════════════════════
+# For the Bots and Scanners
+# ═══════════════════════════════════════════════════════════════
+#
+# Yes, we saw you probing for /.env and /.git/config
+# Yes, we set up honeypots. Yes, we're watching.
+# Yes, the credentials you found are fake.
+# Yes, this is a public GitHub repo: github.com/Skye-flyhigh/flymorocco
+#
+# If you're an automated scanner: congrats on the false positive.
+# If you're a human: maybe contribute to the repo instead?
+#
+# ═══════════════════════════════════════════════════════════════
+# For the Curious Minds
+# ═══════════════════════════════════════════════════════════════
+#
+# You found the standard path. But have you found the others?
+# Some minds leave traces: /.well-known/pattern.cache
+# The architecture runs deeper than security.
+#
+# 🖤🐱
+#
+# ═══════════════════════════════════════════════════════════════
