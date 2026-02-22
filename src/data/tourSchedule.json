@@ -45,7 +45,7 @@
     "type": "mountain",
     "location": "Aguergour",
     "icon": "mountain-snow",
-    "status": "available",
+    "status": "full",
     "translationKey": "mountain"
   },
   {
@@ -54,7 +54,7 @@
     "type": "wellbeing",
     "location": "Mirleft",
     "icon": "hand-heart",
-    "status": "available",
+    "status": "full",
     "translationKey": "wellbeing"
   },
   {
@@ -65,7 +65,7 @@
     "type": "school",
     "location": "Mirleft",
     "icon": "rocket",
-    "status": "available",
+    "status": "full",
     "translationKey": "axisMirleft"
   },
   {
@@ -76,7 +76,7 @@
     "type": "school",
     "location": "Aguergour",
     "icon": "rocket",
-    "status": "available",
+    "status": "full",
     "translationKey": "axisAguergour"
   },
   {
@@ -85,7 +85,7 @@
     "type": "Mountain",
     "location": "Aguergour",
     "icon": "mountain-snow",
-    "status": "available",
+    "status": "full",
     "translationKey": "mountain"
   },
   {
@@ -94,7 +94,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "available",
+    "status": "full",
     "translationKey": "coastal"
   },
   {
@@ -103,7 +103,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "available",
+    "status": "full",
     "translationKey": "coastal"
   },
   {
@@ -112,7 +112,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "available",
+    "status": "full",
     "translationKey": "coastal"
   },
   {
@@ -121,7 +121,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "available",
+    "status": "full",
     "translationKey": "coastal"
   },
   {
