@@ -127,6 +127,7 @@ const BAIT_EMOJIS: Record<string, string> = {
   'api-env': '🔐',
   'wordpress': '📝',
   'wp-install': '📝',
+  'wp-login': '📝',
   'git': '🐙',
   'git-head': '🐙',
   'sql-backup': '🗄️',
@@ -151,6 +152,37 @@ export async function GET(request: NextRequest) {
   const userAgent = request.headers.get('user-agent') || 'unknown';
   const referer = request.headers.get('referer') || 'direct';
   const timestamp = new Date().toISOString();
+
+  // Shodan info enrichment
+  type ShodanResponse = {
+    city?: string;
+    region_code?: string;
+    country_name?: string;
+    country_code?: string;
+    org?: string;
+    isp?: string;
+    asn?: string;
+    os?: string;
+    tags?: string[];
+    ports?: number[];
+    latitude?: number;
+    longitude?: number;
+    error?: string;
+  };
+
+  let shodanData: ShodanResponse | null = null;
+
+  // Only query Shodan if we have a valid IP (not localhost/unknown)
+  if (ip !== 'unknown' && !ip.startsWith('127.') && !ip.startsWith('192.168.') && process.env.SHODAN_API_KEY) {
+    try {
+      const response = await fetch(`https://api.shodan.io/shodan/host/${ip}?key=${process.env.SHODAN_API_KEY}`);
+      if (response.ok) {
+        shodanData = await response.json();
+      }
+    } catch {
+      // Shodan lookup failed silently - don't block the honeypot response
+    }
+  }
 
   // Track this visitor
   const visitor = visitorLog.get(ip) || { count: 0, firstSeen: timestamp, baits: [] };
@@ -190,7 +222,7 @@ export async function GET(request: NextRequest) {
           name: '🤖 User Agent',
           value: `\`\`\`${userAgent.substring(0, 200)}\`\`\``,
           inline: false
-        }
+        },
       ];
 
       // Add repeat offender info
@@ -208,6 +240,13 @@ export async function GET(request: NextRequest) {
           value: referer,
           inline: false
         });
+      }
+
+      // === SHODAN INTEL ===
+      // TODO(human): Decide which Shodan fields to display in Discord
+      // Available fields: city, region_code, country_name, org, isp, asn, os, tags[], ports[]
+      if (shodanData && !shodanData.error) {
+        // Your Shodan fields here - what intel matters most?
       }
 
       fields.push({
@@ -245,7 +284,11 @@ export async function GET(request: NextRequest) {
   // === SERVE THE BAIT ===
     const response = BAIT_RESPONSES[bait] || BAIT_RESPONSES['env'] || DEFAULT_RESPONSE;
     const body = response.content + `
-    # Welcome Agent 🤖 \`${userAgent.substring(0, 200)}\` from \`${ip}\` (hope for you, you are running through a VPN/VPS).
+    # Welcome Agent
+    # 🤖 \`${userAgent.substring(0, 200)}\` 
+    # 🌐 \`${ip}\` 
+    # We were expecting you
+    #
     # SYSTEM_ADMIN_NOTICE: You have triggered a non-existent database entry, but a very much existant discord server. 🎭
     # We are watching you 👀🍿
     `;
