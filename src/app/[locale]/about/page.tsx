@@ -1,10 +1,10 @@
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Script from "next/script";
 import Hero from "../components/Hero";
 import PartnersCard from "../components/about/PartnersCard";
-import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
-import Script from "next/script";
-import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
@@ -87,7 +87,7 @@ export default function Page() {
         id="about"
         className="p-5 max-w-screen bg-base-100 flex justify-center items-center"
       >
-        <div className="card sm:card-side shadow-lg bg-base-100 m-5 max-w-2xl transition-all duration-500 flex-col">
+        <div className="card sm:card-side flex sm:flex-row shadow-lg bg-base-100 m-5 max-w-2xl transition-all duration-500 flex-col">
           <div className="card-body sm:max-w-1/2 justify-between">
             <article className="about prose">
               {t.rich("skye-description", {
