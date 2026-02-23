@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,8 +23,12 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@messages/*": ["./messages/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@messages/*": [
+        "./messages/*"
+      ]
     }
   },
   "include": [
@@ -30,5 +38,8 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", "./src/scripts/testPDF.ts"]
+  "exclude": [
+    "node_modules",
+    "./src/scripts/testPDF.ts"
+  ]
 }
