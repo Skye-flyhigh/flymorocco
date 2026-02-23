@@ -11,4 +11,13 @@ function next30Days(): string {
     return formattedDate  
 }
 
-export { next30Days };
+function nextXDays(x: number): string {
+  const now = new Date()
+  const nextXDays = now.getTime() + x * 24 * 60 * 60 * 1000
+  const nextXDaysDate: Date = new Date(nextXDays);
+  const formattedDate: string = nextXDaysDate.toISOString().split('T')[0]
+
+  return formattedDate
+}
+
+export { next30Days, nextXDays };

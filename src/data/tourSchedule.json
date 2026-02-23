@@ -103,7 +103,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "full",
+    "status": "available",
     "translationKey": "coastal"
   },
   {
