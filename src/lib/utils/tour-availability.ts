@@ -20,11 +20,11 @@ function tourAvailability(
 function availabilityStyling(status: Availability): string {
     switch (status) {
         case "available":
-            return "badge-success bg-green-100 group-hover:bg-green-200"
+            return "badge-success bg-green-100 group-hover:bg-green-200 dark:text-green-100 dark:bg-green-700 dark:group-hover:bg-green-800"
         case "full":
-            return "badge-error bg-red-100 group-hover:bg-red-200"
+            return "badge-error bg-red-100 group-hover:bg-red-200 dark:text-red-100 dark:bg-red-700 dark:group-hover:bg-red-800"
         case "limited":
-            return "badge-warning bg-yellow-100 group-hover:bg-yellow-200"
+            return "badge-warning bg-yellow-100 group-hover:bg-yellow-200 dark:text-yellow-100 dark:bg-yellow-700 dark:group-hover:bg-yellow-800"
     }
 }
 
