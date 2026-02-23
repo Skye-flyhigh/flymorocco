@@ -1,9 +1,9 @@
 "use client";
 
+import { availabilityStyling, tourAvailability } from "@/lib/utils/tour-availability";
 import { tourSchedule } from "@/lib/validation/tourScheduleData";
-import Link from "next/link";
+import { formatRange } from "@/scripts/dateFormat";
 import { format, parseISO } from "date-fns";
-import { useTranslations } from "next-intl";
 import {
   HandHeart,
   MountainSnow,
@@ -12,9 +12,10 @@ import {
   Sun,
   TreePalm,
 } from "lucide-react";
-import ViewMoreArrow from "../viewMoreArrow";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { formatRange } from "@/scripts/dateFormat";
+import ViewMoreArrow from "../viewMoreArrow";
 
 export default function TourCalendar() {
   const t = useTranslations("tours");
@@ -64,6 +65,9 @@ export default function TourCalendar() {
         {filteredWeeks.slice(0, cards).map((week) => {
           const Icon = iconMap[week.icon as keyof typeof iconMap] || Plane;
 
+          const status = tourAvailability(week)
+          const statusStyling = availabilityStyling(status)
+
           return (
             <Link
               href={week.slug ? week.slug : `/tours/${week.type}`}
@@ -72,11 +76,11 @@ export default function TourCalendar() {
               rel="noopener"
               className="h-full group"
             >
-              <div className="bg-radial h-full min-h-52 from-base-100 to-base-200 hover:from-base-200 hover:to-base-300 shadow-lg rounded-2xl p-4 hover:shadow-xl transition-all relative">
+              <div className="bg-radial h-full min-h-52 from-base-100 to-base-200 group-hover:from-base-200 group-hover:to-base-300 shadow-lg rounded-2xl p-4 hover:shadow-xl transition-all relative">
                 <p
-                  className={`badge badge-outline text-xs ${week.status === "full" ? "badge-error" : "badge-success"}`}
+                  className={`badge badge-outline text-xs group-hover:transition-all ${statusStyling}`}
                 >
-                  {t(`${week.status}`).toUpperCase()}
+                  {t(`${status}`).toUpperCase()}
                 </p>
                 <br />
                 <Icon className="w-10 h-10 text-primary mt-4 mr-4 absolute right-0 top-0" />
