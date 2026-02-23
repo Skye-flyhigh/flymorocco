@@ -50,6 +50,14 @@ body {
   font-weight: 700;
 }
 
+button {
+  border-radius: 7px;
+}
+
+.btn {
+  border-radius: 7px;
+}
+
 #CAA-form {
   display: flex;
   flex-direction: column;
