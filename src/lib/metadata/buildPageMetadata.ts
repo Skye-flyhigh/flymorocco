@@ -35,6 +35,14 @@ export async function buildPageMetadata({
       description: t("description"),
       url: `${SITE_URL}${canonicalPath}`,
       siteName: SITE_NAME,
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 900,
+          alt: SITE_NAME,
+        },
+      ],
       locale,
       type: "website",
     },
@@ -42,6 +50,7 @@ export async function buildPageMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }

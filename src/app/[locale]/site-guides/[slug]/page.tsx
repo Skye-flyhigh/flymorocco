@@ -63,7 +63,6 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
-  //TODO: add the legal info
   const { slug } = await params;
   const meta = getSiteMeta(slug);
   const t = await getTranslations("siteGuides");

@@ -1,3 +1,4 @@
+import "./globals.css";
 import { getKeywordsForPage } from "@/data/keywords";
 import { SITE_NAME, SITE_URL } from "@/data/metadata";
 import { routing } from "@/i18n/routing";
@@ -55,7 +56,7 @@ export async function generateMetadata({
       siteName: SITE_NAME,
       images: [
         {
-          url: "/og-image.png",
+          url: `${SITE_URL}/og-image.png`,
           width: 1200,
           height: 900,
           alt: SITE_NAME,
