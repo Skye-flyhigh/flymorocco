@@ -75,6 +75,11 @@
       "permanent": true
     },
     {
+      "source": "/Imsouane.html",
+      "destination": "/en/site-guides/imsouane",
+      "permanent": true
+    },
+    {
       "source": "/fr/Imsouane.html",
       "destination": "/fr/site-guides/imsouane",
       "permanent": true
@@ -237,6 +242,11 @@
     {
       "source": "/en/aguergour.html",
       "destination": "/en/site-guides/aguergour",
+      "permanent": true
+    },
+    {
+      "source": "/plageblanche.html",
+      "destination": "/en/site-guides/plage-blanche",
       "permanent": true
     },
     {
