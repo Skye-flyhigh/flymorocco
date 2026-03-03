@@ -4,11 +4,12 @@ interface OgCardProps {
   title: string;
   subtitle: string;
   bgImageUrl: string | null;
+  logoSrc: string | null;
 }
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
-export function createOgCard({ title, subtitle, bgImageUrl }: OgCardProps) {
+export function createOgCard({ title, subtitle, bgImageUrl, logoSrc }: OgCardProps) {
   return (
     <div
       style={{
@@ -57,26 +58,23 @@ export function createOgCard({ title, subtitle, bgImageUrl }: OgCardProps) {
         }}
       >
         {/* Top: Site branding */}
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          {logoSrc && (
+            <img
+              src={logoSrc}
+              style={{ width: 40, height: 40 }}
+            />
+          )}
           <span
             style={{
               color: "white",
               fontSize: 28,
               fontWeight: 700,
-              letterSpacing: "0.15em",
             }}
           >
-            {SITE_NAME.toUpperCase()}
+            {SITE_NAME}
           </span>
         </div>
-
-        {/* TODO(human): Add a branding accent element between the site name and the title.
-           This is the middle section of the OG card — the first thing people see on social media.
-           Return Satori-compatible JSX (inline styles only, display: "flex" required on divs).
-           Ideas: a thin accent line, a tagline, a badge with extra info, or keep it empty.
-           Example:
-             <div style={{ display: "flex", width: 80, height: 3, background: "#f5a623", borderRadius: 2 }} />
-        */}
 
         {/* Bottom: Title + subtitle */}
         <div style={{ display: "flex", flexDirection: "column" }}>

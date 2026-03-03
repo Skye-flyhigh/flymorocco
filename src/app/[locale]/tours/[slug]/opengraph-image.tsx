@@ -1,11 +1,11 @@
-import { SITE_NAME } from "@/data/metadata";
+import { BUSINESS, SITE_NAME } from "@/data/metadata";
 import { createOgCard, OG_SIZE } from "@/lib/og/createOgCard";
-import { readOgImage } from "@/lib/og/readOgImage";
+import { readLogo, readOgImage } from "@/lib/og/readOgImage";
 import { isValidTourSlug } from "@/lib/types/tour";
 import { getTranslations } from "next-intl/server";
 import { ImageResponse } from "next/og";
 
-export const alt = "Flymorocco Tour";
+export const alt = `${BUSINESS.name} Tours`;
 export const size = OG_SIZE;
 export const contentType = "image/png";
 
@@ -36,9 +36,10 @@ export default async function Image({
     );
   }
 
-  const [t, bgImage] = await Promise.all([
+  const [t, bgImage, logo] = await Promise.all([
     getTranslations({ locale, namespace: `tours.${slug}` }),
     readOgImage(slug),
+    readLogo(),
   ]);
 
   return new ImageResponse(
@@ -46,6 +47,7 @@ export default async function Image({
       title: t("title"),
       subtitle: t("subtitle"),
       bgImageUrl: bgImage,
+      logoSrc: logo,
     }),
     { ...size },
   );
