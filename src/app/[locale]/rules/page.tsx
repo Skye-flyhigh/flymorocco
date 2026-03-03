@@ -1,9 +1,9 @@
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Hero from "../components/Hero";
 import RulesNav from "../components/rules/RulesNav";
 import RulesQnA from "../components/rules/RulesQnA";
-import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
-import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
@@ -11,28 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
-  const metadata = await buildPageMetadata({ locale, page: "rules" });
-  const keywords =
-    locale === "fr"
-      ? [
-          "règles",
-          "espaces aériens",
-          "DGAC annexe 2",
-          "DGAC annexe 4",
-          "DGAC Maroc",
-        ]
-      : [
-          "rules",
-          "airspace",
-          "Moroccan CAA appendix 2",
-          "Moroccan CAA appendix 4",
-          "moroccan civil aviation authority",
-        ];
-
-  metadata.keywords = [...(metadata.keywords || []), ...keywords];
-
-  return metadata;
+  return buildPageMetadata({ locale, page: "rules" });
 }
 
 export default function Page() {

@@ -9,58 +9,65 @@ import { TourByDate } from "../types/tour";
 // Centralized Google Sheets column schema - Single source of truth
 // Define columns in order - indices are auto-generated
 const SHEET_COLUMN_ORDER = [
-  "TOUR_REFERENCE",        // A
-  "NAME",                  // B
-  "EMAIL",                 // C
-  "STATUS",                // D
-  "TOUR_START",            // E
-  "TOUR_END",              // F
-  "TOUR_TYPE",             // G
-  "SOLO_OCCUPANCY",        // H
-  "DIETARY",               // I
-  "MEDICAL",               // J
-  "EMERGENCY_NAME",        // K
-  "EMERGENCY_PHONE",       // L
-  "INSURANCE_PROVIDER",    // M
-  "INSURANCE_NUMBER",      // N
-  "PASSPORT_NUMBER",       // O
-  "PASSPORT_EXPIRY",       // P
-  "ARRIVAL_FLIGHT",        // Q
-  "ARRIVAL_DATE",          // R
-  "ARRIVAL_TIME",          // S
-  "DEPARTURE_FLIGHT",      // T
-  "DEPARTURE_DATE",        // U
-  "DEPARTURE_TIME",        // V
-  "STRIPE_SESSION_ID",     // W
-  "PAYMENT_AMOUNT",        // X
-  "CURRENCY",              // Y
-  "TIMESTAMP",             // Z
-  "FLYING_EXPERIENCE",     // AA
-  "PILOT_RATING",          // AB
-  "THIRD_PARTY",           // AC
-  "ANNEXE2",               // AD
-  "GLIDER_MANUFACTURER",   // AE
-  "GLIDER_MODEL",          // AF
-  "GLIDER_SIZE",           // AG
-  "GLIDER_COLOURS",        // AH
+  "TOUR_REFERENCE", // A
+  "NAME", // B
+  "EMAIL", // C
+  "STATUS", // D
+  "TOUR_START", // E
+  "TOUR_END", // F
+  "TOUR_TYPE", // G
+  "SOLO_OCCUPANCY", // H
+  "DIETARY", // I
+  "MEDICAL", // J
+  "EMERGENCY_NAME", // K
+  "EMERGENCY_PHONE", // L
+  "INSURANCE_PROVIDER", // M
+  "INSURANCE_NUMBER", // N
+  "PASSPORT_NUMBER", // O
+  "PASSPORT_EXPIRY", // P
+  "ARRIVAL_FLIGHT", // Q
+  "ARRIVAL_DATE", // R
+  "ARRIVAL_TIME", // S
+  "DEPARTURE_FLIGHT", // T
+  "DEPARTURE_DATE", // U
+  "DEPARTURE_TIME", // V
+  "STRIPE_SESSION_ID", // W
+  "PAYMENT_AMOUNT", // X
+  "CURRENCY", // Y
+  "TIMESTAMP", // Z
+  "FLYING_EXPERIENCE", // AA
+  "PILOT_RATING", // AB
+  "THIRD_PARTY", // AC
+  "ANNEXE2", // AD
+  "GLIDER_MANUFACTURER", // AE
+  "GLIDER_MODEL", // AF
+  "GLIDER_SIZE", // AG
+  "GLIDER_COLOURS", // AH
 ] as const;
 
 // Auto-generate column mapping from ordered array
 const SHEET_COLUMNS = Object.fromEntries(
-  SHEET_COLUMN_ORDER.map((col, index) => [col, index])
-) as Record<typeof SHEET_COLUMN_ORDER[number], number>;
+  SHEET_COLUMN_ORDER.map((col, index) => [col, index]),
+) as Record<(typeof SHEET_COLUMN_ORDER)[number], number>;
 
 // Calculate the last column letter dynamically from SHEET_COLUMN_ORDER
 // Converts column index (0-based) to Excel column letter (A, B, ..., Z, AA, AB, ..., AH)
 const LAST_COLUMN_INDEX = SHEET_COLUMN_ORDER.length - 1;
-const LAST_COLUMN_LETTER = (LAST_COLUMN_INDEX >= 26
-  ? String.fromCharCode(65 + Math.floor(LAST_COLUMN_INDEX / 26) - 1)
-  : "") + String.fromCharCode(65 + (LAST_COLUMN_INDEX % 26));
+const LAST_COLUMN_LETTER =
+  (LAST_COLUMN_INDEX >= 26
+    ? String.fromCharCode(65 + Math.floor(LAST_COLUMN_INDEX / 26) - 1)
+    : "") + String.fromCharCode(65 + (LAST_COLUMN_INDEX % 26));
 const SHEET_RANGE = `Sheet1!A:${LAST_COLUMN_LETTER}`; // Full range including header
 const SHEET_DATA_RANGE = `Sheet1!A2:${LAST_COLUMN_LETTER}1000`; // Data range (skip header, up to 1000 rows)
 
 // Helper: Convert ParticipantDetails to Google Sheets row
-function participantToRow(participant: ParticipantDetails, tourRef: string, tourStart: string, tourEnd: string, tourType: string): unknown[] {
+function participantToRow(
+  participant: ParticipantDetails,
+  tourRef: string,
+  tourStart: string,
+  tourEnd: string,
+  tourType: string,
+): unknown[] {
   const row: unknown[] = [];
   const C = SHEET_COLUMNS;
 
@@ -83,11 +90,14 @@ function participantToRow(participant: ParticipantDetails, tourRef: string, tour
   row[C.ARRIVAL_FLIGHT] = participant.flightDetails.arrivalFlightNumber || "";
   row[C.ARRIVAL_DATE] = participant.flightDetails.arrivalDate || "";
   row[C.ARRIVAL_TIME] = participant.flightDetails.arrivalTime || "";
-  row[C.DEPARTURE_FLIGHT] = participant.flightDetails.departureFlightNumber || "";
+  row[C.DEPARTURE_FLIGHT] =
+    participant.flightDetails.departureFlightNumber || "";
   row[C.DEPARTURE_DATE] = participant.flightDetails.departureDate || "";
   row[C.DEPARTURE_TIME] = participant.flightDetails.departureTime || "";
   row[C.STRIPE_SESSION_ID] = participant.paymentInfo?.stripeSessionId || "";
-  row[C.PAYMENT_AMOUNT] = participant.paymentInfo?.paymentAmount ? (participant.paymentInfo.paymentAmount / 100).toFixed(2) : "";
+  row[C.PAYMENT_AMOUNT] = participant.paymentInfo?.paymentAmount
+    ? (participant.paymentInfo.paymentAmount / 100).toFixed(2)
+    : "";
   row[C.CURRENCY] = participant.paymentInfo?.currency || "";
   row[C.TIMESTAMP] = participant.timestamp;
   row[C.FLYING_EXPERIENCE] = participant.pilot?.flyingExperience || "";
@@ -103,14 +113,23 @@ function participantToRow(participant: ParticipantDetails, tourRef: string, tour
 }
 
 // Helper: Convert Google Sheets row to ParticipantDetails with tour info
-function rowToParticipant(row: unknown[]): { participant: ParticipantDetails; tour: { reference: string; startDate: string; endDate: string; type: string } } {
+function rowToParticipant(row: unknown[]): {
+  participant: ParticipantDetails;
+  tour: { reference: string; startDate: string; endDate: string; type: string };
+} {
   const C = SHEET_COLUMNS;
 
   return {
     participant: {
       name: (row[C.NAME] as string) || "",
       email: (row[C.EMAIL] as string) || "",
-      status: ((row[C.STATUS] as string) || "PENDING") as "PENDING" | "CONFIRMED" | "PAID" | "COMPLETED" | "EXPIRED" | "CANCELLED",
+      status: ((row[C.STATUS] as string) || "PENDING") as
+        | "PENDING"
+        | "CONFIRMED"
+        | "PAID"
+        | "COMPLETED"
+        | "EXPIRED"
+        | "CANCELLED",
       soloOccupancy: row[C.SOLO_OCCUPANCY] === "TRUE",
       dietary: (row[C.DIETARY] as string) || "",
       medical: (row[C.MEDICAL] as string) || "",
@@ -138,7 +157,11 @@ function rowToParticipant(row: unknown[]): { participant: ParticipantDetails; to
         ? {
             stripeSessionId: row[C.STRIPE_SESSION_ID] as string,
             paymentAmount: parseFloat((row[C.PAYMENT_AMOUNT] as string) || "0"),
-            currency: ((row[C.CURRENCY] as string) || "GBP") as "EUR" | "GBP" | "USD" | "CAD",
+            currency: ((row[C.CURRENCY] as string) || "GBP") as
+              | "EUR"
+              | "GBP"
+              | "USD"
+              | "CAD",
             soloTotal: 0,
             baseTotal: 0,
             paymentTimestamp: (row[C.TIMESTAMP] as string) || "",
@@ -283,7 +306,15 @@ export class GoogleSheetsBookingService {
       );
 
       // Add booker row
-      rows.push(participantToRow(booker, booking.tourReference, booking.bookingData.start, tourEnd, booking.bookingData.tourType));
+      rows.push(
+        participantToRow(
+          booker,
+          booking.tourReference,
+          booking.bookingData.start,
+          tourEnd,
+          booking.bookingData.tourType,
+        ),
+      );
 
       booking.bookingData.participants.forEach((participant) => {
         const participantDetails = this.createParticipantDetails(
@@ -301,13 +332,18 @@ export class GoogleSheetsBookingService {
           },
         );
 
-        rows.push(participantToRow(participantDetails, booking.tourReference, booking.bookingData.start, tourEnd, booking.bookingData.tourType));
+        rows.push(
+          participantToRow(
+            participantDetails,
+            booking.tourReference,
+            booking.bookingData.start,
+            tourEnd,
+            booking.bookingData.tourType,
+          ),
+        );
       });
 
-      const writeResult = await this.writeDataToGoogleSheets(
-        SHEET_RANGE,
-        rows,
-      );
+      const writeResult = await this.writeDataToGoogleSheets(SHEET_RANGE, rows);
       if (!writeResult.success) {
         throw new Error(
           `Failed to write to Google Sheets: ${writeResult.error}`,
@@ -406,34 +442,54 @@ export class GoogleSheetsBookingService {
 
       // Apply nested object updates
       if (updates.emergencyContact) {
-        if (updates.emergencyContact.name !== undefined) updatedRow[10] = updates.emergencyContact.name;
-        if (updates.emergencyContact.phone !== undefined) updatedRow[11] = updates.emergencyContact.phone;
+        if (updates.emergencyContact.name !== undefined)
+          updatedRow[10] = updates.emergencyContact.name;
+        if (updates.emergencyContact.phone !== undefined)
+          updatedRow[11] = updates.emergencyContact.phone;
       }
       if (updates.insurance) {
-        if (updates.insurance.provider !== undefined) updatedRow[12] = updates.insurance.provider;
-        if (updates.insurance.number !== undefined) updatedRow[13] = updates.insurance.number;
+        if (updates.insurance.provider !== undefined)
+          updatedRow[12] = updates.insurance.provider;
+        if (updates.insurance.number !== undefined)
+          updatedRow[13] = updates.insurance.number;
       }
       if (updates.passport) {
-        if (updates.passport.number !== undefined) updatedRow[14] = updates.passport.number;
-        if (updates.passport.expiryDate !== undefined) updatedRow[15] = updates.passport.expiryDate;
+        if (updates.passport.number !== undefined)
+          updatedRow[14] = updates.passport.number;
+        if (updates.passport.expiryDate !== undefined)
+          updatedRow[15] = updates.passport.expiryDate;
       }
       if (updates.flightDetails) {
-        if (updates.flightDetails.arrivalFlightNumber !== undefined) updatedRow[16] = updates.flightDetails.arrivalFlightNumber;
-        if (updates.flightDetails.arrivalDate !== undefined) updatedRow[17] = updates.flightDetails.arrivalDate;
-        if (updates.flightDetails.arrivalTime !== undefined) updatedRow[18] = updates.flightDetails.arrivalTime;
-        if (updates.flightDetails.departureFlightNumber !== undefined) updatedRow[19] = updates.flightDetails.departureFlightNumber;
-        if (updates.flightDetails.departureDate !== undefined) updatedRow[20] = updates.flightDetails.departureDate;
-        if (updates.flightDetails.departureTime !== undefined) updatedRow[21] = updates.flightDetails.departureTime;
+        if (updates.flightDetails.arrivalFlightNumber !== undefined)
+          updatedRow[16] = updates.flightDetails.arrivalFlightNumber;
+        if (updates.flightDetails.arrivalDate !== undefined)
+          updatedRow[17] = updates.flightDetails.arrivalDate;
+        if (updates.flightDetails.arrivalTime !== undefined)
+          updatedRow[18] = updates.flightDetails.arrivalTime;
+        if (updates.flightDetails.departureFlightNumber !== undefined)
+          updatedRow[19] = updates.flightDetails.departureFlightNumber;
+        if (updates.flightDetails.departureDate !== undefined)
+          updatedRow[20] = updates.flightDetails.departureDate;
+        if (updates.flightDetails.departureTime !== undefined)
+          updatedRow[21] = updates.flightDetails.departureTime;
       }
       if (updates.pilot) {
-        if (updates.pilot.flyingExperience !== undefined) updatedRow[24] = updates.pilot.flyingExperience;
-        if (updates.pilot.pilotRating !== undefined) updatedRow[25] = updates.pilot.pilotRating ? "TRUE" : "FALSE";
-        if (updates.pilot.thirdParty !== undefined) updatedRow[26] = updates.pilot.thirdParty ? "TRUE" : "FALSE";
-        if (updates.pilot.annexe2 !== undefined) updatedRow[27] = updates.pilot.annexe2 ? "TRUE" : "FALSE";
-        if (updates.pilot.gliderManufacturer !== undefined) updatedRow[28] = updates.pilot.gliderManufacturer;
-        if (updates.pilot.gliderModel !== undefined) updatedRow[29] = updates.pilot.gliderModel;
-        if (updates.pilot.gliderSize !== undefined) updatedRow[30] = updates.pilot.gliderSize;
-        if (updates.pilot.gliderColours !== undefined) updatedRow[31] = updates.pilot.gliderColours;
+        if (updates.pilot.flyingExperience !== undefined)
+          updatedRow[24] = updates.pilot.flyingExperience;
+        if (updates.pilot.pilotRating !== undefined)
+          updatedRow[25] = updates.pilot.pilotRating ? "TRUE" : "FALSE";
+        if (updates.pilot.thirdParty !== undefined)
+          updatedRow[26] = updates.pilot.thirdParty ? "TRUE" : "FALSE";
+        if (updates.pilot.annexe2 !== undefined)
+          updatedRow[27] = updates.pilot.annexe2 ? "TRUE" : "FALSE";
+        if (updates.pilot.gliderManufacturer !== undefined)
+          updatedRow[28] = updates.pilot.gliderManufacturer;
+        if (updates.pilot.gliderModel !== undefined)
+          updatedRow[29] = updates.pilot.gliderModel;
+        if (updates.pilot.gliderSize !== undefined)
+          updatedRow[30] = updates.pilot.gliderSize;
+        if (updates.pilot.gliderColours !== undefined)
+          updatedRow[31] = updates.pilot.gliderColours;
       }
 
       // Update the specific row in Google Sheets
@@ -498,7 +554,7 @@ export class GoogleSheetsBookingService {
       // Parse rows using DRY helper
       const participantsWithTours = rows
         .filter((row) => row[0]) // Filter out empty rows (must have tour reference)
-        .map(row => rowToParticipant(row));
+        .map((row) => rowToParticipant(row));
 
       // Group participants by tour start date
       const toursByDate = participantsWithTours.reduce(

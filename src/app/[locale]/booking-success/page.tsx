@@ -3,20 +3,16 @@ import { getTranslations } from "next-intl/server";
 import BookingSuccessClient from "../components/BookingSuccessClient";
 import Link from "next/link";
 import { BadgeCheck } from "lucide-react";
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
-}) {
+}): Promise<Metadata> {
   const { locale } = await params;
-  await getTranslations({ locale, namespace: "booking" });
-
-  return {
-    title: "Booking Confirmed - FlyMorocco",
-    description:
-      "Your booking has been confirmed! We'll be in touch soon with your tour details.",
-  };
+  return buildPageMetadata({ locale, page: "bookingSuccess" });
 }
 
 export default async function BookingSuccessPage() {

@@ -12,31 +12,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
-  const metadata = await buildPageMetadata({ locale, page: "about" });
-  const keywords =
-    locale === "fr"
-      ? [
-          "Skye instructeur parapente",
-          "instructeur certifié BHPA Maroc",
-          "guide parapente Maroc",
-          "instructeur parapente Atlas",
-          "guide certifié parapente Marrakech",
-          "pilote instructeur Maroc",
-          "formation parapente Maroc",
-        ]
-      : [
-          "Skye paragliding instructor",
-          "BHPA certified instructor Morocco",
-          "paragliding guide Morocco",
-          "certified paragliding instructor Atlas Mountains",
-          "paragliding instructor Marrakech",
-          "pilot instructor Morocco",
-          "paragliding training Morocco",
-        ];
-
-  metadata.keywords = [...(metadata.keywords || []), ...keywords];
-  return metadata;
+  return buildPageMetadata({ locale, page: "about" });
 }
 
 export default function Page() {

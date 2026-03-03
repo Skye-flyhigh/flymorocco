@@ -1,9 +1,9 @@
 "use server";
 
-import { BookingConfirmationData } from "@/lib/types/bookingDetails";
-import { BookingFormData } from "@/lib/validation/BookFormData";
 import { generateBookingRef } from "@/lib/services/generateBookingRef";
 import { saveBookingToGoogleSheets } from "@/lib/services/googleSheetsService";
+import { BookingConfirmationData } from "@/lib/types/bookingDetails";
+import { BookingFormData } from "@/lib/validation/BookFormData";
 
 export async function testBookingSaveAction() {
   try {
@@ -49,7 +49,14 @@ export async function testBookingSaveAction() {
     const booking: BookingConfirmationData = {
       bookingData: testBookingData,
       bookingPayment: testPaymentInfo,
-      bookingStatus: ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"],
+      bookingStatus: [
+        "PENDING",
+        "CONFIRMED",
+        "PAID",
+        "COMPLETED",
+        "EXPIRED",
+        "CANCELLED",
+      ],
       tourReference: tourReference,
       totalPeople: 2,
       soloCount: 1,

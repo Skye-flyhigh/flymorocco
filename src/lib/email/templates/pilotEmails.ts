@@ -1,3 +1,4 @@
+import { BUSINESS } from "@/data/metadata";
 import { PilotEmailData } from "@/lib/types/bookingDetails";
 import { createEmailTemplate } from "./emailTemplate";
 
@@ -35,9 +36,9 @@ export function createPilotVerificationEmail(data: PilotEmailData): string {
     
     <p style="margin-top: 25px;">
       <strong>Questions?</strong> Simply reply to this email or contact us directly.<br>
-      <strong>Urgent matters:</strong> WhatsApp <a href=\"https://wa.me/+212636041761\">+212 636 04 17 61</a>
+      <strong>Urgent matters:</strong> WhatsApp <a href=\"${BUSINESS.contact.whatsapp}\">${BUSINESS.contact.phone}</a>
     </p>
-  `; //TODO: Double check the whatsapp link validity and refactor it in the rest of the email templates
+  `;
 
   return createEmailTemplate({
     recipientName: data.pilotName,

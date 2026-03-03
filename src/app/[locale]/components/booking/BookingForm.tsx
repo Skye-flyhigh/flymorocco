@@ -358,7 +358,9 @@ export default function BookingForm(tour: TourSchedule) {
 
                 {/* Participant count selector */}
                 <div className="flex items-center gap-4 mb-4">
-                  <label className="font-medium">Number of additional participants:</label>
+                  <label className="font-medium">
+                    Number of additional participants:
+                  </label>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"

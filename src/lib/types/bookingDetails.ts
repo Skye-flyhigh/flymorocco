@@ -2,7 +2,14 @@ import { Currency } from "../utils/pricing";
 import { BookingFormData } from "../validation/BookFormData";
 import { TourSlug } from "./tour";
 
-export const BOOKING_STATUS = ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"] as const;
+export const BOOKING_STATUS = [
+  "PENDING",
+  "CONFIRMED",
+  "PAID",
+  "COMPLETED",
+  "EXPIRED",
+  "CANCELLED",
+] as const;
 
 export interface ParticipantDetails {
   name: string;
@@ -43,7 +50,7 @@ export interface ParticipantDetails {
     gliderSize: string;
     gliderColours: string;
     flyingExperience: string;
-  }
+  };
 }
 
 export interface ParticipantBookingDetails {

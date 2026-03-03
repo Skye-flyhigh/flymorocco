@@ -1,7 +1,7 @@
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 import SiteMapSection from "../../components/SiteMapSection";
 import DownloadAirspaces from "../../components/rules/DowloadAirspaces";
-import { Metadata } from "next";
 
 export async function generateMetadata({
   params,
@@ -9,30 +9,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
-  const metadata = await buildPageMetadata({ locale, page: "airspaces" });
-  const keywords =
-    locale === "fr"
-      ? [
-          "airspace aérien Maroc",
-          "règles de l'air Maroc",
-          "sécurité aérienne Maroc",
-          "aviation Maroc",
-          "DGAC Maroc",
-          "réglementation aviation Maroc",
-        ]
-      : [
-          "airspace Morocco",
-          "air rules Morocco",
-          "aviation safety Morocco",
-          "DGAC Morocco",
-          "aviation regulations Morocco",
-          "civil aviation Morocco",
-          "Moroccan CAA",
-        ];
-
-  metadata.keywords = [...(metadata.keywords || []), ...keywords];
-  return metadata;
+  return buildPageMetadata({ locale, page: "airspaces" });
 }
 
 export default function Page() {

@@ -793,6 +793,10 @@
     "siteGuides": {
       "title": "Paragliding site Guides",
       "description": "Complete directory of paragliding sites in Morocco with access routes, weather conditions, and safety information"
+    },
+    "bookingSuccess": {
+      "title": "Booking Confirmed - Flymorocco",
+      "description": "Your booking has been confirmed! We'll be in touch soon with your tour details."
     }
   },
   "booking": {

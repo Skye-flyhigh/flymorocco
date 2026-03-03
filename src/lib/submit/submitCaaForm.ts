@@ -1,4 +1,5 @@
 "use server";
+import { BUSINESS } from "@/data/metadata";
 import { resendPdfEmail } from "../email/resendPdfEmail";
 import { emailAttachment, pdfFile } from "../pdf/annexeTypes";
 import generateAnnexe2 from "../pdf/generateAnnexe2";
@@ -148,7 +149,7 @@ export async function submitCaaForm(
     attachments: emailAttachment,
   ) {
     await resendPdfEmail({
-      to: parsed.data?.contact.contactEmail || "contact@flymorocco.info",
+      to: parsed.data?.contact.contactEmail || BUSINESS.contact.email,
       recipientName: name,
       subject: `Flymorocco - Your ${escapeHTML(annex)} Form`,
       content: `

@@ -794,7 +794,10 @@
       "title": "Guides de sites de parapente au Maroc",
       "description": "Répertoire complet des sites de parapente au Maroc avec routes d'accès, conditions météo et informations sécurité"
     },
-    "${page}": {}
+    "bookingSuccess": {
+      "title": "Réservation confirmée - Flymorocco",
+      "description": "Votre réservation est confirmée ! Nous vous contacterons bientôt avec les détails de votre séjour."
+    }
   },
   "booking": {
     "success": {

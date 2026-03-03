@@ -1,16 +1,16 @@
-import { NextRequest, NextResponse } from "next/server";
-import { BookingFormData } from "@/lib/validation/BookFormData";
-import { Currency } from "@/lib/utils/pricing";
-import {
-  BookingConfirmationData,
-  PaymentInfo,
-} from "@/lib/types/bookingDetails";
 import {
   sendBookingConfirmation,
   sendBookingNotification,
 } from "@/lib/email/bookingConfirmation";
-import { saveBookingToGoogleSheets } from "@/lib/services/googleSheetsService";
 import { emailPilotsBookingVerification } from "@/lib/email/emailPilotsBookingVerification";
+import { saveBookingToGoogleSheets } from "@/lib/services/googleSheetsService";
+import {
+  BookingConfirmationData,
+  PaymentInfo,
+} from "@/lib/types/bookingDetails";
+import { Currency } from "@/lib/utils/pricing";
+import { BookingFormData } from "@/lib/validation/BookFormData";
+import { NextRequest, NextResponse } from "next/server";
 
 interface BookingRequestData {
   bookingData: BookingFormData;
@@ -52,7 +52,14 @@ export async function POST(request: NextRequest) {
     const booking: BookingConfirmationData = {
       bookingData: bookingData,
       bookingPayment: paymentInfo,
-      bookingStatus: ["PENDING", "CONFIRMED", "PAID", "COMPLETED", "EXPIRED", "CANCELLED"],
+      bookingStatus: [
+        "PENDING",
+        "CONFIRMED",
+        "PAID",
+        "COMPLETED",
+        "EXPIRED",
+        "CANCELLED",
+      ],
       tourReference: bookingRef,
       totalPeople,
       soloCount,
