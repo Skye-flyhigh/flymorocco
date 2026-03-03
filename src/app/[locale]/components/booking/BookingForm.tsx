@@ -1,26 +1,26 @@
 "use client";
 
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 import {
   BookingFormState,
   submitBooking,
 } from "@/lib/submit/submitBookingForm";
-import { TourSchedule } from "@/lib/validation/tourScheduleData";
-import { ParticipantData } from "@/lib/validation/BookFormData";
-import { formatDate } from "date-fns";
-import React, { useActionState, useEffect, useRef, useState } from "react";
-import FormSuccess from "../rules/FormSuccess";
-import { useTranslations } from "next-intl";
-import { X, Plus, Minus } from "lucide-react";
-import { useRecaptcha } from "@/hooks/useRecaptcha";
-import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
+import { TourSlug } from "@/lib/types/tour";
 import {
-  getTourPricing,
-  getCurrencyInfo,
-  getAvailableCurrencies,
   calculateBookingTotal,
+  getAvailableCurrencies,
+  getCurrencyInfo,
+  getTourPricing,
   type Currency,
 } from "@/lib/utils/pricing";
-import { TourSlug } from "@/lib/types/tour";
+import { createRecaptchaConfig } from "@/lib/utils/recaptchaHelpers";
+import { ParticipantData } from "@/lib/validation/BookFormData";
+import { TourSchedule } from "@/lib/validation/tourScheduleData";
+import { formatDate } from "date-fns";
+import { Minus, Plus, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import React, { useActionState, useEffect, useRef, useState } from "react";
+import FormSuccess from "../rules/FormSuccess";
 
 export default function BookingForm(tour: TourSchedule) {
   const t = useTranslations("contact");
@@ -169,7 +169,6 @@ export default function BookingForm(tour: TourSchedule) {
       </a>
     );
   } else {
-    // TODO: add a tour logic checking the availability of the tour so it can disable the button (isAvailable boolean!)
     return (
       <>
         <button
@@ -358,7 +357,9 @@ export default function BookingForm(tour: TourSchedule) {
 
                 {/* Participant count selector */}
                 <div className="flex items-center gap-4 mb-4">
-                  <label className="font-medium">Number of additional participants:</label>
+                  <label className="font-medium">
+                    Number of additional participants:
+                  </label>
                   <div className="flex items-center gap-2">
                     <button
                       type="button"

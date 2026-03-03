@@ -78,7 +78,10 @@ export default function AddParticipants({
               <h2 className="CAA-form-legend absolute ml-7">
                 Participant #{i + 1}
               </h2>
-              <fieldset id="identification" className="CAA-form-fieldset mt-10 sm:min-w-96">
+              <fieldset
+                id="identification"
+                className="CAA-form-fieldset mt-10 sm:min-w-96"
+              >
                 <legend className="CAA-form-legend">
                   {t("identification")}
                 </legend>
@@ -140,7 +143,10 @@ export default function AddParticipants({
                   );
                 })}
               </fieldset>
-              <fieldset id="glider" className="CAA-form-fieldset md:mt-10 sm:min-w-96">
+              <fieldset
+                id="glider"
+                className="CAA-form-fieldset md:mt-10 sm:min-w-96"
+              >
                 <legend className="CAA-form-legend">{t("glider")}</legend>
                 {Object.entries(participant.glider).map(([key, value]) => {
                   return (

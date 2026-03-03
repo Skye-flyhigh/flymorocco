@@ -1,3 +1,4 @@
+import { BUSINESS, SITE_NAME } from "@/data/metadata";
 import { BookingConfirmationData } from "../types/bookingDetails";
 import { createEmailTemplate } from "./templates/emailTemplate";
 import { Resend } from "resend";
@@ -53,24 +54,24 @@ export async function sendBookingConfirmation(data: BookingConfirmationData) {
     </div>
     
     <p><strong>Questions?</strong> Simply reply to this email or contact us directly.</p>
-    <p><strong>Urgent matters:</strong> WhatsApp +212 636 04 17 61</p>
+    <p><strong>Urgent matters:</strong> WhatsApp <a href="${BUSINESS.contact.whatsapp}">${BUSINESS.contact.phone}</a></p>
     
     <p style="margin-top: 25px;">
       We can't wait to show you Morocco's incredible landscapes from above!<br>
-      <em>The Flymorocco Team</em> 🪂
+      <em>The ${SITE_NAME} Team</em> 🪂
     </p>
   `;
 
   const htmlEmail = createEmailTemplate({
     recipientName: bookingData.name,
     content,
-    footerContent: "Adventure Awaits - Flymorocco 🪂",
+    footerContent: `Adventure Awaits - ${SITE_NAME} 🪂`,
   });
 
   try {
     const { data: emailResult, error } = await resend.emails.send({
-      from: "Flymorocco <noreply@flymorocco.info>",
-      replyTo: "Flymorocco <contact@flymorocco.info>",
+      from: `${SITE_NAME} <${BUSINESS.contact.noreply}>`,
+      replyTo: `${SITE_NAME} <${BUSINESS.contact.email}>`,
       to: [bookingData.email],
       subject: `Booking Confirmed: ${tourReference} ${bookingData.tourType.charAt(0).toUpperCase() + bookingData.tourType.slice(1)} Tour - ${new Date(bookingData.start).toLocaleDateString()}`,
       html: htmlEmail,
@@ -148,21 +149,21 @@ export async function sendBookingNotification(data: BookingConfirmationData) {
     </ol>
     
     <p style="margin-top: 25px;">
-      <em>Booking processed via Flymorocco booking system</em> 🚀
+      <em>Booking processed via ${SITE_NAME} booking system</em> 🚀
     </p>
   `;
 
   const htmlEmail = createEmailTemplate({
-    recipientName: "Flymorocco Team",
+    recipientName: `${SITE_NAME} Team`,
     content,
-    footerContent: "Flymorocco Internal Booking System 📊",
+    footerContent: `${SITE_NAME} Internal Booking System 📊`,
   });
 
   try {
     const { data: emailResult, error } = await resend.emails.send({
-      from: "Flymorocco Bookings <bookings@flymorocco.info>",
-      replyTo: "contact@flymorocco.info",
-      to: ["contact@flymorocco.info"],
+      from: `${SITE_NAME} Bookings <${BUSINESS.contact.bookings}>`,
+      replyTo: BUSINESS.contact.email,
+      to: [BUSINESS.contact.email],
       subject: `🎯 New Booking: ${tourReference} ${bookingData.tourType} - ${totalPeople} pax - ${bookingPayment.currency}${paymentAmount}`,
       html: htmlEmail,
     });

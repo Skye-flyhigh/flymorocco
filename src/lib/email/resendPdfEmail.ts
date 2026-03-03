@@ -1,4 +1,5 @@
 "use server";
+import { BUSINESS, SITE_NAME } from "@/data/metadata";
 import { Resend } from "resend";
 import fs from "fs";
 import * as dotenv from "dotenv";
@@ -40,8 +41,8 @@ export async function resendPdfEmail({
     });
 
     const { data, error } = await resend.emails.send({
-      from: "FlyMorocco Documents <documents@flymorocco.info>",
-      replyTo: "contact@flymorocco.info",
+      from: `${SITE_NAME} Documents <documents@flymorocco.info>`,
+      replyTo: BUSINESS.contact.email,
       to: [to],
       subject,
       html: htmlEmail,
@@ -80,7 +81,7 @@ export async function resendPdfEmailLegacy({
     }));
 
     const { data, error } = await resend.emails.send({
-      from: "No-Reply - Flymorocco <no-reply@flymorocco.info>",
+      from: `No-Reply - ${SITE_NAME} <${BUSINESS.contact.noreply}>`,
       to: [to],
       subject,
       html,

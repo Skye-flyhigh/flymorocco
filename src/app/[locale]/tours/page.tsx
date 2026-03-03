@@ -1,13 +1,13 @@
+import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import Script from "next/script";
+import Carousel from "../components/Carousel";
 import Hero from "../components/Hero";
 import TourCalendar from "../components/tours/TourCalendar";
-import TourService from "../components/tours/TourService";
-import Carousel from "../components/Carousel";
 import TourCards from "../components/tours/TourCards";
-import Link from "next/link";
-import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
-import Script from "next/script";
-import { Metadata } from "next";
+import TourService from "../components/tours/TourService";
 
 export async function generateMetadata({
   params,
@@ -15,28 +15,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
-  const metadata = await buildPageMetadata({ locale, page: "tours" });
-
-  const keywords =
-    locale === "fr"
-      ? [
-          "séjour parapente Maroc",
-          "découverte parapente du Maroc",
-          "séjour guidé parapente",
-          "vacances parapente Maroc",
-        ]
-      : [
-          "paragliding tour Morocco",
-          "paragliding guided tour",
-          "paragliding guided tour Morocco",
-          "discover paragliding in Morocco",
-          "paragliding holidays Morocco",
-        ];
-
-  metadata.keywords = [...(metadata.keywords || []), ...keywords];
-
-  return metadata;
+  return buildPageMetadata({ locale, page: "tours" });
 }
 
 export default function Page() {

@@ -1,11 +1,11 @@
 import fs from "fs";
 import path from "path";
-import { ParticipantData } from "../validation/BookFormData";
 import {
   BookingConfirmationData,
   BookingDetails,
   ParticipantBookingDetails,
 } from "../types/bookingDetails";
+import { ParticipantData } from "../validation/BookFormData";
 import { saveBookingToGoogleSheets } from "./googleSheetsService";
 
 export async function saveBookingDetails(booking: BookingConfirmationData) {
@@ -95,16 +95,18 @@ export async function saveBookingDetails(booking: BookingConfirmationData) {
         departureDate: new Date(booking.bookingData.start).toDateString(),
         departureTime: "",
       },
-      pilot: isPilot ? {
-        flyingExperience: "",
-        pilotRating: false,
-        thirdParty: false,
-        annexe2: false,
-        gliderManufacturer: "",
-        gliderModel: "",
-        gliderSize: "",
-        gliderColours: "",
-      } : undefined,
+      pilot: isPilot
+        ? {
+            flyingExperience: "",
+            pilotRating: false,
+            thirdParty: false,
+            annexe2: false,
+            gliderManufacturer: "",
+            gliderModel: "",
+            gliderSize: "",
+            gliderColours: "",
+          }
+        : undefined,
     };
   };
 

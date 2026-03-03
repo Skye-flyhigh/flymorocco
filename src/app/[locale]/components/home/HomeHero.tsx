@@ -80,7 +80,7 @@ export default function HomeHero({ images }: { images: ImageType[] }) {
       aria-label={currentHeroImage.alt}
     >
       <Parallax speed={-4} className="w-fit">
-        <div className="hero-content text-neutral-content text-center w-full">
+        <div className="hero-content text-neutral-content dark:text-gray-100 text-center w-full">
           <div className="w-full">
             <h1 className="mb-10 text-5xl font-bold">
               Flymorocco - {t("title")}

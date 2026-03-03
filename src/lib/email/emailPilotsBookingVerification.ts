@@ -1,5 +1,6 @@
 "use server";
 
+import { BUSINESS, SITE_NAME } from "@/data/metadata";
 import { Resend } from "resend";
 import {
   createPilotVerificationEmail,
@@ -69,7 +70,7 @@ export async function emailPilotsBookingVerification(
             : createPilotWelcomeEmail(emailData);
 
         await resend.emails.send({
-          from: "Flymorocco <contact@flymorocco.info>",
+          from: `${SITE_NAME} <${BUSINESS.contact.email}>`,
           to: [pilot.email],
           subject:
             emailType === "verification"

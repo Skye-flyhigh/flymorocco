@@ -4,6 +4,7 @@ import { Resend } from "resend";
 import { ContactDataSchema } from "../validation/ContactFormData";
 import { escapeHTML } from "../security/escapeHTML";
 import { verifyRecaptcha } from "../security/verifyRecaptcha";
+import { BUSINESS, SITE_NAME } from "@/data/metadata";
 
 type ContactFormState = {
   data: {
@@ -53,8 +54,8 @@ export default async function submitMessage(
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   await resend.emails.send({
-    from: "Flymorocco <contact@flymorocco.info>",
-    to: ["contact@flymorocco.info"],
+    from: `${SITE_NAME} <${BUSINESS.contact.email}>`,
+    to: [BUSINESS.contact.email],
     subject: "New Contact Form Submission",
     replyTo: data.email,
     html: `<p>${escapeHTML(data.name)} (${escapeHTML(data.email)}) contacted you:</p>

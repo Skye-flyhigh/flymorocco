@@ -19,7 +19,7 @@ export default function Hero({
       <ParallaxBanner className="h-full w-full">
         <ParallaxBannerLayer image={img} speed={-10} />
         <Parallax speed={-15} className="hero-content h-full mx-auto text-center">
-          <div className="max-w-lg text-neutral-content glass rounded-2xl p-10 bg-clip-text">
+          <div className="max-w-lg text-neutral-content dark:text-gray-100 glass rounded-2xl p-10 bg-clip-text">
             <h1 className="mb-5 text-5xl font-bold">{title}</h1>
             <p className="mb-5">{subtitle}</p>
           </div>

@@ -40,7 +40,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "www.abertih.com",
-        pathname: "/img/portfolio/**"
+        pathname: "/img/portfolio/**",
       },
       {
         protocol: "https",

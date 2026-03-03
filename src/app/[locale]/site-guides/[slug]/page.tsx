@@ -1,13 +1,15 @@
+import { getKeywordsForSiteGuide } from "@/data/keywords";
+import { SITE_NAME, SITE_URL } from "@/data/metadata";
 import { getSiteMeta } from "@/lib/data-retrievers/getSiteMeta";
-import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
-import Carousel from "../../components/Carousel";
-import MissingMountain from "../../components/siteGuides/MissingMountain";
-import Hero from "../../components/Hero";
-import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-import SiteGuideTracker from "../../components/siteGuides/SiteGuideTracker";
-import Script from "next/script";
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import Link from "next/link";
+import Script from "next/script";
+import Carousel from "../../components/Carousel";
+import Hero from "../../components/Hero";
+import MissingMountain from "../../components/siteGuides/MissingMountain";
+import SiteGuideTracker from "../../components/siteGuides/SiteGuideTracker";
+import SiteMapContainer from "../../components/siteGuides/SiteMapContainer";
 
 export async function generateMetadata({
   params,
@@ -16,26 +18,27 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: `siteGuides.${slug}` });
+  const meta = getSiteMeta(slug);
+
   return {
     title: t("name"),
     description: t("description"),
-    keywords:
-      locale === "fr"
-        ? ["parapente", "Maroc", "parapente Maroc", t("name")]
-        : ["paragliding", "Morocco", "paragliding Morocco", t("name")],
+    keywords: await getKeywordsForSiteGuide(t("name"), locale),
     openGraph: {
       title: t("name"),
       description: t("description"),
-      url: `https://flymorocco.info/${locale}`,
-      siteName: "Flymorocco",
-      images: [
-        {
-          url: `/og-image/${slug}.webp`,
-          width: 1200,
-          height: 900,
-          alt: slug,
-        },
-      ],
+      url: `${SITE_URL}/${locale}/site-guides/${slug}`,
+      siteName: SITE_NAME,
+      images: meta
+        ? [
+            {
+              url: meta.image,
+              width: 1200,
+              height: 900,
+              alt: t("name"),
+            },
+          ]
+        : [],
       locale,
       type: "website",
     },
@@ -43,13 +46,13 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("name"),
       description: t("description"),
-      images: [`/og-image/${slug}.webp`],
+      images: meta ? [meta.image] : [],
     },
     alternates: {
-      canonical: `https://flymorocco.info/${locale}`,
+      canonical: `${SITE_URL}/${locale}/site-guides/${slug}`,
       languages: {
-        en: "https://flymorocco.info/en",
-        fr: "https://flymorocco.info/fr",
+        en: `${SITE_URL}/en/site-guides/${slug}`,
+        fr: `${SITE_URL}/fr/site-guides/${slug}`,
       },
     },
   };
@@ -60,7 +63,6 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string; locale: string }>;
 }) {
-  //TODO: add the legal info
   const { slug } = await params;
   const meta = getSiteMeta(slug);
   const t = await getTranslations("siteGuides");

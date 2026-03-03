@@ -1,6 +1,6 @@
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
-import AnnexeClientWrapper from "../../components/rules/AnnexeClientWrap";
 import { Metadata } from "next";
+import AnnexeClientWrapper from "../../components/rules/AnnexeClientWrap";
 
 export async function generateMetadata({
   params,
@@ -8,30 +8,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-
-  const metadata = await buildPageMetadata({ locale, page: "caaForms" });
-  const keywords =
-    locale === "fr"
-      ? [
-          "autorisation de vol Maroc",
-          "demande d'autorisation Maroc",
-          "réglementation du vol",
-          "annexe 2",
-          "annexe 4",
-          "DGAC",
-        ]
-      : [
-          "flight authorization Morocco",
-          "authorization request Morocco",
-          "flight regulations",
-          "annex 2",
-          "annex 4",
-          "Morocco civial aviation authority",
-        ];
-
-  metadata.keywords = [...(metadata.keywords || []), ...keywords];
-
-  return metadata;
+  return buildPageMetadata({ locale, page: "caaForms" });
 }
 
 export default function Page() {

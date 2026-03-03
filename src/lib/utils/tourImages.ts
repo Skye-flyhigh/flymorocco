@@ -44,32 +44,32 @@ export function getTourImages(tourType: TourSlug): TourImageData {
             src: "/images/aitourir_hero-1598x910.webp",
             width: 1598,
             height: 910,
-            alt: "Ait Ourir flying site with a paraglider"
+            alt: "Ait Ourir flying site with a paraglider",
           },
           {
             src: "/images/aitourir2-1400x933.webp",
             width: 1400,
             height: 933,
-            alt: "Take off at Ait Ourir flying site"
+            alt: "Take off at Ait Ourir flying site",
           },
           {
             src: "/images/aitourir3-1400x874.webp",
             width: 1400,
             height: 874,
-            alt: "Aerial view of Ait Ourir ridge"
+            alt: "Aerial view of Ait Ourir ridge",
           },
           {
             src: "/images/ouizen-2310x1440.webp",
             width: 2310,
             height: 1440,
-            alt: "View of Ouizen village with a sea of cloud, Aguergour, Morocco"
+            alt: "View of Ouizen village with a sea of cloud, Aguergour, Morocco",
           },
           {
             src: "/images/tizi-1984x1323.webp",
             width: 1984,
             height: 1323,
-            alt: "View of Tizi n'Test pass and take off, Morocco"
-          }
+            alt: "View of Tizi n'Test pass and take off, Morocco",
+          },
         ],
       };
     case "coastal":
@@ -80,8 +80,8 @@ export function getTourImages(tourType: TourSlug): TourImageData {
             src: "https://www.abertih.com/img/portfolio/pf-03.jpg",
             width: 800,
             height: 533,
-            alt: "Hotel Abertih: Bedroom"
-        },
+            alt: "Hotel Abertih: Bedroom",
+          },
           {
             src: "/images/aglou2-1280x960.webp",
             width: 1280,
@@ -100,12 +100,12 @@ export function getTourImages(tourType: TourSlug): TourImageData {
             height: 1447,
             alt: "Paraglider flying over Legzira arch",
           },
-                    {
+          {
             src: "https://www.abertih.com/img/portfolio/pf-06.jpg",
             width: 800,
             height: 533,
-            alt: "Hotel Abertih: Bedroom"
-        },
+            alt: "Hotel Abertih: Bedroom",
+          },
           {
             src: "/images/niddaigle2-1500x900.webp",
             width: 1500,
@@ -122,7 +122,7 @@ export function getTourImages(tourType: TourSlug): TourImageData {
             src: "https://www.abertih.com/img/portfolio/resto03.jpg",
             width: 800,
             height: 533,
-            alt: "Hotel Abertih: Restaurant"
+            alt: "Hotel Abertih: Restaurant",
           },
           {
             src: "/images/aglou-800x600.webp",
@@ -141,7 +141,7 @@ export function getTourImages(tourType: TourSlug): TourImageData {
             width: 1280,
             height: 853,
             alt: "Paraglider flying over Nid d'Aigle, Morocco",
-          }
+          },
         ],
       };
     case "wellbeing":

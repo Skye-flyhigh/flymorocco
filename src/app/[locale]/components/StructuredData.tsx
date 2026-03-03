@@ -1,3 +1,5 @@
+import { BUSINESS, SITE_NAME, SITE_URL } from "@/data/metadata";
+import rawPricing from "@/data/pricing.json";
 import { useTranslations } from "next-intl";
 
 interface TourData {
@@ -28,33 +30,40 @@ export default function StructuredData({
   const businessData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://flymorocco.info",
+    "@id": SITE_URL,
     name: t("business.name"),
+    legalName: BUSINESS.legalName,
     description: t("business.description"),
-    url: "https://flymorocco.info",
-    telephone: t("business.phone"),
-    email: t("business.email"),
+    url: SITE_URL,
+    telephone: BUSINESS.contact.phone,
+    email: BUSINESS.contact.email,
     address: {
       "@type": "PostalAddress",
-      addressCountry: "Morocco",
-      addressRegion: "Souss-Massa",
-      addressLocality: "Agadir",
+      streetAddress: BUSINESS.address.street,
+      addressLocality: BUSINESS.address.city,
+      postalCode: BUSINESS.address.postcode,
+      addressCountry: BUSINESS.address.country,
     },
+    areaServed: BUSINESS.operatingAreas.map((area) => ({
+      "@type": "Place",
+      name: area.name,
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: area.region,
+        addressCountry: area.countryCode,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: area.geo.latitude,
+        longitude: area.geo.longitude,
+      },
+    })),
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 30.4278,
-      longitude: -9.5981,
+      latitude: BUSINESS.operatingAreas[0].geo.latitude,
+      longitude: BUSINESS.operatingAreas[0].geo.longitude,
     },
     priceRange: "€€",
-    serviceArea: {
-      "@type": "GeoCircle",
-      geoMidpoint: {
-        "@type": "GeoCoordinates",
-        latitude: 30.4278,
-        longitude: -9.5981,
-      },
-      geoRadius: "300000",
-    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Paragliding Services",
@@ -66,6 +75,8 @@ export default function StructuredData({
             name: t("services.coastal.name"),
             description: t("services.coastal.description"),
           },
+          price: rawPricing.tours.coastal.EUR.base,
+          priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
@@ -74,6 +85,8 @@ export default function StructuredData({
             name: t("services.mountain.name"),
             description: t("services.mountain.description"),
           },
+          price: rawPricing.tours.mountain.EUR.base,
+          priceCurrency: "EUR",
         },
         {
           "@type": "Offer",
@@ -82,6 +95,8 @@ export default function StructuredData({
             name: t("services.wellness.name"),
             description: t("services.wellness.description"),
           },
+          price: rawPricing.tours.wellbeing.EUR.base,
+          priceCurrency: "EUR",
         },
       ],
     },
@@ -91,10 +106,7 @@ export default function StructuredData({
       reviewCount: "4",
       bestRating: "5",
     },
-    sameAs: [
-      "https://www.facebook.com/flymorocco",
-      "https://www.instagram.com/flymorocco",
-    ],
+    sameAs: [BUSINESS.social.facebook, BUSINESS.social.instagram],
   };
 
   const tourData =
@@ -106,8 +118,8 @@ export default function StructuredData({
           description: data.description,
           provider: {
             "@type": "LocalBusiness",
-            name: "FlyMorocco",
-            url: "https://flymorocco.info",
+            name: SITE_NAME,
+            url: SITE_URL,
           },
           touristType: "Adventure Tourism",
           duration: (data as TourData).duration || "P7D",

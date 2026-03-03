@@ -1,3 +1,4 @@
+import { BUSINESS } from "@/data/metadata";
 import { buildPageMetadata } from "@/lib/metadata/buildPageMetadata";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
@@ -33,7 +34,7 @@ export default function Page() {
           );
         })}
         <a
-          href={"mailto:contact@flymorocco.info"}
+          href={`mailto:${BUSINESS.contact.email}`}
           className="link link-primary link-hover"
           aria-label="Send an email"
         >

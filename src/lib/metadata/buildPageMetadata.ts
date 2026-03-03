@@ -1,59 +1,48 @@
+import { getKeywordsForPage } from "@/data/keywords";
+import { PAGE_ROUTES, PageKey, SITE_NAME, SITE_URL } from "@/data/metadata";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
 export async function buildPageMetadata({
   locale,
   page,
+  path,
+  extraKeywords,
 }: {
   locale: string;
-  page: string;
+  page: PageKey;
+  path?: string;
+  extraKeywords?: string[];
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: `metadata.${page}` });
-
-  const keywords =
-    locale === "fr"
-      ? [
-          "parapente",
-          "Maroc",
-          "séjour parapente",
-          "Atlas",
-          "guide sites",
-          "séjour bien-être",
-          "Agadir",
-          "Marrakech",
-          "Mirleft",
-          "guides expérimentés",
-        ]
-      : [
-          "paragliding",
-          "Morocco",
-          "paragliding tour",
-          "Atlas Mountains",
-          "Atlantic coast",
-          "site guides",
-          "wellness week",
-          "Agadir",
-          "Marrakech",
-          "Mirleft",
-          "expert guides",
-        ];
+  const pagePath = path ?? PAGE_ROUTES[page];
+  const keywords = await getKeywordsForPage(page, locale, extraKeywords);
+  const canonicalPath = pagePath ? `/${locale}/${pagePath}` : `/${locale}`;
 
   return {
-    title: `${t("title")}`,
+    title: t("title"),
     description: t("description"),
     keywords,
     alternates: {
-      canonical: `https://flymorocco.info/${locale}`,
+      canonical: `${SITE_URL}${canonicalPath}`,
       languages: {
-        en: `https://flymorocco.info/en`,
-        fr: `https://flymorocco.info/fr`,
+        en: `${SITE_URL}/en${pagePath ? `/${pagePath}` : ""}`,
+        fr: `${SITE_URL}/fr${pagePath ? `/${pagePath}` : ""}`,
       },
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `/${locale}/${page}`,
-      siteName: "Flymorocco",
+      url: `${SITE_URL}${canonicalPath}`,
+      siteName: SITE_NAME,
+      images: [
+        {
+          url: `${SITE_URL}/og-image.png`,
+          width: 1200,
+          height: 900,
+          alt: SITE_NAME,
+        },
+      ],
       locale,
       type: "website",
     },
@@ -61,6 +50,7 @@ export async function buildPageMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
+      images: [`${SITE_URL}/og-image.png`],
     },
   };
 }

@@ -1,19 +1,21 @@
-import Hero from "../../components/Hero";
-import { getTranslations } from "next-intl/server";
-import Activities from "../../components/tours/Activities";
-import MustHave from "../../components/tours/MustHave";
-import TourService from "../../components/tours/TourService";
-import Image from "next/image";
-import SelectedCalendar from "../../components/tours/SelectedCalendar";
-import { isValidTourSlug, TOUR_SLUGS, TourSlug } from "@/lib/types/tour";
-import MissingTour from "../../components/tours/MissingTour";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
-import { getTourImages } from "@/lib/utils/tourImages";
-import Script from "next/script";
+import { getKeywordsForTour } from "@/data/keywords";
+import { BUSINESS, SITE_NAME, SITE_URL } from "@/data/metadata";
 import rawPricing from "@/data/pricing.json";
+import { routing } from "@/i18n/routing";
+import { isValidTourSlug, TOUR_SLUGS, TourSlug } from "@/lib/types/tour";
+import { getTourImages } from "@/lib/utils/tourImages";
+import { getTranslations } from "next-intl/server";
 import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import Script from "next/script";
 import Carousel from "../../components/Carousel";
+import Hero from "../../components/Hero";
+import Activities from "../../components/tours/Activities";
+import MissingTour from "../../components/tours/MissingTour";
+import MustHave from "../../components/tours/MustHave";
+import SelectedCalendar from "../../components/tours/SelectedCalendar";
+import TourService from "../../components/tours/TourService";
 
 export async function generateStaticParams() {
   return routing.locales.flatMap((locale: string) =>
@@ -33,110 +35,23 @@ export async function generateMetadata({
   }
 
   const t = await getTranslations({ locale, namespace: `tours.${slug}` });
-
-  const baseKeywords =
-    locale === "fr"
-      ? [
-          "séjour parapente Maroc",
-          "découverte parapente du Maroc",
-          "séjour guidé parapente",
-          "vacances parapente Maroc",
-        ]
-      : [
-          "paragliding tour Morocco",
-          "paragliding guided tour",
-          "paragliding guided tour Morocco",
-          "discover paragliding in Morocco",
-          "paragliding holidays Morocco",
-        ];
-
-  const tourSpecificKeywords = [];
-
-  switch (slug) {
-    case "wellbeing":
-      if (locale === "fr") {
-        tourSpecificKeywords.push(
-          "bien-être Maroc",
-          "séjour bien-être Maroc",
-          "relaxation Maroc",
-          "méditation yoga Maroc",
-          "séjour bien-être parapente Maroc",
-          "vacance hiver parapente",
-        );
-      } else {
-        tourSpecificKeywords.push(
-          "wellbeing Morocco",
-          "wellbeing retreat Morocco",
-          "relaxation Morocco",
-          "meditation yoga Morocco",
-          "paragliding wellbeing Morocco",
-          "winter paragliding holiday Morocco",
-        );
-      }
-      break;
-    case "mountain":
-      if (locale === "fr") {
-        tourSpecificKeywords.push(
-          "montagnes du Maroc",
-          "Aguergour",
-          "Ait Ourir",
-          "parapente Marrakech",
-          "vol libre au Maroc",
-          "parapente Atlas Maroc",
-          "Toubkal",
-        );
-      } else {
-        tourSpecificKeywords.push(
-          "mountains of Morocco",
-          "paragliding Morocco",
-          "Atlas paragliding Morocco",
-          "Toubkal",
-          "Aguergour",
-          "Ait Ourir",
-          "Marrakech paragliding",
-        );
-      }
-      break;
-    case "coastal":
-      if (locale === "fr") {
-        tourSpecificKeywords.push(
-          "plage Maroc",
-          "Mirleft",
-          "Sidi Ifni",
-          "Nid d'Aigle",
-          "Aglou",
-          "Aglou Plage",
-          "Parc naturel Souss-Massa",
-        );
-      } else {
-        tourSpecificKeywords.push(
-          "beach Morocco",
-          "ocean Morocco",
-          "relaxation Morocco",
-          "Nid d'Aigle",
-          "Aglou",
-          "Aglou Beach",
-          "Souss-Massa National Park",
-        );
-      }
-      break;
-  }
+  const { heroImage } = getTourImages(slug as TourSlug);
 
   return {
     title: t("title"),
     description: t("subtitle"),
-    keywords: [...baseKeywords, ...tourSpecificKeywords],
+    keywords: await getKeywordsForTour(slug, locale),
     openGraph: {
       title: t("title"),
       description: t("subtitle"),
-      url: `https://flymorocco.info/${locale}`,
-      siteName: "Flymorocco",
+      url: `${SITE_URL}/${locale}/tours/${slug}`,
+      siteName: SITE_NAME,
       images: [
         {
-          url: `/og-image/${slug}.webp`,
+          url: heroImage,
           width: 1200,
           height: 900,
-          alt: slug,
+          alt: t("title"),
         },
       ],
       locale,
@@ -146,13 +61,13 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("subtitle"),
-      images: [`/og-image/${slug}.webp`],
+      images: [heroImage],
     },
     alternates: {
-      canonical: `https://flymorocco.info/${locale}`,
+      canonical: `${SITE_URL}/${locale}/tours/${slug}`,
       languages: {
-        en: "https://flymorocco.info/en",
-        fr: "https://flymorocco.info/fr",
+        en: `${SITE_URL}/en/tours/${slug}`,
+        fr: `${SITE_URL}/fr/tours/${slug}`,
       },
     },
   };
@@ -187,20 +102,10 @@ export default async function Page({
   const tourImageData = getTourImages(slug);
   const { heroImage, images: img } = tourImageData;
 
-  let { lat, lon } = { lat: 31.6295, lon: -8.0009 };
-
-  switch (slug) {
-    case "wellbeing":
-    case "coastal":
-      ({ lat, lon } = { lat: 29.578839934298145, lon: -10.034339239347261 });
-      break;
-    case "mountain":
-      ({ lat, lon } = { lat: 31.29309943199174, lon: -8.081017604069611 });
-      break;
-    default:
-      ({ lat, lon } = { lat: 31.6295, lon: -8.0009 });
-      break;
-  }
+  const area = BUSINESS.operatingAreas.find((a) =>
+    (a.tours as readonly string[]).includes(slug),
+  ) ?? BUSINESS.operatingAreas[0];
+  const { latitude: lat, longitude: lon } = area.geo;
 
   const serviceSchema = {
     "@context": "https://schema.org",
@@ -210,8 +115,8 @@ export default async function Page({
     description: t(`${slug}.description`),
     provider: {
       "@type": "Organization",
-      name: "Flymorocco",
-      url: "https://flymorocco.info",
+      name: SITE_NAME,
+      url: SITE_URL,
     },
     image: heroImage,
     additionalType: "https://schema.org/TouristAttraction",
@@ -219,15 +124,15 @@ export default async function Page({
     availableLanguage: ["en", "fr"],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+212 634041761",
+      telephone: BUSINESS.contact.phone,
       contactType: "Customer Service",
-      email: "contact@flymorocco.info",
-      areaServed: "MA",
-      availableLanguage: ["en", "fr"],
+      email: BUSINESS.contact.email,
+      areaServed: area.countryCode,
+      availableLanguage: [...BUSINESS.languages],
     },
     offers: {
       "@type": "Offer",
-      url: `https://flymorocco.info/${locale}/tours/${slug}`,
+      url: `${SITE_URL}/${locale}/tours/${slug}`,
       priceCurrency: "EUR",
       price,
       itemOffered: {
@@ -239,8 +144,8 @@ export default async function Page({
         },
         provider: {
           "@type": "Organization",
-          name: "Flymorocco",
-          url: "https://flymorocco.info",
+          name: SITE_NAME,
+          url: SITE_URL,
         },
         geo: {
           "@type": "GeoCoordinates",
