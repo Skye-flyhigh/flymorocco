@@ -1,4 +1,3 @@
-import "./globals.css";
 import { getKeywordsForPage } from "@/data/keywords";
 import { SITE_NAME, SITE_URL } from "@/data/metadata";
 import { routing } from "@/i18n/routing";
@@ -13,6 +12,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/NavBar";
 import ParallaxClientWrapper from "./components/ParallaxClientWrapper";
 import StructuredData from "./components/StructuredData";
+import "./globals.css";
 
 export async function generateMetadata({
   params,
