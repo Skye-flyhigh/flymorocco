@@ -16,7 +16,7 @@ export async function buildPageMetadata({
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: `metadata.${page}` });
   const pagePath = path ?? PAGE_ROUTES[page];
-  const keywords = getKeywordsForPage(page, locale, extraKeywords);
+  const keywords = await getKeywordsForPage(page, locale, extraKeywords);
   const canonicalPath = pagePath ? `/${locale}/${pagePath}` : `/${locale}`;
 
   return {

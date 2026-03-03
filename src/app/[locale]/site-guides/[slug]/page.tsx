@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title: t("name"),
     description: t("description"),
-    keywords: getKeywordsForSiteGuide(slug, t("name"), locale),
+    keywords: await getKeywordsForSiteGuide(t("name"), locale),
     openGraph: {
       title: t("name"),
       description: t("description"),

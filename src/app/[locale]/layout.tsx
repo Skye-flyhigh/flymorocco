@@ -24,7 +24,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "metadata" });
 
   const paraglidingSites = Object.keys(siteMeta);
-  const keywords = getKeywordsForPage("home", locale, paraglidingSites);
+  const keywords = await getKeywordsForPage("home", locale, paraglidingSites);
 
   return {
     title: {

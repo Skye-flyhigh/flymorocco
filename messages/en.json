@@ -230,15 +230,15 @@
       "trip": "Trip details",
       "insuranceValidity": {
         "label": "Third party liability end date:",
-        "placeholder": ""
+        "placeholder": "Third party liability validity"
       },
       "startDate": {
         "label": "Trip start date, a week before you come to Morocco if you want the answer then.",
-        "placeholder": ""
+        "placeholder": "Start date"
       },
       "endDate": {
         "label": "Trip end date. Make it a minimum of 1 month (up to 3 months).",
-        "placeholder": ""
+        "placeholder": "End date"
       },
       "glider": "Glider details",
       "gliderManufacturer": {
@@ -469,7 +469,7 @@
       "landing": "The landing is NOT at the bottom of the valley but further away by the road. It is a slightly, and the only flat lands around this area. It is extremely difficult to land anywhere else in this area. The Gendarmes will wait for you at the landing to check on your authorisation.",
       "flying": " This site is in the high atlas and it has an alpine regime with valley breeze, lee side thermals, etc. It is a very technical site and it is not recommended to fly there unless you are an experienced pilot. The site is not recommended for beginners.",
       "hazard": "The takeoff and the landing are the most technical aspect of this site.",
-      "legislation": ""
+      "legislation": "Authorisation is required to fly this site"
     },
     "ait-ourir": {
       "name": "Ait Ourir",
@@ -748,6 +748,144 @@
         "description": "Luxury villa retreat combining mindful flying, daily yoga, meditation, and coastal adventures"
       }
     }
+  },
+  "keywords": {
+    "base": [
+      "paragliding",
+      "Morocco",
+      "paragliding in Morocco",
+      "Morocco paragliding",
+      "Atlas Mountains",
+      "Atlantic coast",
+      "expert guides",
+      "Agadir",
+      "Marrakech"
+    ],
+    "home": [
+      "paragliding site guides in Morocco",
+      "paragliding tour",
+      "wellness week",
+      "Mirleft",
+      "Moroccan CAA",
+      "Moroccan Airspaces",
+      "Marrakech paragliding",
+      "Agadir paragliding"
+    ],
+    "about": [
+      "paragliding instructors",
+      "BHPA certified",
+      "Morocco flying team",
+      "paragliding guides Morocco",
+      "experienced pilots",
+      "local partnerships",
+      "safety record"
+    ],
+    "contact": [
+      "contact",
+      "contact form",
+      "paragliding inquiry",
+      "book paragliding Morocco"
+    ],
+    "tours": [
+      "paragliding tour Morocco",
+      "guided paragliding tour",
+      "paragliding holidays Morocco",
+      "discover paragliding Morocco",
+      "adventure tours Morocco"
+    ],
+    "siteGuides": [
+      "paragliding site guides",
+      "flying sites Morocco",
+      "paragliding locations Morocco",
+      "site guide directory"
+    ],
+    "rules": [
+      "rules",
+      "airspace",
+      "DGAC",
+      "Moroccan CAA",
+      "paragliding regulations Morocco"
+    ],
+    "airspaces": [
+      "airspace Morocco",
+      "Moroccan airspace map",
+      "ENR 5.5",
+      "OpenAir format",
+      "airspace restrictions Morocco",
+      "paragliding airspace",
+      "controlled airspace Morocco"
+    ],
+    "caaForms": [
+      "flight authorization Morocco",
+      "DGAC authorization",
+      "annexe 2",
+      "annexe 4",
+      "Morocco civil aviation authority",
+      "free flying permit Morocco"
+    ],
+    "bookingSuccess": [
+      "booking confirmed",
+      "tour reservation"
+    ],
+    "tourBase": [
+      "paragliding tour Morocco",
+      "paragliding guided tour",
+      "paragliding guided tour Morocco",
+      "discover paragliding in Morocco",
+      "paragliding holidays Morocco"
+    ],
+    "tourWellbeing": [
+      "wellbeing Morocco",
+      "wellbeing retreat Morocco",
+      "relaxation Morocco",
+      "meditation yoga Morocco",
+      "paragliding wellbeing Morocco",
+      "winter paragliding holiday Morocco"
+    ],
+    "tourMountain": [
+      "mountains of Morocco",
+      "Atlas paragliding Morocco",
+      "Toubkal",
+      "Aguergour",
+      "Ait Ourir",
+      "Marrakech paragliding",
+      "Free flying Morocco"
+    ],
+    "tourCoastal": [
+      "beach Morocco",
+      "ocean Morocco",
+      "Nid d'Aigle",
+      "Aglou",
+      "Aglou Beach",
+      "Souss-Massa National Park",
+      "Legzira"
+    ],
+    "siteGuideBase": [
+      "paragliding Morocco",
+      "flying site",
+      "site guide"
+    ],
+    "siteGuidePrefix": "paragliding"
+  },
+  "faq": {
+    "items": [
+      {
+        "question": "What is paragliding in Morocco like?",
+        "answer": "Paragliding in Morocco offers exceptional flights over the Atlas Mountains and Atlantic coast. FlyMorocco provides guided tours and wellness weeks at sites like Legzira, Aglou, and the Atlas range. Flying conditions are excellent with experienced, certified guides."
+      },
+      {
+        "question": "Where to go paragliding in Morocco?",
+        "answer": "Best paragliding sites in Morocco include: Legzira (Atlantic coast), Aglou (coastal cliffs), Aguergour and M'Zouda (Atlas Mountains), Tizi n'Test (high mountain), Plage Blanche (dunes), and Imsouane (surf and fly). FlyMorocco covers all these sites with expert local guides."
+      },
+      {
+        "question": "When is the best time for paragliding in Morocco?",
+        "answer": "The best time for paragliding in Morocco is October to May. Conditions are excellent with regular thermals and pleasant weather. FlyMorocco organizes coastal tours in autumn/winter and Atlas tours in spring."
+      },
+      {
+        "question": "Do you need authorization to fly in Morocco?",
+        "answer": "Yes, authorization from Morocco Civil Aviation Authority is required to fly in Morocco. FlyMorocco handles all administrative procedures (Annexe 2 and Annexe 4) and provides necessary insurance for legal flying."
+      }
+    ]
   },
   "metadata": {
     "title": "Paragliding in Morocco",

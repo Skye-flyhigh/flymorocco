@@ -40,7 +40,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("subtitle"),
-    keywords: getKeywordsForTour(slug, locale),
+    keywords: await getKeywordsForTour(slug, locale),
     openGraph: {
       title: t("title"),
       description: t("subtitle"),
