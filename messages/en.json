@@ -866,7 +866,29 @@
       "flying site",
       "site guide"
     ],
-    "siteGuidePrefix": "paragliding"
+    "siteGuidePrefix": "paragliding",
+    "terms": [
+      "terms and conditions",
+      "flymorocco terms",
+      "paragliding terms Morocco",
+      "legal terms",
+      "usage conditions"
+    ],
+    "cookies": [
+      "cookie policy",
+      "cookies",
+      "flymorocco cookies",
+      "privacy cookies",
+      "website cookies"
+    ],
+    "privacy": [
+      "privacy policy",
+      "privacy notice",
+      "data protection",
+      "GDPR Morocco",
+      "personal data",
+      "flymorocco privacy"
+    ]
   },
   "faq": {
     "items": [
