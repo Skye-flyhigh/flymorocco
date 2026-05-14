@@ -173,9 +173,9 @@ export async function GET(request: NextRequest) {
   let shodanData: ShodanResponse | null = null;
 
   // Only query Shodan if we have a valid IP (not localhost/unknown)
-  if (ip !== 'unknown' && !ip.startsWith('127.') && !ip.startsWith('192.168.') && process.env.SHODAN_API_KEY) {
+  if (ip !== 'unknown' && !ip.startsWith('127.') && !ip.startsWith('192.168.') && process.env.SHODAN_KEY) {
     try {
-      const response = await fetch(`https://api.shodan.io/shodan/host/${ip}?key=${process.env.SHODAN_API_KEY}`);
+      const response = await fetch(`https://api.shodan.io/shodan/host/${ip}?key=${process.env.SHODAN_KEY}`);
       if (response.ok) {
         shodanData = await response.json();
       }
