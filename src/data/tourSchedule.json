@@ -235,5 +235,67 @@
     "icon": "mountain-snow",
     "status": "available",
     "translationKey": "mountain"
+  },
+  {
+    "start": "2027-03-06",
+    "end": "2027-03-13",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2027-03-14",
+    "end": "2027-03-21",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2027-03-22",
+    "end": "2027-03-28",
+    "type": "mountain",
+    "location": "Aguergour",
+    "icon": "mountain-snow",
+    "status": "available",
+    "translationKey": "mountain"
+  },
+  {
+    "start": "2027-03-29",
+    "end": "2027-04-05",
+    "type": "coastal",
+    "location": "Mirleft",
+    "icon": "sun",
+    "status": "available",
+    "translationKey": "coastal"
+  },
+  {
+    "start": "2027-10-30",
+    "end": "2027-11-6",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2027-11-7",
+    "end": "2027-11-14",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
   }
 ]
