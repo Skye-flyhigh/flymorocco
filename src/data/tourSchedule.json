@@ -297,5 +297,36 @@
     "icon": "rocket",
     "status": "available",
     "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2028-02-26",
+    "end": "2028-03-04",
+    "type": "wellbeing",
+    "location": "Mirleft",
+    "icon": "hand-heart",
+    "status": "available",
+    "translationKey": "wellbeing"
+  },
+  {
+    "start": "2028-03-04",
+    "end": "2028-03-11",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Mirleft",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
+  },
+  {
+    "start": "2028-03-12",
+    "end": "2028-03-19",
+    "slug": "https://www.paraglide.co.uk/paragliding-courses-abroad-c-3/",
+    "provider": "Axis Training",
+    "type": "school",
+    "location": "Aguergour",
+    "icon": "rocket",
+    "status": "available",
+    "translationKey": "axisAguergour"
   }
 ]
