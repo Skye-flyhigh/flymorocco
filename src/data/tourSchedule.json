@@ -175,7 +175,7 @@
     "type": "coastal",
     "location": "Mirleft",
     "icon": "sun",
-    "status": "available",
+    "status": "full",
     "translationKey": "coastal"
   },
   {
@@ -184,7 +184,7 @@
     "type": "mountain",
     "location": "Aguergour",
     "icon": "mountain-snow",
-    "status": "available",
+    "status": "full",
     "translationKey": "mountain"
   },
   {
@@ -206,7 +206,7 @@
     "type": "school",
     "location": "Aguergour",
     "icon": "rocket",
-    "status": "available",
+    "status": "limited",
     "translationKey": "axisAguergour"
   },
   {
