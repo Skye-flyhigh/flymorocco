@@ -7,26 +7,6 @@ Allow: /
 # Sitemap location
 Sitemap: https://flymorocco.info/site-map.xml
 
-# ═══════════════════════════════════════════════════════════════
-# 🍯 Definitely Not Honeypots (Please Don't Look Here)
-# ═══════════════════════════════════════════════════════════════
-Disallow: /.env
-Disallow: /.env.local
-Disallow: /.env.production
-Disallow: /.env.backup
-Disallow: /.git/config
-Disallow: /.git/HEAD
-Disallow: /wp-config.php
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /backup.sql
-Disallow: /dump.sql
-Disallow: /.aws/credentials
-Disallow: /config.php
-Disallow: /phpinfo.php
-Disallow: /server-status
-Disallow: /.htpasswd
-Disallow: /api/.env
 
 # ═══════════════════════════════════════════════════════════════
 # ✨ Recursive Layer Initiated

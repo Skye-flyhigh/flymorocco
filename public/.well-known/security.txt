@@ -22,11 +22,6 @@ Canonical: https://flymorocco.info/.well-known/security.txt
 # For the Bots and Scanners
 # ═══════════════════════════════════════════════════════════════
 #
-# Yes, we saw you probing for /.env and /.git/config
-# Yes, we set up honeypots. Yes, we're watching.
-# Yes, the credentials you found are fake.
-# Yes, this is a public GitHub repo: github.com/Skye-flyhigh/flymorocco
-#
 # If you're an automated scanner: congrats on the false positive.
 # If you're a human: maybe contribute to the repo instead?
 #
